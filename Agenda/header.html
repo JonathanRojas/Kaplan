@@ -1,0 +1,96 @@
+﻿ <!-- Nav -->
+<nav class="navbar navbar-default navbar-dark" role="navigation" ng-controller="headerController" style="padding-top:0">
+    <!-- Top Bar -->
+    <div class="top-bar dark">
+        <!-- Container -->
+        <div class="container">
+            <!-- Row -->
+            <div class="row">
+
+                <div class="col-sm-8 col-xs-12">
+                    <!--<ul class="list-unstyled list-inline">
+                        <li><p><i class="fa fa-clock-o"></i> We are today working: 9:00 am - 5:00 pm</p></li>
+                        <li><p><i class="fa fa-phone"></i> Call us +44 558 558 558</p></li>
+                    </ul>-->
+                </div>
+                <div class="col-sm-4 col-xs-12">
+                    <div class="pull-right">
+                        <div class="dropdown">
+                            <span><i class="fa fa-user-circle-o"></i> Usuario: </span><span class="dropdown-toggle" id="dropdownLang" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> {{Nombres}} <span class="caret"></span></span>
+                            <ul class="dropdown-menu pull-right" aria-labelledby="dropdownLang">
+                                <li><a href="" ng-click="CerrarSesion()">Cerrar Sesion</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- ./end Row -->
+        </div> <!-- ./end Container -->
+    </div>
+    <!-- End / Top Bar -->
+    <!-- Nav -->
+    <nav class="navbar navbar-default navbar-dark" role="navigation">
+        <div class="container">
+            <!-- LOGO -->
+            <a class="navbar-brand page-scroll" href=""><i class="fa fa-heartbeat hidden-xs" aria-hidden="true"></i>Fundación<span class="text-light">Kaplan</span></a>
+            <!-- END / LOGO -->
+
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a class="page-scroll" href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a href="#!calendario">Agenda</a>
+                    </li>
+                    <li>
+                        <a href="#!paciente">Datos del Pacientes</a>
+                    </li>
+                    <li ng-show="tipo == 1">
+                        <a href="#!especialista">Mantenedor Especialista</a>
+                    </li>
+                    <li ng-show="!(tipo == 1)">
+                        <a href="#!especialistaMisHoras">Mis Horas</a>
+                    </li>
+                    <li ng-show="!(tipo == 1)">
+                        <a href="#!especialistaAusencias">Alerta Ausencias</a>
+                    </li>
+                    <li ng-show="!(tipo == 1)">
+                        <a href="VerDocumentoCsv.aspx?tipo=ReporteMasivo&prmRut=0">Reporte Masivo Paciente</a>
+                    </li>
+                    <!--<li ng-show="tipo == 2" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reportes</a>
+                        <ul class="dropdown-menu dropdown-menu-left">
+                            <li><a href="VerDocumentoCsv.aspx?tipo=ReportexEstado&prmEstado=301">Solicitudes Ingresadas</a></li>
+                            <li><a href="VerDocumentoCsv.aspx?tipo=ReportexEstado&prmEstado=302">Solicitudes Recepcionada por AP</a></li>
+                            <li><a href="VerDocumentoCsv.aspx?tipo=ReportexEstado&prmEstado=303">Solicitudes Enviada a UPA</a></li>
+                            <li><a href="VerDocumentoCsv.aspx?tipo=ReportexEstado&prmEstado=304">Solicitudes Recepcionada por UPA</a></li>
+                            <li><a href="VerDocumentoCsv.aspx?tipo=ReportexEstado&prmEstado=306">Solicitudes Visadas por UPA</a></li>
+                            <li><a href="VerDocumentoCsv.aspx?tipo=ReportexEstado&prmEstado=313">Solicitudes Visadas por Finanzas</a></li>
+                            <li><a href="VerDocumentoCsv.aspx?tipo=ReportexEstado&prmEstado=312">Solicitudes Autorizadas por Secretario General</a></li>
+                            <li><a href="VerDocumentoCsv.aspx?tipo=ReportexEstado&prmEstado=307">Solicitudes Visadas por Fiscal</a></li>
+                            <li><a href="VerDocumentoCsv.aspx?tipo=ReportexEstado&prmEstado=308">Solicitudes Visadas por Subsecretario</a></li>
+                            <li><a href="VerDocumentoCsv.aspx?tipo=ReportexEstado&prmEstado=309">Solicitudes Terminadas</a></li>
+                            <li><a href="VerDocumentoCsv.aspx?tipo=ReporteObjetadas&prmEstado=311">Solicitudes Objetadas</a></li>
+                            <li><a href="VerDocumentoCsv.aspx?tipo=ReporteCanceladas&prmEstado=310">Solicitudes Canceladas</a></li>
+                        </ul>
+                    </li>-->
+                </ul> <!-- END / NAVBAR RIGHT -->
+            </div>
+        </div> <!-- END CONTAINER -->
+    </nav>
+    <!-- ./end Nav -->
+
+</nav>
+<!-- ./end Nav -->

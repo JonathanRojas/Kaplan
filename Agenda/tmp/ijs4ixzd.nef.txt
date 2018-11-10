@@ -1,0 +1,1 @@
+Rut Pac.;Dv. Pac.;Nombre Pac.;Ap. Pat. Pac.;Ap. Mat. Pac.;Nro Res.;Fecha Res.;Hora Res.;Tipo Res.;Obs. Esp. Res.;Estado Res.;Obs. Reserva;Rut Esp.;Dv. Esp.;Nombre Esp.;Ap. Pat. Esp.;Ap. Mat. Esp.;Especialidad;Nro Plan; Nombre Plan; Cant. Sesiones; Descripcion Plan; Estado Plan;

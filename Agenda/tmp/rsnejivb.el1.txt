@@ -1,0 +1,4 @@
+Rut Pac.;Dv. Pac.;Nombre Pac.;Ap. Pat. Pac.;Ap. Mat. Pac.;Nro Res.;Fecha Res.;Hora Res.;Tipo Res.;Obs. Esp. Res.;Estado Res.;Obs. Est. Reserva;Rut Esp.;Dv. Esp.;Nombre Esp.;Ap. Pat. Esp.;Ap. Mat. Esp.;Especialidad;Nro Plan; Nombre Plan; Cant. Sesiones; Descripcion Plan; Estado Plan;
+17804243;2;Jonathan Nicolás;Rojas;Roco;44;2018-10-29;09:00;Sesión Especial;observación de prueba modificada;Anulada;problemas de dinero;17473419;4;Alex David;Candia;Chacana;Secretaria;7;planddd;25;sad;Activo
+17804243;2;Jonathan Nicolás;Rojas;Roco;43;2018-10-22;09:00;Sesión Normal;;Pendiente;;17473419;4;Alex David;Candia;Chacana;Secretaria;7;planddd;25;sad;Activo
+17804243;2;Jonathan Nicolás;Rojas;Roco;42;2018-10-15;09:00;Sesión Normal;;Pendiente;;17473419;4;Alex David;Candia;Chacana;Secretaria;7;planddd;25;sad;Activo

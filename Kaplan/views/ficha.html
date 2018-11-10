@@ -1,0 +1,186 @@
+﻿<section id="suggestions" class="doted-bg">
+    <!-- Container -->
+    <div class="container">
+        <!-- Row -->
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <!-- Nav tabs -->
+                <div class="tabs-menu">
+                    <ul class="nav nav-tabs nav-justified" role="tablist">
+                        <li role="presentation" class="active"><a data-target="#home-tab" aria-controls="home" role="tab" data-toggle="tab">Antecedentes Personales</a></li>
+                        <li role="presentation"><a data-target="#oral-exam" aria-controls="profile" role="tab" data-toggle="tab">Evaluación Psicológica</a></li>                        
+                    </ul>
+                </div>                
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="home-tab">                       
+                        <form class="form-horizontal" name="frmPaciente" id="contact" ng-submit="registrarFicha()" role="form" ng-disabled="true">
+                            <div class="section-title text-center">
+                                <h2 class="animated" data-animation="bounceInLeft">Pacientes</h2>
+                                <p class="text-blue mb40 animated" data-animation="bounceInLeft">Ingreso Paciente</p>
+                            </div> 
+                            <div class="modal-body" ng-class="{hidden: !loading}">
+                                <h5>Cargando datos...</h5>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                                        <span class="sr-only">Cargando datos...</span>
+                                    </div>
+                                </div>
+                            </div> 
+                            <!--<div class="notify notify-success" role="alert">
+                                <strong>Success!</strong> This is a success notification!
+                            </div>-->
+                            <div class="row" ng-class="{hidden: loading}">
+                                <div class="col-xs-12">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Rut</th>
+                                                    <th>Nombre</th>                                                    
+                                                    <th>Fecha Nac.</th>
+                                                    <th>E. Civil</th>
+                                                    <th>Domicilio</th>
+                                                    <th>Teléfono</th>                                                    
+                                                    <th>Sexo</th>
+                                                    <th>Acción</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="ficha in Fichas">
+                                                    <td>{{ficha.Rut}}-{{ficha.Dv}}</td>
+                                                    <td>{{ficha.Nombre}} {{ficha.Paterno}} {{ficha.Materno}}</td>
+                                                    <td>{{ficha.FechaNacString}}</td>
+                                                    <td>{{ficha.EstadoCivil.Nombre}}</td>
+                                                    <td>{{ficha.Domicilio}}</td>
+                                                    <td>{{ficha.Telefono}}</td>
+                                                    <td>{{ficha.Sexo.Nombre}}</td>
+                                                    <td><button type="button" title="Ver Paciente" class="btn small-xs blue" ng-click="verFicha(ficha.Id)" aria-label="Left Align"><i class="fa fa-edit"></i></button></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>                            
+                            <div class="form-group">
+                                <div class="col-sm-2">
+                                    <label class="control-label" for="rut">Rut</label>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" id="rut" placeholder="Rut Paciente" ng-model="Ficha.Rut">
+                                </div>
+                                <div class="col-sm-1">
+                                    <label class="control-label" for="dv">Dv</label>
+                                </div>
+                                <div class="col-sm-1">
+                                    <input type="text" class="form-control" id="dv" placeholder="Digito Verificador" ng-model="Ficha.Dv">
+                                </div>                                                  
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-2">
+                                    <label class="control-label" for="nombre">Nombre</label>
+                                </div>              
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" id="nombre" placeholder="Nombre Paciente" ng-model="Ficha.Nombre">
+                                </div>
+                            </div>
+                            <div class="form-group">                                
+                                <div class="col-sm-2">
+                                    <label class="control-label" for="nombre">A. Paterno</label>
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" id="paterno" placeholder="A. Paterno Paciente" ng-model="Ficha.Paterno">
+                                </div>
+                                <div class="col-sm-2">
+                                    <label class="control-label" for="paterno">A. Materno</label>
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" id="materno" placeholder="A. Paterno Paciente" ng-model="Ficha.Materno">
+                                </div>
+                            </div>
+                            <div class="form-group">                                
+                                <div class="col-sm-2">
+                                    <label class="control-label" for="nombre">Domicilio</label>
+                                </div>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="domicilio" placeholder="Domicilio Paciente" ng-model="Ficha.Domicilio">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-2">
+                                    <label class="control-label" for="edad">Fecha Nacimiento</label>
+                                </div>
+                                <div class="col-sm-4">
+                                    <input moment-picker="Fecha1" today="true" ng-model="Ficha.FechaNac" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Nacimiento">
+                                </div>
+                                <div class="col-sm-2">
+                                    <label class="control-label" for="telefono">Teléfono</label>
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" id="telefono" placeholder="Teléfono Paciente" ng-model="Ficha.Telefono">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-2">
+                                    <label class="control-label" for="estadoCivil">Estado Civil</label>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-check">
+                                        <select class="form-control" required aria-required="true" name="estadoCivil" id="estadoCivil" data-ng-options="tipoEstadoCivil.ID as tipoEstadoCivil.Nombre for tipoEstadoCivil in TipoEstadoCiviles" ng-model="Ficha.EstadoCivil.ID">
+                                            <option value="">Seleccione</option>
+                                        </select>                                      
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <label class="control-label" for="sexo">Sexo</label>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-check">
+                                        <select class="form-control" required aria-required="true" name="sexo" id="sexo" data-ng-options="tipoSexo.ID as tipoSexo.Nombre for tipoSexo in TipoSexos" ng-model="Ficha.Sexo.ID">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-2">
+                                    <label class="control-label" for="edad">Situación Laboral</label>
+                                </div>
+                                <div class="col-sm-10">
+                                    <textarea class="form-control" rows="4" ng-model="Ficha.SituacionLaboral"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12 text-right">
+                                    <input id="contactFormBtn" type="submit" class="btn blue medium" value="Guardar">
+                                </div>
+                            </div>
+                        </form>
+                        <span class="clearfix"></span>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="oral-exam">
+                        <div class="content">
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p><br>
+                            <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
+                            <a href="#" class="btn border small">Read More</a>
+                        </div>
+
+                        <div class="image">
+                            <img src="img/doctors/profile-2.jpg" alt="">
+                            <p class="name">Milan Markovic</p>
+                            <p class="spec">General Dentist</p>
+                        </div>
+
+                        <span class="clearfix"></span>
+                    </div>
+                </div>              
+            </div>
+            <!-- ./end Tab Content -->
+        </div>
+    </div>
+    <!-- ./end Row -->
+    <!-- ./end Container -->
+</section>
