@@ -39,7 +39,6 @@ Public Class doPost1
         Dim vResult As New httpResult
 
         If vEspecialista.registrarEspecialista() Then
-            vEspecialista.enviarCorreo()                        
             vResult.result = True
         Else
             vResult.result = False

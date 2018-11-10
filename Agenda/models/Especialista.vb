@@ -186,30 +186,33 @@ Namespace Clases
             Dim outError As OleDbParameter = cmd.Parameters.Add("@outError", OleDbType.Integer)
             outError.Direction = ParameterDirection.Output
 
+            Dim outLogin As OleDbParameter = cmd.Parameters.Add("@outLogin", OleDbType.VarChar, 50)
+            outLogin.Direction = ParameterDirection.Output
+
+            Dim outPass As OleDbParameter = cmd.Parameters.Add("@outPass", OleDbType.VarChar, 50)
+            outPass.Direction = ParameterDirection.Output
+
+
             conn.Open()
             cmd.ExecuteReader()
             conn.Close()
 
+            If CInt(cmd.Parameters("@outError").Value).Equals(1) And Me.Id.Equals(-1) Then
+                enviarCorreo(Me.Persona.Email, cmd.Parameters("@outLogin").Value, cmd.Parameters("@outPass").Value)
+            End If
+
             Return CInt(cmd.Parameters("@outError").Value)
         End Function
-        Public Function obtenerUsuario()
-            Try
-
-            Catch ex As Exception
-                Return False
-            End Try
-            Return True
-        End Function
-        Public Function enviarCorreo()
+        Public Function enviarCorreo(ByVal email As String, ByVal login As String, ByVal pass As String)
             Try
                 Dim correo As New MailMessage
                 Dim smtp As New SmtpClient()
 
                 correo.From = New MailAddress("no_reply@sistemaskaplan.info", "Sistema Kaplan", System.Text.Encoding.UTF8)
-                correo.To.Add("jonathan.rojas.roco@gmail.com")
+                correo.To.Add(email)
                 correo.SubjectEncoding = System.Text.Encoding.UTF8
                 correo.Subject = "Nuevo usuario"
-                correo.Body = "Su usuario de conexión es kaplan123"
+                correo.Body = "Su usuario de conexión es " & login & " y su contraseña es " & pass
                 correo.BodyEncoding = System.Text.Encoding.UTF8
                 correo.IsBodyHtml = True
                 correo.Priority = MailPriority.High
