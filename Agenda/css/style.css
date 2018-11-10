@@ -1902,8 +1902,16 @@ ul.dropdown-menu > li:last-child > a {
     background-image: url('../img/doted-bg.jpg');
     background-color: #fff;
     background-repeat: repeat;
-    padding: 60px 0;
+    /*padding: 60px 0;*/
     position: relative;
+    /*border-bottom: 1px solid #ccc;*/
+}
+
+.doted-bg1 {
+    background-image: url('../img/bg-2-xl.png');
+    height: 100%;
+    width: 100%;
+    padding: 60px 0;
     border-bottom: 1px solid #ccc;
 }
 

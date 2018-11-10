@@ -42,9 +42,7 @@
 
     <script src="js/script/jquery-3.1.1.min.js"></script>
 </head>
-<body ng-app="app" ng-cloak ng-controller="defaultController" onundo="javascript:window.localStorage.clear()">
-
-
+<body ng-app="app" class="doted-bg" ng-cloak ng-controller="defaultController" onundo="javascript:window.localStorage.clear()">
     <div id="main">
         <div ng-view></div>
     </div>
@@ -64,7 +62,7 @@
                 </div>
 
                 <div class="col-md-3">
-                   <%-- <div class="widget">
+                    <%-- <div class="widget">
                         <h3>Socials <span class="bottom-lin"></span></h3>
                         <ul>
                             <li>Facebook</li>
@@ -76,7 +74,7 @@
                 </div>
 
                 <div class="col-md-3">
-                 <%--   <div class="widget">
+                    <%--   <div class="widget">
                         <h3>About Us</h3>
                         <ul>
                             <li><a href="doctors.html">Doctors</a></li>
@@ -88,7 +86,7 @@
                 </div>
 
                 <div class="col-md-3">
-                   <%-- <div class="widget">
+                    <%-- <div class="widget">
                         <h3>Contact</h3>
                         <ul>
                             <li>My Street, NY 10036, United States</li>

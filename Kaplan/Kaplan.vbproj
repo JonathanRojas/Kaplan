@@ -132,6 +132,7 @@
     <Content Include="doPost.asmx" />
     <Content Include="img\after.jpg" />
     <Content Include="img\before.jpg" />
+    <Content Include="img\bg-2-xl.png" />
     <Content Include="img\bg.png" />
     <Content Include="img\bg\bg-1.jpg" />
     <Content Include="img\bg\bg-2.jpg" />

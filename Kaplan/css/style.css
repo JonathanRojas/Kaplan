@@ -219,7 +219,7 @@ img {
     .btn.border.small, a.btn.border.small {
         padding: 8px 32px;
     }
-    
+
 .btn-default {
     color: #333;
     background-color: #fff;
@@ -1903,6 +1903,14 @@ ul.dropdown-menu > li:last-child > a {
     border-bottom: 1px solid #ccc;
 }
 
+.doted-bg1 {
+    background-image: url('../img/bg-2-xl.png');
+    height: 100%;
+    width: 100%;
+    padding: 60px 0;
+    border-bottom: 1px solid #ccc;
+}
+
 .grey-bg {
     background-attachment: fixed;
     background-clip: border-box;
@@ -2659,9 +2667,9 @@ footer {
         font-weight: 300;
     }
 
-    .tab-content .tab-pane {
-        margin: 30px 0 20px 0;
-    }
+.tab-content .tab-pane {
+    margin: 30px 0 20px 0;
+}
 
     .tab-content .tab-pane .image {
         float: left;
