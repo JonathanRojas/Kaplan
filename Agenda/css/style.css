@@ -212,9 +212,9 @@ img {
         padding: 6px 30px;
     }
 
-    .btn.small.cal {
-        padding: 0px 30px;
-    }
+        .btn.small.cal {
+            padding: 0px 30px;
+        }
 
     .btn.small-xs {
         padding: 2px 8px;
@@ -290,7 +290,7 @@ a, btn, button {
 
     .top-bar span {
         color: #fff;
-        font-weight: 300;
+        font-weight: bold;
         line-height: 25px;
     }
 
@@ -325,8 +325,8 @@ a, btn, button {
         border-radius: 4px;
         border: none;
         border-top: none;
-        padding: 10px 0;
-        background: #07a7e3;
+        padding: 0px 0;
+        background: #fff;
         box-shadow: none;
         width: auto;
         margin-top: -2px;
@@ -340,7 +340,8 @@ a, btn, button {
             background: none;
             color: #fff;
             font-size: 12px;
-            padding: 5px;
+            font-weight: bold;
+            padding: 10px;
         }
 
     .top-bar .dropdown:hover .top-bar .dropdown-menu {
@@ -382,11 +383,12 @@ a, btn, button {
 
 .navbar {
     background: #fff;
-    padding: 15px 0 0 0;
+    padding: 10px 0 0 0;
     border: 0;
     border-bottom: 1px solid #ede;
     border-radius: 0;
     margin-bottom: 0;
+    font-weight: bold;
 }
 
 .navbar-default .navbar-nav > li > a, .navbar-default .navbar-nav > li > a:link {
@@ -527,7 +529,8 @@ ul.dropdown-menu > li:last-child > a {
         }
 
     .navbar-dark .dropdown-menu {
-        border-top: 2px solid #4c6575;
+        border-top: 2px solid #32dac3;
+        border-bottom: 2px solid #4c6575;
     }
 
     .navbar-dark .navbar-nav > .dropdown:hover > .dropdown-toggle {
@@ -2464,6 +2467,7 @@ ul.dropdown-menu > li:last-child > a {
     #timetable h6 {
         font-weight: 300;
         margin-top: 5px;
+        font-weight: bold;
     }
 
     #timetable h5 {
@@ -2487,18 +2491,19 @@ ul.dropdown-menu > li:last-child > a {
             padding: 10px 30px 10px 30px;
             /*padding: 25px 10px 25px 10px;*/
             width: auto;
-            height:60px;
+            height: 60px;
             border: 2px solid #fff;
         }
 
     #timetable .days, #timetable .time {
         text-align: center !important;
         color: #868686;
-        background-color:rgba(234, 234, 234)
+        background-color: rgba(234, 234, 234);
     }
 
     #timetable .time {
         width: 15% !important;
+        font-weight: bold;
     }
 
     #timetable .tab {
@@ -2517,16 +2522,16 @@ ul.dropdown-menu > li:last-child > a {
     border-radius: 4px;
     width: auto;
     display: none;*/
-        background-color: rgba(255, 255, 255, .8);
-        padding: 6px;
-        position: absolute;
-        top: 50%;
-        left: 1px;
-        right: 1px;
-        margin-top: -30px;
-        border-radius: 4px;
-        width: auto;
-        display: none;
+    background-color: rgba(255, 255, 255, .8);
+    padding: 6px;
+    position: absolute;
+    top: 50%;
+    left: 1px;
+    right: 1px;
+    margin-top: -30px;
+    border-radius: 4px;
+    width: auto;
+    display: none;
 }
 
     .booking-tooltip p {
@@ -2551,6 +2556,7 @@ footer {
         width: 100%;
         margin: 0 auto;
         text-align: center;
+        font-weight: bold;
         padding: 15px 0;
     }
 

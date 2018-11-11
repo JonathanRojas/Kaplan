@@ -25,7 +25,12 @@ Namespace Clases
 
                 Dim Especialista As OleDbParameter = cmd.Parameters.Add("@inId", OleDbType.Decimal, Nothing)
                 Especialista.Direction = ParameterDirection.Input
-                Especialista.Value = IIf(inEspecialista = -1, DBNull.Value, inEspecialista)
+                If inEspecialista = -1 Then
+                    Especialista.Value = DBNull.Value
+                Else
+                    Especialista.Value = inEspecialista
+                End If
+                'Especialista.Value = IIf(inEspecialista = -1, DBNull.Value, inEspecialista)
 
                 conn.Open()
                 Dim adapter As OleDbDataAdapter = New OleDbDataAdapter(cmd)

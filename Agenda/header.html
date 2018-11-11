@@ -6,15 +6,18 @@
         <div class="container">
             <!-- Row -->
             <div class="row">
-
-                <div class="col-lg-4 hidden-md hidden-sm hidden-xs">
-                    <h4>Rol: {{NombreEspecialidad}}</h4>
-                </div>
-                <div class="col-lg-8 col-sm-12 pull-right col-md-12 col-xs-12">
+                <div class="col-lg-12 pull-right col-sm-12 pull-right col-md-12 col-xs-12">
                     <div class="dropdown pull-right">
-                        <span><i class="fa fa-user-circle-o"></i> Usuario: </span><span class="dropdown-toggle" id="dropdownLang" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> {{Nombres}} <span class="caret"></span></span>
+                        <span class="dropdown-toggle" id="dropdownLang" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-user-circle-o" style="color:#fff"></i> {{Nombres}} <span class="caret"></span></span>
                         <ul class="dropdown-menu pull-right" aria-labelledby="dropdownLang">
-                            <li><a href="" ng-click="CerrarSesion()">Cerrar Sesion</a></li>
+                            <li><a href="">Rol: {{NombreEspecialidad}}</a></li>
+                            <li ng-show="!(tipo == 1)">
+                                <a href="#!especialistaMisHoras">Mi Horario</a>
+                            </li>
+                            <li ng-show="!(tipo == 1)">
+                                <a href="#!especialistaAusencias">Mis Ausencias</a>
+                            </li>                            
+                            <li><a href="" ng-click="CerrarSesion()">Cerrar Sesión</a></li>
                         </ul>
                     </div>
                 </div>
@@ -27,7 +30,7 @@
     <nav class="navbar navbar-default navbar-dark" role="navigation">
         <div class="container">
             <!-- LOGO -->
-            <a class="navbar-brand page-scroll" href=""><i class="fa fa-heartbeat hidden-xs" aria-hidden="true"></i>Fundación<span class="text-light">Kaplan</span></a>
+            <a class="navbar-brand page-scroll" href="" style="line-height: normal"><i class="fa fa-heartbeat hidden-xs" aria-hidden="true"></i> Fundación <span class="text-light">Kaplan</span></a>
             <!-- END / LOGO -->
 
             <div class="navbar-header page-scroll">
@@ -47,23 +50,17 @@
                         <a class="page-scroll" href="#page-top"></a>
                     </li>
                     <li>
-                        <a href="#!calendario">Agenda</a>
+                        <a href="#!calendario">Agenda <i class="fa fa-calendar fa-2x hidden-xs" aria-hidden="true"></i></a>
                     </li>
                     <li>
-                        <a href="#!paciente">Datos del Pacientes</a>
+                        <a href="#!paciente">Pacientes <i class="fa fa-users fa-2x hidden-xs" aria-hidden="true"></i></a>
                     </li>
                     <li ng-show="tipo == 1">
-                        <a href="#!especialista">Mantenedor Especialista</a>
+                        <a href="#!especialista">Especialistas <i class="fa fa-user-md fa-2x hidden-xs" aria-hidden="true"></i></a>
                     </li>
                     <li ng-show="!(tipo == 1)">
-                        <a href="#!especialistaMisHoras">Mis Horas</a>
-                    </li>
-                    <li ng-show="!(tipo == 1)">
-                        <a href="#!especialistaAusencias">Alerta Ausencias</a>
-                    </li>
-                    <li ng-show="!(tipo == 1)">
-                        <a href="VerDocumentoCsv.aspx?tipo=ReporteMasivo&prmRut=0">Reporte Masivo Paciente</a>
-                    </li>
+                        <a href="VerDocumentoCsv.aspx?tipo=ReporteMasivo&prmRut=0">Reporte <i class="fa fa-file-excel-o fa-2x hidden-xs" aria-hidden="true"></i></a>
+                    </li>                                       
                     <!--<li ng-show="tipo == 2" class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reportes</a>
                         <ul class="dropdown-menu dropdown-menu-left">

@@ -102,7 +102,7 @@
         <!-- ./end Container -->
         <!-- Footer Copyright -->
         <div class="footer-slogan">
-            &copy; 2018 Fundación Kaplan
+            Sistema Agenda Electrónica & Ficha Clínica Electrónica &copy; 2019 - Fundación Kaplan
         </div>
         <!-- ./end Footer Copyright -->
     </footer>
