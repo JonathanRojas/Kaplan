@@ -13,7 +13,9 @@ function ($scope, ModalService, ResumenCalendarioService, Notification, LoginSer
         };
         $scope.loading = true;
         $scope.loadingData = true;
-
+        if ($scope.Especialidad == 1) {
+            $scope.IdEspecialista = -1
+        }
         $scope.StopLoading = function () {
             $scope.loading = !(!$scope.loadingData);
         };
@@ -33,11 +35,7 @@ function ($scope, ModalService, ResumenCalendarioService, Notification, LoginSer
                 msg = { title: 'Error obteniendo Resumen Calendario' };
                 Notification.error(msg);
             });
-        };
-
-        if ($scope.Especialidad == 1) {
-            $scope.IdEspecialista = -1
-        }
+        };        
         ResumenCalendarioService.getResumenCalendario(moment().toISOString(), $scope.IdEspecialista).then(function (result) {
             $scope.Dias = result.data;
             $scope.loadingData = false;
@@ -47,22 +45,38 @@ function ($scope, ModalService, ResumenCalendarioService, Notification, LoginSer
             Notification.error(msg);
         });
 
-        $scope.VerDetalleHora = function (inFecha, inDia, inHora) {
-            var date = new Date();
-            date = moment(inFecha).startOf('isoWeek').add(inDia - 1, 'days');
+        $scope.VerDetalleHora = function (inFecha, inDia, inHora, inReservas) {
+            if (inReservas > 0) {
+                var date = new Date();
+                date = moment(inFecha).startOf('isoWeek').add(inDia - 1, 'days');
 
-            ModalService.showModal({
-                templateUrl: "views/agendaDiaHora.html",
-                inputs: { fecha: date.format("YYYY-MM-DD"), dia: inDia, hora: inHora },
-                controller: "agendaDiaHoraController"
-            }).then(function (modal) {
-                modal.element.modal();
-                modal.close.then(function (result) {
-                    if (result) {
-                        $scope.cargarSemana(inFecha);
-                    };
+                ModalService.showModal({
+                    templateUrl: "views/agendaDiaHora.html",
+                    inputs: { fecha: date.format("YYYY-MM-DD"), dia: inDia, hora: inHora },
+                    controller: "agendaDiaHoraController"
+                }).then(function (modal) {
+                    modal.element.modal();
+                    modal.close.then(function (result) {
+                        if (result) {
+                            $scope.cargarSemana(inFecha);
+                        };
+                    });
                 });
-            });
+            }
+            else {
+                ModalService.showModal({
+                    templateUrl: "views/reserva.html",
+                    inputs: { fecha: inFecha, dia: inDia, hora: inHora },
+                    controller: "reservaController"
+                }).then(function (modal) {
+                    modal.element.modal();
+                    modal.close.then(function (result) {
+                        if (result) {
+                            $scope.cargarSemana(inFecha);
+                        }
+                    });
+                });
+            }
         };
     };
 }]);
