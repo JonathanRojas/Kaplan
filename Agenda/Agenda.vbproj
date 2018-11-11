@@ -161,6 +161,7 @@
     <Content Include="img\doctors\profile-2.jpg" />
     <Content Include="img\doctors\profile-3.jpg" />
     <Content Include="img\doted-bg.jpg" />
+    <Content Include="img\favicon.ico" />
     <Content Include="img\news\image-01.jpg" />
     <Content Include="img\news\image-02.jpg" />
     <Content Include="img\news\image-03.jpg" />

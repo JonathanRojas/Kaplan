@@ -1,4 +1,4 @@
-﻿app.controller("pacienteController", ['$scope', '$http', 'ModalService', 'pacienteService', 'tipoService', 'Notification','LoginService','$location',
+﻿app.controller("pacienteController", ['$scope', '$http', 'ModalService', 'pacienteService', 'tipoService', 'Notification', 'LoginService', '$location',
 function ($scope, $http, ModalService, pacienteService, TipoService, Notification, LoginService, $location) {
     if (!LoginService.getisAuthenticated() == true) {
         LoginService.getCerrarSesion();
@@ -13,32 +13,31 @@ function ($scope, $http, ModalService, pacienteService, TipoService, Notificatio
             url: 'header.html'
         };
 
-        $scope.Paciente =
-                 {
-                     Id: -1,
-                     Estado: -1,
-                     Persona: {
-                         Id: -1,
-                         Rut: null,
-                         Dv: null,
-                         Nombre: null,
-                         Paterno: null,
-                         Materno: null,
-                         FechaNac: null,
-                         Sexo: { ID: null },
-                         Nacionalidad: { ID: null },
-                         Comuna: { ID: null },
-                         Region: { ID: null },
-                         Direccion: null,
-                         Email: null,
-                         Movil: null,
-                         Telefono: null,
-                         SituacionLaboral: null,
-                         EstadoCivil: { ID: null },
-                         Prevision: { ID: null }
-                     }
+        $scope.Paciente = {
+            Id: -1,
+            Estado: -1,
+            Persona: {
+                Id: -1,
+                Rut: null,
+                Dv: null,
+                Nombre: null,
+                Paterno: null,
+                Materno: null,
+                FechaNac: null,
+                Sexo: { ID: null },
+                Nacionalidad: { ID: null },
+                Comuna: { ID: null },
+                Region: { ID: null },
+                Direccion: null,
+                Email: null,
+                Movil: null,
+                Telefono: null,
+                SituacionLaboral: null,
+                EstadoCivil: { ID: null },
+                Prevision: { ID: null }
+            }
 
-                 };
+        };
 
         $scope.getRut = function () {
             $scope.loading = true;
@@ -66,8 +65,8 @@ function ($scope, $http, ModalService, pacienteService, TipoService, Notificatio
                         $scope.loadingData = false;
                         $scope.StopLoading();
                         if ($scope.Paciente.Estado == 1) {
-                            msg = { title: 'Rut Valido' };
-                            Notification.success(msg);
+                            //msg = { title: 'Rut Valido' };
+                            //Notification.success(msg);
                         } else {
                             msg = { title: 'Advertencia', message: 'Persona no registrada como paciente, complete los datos y guarde para registrar como paciente.' };
                             Notification.warning(msg);
@@ -151,7 +150,22 @@ function ($scope, $http, ModalService, pacienteService, TipoService, Notificatio
         $scope.nuevaLicencia = function () {
             ModalService.showModal({
                 templateUrl: "views/licencia.html",
-                inputs: { rut: $scope.RutPaciente },
+                inputs: { rut: $scope.Paciente.Id, id: -1, inicio:null, termino:null, obs:null },
+                controller: "licenciaController"
+            }).then(function (modal) {
+                modal.element.modal();
+                modal.close.then(function (result) {
+                    if (result) {
+                        $scope.getRut();
+                    }
+                });
+            });
+        };
+
+        $scope.editarLicencia = function (id, inicio, termino, obs) {
+            ModalService.showModal({
+                templateUrl: "views/licencia.html",
+                inputs: { rut: $scope.Paciente.Id, id: id, inicio: inicio, termino: termino, obs: obs },
                 controller: "licenciaController"
             }).then(function (modal) {
                 modal.element.modal();
@@ -166,7 +180,7 @@ function ($scope, $http, ModalService, pacienteService, TipoService, Notificatio
         $scope.nuevoPlan = function (idPlan, descripcion, nombre, cantidad) {
             ModalService.showModal({
                 templateUrl: "views/Plan.html",
-                inputs: { rut: $scope.Paciente.Id, id: idPlan , nombre: nombre, cantidad: cantidad, descripcion: descripcion},
+                inputs: { rut: $scope.Paciente.Id, id: idPlan, nombre: nombre, cantidad: cantidad, descripcion: descripcion },
                 controller: "planController"
             }).then(function (modal) {
                 modal.element.modal();
@@ -226,27 +240,7 @@ function ($scope, $http, ModalService, pacienteService, TipoService, Notificatio
         };
 
         $scope.Limpiar = function () {
-            $scope.Paciente = null
-            //$scope.Paciente.Id = -1;
-            /*$scope.Paciente.Estado = -1;
-            $scope.Paciente.Persona.Id = -1;
-            $scope.Paciente.Persona.Rut = null;
-            $scope.Paciente.Persona.Dv = null;
-            $scope.Paciente.Persona.Nombre = null;
-            $scope.Paciente.Persona.Paterno = null;
-            $scope.Paciente.Persona.Materno = null;
-            $scope.Paciente.Persona.FechaNac = null;
-            $scope.Paciente.Persona.Nacionalidad.ID = null;
-            $scope.Paciente.Persona.Comuna.ID = null;
-            $scope.Paciente.Persona.Direccion = null;
-            $scope.Paciente.Persona.Email = null;
-            $scope.Paciente.Persona.Movil = null;
-            $scope.Paciente.Persona.Telefono = null;
-            $scope.Paciente.Persona.SituacionLaboral = null;
-            $scope.Paciente.Persona.EstadoCivil.ID = null;
-            $scope.Paciente.Persona.Sexo.ID = null;
-            $scope.Paciente.Persona.Region.ID = null;
-            $scope.Paciente.Persona.Prevision.ID = null;*/
+            $scope.Paciente = null       
             $scope.rutvalido = false;
             $('#collapseDataPaciente').collapse('hide');
         };
@@ -309,10 +303,10 @@ function ($scope, $http, ModalService, pacienteService, TipoService, Notificatio
 app.filter('CantidadEstados', function () {
     return function (data, key, filter) {
         if (!key && !filter) {
-            return data.length ;
+            return data.length;
         }
         var arr = [];
-        angular.forEach(data, function(v){
+        angular.forEach(data, function (v) {
             if (filter) {
                 if (v.Estado.ID === key && v.Especialista.Especialidad.ID == filter) {
                     arr.push(v);
@@ -323,7 +317,7 @@ app.filter('CantidadEstados', function () {
                 }
             }
         })
-        return arr.length ;
+        return arr.length;
     }
 })
 app.filter('filterEstados', function () {

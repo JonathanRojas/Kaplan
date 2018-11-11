@@ -13,7 +13,7 @@ Namespace Clases
         Public Property Sabado As Integer
         Public Property Domingo As Integer
 
-        Public Shared Function getResumenCalendario(ByVal inFecha As Date) As List(Of ResumenCalendario)
+        Public Shared Function getResumenCalendario(ByVal inFecha As Date, ByVal inEspecialista As Integer) As List(Of ResumenCalendario)
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
                 Dim cmd As OleDbCommand = New OleDbCommand("ListadoReservaSemana", conn)
@@ -25,7 +25,7 @@ Namespace Clases
 
                 Dim Especialista As OleDbParameter = cmd.Parameters.Add("@inId", OleDbType.Decimal, Nothing)
                 Especialista.Direction = ParameterDirection.Input
-                Especialista.Value = DBNull.Value
+                Especialista.Value = IIf(inEspecialista = -1, DBNull.Value, inEspecialista)
 
                 conn.Open()
                 Dim adapter As OleDbDataAdapter = New OleDbDataAdapter(cmd)

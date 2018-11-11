@@ -6,7 +6,7 @@ Imports System.Data.SqlClient
 Namespace Clases
     Public Class Licencia
         Public Property Id As Integer
-        Public Property Rut As Integer
+        Public Property IdPaciente As Integer
         Public Property Inicio As Date
         Public Property Termino As Date
         Public Property Observacion As String
@@ -56,7 +56,7 @@ Namespace Clases
 
             Dim inRut As OleDbParameter = cmd.Parameters.Add("@inPaciente", OleDbType.Decimal, Nothing)
             inRut.Direction = ParameterDirection.Input
-            inRut.Value = Me.Rut
+            inRut.Value = Me.IdPaciente
 
             Dim inInicio As OleDbParameter = cmd.Parameters.Add("@inInicio", OleDbType.Date, Nothing)
             inInicio.Direction = ParameterDirection.Input
@@ -83,7 +83,7 @@ Namespace Clases
             Try
                 Dim vLicencia As New Licencia
                 vLicencia.Id = prmRow("Id")
-                vLicencia.Rut = prmRow("Rut")
+                vLicencia.IdPaciente = prmRow("IdPaciente")
                 vLicencia.Inicio = prmRow("Inicio")
                 vLicencia.Termino = prmRow("Termino")
                 vLicencia.Observacion = prmRow("Observacion").ToString
@@ -99,7 +99,7 @@ Namespace Clases
             For Each prmRow As DataRow In prmDatos.Rows
                 Dim vLicencia As New Licencia
                 vLicencia.Id = prmRow("Id")
-                vLicencia.Rut = prmRow("Rut")
+                vLicencia.IdPaciente = prmRow("IdPaciente")
                 vLicencia.Inicio = prmRow("Inicio")
                 vLicencia.Termino = prmRow("Termino")
                 vLicencia.Observacion = prmRow("Observacion").ToString

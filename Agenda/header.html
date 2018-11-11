@@ -7,20 +7,15 @@
             <!-- Row -->
             <div class="row">
 
-                <div class="col-sm-8 col-xs-12">
-                    <!--<ul class="list-unstyled list-inline">
-                        <li><p><i class="fa fa-clock-o"></i> We are today working: 9:00 am - 5:00 pm</p></li>
-                        <li><p><i class="fa fa-phone"></i> Call us +44 558 558 558</p></li>
-                    </ul>-->
+                <div class="col-lg-4 hidden-md hidden-sm hidden-xs">
+                    <h4>Rol: {{NombreEspecialidad}}</h4>
                 </div>
-                <div class="col-sm-4 col-xs-12">
-                    <div class="pull-right">
-                        <div class="dropdown">
-                            <span><i class="fa fa-user-circle-o"></i> Usuario: </span><span class="dropdown-toggle" id="dropdownLang" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> {{Nombres}} <span class="caret"></span></span>
-                            <ul class="dropdown-menu pull-right" aria-labelledby="dropdownLang">
-                                <li><a href="" ng-click="CerrarSesion()">Cerrar Sesion</a></li>
-                            </ul>
-                        </div>
+                <div class="col-lg-8 col-sm-12 pull-right col-md-12 col-xs-12">
+                    <div class="dropdown pull-right">
+                        <span><i class="fa fa-user-circle-o"></i> Usuario: </span><span class="dropdown-toggle" id="dropdownLang" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> {{Nombres}} <span class="caret"></span></span>
+                        <ul class="dropdown-menu pull-right" aria-labelledby="dropdownLang">
+                            <li><a href="" ng-click="CerrarSesion()">Cerrar Sesion</a></li>
+                        </ul>
                     </div>
                 </div>
 

@@ -58,8 +58,8 @@ function ($scope, ModalService, reservaService, Notification, pacienteService, T
                     $scope.Paciente = result.data;
                     $scope.Reserva.Paciente.Id = $scope.Paciente.Id;
                     if ($scope.Paciente.Estado == 1) {
-                        msg = { title: 'Rut Valido' };
-                        Notification.success(msg);
+                        //msg = { title: 'Rut Valido' };
+                        //Notification.success(msg);
                         $scope.rutvalido = true;
                     } else {
                         msg = { title: 'Advertencia', message: 'Persona no registrada como paciente, complete los datos y guarde para registrar como paciente.' };

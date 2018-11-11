@@ -28,12 +28,13 @@ Namespace Clases
             Dim adapter As OleDbDataAdapter = New OleDbDataAdapter(cmd)
             Dim vDataSet As New DataSet
             adapter.Fill(vDataSet)
-
             If Not vDataSet.Tables(0).Rows.Count.Equals(0) Then
-                getPaciente = Mapeo(vDataSet)
+                If Not vDataSet.Tables(0).Rows(0)("ID_PAC").Equals(DBNull.Value) Then
+                    getPaciente = Mapeo(vDataSet)
+                End If
             End If
 
-            If vDataSet.Tables(0).Rows.Count = 0 Then NoData = True
+            If vDataSet.Tables(0).Rows.Count = 0 OrElse vDataSet.Tables(0).Rows(0)("ID_PAC").Equals(DBNull.Value) Then NoData = True
 
             Return getPaciente
         End Function

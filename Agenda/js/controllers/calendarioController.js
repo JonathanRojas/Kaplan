@@ -18,8 +18,14 @@ function ($scope, ModalService, ResumenCalendarioService, Notification, LoginSer
             $scope.loading = !(!$scope.loadingData);
         };
 
+        $scope.IdEspecialista = LoginService.getIdEspecialista();
+        $scope.Especialidad = LoginService.getTipo();
+
         $scope.cargarSemana = function (inFecha) {
-            ResumenCalendarioService.getResumenCalendario(inFecha.toISOString()).then(function (result) {
+            if ($scope.Especialidad == 1) {
+                $scope.IdEspecialista = -1
+            }
+            ResumenCalendarioService.getResumenCalendario(inFecha.toISOString(), $scope.IdEspecialista).then(function (result) {
                 $scope.Dias = result.data;
                 $scope.loadingData = false;
                 $scope.StopLoading();
@@ -29,7 +35,10 @@ function ($scope, ModalService, ResumenCalendarioService, Notification, LoginSer
             });
         };
 
-        ResumenCalendarioService.getResumenCalendario(moment().toISOString()).then(function (result) {
+        if ($scope.Especialidad == 1) {
+            $scope.IdEspecialista = -1
+        }
+        ResumenCalendarioService.getResumenCalendario(moment().toISOString(), $scope.IdEspecialista).then(function (result) {
             $scope.Dias = result.data;
             $scope.loadingData = false;
             $scope.StopLoading();

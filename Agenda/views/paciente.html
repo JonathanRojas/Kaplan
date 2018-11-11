@@ -1,17 +1,5 @@
 ﻿<div ng-include="paciente.header.url"></div>
 
-<!--<section class="gardient-bg-small hidden-xs">
-    <div class="container">
-        <h1 class="pull-left">Paciente</h1>
-        <div class="pull-right">
-            <ol class="breadcrumb">
-                <li><a href="#!calendario">Home</a></li>
-                <li class="active">Datos del Paciente</li>
-            </ol>
-        </div>
-    </div>
-</section>-->
-
 <section id="suggestions" class="doted-bg1">
 
     <div class="section-title text-center" ng-if="rutvalido">
@@ -41,7 +29,7 @@
                     <div role="tabpanel" class="tab-pane fade in active" id="antecedentes">
                         <form class="form-horizontal" name="frmPaciente" id="contact" ng-submit="registrarPaciente()" role="form" ng-disabled="true">
                             <div ng-class="{hidden: !loading}">
-                                <h5>Cargando datos...</h5>
+                                <h5>Cargando paciente... <i class="fa fa-user hidden-xs" aria-hidden="true"></i></h5>
                                 <div class="progress">
                                     <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%; background-color: #32b8da;">
                                     </div>
@@ -330,7 +318,7 @@
                                     <td>{{licencia.InicioString}}</td>
                                     <td>{{licencia.TerminoString}}</td>
                                     <td>{{licencia.Observacion}}</td>
-                                    <td><button class="btn small"><i class="fa fa-edit" aria-hidden="true"></i></button></td>
+                                    <td><button class="btn small" ng-click="editarLicencia(licencia.Id, licencia.Inicio, licencia.Termino, licencia.Observacion)"><i class="fa fa-edit" aria-hidden="true"></i></button></td>
                                 </tr>
                             </tbody>
                         </table>

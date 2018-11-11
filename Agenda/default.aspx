@@ -37,8 +37,8 @@
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/fav-144.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/fav-114.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/fav-72.png">
-    <link rel="apple-touch-icon-precomposed" href="images/fav-57.png">
-    <link rel="shortcut icon" href="images/fav.png">
+    <link rel="apple-touch-icon-precomposed" href="img/favicon.ico">
+    <link rel="shortcut icon" href="img/favicon.ico">
 
     <script src="js/script/jquery-3.1.1.min.js"></script>
 </head>

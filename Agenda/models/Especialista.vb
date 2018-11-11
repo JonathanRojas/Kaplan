@@ -198,7 +198,7 @@ Namespace Clases
             conn.Close()
 
             If CInt(cmd.Parameters("@outError").Value).Equals(1) And Me.Id.Equals(-1) Then
-                enviarCorreo(Me.Persona.Email, cmd.Parameters("@outLogin").Value, cmd.Parameters("@outPass").Value)
+                enviarCorreo(Me.Persona.Email.ToString(), cmd.Parameters("@outLogin").Value, cmd.Parameters("@outPass").Value)
             End If
 
             Return CInt(cmd.Parameters("@outError").Value)
@@ -212,7 +212,7 @@ Namespace Clases
                 correo.To.Add(email)
                 correo.SubjectEncoding = System.Text.Encoding.UTF8
                 correo.Subject = "Nuevo usuario"
-                correo.Body = "Su usuario de conexión es " & login & " y su contraseña es " & pass
+                correo.Body = "Su usuario de conexión es " + login + " y su contraseña es " + pass
                 correo.BodyEncoding = System.Text.Encoding.UTF8
                 correo.IsBodyHtml = True
                 correo.Priority = MailPriority.High
@@ -223,6 +223,7 @@ Namespace Clases
                 smtp.EnableSsl = False
 
                 smtp.Send(correo)
+                Dim hola As String = ""
             Catch ex As Exception
                 Return False
             End Try

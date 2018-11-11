@@ -9,6 +9,13 @@ function ($scope, Notification, LoginService, $location) {
     if (LoginService.getisAuthenticated()) {
         $scope.tipo = LoginService.getTipo();
         $scope.Nombres = LoginService.getUserName();
+
+        if ($scope.tipo == '1') {
+            $scope.NombreEspecialidad = 'Secretaria'
+        }
+        else {
+            $scope.NombreEspecialidad = 'Especialista'
+        }
     };
 
     $scope.CerrarSesion = function () {

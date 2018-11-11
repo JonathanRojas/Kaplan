@@ -31,9 +31,9 @@ Public Class doGet
         Return ""
     End Function
     <WebMethod(EnableSession:=True)>
-    Public Function getResumenCalendario(ByVal inFecha As Date) As String
+    Public Function getResumenCalendario(ByVal inFecha As Date, ByVal inEspecialista As Integer) As String
         Dim msj As String
-        Dim vListado As List(Of ResumenCalendario) = ResumenCalendario.getResumenCalendario(inFecha)
+        Dim vListado As List(Of ResumenCalendario) = ResumenCalendario.getResumenCalendario(inFecha, inEspecialista)
         Dim js As New JavaScriptSerializer
         js.MaxJsonLength = Int32.MaxValue
         Dim vResult As New httpResult

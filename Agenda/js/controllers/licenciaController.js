@@ -1,15 +1,26 @@
-﻿app.controller("licenciaController", ['$scope', 'ModalService', 'licenciaService', 'Notification', "$element", 'rut','close',
-function ($scope, ModalService, licenciaService, Notification, $element, rut, close) {
+﻿app.controller("licenciaController", ['$scope', 'ModalService', 'licenciaService', 'Notification', "$element", 'rut', 'id', 'inicio', 'termino', 'obs', 'close',
+function ($scope, ModalService, licenciaService, Notification, $element, rut, id, inicio, termino, obs, close) {
     $scope.saving = false;
     $scope.loading = true;
-    $scope.Licencia = {
-        Id: -1,
-        Rut: rut.substring(0, rut.length-2),
-        Inicio: null,
-        Termino: null,
-        Observacion: null
-    };
 
+    if (id == -1) {
+        $scope.Licencia = {
+            Id: -1,
+            IdPaciente: rut,
+            Inicio: null,
+            Termino: null,
+            Observacion: null
+        };
+    }
+    else {
+        $scope.Licencia = {
+            Id: id,
+            IdPaciente: rut,
+            Inicio: moment(inicio),
+            Termino: moment(termino),
+            Observacion: obs
+        };
+    }
     $scope.registrarLicencia = function () {
         $scope.saving = true;
         licenciaService.registrarLicencia($scope.Licencia).then(function (result) {
