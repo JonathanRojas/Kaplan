@@ -38,8 +38,8 @@ Public Class doPost1
         Dim vEspecialista As Especialista = js.Deserialize(Context.Request.Form("especialista"), GetType(Especialista))
         Dim vResult As New httpResult
 
-        'If vEspecialista.registrarEspecialista() Then
-        If vEspecialista.enviarCorreo("jonathan.rojas.roco@gmail.com", "jrojas", "jr.1569") Then
+        If vEspecialista.registrarEspecialista() Then
+            '  If vEspecialista.enviarCorreo("jonathan.rojas.roco@gmail.com", "jrojas", "jr.1569") Then
             vResult.result = True
         Else
             vResult.result = False
