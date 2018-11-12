@@ -27,17 +27,17 @@
             <div class="col-md-12">
                 <div class="tab">
                     <table border="0" cellpadding="0" cellspacing="0">
-                        <tr class="days">
-                            <th class="text-center text-blue">Hora</th>
-                            <th class="text-center text-blue">Lunes</th>
-                            <th class="text-center text-blue">Martes</th>
-                            <th class="text-center text-blue">Miercoles</th>
-                            <th class="text-center text-blue">Jueves</th>
-                            <th class="text-center text-blue">Viernes</th>
-                            <th class="text-center text-blue">Sabado</th>
+                        <tr class="days" style="background-color:#4c6575; color:#fff">
+                            <th class="text-center">Hora</th>
+                            <th class="text-center">Lunes</th>
+                            <th class="text-center">Martes</th>
+                            <th class="text-center">Miercoles</th>
+                            <th class="text-center">Jueves</th>
+                            <th class="text-center">Viernes</th>
+                            <th class="text-center">Sabado</th>
                         </tr>
                         <tr ng-repeat="dia in Dias">
-                            <td class="time">{{dia.Hora}}</td>
+                            <td class="time" style="background-color:#4c6575; color:#fff">{{dia.Hora}}</td>
                             <td ng-class="dia.Lunes > 0 ? 'timetable-col green' : 'timetable-col'">
                                 <h6 ng-if="dia.Lunes > 0">{{dia.Lunes}} Paciente Agendado</h6>
                                 <div class="booking-tooltip">

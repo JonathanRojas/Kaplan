@@ -2488,8 +2488,7 @@ ul.dropdown-menu > li:last-child > a {
         }
 
         #timetable table th, #timetable table td {
-            padding: 10px 30px 10px 30px;
-            /*padding: 25px 10px 25px 10px;*/
+            padding: 10px 30px 10px 30px;            
             width: auto;
             height: 60px;
             border: 2px solid #fff;
