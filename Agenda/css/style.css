@@ -2446,7 +2446,7 @@ ul.dropdown-menu > li:last-child > a {
     }
 
     #timetable .red {
-        background: #ed6a5d;
+        background: #4c6575;
     }
 
     #timetable .timetable-col {
@@ -2480,18 +2480,18 @@ ul.dropdown-menu > li:last-child > a {
     }
 
         #timetable table tr:nth-child(2n) {
-            background: #f4f4f4;
+            background: rgba(220, 220, 220, 0.80);
         }
 
         #timetable table tr:nth-child(2n+3) {
-            background: #fff;
+            background: rgba(255, 255, 255, 0.80);
         }
 
         #timetable table th, #timetable table td {
             padding: 10px 30px 10px 30px;            
             width: auto;
             height: 60px;
-            border: 2px solid #fff;
+            border: 2px solid #b0bbc3;
         }
 
     #timetable .days, #timetable .time {
@@ -2503,6 +2503,7 @@ ul.dropdown-menu > li:last-child > a {
     #timetable .time {
         width: 15% !important;
         font-weight: bold;
+        border-color: rgb(176, 187, 195);
     }
 
     #timetable .tab {
