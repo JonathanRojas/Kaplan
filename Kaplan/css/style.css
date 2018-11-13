@@ -212,6 +212,10 @@ img {
         padding: 6px 30px;
     }
 
+        .btn.small.cal {
+            padding: 0px 30px;
+        }
+
     .btn.small-xs {
         padding: 2px 8px;
     }
@@ -252,7 +256,7 @@ a, btn, button {
 }
 
 /* Notifications */
-.notify {
+/*.notify {
     position: relative;
     display: block;
     padding: 15px;
@@ -271,7 +275,7 @@ a, btn, button {
 
     .notify.notify-info {
         background: #32b8da;
-    }
+    }*/
 
 /* Top Bar */
 .top-bar {
@@ -286,7 +290,7 @@ a, btn, button {
 
     .top-bar span {
         color: #fff;
-        font-weight: 300;
+        font-weight: bold;
         line-height: 25px;
     }
 
@@ -321,8 +325,8 @@ a, btn, button {
         border-radius: 4px;
         border: none;
         border-top: none;
-        padding: 10px 0;
-        background: #07a7e3;
+        padding: 0px 0;
+        background: #fff;
         box-shadow: none;
         width: auto;
         margin-top: -2px;
@@ -336,7 +340,8 @@ a, btn, button {
             background: none;
             color: #fff;
             font-size: 12px;
-            padding: 5px;
+            font-weight: bold;
+            padding: 10px;
         }
 
     .top-bar .dropdown:hover .top-bar .dropdown-menu {
@@ -378,11 +383,12 @@ a, btn, button {
 
 .navbar {
     background: #fff;
-    padding: 15px 0 0 0;
+    padding: 10px 0 0 0;
     border: 0;
     border-bottom: 1px solid #ede;
     border-radius: 0;
     margin-bottom: 0;
+    font-weight: bold;
 }
 
 .navbar-default .navbar-nav > li > a, .navbar-default .navbar-nav > li > a:link {
@@ -523,7 +529,8 @@ ul.dropdown-menu > li:last-child > a {
         }
 
     .navbar-dark .dropdown-menu {
-        border-top: 2px solid #4c6575;
+        border-top: 2px solid #32dac3;
+        border-bottom: 2px solid #4c6575;
     }
 
     .navbar-dark .navbar-nav > .dropdown:hover > .dropdown-toggle {
@@ -708,7 +715,7 @@ ul.dropdown-menu > li:last-child > a {
 
 /* Home No Slider */
 #home-no-slider {
-    background-image: url('../img/bg/bg-1.jpg');
+    background-image: url('../img/bg/bg-2.jpg');
     background-attachment: fixed;
     background-position: center center;
     background-size: cover;
@@ -1898,17 +1905,17 @@ ul.dropdown-menu > li:last-child > a {
     background-image: url('../img/doted-bg.jpg');
     background-color: #fff;
     background-repeat: repeat;
-    padding: 60px 0;
+    /*padding: 60px 0;*/
     position: relative;
-    border-bottom: 1px solid #ccc;
+    /*border-bottom: 1px solid #ccc;*/
 }
 
 .doted-bg1 {
-    background-image: url('../img/bg-2-xl.png');
+    background-image: url('../img/bg-4-xl.png');
     height: 100%;
     width: 100%;
     padding: 60px 0;
-    border-bottom: 1px solid #ccc;
+    /*border-bottom: 1px solid #ccc;*/
 }
 
 .grey-bg {
@@ -2460,6 +2467,7 @@ ul.dropdown-menu > li:last-child > a {
     #timetable h6 {
         font-weight: 300;
         margin-top: 5px;
+        font-weight: bold;
     }
 
     #timetable h5 {
@@ -2480,18 +2488,22 @@ ul.dropdown-menu > li:last-child > a {
         }
 
         #timetable table th, #timetable table td {
-            padding: 25px 10px 25px 10px;
+            padding: 10px 30px 10px 30px;
+            /*padding: 25px 10px 25px 10px;*/
             width: auto;
+            height: 60px;
             border: 2px solid #fff;
         }
 
     #timetable .days, #timetable .time {
         text-align: center !important;
         color: #868686;
+        background-color: rgba(234, 234, 234);
     }
 
     #timetable .time {
         width: 15% !important;
+        font-weight: bold;
     }
 
     #timetable .tab {
@@ -2500,13 +2512,23 @@ ul.dropdown-menu > li:last-child > a {
 
 /* Time Table - Book Now */
 .booking-tooltip {
-    background-color: rgba(255, 255, 255, .8);
+    /*background-color: rgba(255, 255, 255, .8);
     padding: 10px;
     position: absolute;
     top: 50%;
     left: 1px;
     right: 1px;
     margin-top: -40px;
+    border-radius: 4px;
+    width: auto;
+    display: none;*/
+    background-color: rgba(255, 255, 255, .8);
+    padding: 6px;
+    position: absolute;
+    top: 50%;
+    left: 1px;
+    right: 1px;
+    margin-top: -30px;
     border-radius: 4px;
     width: auto;
     display: none;
@@ -2524,6 +2546,7 @@ ul.dropdown-menu > li:last-child > a {
 footer {
     background-color: #4c6575;
     color: #e4e5e7;
+    /*bottom: 0;*/
 }
 
     footer .footer-slogan {
@@ -2533,6 +2556,7 @@ footer {
         width: 100%;
         margin: 0 auto;
         text-align: center;
+        font-weight: bold;
         padding: 15px 0;
     }
 
@@ -2540,6 +2564,7 @@ footer {
         font-size: 24px;
         margin-bottom: 35px;
         position: relative;
+        /*bottom: 0;*/
     }
 
         footer h3:after {
@@ -2552,6 +2577,7 @@ footer {
             top: 100%;
             left: 0px;
             margin-top: 10px;
+            /*bottom: 0;*/
         }
 
     footer ul {
@@ -2668,7 +2694,7 @@ footer {
     }
 
 .tab-content .tab-pane {
-    margin: 30px 0 20px 0;
+    /*margin: 30px 0 20px 0;*/
 }
 
     .tab-content .tab-pane .image {
@@ -2727,7 +2753,7 @@ footer {
 .modal .form-control {
     border: 1px solid #32b8da;
     margin-bottom: 15px;
-    padding: 15px 15px;
+    /*padding: 15px 15px;*/
 }
 
 .modal textarea.form-control {
@@ -3036,3 +3062,38 @@ body.boxed {
         align-items: center;
     }
 }
+
+/*==================================================
+ * Effect 8
+ * ===============================================*/
+.effect8 {
+    position: relative;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+    .effect8:before, .effect8:after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        -webkit-box-shadow: 0 0 20px rgba(0,0,0,0.8);
+        -moz-box-shadow: 0 0 20px rgba(0,0,0,0.8);
+        box-shadow: 0 0 20px rgba(0,0,0,0.8);
+        top: 10px;
+        bottom: 10px;
+        left: 0;
+        right: 0;
+        -moz-border-radius: 100px / 10px;
+        border-radius: 100px / 10px;
+    }
+
+    .effect8:after {
+        right: 10px;
+        left: auto;
+        -webkit-transform: skew(8deg) rotate(3deg);
+        -moz-transform: skew(8deg) rotate(3deg);
+        -ms-transform: skew(8deg) rotate(3deg);
+        -o-transform: skew(8deg) rotate(3deg);
+        transform: skew(8deg) rotate(3deg);
+    }

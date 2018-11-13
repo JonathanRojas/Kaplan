@@ -5,10 +5,17 @@ app.config(function ($routeProvider) {
 
     $routeProvider
         .when('/', {
+            templateUrl: 'login.html',
+            inputs: { id: -1 },
+            controller: 'loginController',
+            controllerAs: 'login'
+        })
+        .when('/ficha', {
             templateUrl: 'views/ficha.html',
             inputs: { id: -1 },
-            controller: 'fichaController'
-        })         
+            controller: 'fichaController',
+            controllerAs: 'ficha'
+        })
         .otherwise({
             redirectTo: '/'
         });

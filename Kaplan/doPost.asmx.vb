@@ -13,17 +13,25 @@ Public Class doPost
     Inherits System.Web.Services.WebService
 
     <WebMethod(EnableSession:=True)>
-    Public Function registrarFicha() As String
+    Public Function getIngresar() As String
         Dim js As New JavaScriptSerializer
 
-        Dim vFicha As Ficha = js.Deserialize(Context.Request.Form("ficha"), GetType(Ficha))
+        Dim vUsuario As Usuario = js.Deserialize(Context.Request.Form("Usuario"), GetType(Usuario))
         Dim vResult As New httpResult
 
-        If vFicha.registrarFicha() Then
+        Dim vResultado = vUsuario.Login()
+
+        If vResultado = 1 Then
+            vResult.result = False
+            vResult.message = "Usuario incorrecto o inactivo"
+        ElseIf vResultado = 2 Then
+            vResult.result = False
+            vResult.message = "Contraseña incorrecta"
+        ElseIf vResultado = 0 Then
             vResult.result = True
         Else
             vResult.result = False
-            vResult.message = "Error guardando registro"
+            vResult.message = "Error en llamado al procedimiento"
         End If
 
         Context.Response.Write(js.Serialize(vResult))

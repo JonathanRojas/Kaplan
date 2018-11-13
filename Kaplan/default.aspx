@@ -13,13 +13,16 @@
     <title>Fundación Kaplan</title>
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Notification CSS -->
+    <link rel="stylesheet" href="css/angular-ui-notification.min.css" />
 
     <!-- Google Web Fonts -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,regular,600&subset=latin%2Clatin-ext" rel="stylesheet" type="text/css">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
 
     <!-- Date Picker -->
     <link href="css/angular-moment-picker.min.css" rel="stylesheet" />
@@ -31,134 +34,95 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/media.css" rel="stylesheet">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <!-- Fav and touch icons -->
-
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/fav-144.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/fav-114.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/fav-72.png">
-    <link rel="apple-touch-icon-precomposed" href="images/fav-57.png">
-    <link rel="shortcut icon" href="images/fav.png">
+    <link rel="apple-touch-icon-precomposed" href="img/favicon.ico">
+    <link rel="shortcut icon" href="img/favicon.ico">
 
-    <script src="js/script/jquery-1.9.1.min.js"></script>
+    <script src="js/script/jquery-3.1.1.min.js"></script>
 </head>
-<body ng-app="app" ng-cloak ng-controller="defaultController">
-    <!-- Nav -->
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="container">
-            <!-- LOGO -->
-            <a class="navbar-brand page-scroll" href="index.html"><i class="fa fa-heartbeat" aria-hidden="true"></i>Fundación<span class="text-blue text-light">Kaplan</span></a>
-            <!-- END / LOGO -->
-
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                    <li class="hidden">
-                        <a class="page-scroll" href="#page-top"></a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inicio</a>
-                        <ul class="dropdown-menu dropdown-menu-left">
-                            <li><a href="index.html">Home Default</a></li>
-                            <li><a href="home-form.html">Home With Form</a></li>
-                            <li><a href="index-v2.html">Home Colorful Navigation</a></li>
-                            <li><a href="index-v3.html">Home Without Slider</a></li>
-                            <li><a href="../boxed/index.html">Home Boxed</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Nosotros</a>
-                        <ul class="dropdown-menu dropdown-menu-left">
-                            <li><a href="about.html">About us</a></li>
-                            <li><a href="faq.html">FAQ</a></li>
-                            <li><a href="testimonials.html">Testimonials</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Especialistas</a>
-                        <ul class="dropdown-menu dropdown-menu-left">
-                            <li class="dropdown dropdown-submenu">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Doctors <i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="doctors.html">Doctors</a></li>
-                                    <li><a href="doctor-profile.html">Doctor Profile</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Departments</a>
-                        <ul class="dropdown-menu dropdown-menu-left">
-                            <li><a href="departments.html">Departments</a></li>
-                            <li><a href="department-single.html">Department Single</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="timetable.html">Timetable</a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Feautures</a>
-                        <ul class="dropdown-menu dropdown-menu-left">
-                            <li><a href="buttons.html">Buttons</a></li>
-                            <li><a href="tabs.html">Tabs</a></li>
-                            <li><a href="typography.html">Typography</a></li>
-                            <li><a href="icons.html">Icons</a></li>
-                            <li><a href="grid.html">Grids</a></li>
-                            <li><a href="alerts.html">Notifications</a></li>
-                            <li><a href="404.html">404</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
-                        <ul class="dropdown-menu dropdown-menu-left">
-                            <li><a href="blog.html">Blog</a></li>
-                            <li><a href="blog-single.html">Blog Single</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="contact.html">Contact</a>
-                    </li>
-                </ul>
-                <!-- END / NAVBAR RIGHT -->
-            </div>
-        </div>
-        <!-- END CONTAINER -->
-    </nav>
-    <!-- ./end Nav -->
+<body ng-app="app" class="doted-bg" ng-cloak ng-controller="defaultController" onundo="javascript:window.localStorage.clear()">
 
     <div id="main">
         <div ng-view></div>
     </div>
+    <!-- Footer -->
+    <footer>
+        <!-- Container -->
+        <div class="container">
+            <!-- Row Begin -->
+            <div class="row">
 
+                <div class="col-md-3">
+                    <%--<div class="widget">
+                        <h2 class="logo-font"><i class="fa fa-heartbeat" aria-hidden="true"></i>Kosi<span class="text-blue text-light">Medic</span></h2>
+                        <br>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                    </div>--%>
+                </div>
+
+                <div class="col-md-3">
+                    <%-- <div class="widget">
+                        <h3>Socials <span class="bottom-lin"></span></h3>
+                        <ul>
+                            <li>Facebook</li>
+                            <li>Twitter</li>
+                            <li>Youtube</li>
+                            <li>Linkedin</li>
+                        </ul>
+                    </div>--%>
+                </div>
+
+                <div class="col-md-3">
+                    <%--   <div class="widget">
+                        <h3>About Us</h3>
+                        <ul>
+                            <li><a href="doctors.html">Doctors</a></li>
+                            <li><a href="departments.html">Departments</a></li>
+                            <li><a href="timetable.html">Timetable</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>--%>
+                </div>
+
+                <div class="col-md-3">
+                    <%-- <div class="widget">
+                        <h3>Contact</h3>
+                        <ul>
+                            <li>My Street, NY 10036, United States</li>
+                            <li>Phone: 1-800-555-5555</li>
+                            <li>Email: example@kosimedic.com</li>
+                            <li>Office Offers: 09:00am - 17:00pm</li>
+                        </ul>
+                    </div>--%>
+                </div>
+            </div>
+            <!-- ./end Row -->
+        </div>
+        <!-- ./end Container -->
+        <!-- Footer Copyright -->
+        <div class="footer-slogan">
+            Sistema Agenda Electrónica & Ficha Clínica Electrónica &copy; 2019 - Fundación Kaplan
+        </div>
+        <!-- ./end Footer Copyright -->
+    </footer>
     <!-- Scroll to top -->
     <div class="scroll-top">
         <a href="#totop"><i class="fa fa-angle-double-up"></i></a>
     </div>
     <!-- ./end Scroll to top -->
-    
+
+
+
     <!-- Script Files -->
-      <script src="js/script/jquery.min.js"></script>
-    <script src="js/script/bootstrap.js"></script>
+    <script src="js/script/bootstrap/bootstrap.min.js"></script>
     <script src="js/script/main.js"></script>
     <script src="js/script/jquery.easing.min.js"></script>
     <%--<script src="js/script/bootstrap-datepicker.js"></script>--%>
     <script src="js/script/jquery.appear.js"></script>
     <script src="js/script/jquery.countTo.js"></script>
-        
+
     <script src="js/script/angular.min.js"></script>
     <script src="js/script/angular-route.min.js"></script>
     <script src="js/script/angular-locale_es-cl.js"></script>
@@ -168,10 +132,15 @@
     <script src="js/script/angular-moment-picker.min.js"></script>
     <script src="js/script/dirPagination.js"></script>
 
-    <script src="js/app.js"></script>   
-    <script src="js/controllers/defaultController.js"></script>    
+    <script src="js/app.js"></script>
+    <script src="js/controllers/defaultController.js"></script>
     <script src="js/controllers/fichaController.js"></script>
+    <script src="js/controllers/fichaEnfermeriaController.js"></script>
+    <script src="js/controllers/fichaKinesologiaController.js"></script>
+    <script src="js/controllers/loginController.js"></script>
+
     <script src="js/services/tipoService.js"></script>
-    <script src="js/services/fichaService.js"></script>
+    <script src="js/services/loginService.js"></script>
+    <script src="js/services/WindowsService.js"></script>
 </body>
 </html>

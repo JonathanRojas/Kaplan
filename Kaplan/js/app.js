@@ -2,7 +2,8 @@
          ['ngRoute',
           'angularModalService',
           'moment-picker',
-          'ui-notification']
+          'ui-notification',
+         'angularUtils.directives.dirPagination']
           );
 
 app.config(function (NotificationProvider) {
