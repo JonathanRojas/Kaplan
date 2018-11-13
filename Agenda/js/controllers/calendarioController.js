@@ -35,15 +35,8 @@ function ($scope, ModalService, ResumenCalendarioService, Notification, LoginSer
                 msg = { title: 'Error obteniendo Resumen Calendario' };
                 Notification.error(msg);
             });
-        };        
-        ResumenCalendarioService.getResumenCalendario(moment().toISOString(), $scope.IdEspecialista).then(function (result) {
-            $scope.Dias = result.data;
-            $scope.loadingData = false;
-            $scope.StopLoading();
-        }, function (reason) {
-            msg = { title: 'Error obteniendo Resumen Calendario' };
-            Notification.error(msg);
-        });
+        };   
+        $scope.cargarSemana(moment())
 
         $scope.VerDetalleHora = function (inFecha, inDia, inHora, inReservas) {
             if (inReservas > 0) {
