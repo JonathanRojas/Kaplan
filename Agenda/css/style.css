@@ -236,8 +236,8 @@ a {
 }
 
     a, a:link, a:visited {
-        color: #868686;
-        text-decoration: none;
+        color: #32b8da;
+        /*text-decoration: none;*/
     }
 
 a, btn, button {
