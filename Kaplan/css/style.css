@@ -3097,3 +3097,15 @@ body.boxed {
         -o-transform: skew(8deg) rotate(3deg);
         transform: skew(8deg) rotate(3deg);
     }
+
+.remove {
+    background: #ccc;
+    color: #C76868;
+    font-weight: bold;
+    font-size: 18px;
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    padding: 2px 8px 5px;
+    vertical-align: top;
+    line-height: 100%;

@@ -35,13 +35,13 @@
                                     <label class="control-label pull-right" for="rut">Rut</label>
                                 </div>
                                 <div class="col-sm-2">
-                                    <input type="number" class="form-control" id="rut" name="rut" required placeholder="Rut Paciente" min="0" ng-maxlength="8" ng-disabled="rutvalido" ng-model="FichaKinesiologia.Paciente.Persona.Rut">
+                                    <input type="number" class="form-control" id="rut" name="rut" required placeholder="Rut Paciente" min="0" ng-maxlength="8" ng-disabled="rutvalido" ng-model="Ficha.Paciente.Persona.Rut">
                                 </div>
                                 <div class="col-sm-1">
                                     <label class="control-label pull-right" for="dv">Dv</label>
                                 </div>
                                 <div class="col-sm-2">
-                                    <input type="text" class="form-control" id="dv" name="dv" required placeholder="Digito Verificador" ng-disabled="rutvalido" maxlength="1" ng-model="FichaKinesiologia.Paciente.Persona.Dv">
+                                    <input type="text" class="form-control" id="dv" name="dv" required placeholder="Digito Verificador" ng-disabled="rutvalido" maxlength="1" ng-model="Ficha.Paciente.Persona.Dv">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -49,13 +49,13 @@
                                     <label class="control-label pull-right" for="nombre">Nombre</label>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" id="nombre" placeholder="Nombre Paciente" ng-model="FichaKinesiologia.Paciente.Persona.Nombre" maxlength="250">
+                                    <input type="text" class="form-control" id="nombre" placeholder="Nombre Paciente" ng-model="Ficha.Paciente.Persona.Nombre" maxlength="250">
                                 </div>
                                 <div class="col-sm-2">
                                     <label class="control-label pull-right" for="nombre">A. Paterno</label>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" id="paterno" placeholder="A. Paterno Paciente" ng-model="FichaKinesiologia.Paciente.Persona.Paterno" maxlength="200">
+                                    <input type="text" class="form-control" id="paterno" placeholder="A. Paterno Paciente" ng-model="Ficha.Paciente.Persona.Paterno" maxlength="200">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -63,13 +63,13 @@
                                     <label class="control-label pull-right" for="paterno">A. Materno</label>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" id="materno" placeholder="A. Paterno Paciente" ng-model="FichaKinesiologia.Paciente.Persona.Materno" maxlength="200">
+                                    <input type="text" class="form-control" id="materno" placeholder="A. Paterno Paciente" ng-model="Ficha.Paciente.Persona.Materno" maxlength="200">
                                 </div>
                                 <div class="col-sm-2">
                                     <label class="control-label pull-right" for="edad">Fecha Nacimiento</label>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input moment-picker="FechaNac" today="true" ng-model="FichaKinesiologia.Paciente.Persona.FechaNac" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Nacimiento">
+                                    <input moment-picker="FechaNac" today="true" ng-model="Ficha.Paciente.Persona.FechaNac" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Nacimiento">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -78,7 +78,7 @@
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="form-check">
-                                        <select class="form-control" required aria-required="true" name="region" id="region" data-ng-options="tipoRegion.ID as tipoRegion.Nombre for tipoRegion in TipoRegiones" ng-model="FichaKinesiologia.Paciente.Persona.Region.ID">
+                                        <select class="form-control" required aria-required="true" name="region" id="region" data-ng-options="tipoRegion.ID as tipoRegion.Nombre for tipoRegion in TipoRegiones" ng-model="Ficha.Paciente.Persona.Region.ID">
                                             <option value="">Seleccione</option>
                                         </select>
                                     </div>
@@ -88,7 +88,7 @@
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="form-check">
-                                        <select class="form-control" required aria-required="true" name="comuna" id="comuna" data-ng-options="tipoComuna.ID as tipoComuna.Nombre for tipoComuna in TipoComunas" ng-model="FichaKinesiologia.Paciente.Persona.Comuna.ID">
+                                        <select class="form-control" required aria-required="true" name="comuna" id="comuna" data-ng-options="tipoComuna.ID as tipoComuna.Nombre for tipoComuna in TipoComunas" ng-model="Ficha.Paciente.Persona.Comuna.ID">
                                             <option value="">Seleccione</option>
                                         </select>
                                     </div>
@@ -99,13 +99,13 @@
                                     <label class="control-label pull-right" for="movil">Movil</label>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="number" class="form-control" id="movil" placeholder="Movil Paciente" ng-model="FichaKinesiologia.Paciente.Persona.Movil">
+                                    <input type="number" class="form-control" id="movil" placeholder="Movil Paciente" ng-model="Ficha.Paciente.Persona.Movil">
                                 </div>
                                 <div class="col-sm-2">
                                     <label class="control-label pull-right" for="telefono">Teléfono</label>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="number" class="form-control" id="telefono" placeholder="Teléfono Paciente" ng-model="FichaKinesiologia.Paciente.Persona.Telefono">
+                                    <input type="number" class="form-control" id="telefono" placeholder="Teléfono Paciente" ng-model="Ficha.Paciente.Persona.Telefono">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -113,7 +113,7 @@
                                     <label class="control-label pull-right" for="domicilio">Dirección</label>
                                 </div>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="domicilio" placeholder="Domicilio Paciente" ng-model="FichaKinesiologia.Paciente.Persona.Direccion" maxlength="250">
+                                    <input type="text" class="form-control" id="domicilio" placeholder="Domicilio Paciente" ng-model="Ficha.Paciente.Persona.Direccion" maxlength="250">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -121,7 +121,7 @@
                                     <label class="control-label pull-right" for="situacionLaboral">Situación Laboral</label>
                                 </div>
                                 <div class="col-sm-10">
-                                    <textarea class="form-control" id="situacionLaboral" rows="4" ng-model="FichaKinesiologia.Paciente.Persona.SituacionLaboral" maxlength="250"></textarea>
+                                    <textarea class="form-control" id="situacionLaboral" rows="4" ng-model="Ficha.Paciente.Persona.SituacionLaboral" maxlength="250"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -129,19 +129,19 @@
                                     <label class="control-label pull-right" for="tipoEvaluacion">Tipo Evaluacion</label>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" id="tipoEvaluacion" placeholder="Tipo Evaluacion" ng-model="FichaKinesiologia.TipoEvaluacion" maxlength="250">
+                                    <input type="text" class="form-control" id="tipoEvaluacion" placeholder="Tipo Evaluacion" ng-model="Ficha.FichaKinesiologia.TipoEvaluacion" maxlength="250">
                                 </div>
                                 <div class="col-sm-2">
                                     <label class="control-label pull-right" for="Riesgo">Riesgo</label>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" id="Riesgo" placeholder="Riesgo" ng-model="FichaKinesiologia.Riesgo" maxlength="250">
+                                    <input type="text" class="form-control" id="Riesgo" placeholder="Riesgo" ng-model="Ficha.FichaKinesiologia.Riesgo" maxlength="250">
                                 </div>
                             </div>
                             <span class="clearfix"></span>
                             <div class="form-group">
                                 <div class="col-sm-12 text-right">
-                                    <button id="btnSiguiente" type="button" class="btn  blue medium">Siguiente</button>
+                                    <a class="btn  blue medium btnNext" ng-click="next()">Siguiente</a>
                                 </div>
                             </div>
                             <span class="clearfix"></span>
@@ -163,10 +163,10 @@
                                     <label class="control-label pull-right" for="fecha">Fecha</label>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input moment-picker="EFechaIngreso" today="true" ng-model="FichaKinesiologia.ERGOESPIROMETRIA.FechaIngreso" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Ingreso">
+                                    <input moment-picker="EFechaIngreso" today="true" ng-model="Ficha.FichaKinesiologia.ERGOESPIROMETRIA.FechaIngreso" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Ingreso">
                                 </div>
                                 <div class="col-sm-4">
-                                    <input moment-picker="EFechaIngreso" today="true" ng-model="FichaKinesiologia.ERGOESPIROMETRIA.FechaIngreso" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Ingreso">
+                                    <input moment-picker="EFechaEgreso" today="true" ng-model="Ficha.FichaKinesiologia.ERGOESPIROMETRIA.EFechaEgreso" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Egreso">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -174,10 +174,10 @@
                                     <label class="control-label pull-right" for="VO2L">VO2 L/min</label>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" id="VO2LIngreso" placeholder="VO2 L/min Ingreso" ng-model="FichaKinesiologia.ERGOESPIROMETRIA.VO2LIngreso" maxlength="250">
+                                    <input type="text" class="form-control" id="VO2LIngreso" placeholder="VO2 L/min Ingreso" ng-model="Ficha.FichaKinesiologia.ERGOESPIROMETRIA.VO2LIngreso" maxlength="250">
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" id="VO2LEgreso" placeholder="VO2 L/min Egreso" ng-model="FichaKinesiologia.ERGOESPIROMETRIA.VO2LEgreso" maxlength="250">
+                                    <input type="text" class="form-control" id="VO2LEgreso" placeholder="VO2 L/min Egreso" ng-model="Ficha.FichaKinesiologia.ERGOESPIROMETRIA.VO2LEgreso" maxlength="250">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -185,10 +185,10 @@
                                     <label class="control-label pull-right" for="VO2M">VO2 ml/kg/min</label>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" id="VO2MIngreso" placeholder="VO2 ml/kg/min Ingreso" ng-model="FichaKinesiologia.ERGOESPIROMETRIA.VO2MIngreso" maxlength="250">
+                                    <input type="text" class="form-control" id="VO2MIngreso" placeholder="VO2 ml/kg/min Ingreso" ng-model="Ficha.FichaKinesiologia.ERGOESPIROMETRIA.VO2MIngreso" maxlength="250">
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" id="VO2MEgreso" placeholder="VO2 ml/kg/min Egreso" ng-model="FichaKinesiologia.ERGOESPIROMETRIA.VO2MEgreso" maxlength="250">
+                                    <input type="text" class="form-control" id="VO2MEgreso" placeholder="VO2 ml/kg/min Egreso" ng-model="Ficha.FichaKinesiologia.ERGOESPIROMETRIA.VO2MEgreso" maxlength="250">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -196,10 +196,10 @@
                                     <label class="control-label pull-right" for="FC">FC MAX</label>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" id="FCIngreso" placeholder="FC MAX Ingreso" ng-model="FichaKinesiologia.ERGOESPIROMETRIA.FCIngreso" maxlength="250">
+                                    <input type="text" class="form-control" id="FCIngreso" placeholder="FC MAX Ingreso" ng-model="Ficha.FichaKinesiologia.ERGOESPIROMETRIA.FCIngreso" maxlength="250">
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" id="FCEgreso" placeholder="FC MAX Egreso" ng-model="FichaKinesiologia.ERGOESPIROMETRIA.FCEgreso" maxlength="250">
+                                    <input type="text" class="form-control" id="FCEgreso" placeholder="FC MAX Egreso" ng-model="Ficha.FichaKinesiologia.ERGOESPIROMETRIA.FCEgreso" maxlength="250">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -207,10 +207,10 @@
                                     <label class="control-label pull-right" for="pulso">PULSO O2</label>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" id="PulsoIngreso" placeholder="PULSO O2 Ingreso" ng-model="FichaKinesiologia.ERGOESPIROMETRIA.PulsoIngreso" maxlength="250">
+                                    <input type="text" class="form-control" id="PulsoIngreso" placeholder="PULSO O2 Ingreso" ng-model="Ficha.FichaKinesiologia.ERGOESPIROMETRIA.PulsoIngreso" maxlength="250">
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" id="PulsoEgreso" placeholder="PULSO O2 Egreso" ng-model="FichaKinesiologia.ERGOESPIROMETRIA.PulsoEgreso" maxlength="250">
+                                    <input type="text" class="form-control" id="PulsoEgreso" placeholder="PULSO O2 Egreso" ng-model="Ficha.FichaKinesiologia.ERGOESPIROMETRIA.PulsoEgreso" maxlength="250">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -218,10 +218,10 @@
                                     <label class="control-label pull-right" for="VE">VE/VCO2 SLOPE</label>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" id="VEIngreso" placeholder="VE/VCO2 SLOPE Ingreso" ng-model="FichaKinesiologia.ERGOESPIROMETRIA.VEIngreso" maxlength="250">
+                                    <input type="text" class="form-control" id="VEIngreso" placeholder="VE/VCO2 SLOPE Ingreso" ng-model="Ficha.FichaKinesiologia.ERGOESPIROMETRIA.VEIngreso" maxlength="250">
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" id="VEEgreso" placeholder="VE/VCO2 SLOPE Egreso" ng-model="FichaKinesiologia.ERGOESPIROMETRIA.VEEgreso" maxlength="250">
+                                    <input type="text" class="form-control" id="VEEgreso" placeholder="VE/VCO2 SLOPE Egreso" ng-model="Ficha.FichaKinesiologia.ERGOESPIROMETRIA.VEEgreso" maxlength="250">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -229,10 +229,10 @@
                                     <label class="control-label pull-right" for="METS">METS</label>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" id="METSIngreso" placeholder="METS Ingreso" ng-model="FichaKinesiologia.ERGOESPIROMETRIA.METSIngreso" maxlength="250">
+                                    <input type="text" class="form-control" id="METSIngreso" placeholder="METS Ingreso" ng-model="Ficha.FichaKinesiologia.ERGOESPIROMETRIA.METSIngreso" maxlength="250">
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" id="METSEgreso" placeholder="METS Egreso" ng-model="FichaKinesiologia.ERGOESPIROMETRIA.METSEgreso" maxlength="250">
+                                    <input type="text" class="form-control" id="METSEgreso" placeholder="METS Egreso" ng-model="Ficha.FichaKinesiologia.ERGOESPIROMETRIA.METSEgreso" maxlength="250">
                                 </div>
                             </div>
                             <span class="clearfix"></span>
@@ -252,10 +252,10 @@
                                     <label class="control-label pull-right" for="fecha">Fecha</label>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input moment-picker="SFechaIngreso" today="true" ng-model="FichaKinesiologia.SHUTTLE.FechaIngreso" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Ingreso">
+                                    <input moment-picker="SFechaIngreso" today="true" ng-model="Ficha.FichaKinesiologia.SHUTTLE.FechaIngreso" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Ingreso">
                                 </div>
                                 <div class="col-sm-4">
-                                    <input moment-picker="SFechaIngreso" today="true" ng-model="FichaKinesiologia.SHUTTLE.FechaIngreso" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Ingreso">
+                                    <input moment-picker="SFechaEgreso" today="true" ng-model="Ficha.FichaKinesiologia.SHUTTLE.FechaEgreso" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Egreso">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -263,10 +263,10 @@
                                     <label class="control-label pull-right" for="METROS">METROS</label>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" id="METROSIngreso" placeholder="METROS Ingreso" ng-model="FichaKinesiologia.SHUTTLE.METROSIngreso" maxlength="250">
+                                    <input type="text" class="form-control" id="METROSIngreso" placeholder="METROS Ingreso" ng-model="Ficha.FichaKinesiologia.SHUTTLE.METROSIngreso" maxlength="250">
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" id="METROSEgreso" placeholder="METROS Egreso" ng-model="FichaKinesiologia.SHUTTLE.METROSEgreso" maxlength="250">
+                                    <input type="text" class="form-control" id="METROSEgreso" placeholder="METROS Egreso" ng-model="Ficha.FichaKinesiologia.SHUTTLE.METROSEgreso" maxlength="250">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -274,10 +274,10 @@
                                     <label class="control-label pull-right" for="NIVEL">NIVEL COMP</label>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" id="NIVELIngreso" placeholder="NIVEL COMP Ingreso" ng-model="FichaKinesiologia.SHUTTLE.NIVELIngreso" maxlength="250">
+                                    <input type="text" class="form-control" id="NIVELIngreso" placeholder="NIVEL COMP Ingreso" ng-model="Ficha.FichaKinesiologia.SHUTTLE.NIVELIngreso" maxlength="250">
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" id="NIVELEgreso" placeholder="NIVEL COMP Egreso" ng-model="FichaKinesiologia.SHUTTLE.NIVELEgreso" maxlength="250">
+                                    <input type="text" class="form-control" id="NIVELEgreso" placeholder="NIVEL COMP Egreso" ng-model="Ficha.FichaKinesiologia.SHUTTLE.NIVELEgreso" maxlength="250">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -285,10 +285,10 @@
                                     <label class="control-label pull-right" for="VO2M">VO2 ml/Kg/min</label>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" id="VO2MIngreso" placeholder="VO2 ml/Kg/min Ingreso" ng-model="FichaKinesiologia.SHUTTLE.VO2MIngreso" maxlength="250">
+                                    <input type="text" class="form-control" id="VO2MIngreso" placeholder="VO2 ml/Kg/min Ingreso" ng-model="Ficha.FichaKinesiologia.SHUTTLE.VO2MIngreso" maxlength="250">
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" id="VO2MEgreso" placeholder="VO2 ml/Kg/min Egreso" ng-model="FichaKinesiologia.SHUTTLE.VO2MEgreso" maxlength="250">
+                                    <input type="text" class="form-control" id="VO2MEgreso" placeholder="VO2 ml/Kg/min Egreso" ng-model="Ficha.FichaKinesiologia.SHUTTLE.VO2MEgreso" maxlength="250">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -296,10 +296,10 @@
                                     <label class="control-label pull-right" for="METS">METS</label>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" id="METSIngreso" placeholder="METS Ingreso" ng-model="FichaKinesiologia.SHUTTLE.METSIngreso" maxlength="250">
+                                    <input type="text" class="form-control" id="METSIngreso" placeholder="METS Ingreso" ng-model="Ficha.FichaKinesiologia.SHUTTLE.METSIngreso" maxlength="250">
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" id="METSEgreso" placeholder="METS Egreso" ng-model="FichaKinesiologia.SHUTTLE.METSEgreso" maxlength="250">
+                                    <input type="text" class="form-control" id="METSEgreso" placeholder="METS Egreso" ng-model="Ficha.FichaKinesiologia.SHUTTLE.METSEgreso" maxlength="250">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -307,10 +307,10 @@
                                     <label class="control-label pull-right" for="fc">FC MAX</label>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" id="FCIngreso" placeholder="FC MAX Ingreso" ng-model="FichaKinesiologia.SHUTTLE.FC" maxlength="250">
+                                    <input type="text" class="form-control" id="FCIngreso" placeholder="FC MAX Ingreso" ng-model="Ficha.FichaKinesiologia.SHUTTLE.FCIngreso" maxlength="250">
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" id="FCEgreso" placeholder="FC MAX Egreso" ng-model="FichaKinesiologia.SHUTTLE.FC" maxlength="250">
+                                    <input type="text" class="form-control" id="FCEgreso" placeholder="FC MAX Egreso" ng-model="Ficha.FichaKinesiologia.SHUTTLE.FCEgreso" maxlength="250">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -318,10 +318,10 @@
                                     <label class="control-label pull-right" for="FCMT">% FCMT</label>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" id="FCMTIngreso" placeholder="% FCMT Ingreso" ng-model="FichaKinesiologia.SHUTTLE.FCMTIngreso" maxlength="250">
+                                    <input type="text" class="form-control" id="FCMTIngreso" placeholder="% FCMT Ingreso" ng-model="Ficha.FichaKinesiologia.SHUTTLE.FCMTIngreso" maxlength="250">
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" id="FCMTEgreso" placeholder="% FCMT Egreso" ng-model="FichaKinesiologia.SHUTTLE.FCMTEgreso" maxlength="250">
+                                    <input type="text" class="form-control" id="FCMTEgreso" placeholder="% FCMT Egreso" ng-model="Ficha.FichaKinesiologia.SHUTTLE.FCMTEgreso" maxlength="250">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -329,10 +329,10 @@
                                     <label class="control-label pull-right" for="METSMAX">METS MAX</label>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" id="METSMAXIngreso" placeholder="METS MAX Ingreso" ng-model="FichaKinesiologia.SHUTTLE.METSMAXIngreso" maxlength="250">
+                                    <input type="text" class="form-control" id="METSMAXIngreso" placeholder="METS MAX Ingreso" ng-model="Ficha.FichaKinesiologia.SHUTTLE.METSMAXIngreso" maxlength="250">
                                 </div>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" id="METSMAXEgreso" placeholder="METS MAX Egreso" ng-model="FichaKinesiologia.SHUTTLE.METSMAXEgreso" maxlength="250">
+                                    <input type="text" class="form-control" id="METSMAXEgreso" placeholder="METS MAX Egreso" ng-model="Ficha.FichaKinesiologia.SHUTTLE.METSMAXEgreso" maxlength="250">
                                 </div>
                             </div>
                             <span class="clearfix"></span>
@@ -342,10 +342,10 @@
                                     <label class="control-label pull-right" for="Fechaei">Fecha</label>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input moment-picker="Fechaei" today="true" ng-model="FichaKinesiologia.EvolucionIngreso.Fecha" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Ingreso">
+                                    <input moment-picker="Fechaei" today="true" ng-model="Ficha.FichaKinesiologia.EvolucionIngresoKine.Fecha" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Ingreso">
                                 </div>
                                 <div class="col-sm-4">
-                                    
+
                                 </div>
                             </div>
                             <div class="form-group">
@@ -353,7 +353,7 @@
                                     <label class="control-label pull-right" for="EME">EVALUACION MUSCULO-ESQUELETICA</label>
                                 </div>
                                 <div class="col-sm-8">
-                                    <textarea class="form-control" id="EME" rows="3" ng-model="FichaKinesiologia.EvolucionIngreso.EME" maxlength="250"></textarea>
+                                    <textarea class="form-control" id="EME" rows="3" ng-model="Ficha.FichaKinesiologia.EvolucionIngresoKine.EME" maxlength="250"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -361,7 +361,7 @@
                                     <label class="control-label pull-right" for="Observacion">Observacion</label>
                                 </div>
                                 <div class="col-sm-8">
-                                    <textarea class="form-control" id="Observacion" rows="3" ng-model="FichaKinesiologia.EvolucionIngreso.Observacion" maxlength="250"></textarea>
+                                    <textarea class="form-control" id="Observacion" rows="3" ng-model="Ficha.FichaKinesiologia.EvolucionIngresoKine.Observacion" maxlength="250"></textarea>
                                 </div>
                             </div>
                             <span class="clearfix"></span>
@@ -371,7 +371,7 @@
                                     <label class="control-label pull-right" for="Fechaee">Fecha</label>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input moment-picker="Fechaee" today="true" ng-model="FichaKinesiologia.EvolucionEgreso.Fecha" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Egreso">
+                                    <input moment-picker="Fechaee" today="true" ng-model="Ficha.FichaKinesiologia.EvolucionEgresoKine.Fecha" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Egreso">
                                 </div>
                                 <div class="col-sm-4">
 
@@ -382,7 +382,7 @@
                                     <label class="control-label pull-right" for="EMEE">EVALUACION MUSCULO-ESQUELETICA</label>
                                 </div>
                                 <div class="col-sm-8">
-                                    <textarea class="form-control" id="EMEE" rows="3" ng-model="FichaKinesiologia.EvolucionEgreso.EME" maxlength="250"></textarea>
+                                    <textarea class="form-control" id="EMEE" rows="3" ng-model="Ficha.FichaKinesiologia.EvolucionEgresoKine.EME" maxlength="250"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -390,31 +390,59 @@
                                     <label class="control-label pull-right" for="ObservacionE">Observacion</label>
                                 </div>
                                 <div class="col-sm-8">
-                                    <textarea class="form-control" id="ObservacionE" rows="3" ng-model="FichaKinesiologia.EvolucionEgreso.Observacion" maxlength="250"></textarea>
+                                    <textarea class="form-control" id="ObservacionE" rows="3" ng-model="Ficha.FichaKinesiologia.EvolucionEgresoKine.Observacion" maxlength="250"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-12 text-right">
-                                    <button id="btnAtras" type="button" class="btn  blue medium">Atras</button>
-                                    <button id="btnSiguiente1" type="button" class="btn  blue medium">Siguiente</button>
+                                    <a class="btn  blue medium btnPrevious" ng-click="previous()">Anterior</a>
+                                    <a class="btn  blue medium btnNext" ng-click="next()">Siguiente</a>
                                 </div>
                             </div>
                             <span class="clearfix"></span>
                         </div>
                         <div role="tabpanel" ng-class="{hidden: loading}" class="tab-pane fade" id="plan">
-                            <h3 class="text-blue mt10">Diagnostico Kinesico</h3>
-                            <div class="form-group">
-                                <div class="col-sm-8">
-                                    <textarea class="form-control" id="Diagnostico" rows="2" ng-model="FichaKinesiologia.PlanKinesico.Diagnostico" maxlength="250"></textarea>
+                            <div class="row">
+                                <div class="col-sm-10">
+                                    <h3 class="text-blue mt10">Diagnostico Kinesico</h3>
+                                </div>
+                                <div class="col-sm-2">
+                                    <button type="button" class="btn border small pull-left" ng-click="addNewColumnD()">+ Diagnostico</button>
                                 </div>
                             </div>
+                            <fieldset ng-repeat="PlanKinesicoD in columnsD" style="padding: 16px; min-width: 100%">
+                                <div class="form-group">
+                                    <div class="col-sm-10">
+                                        <select class="form-control" required aria-required="true" name="diagnostico" id="diagnostico" data-ng-options="tipoDiagnostico.ID as tipoDiagnostico.Nombre for tipoDiagnostico in TiposDiagnostico" ng-model="PlanKinesicoD.Diagnostico.ID">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <button class="remove" ng-hide="columnsD.length == 1" ng-click="removeColumnD($index)">x</button>
+                                    </div>
+                                </div>
+                            </fieldset>
                             <span class="clearfix"></span>
-                            <h3 class="text-blue mt10">Objetivos</h3>
-                            <div class="form-group">
-                                <div class="col-sm-8">
-                                    <textarea class="form-control" id="Objetivos" rows="2" ng-model="FichaKinesiologia.PlanKinesico.Objetivos" maxlength="250"></textarea>
+                            <div class="row">
+                                <div class="col-sm-10">
+                                    <h3 class="text-blue mt10">Objetivos</h3>
+                                </div>
+                                <div class="col-sm-2">
+                                    <button type="button" class="btn border small pull-left" ng-click="addNewColumnO()">+ Objetivos</button>
                                 </div>
                             </div>
+                            <fieldset ng-repeat="PlanKinesicoO in columnsO" style="padding: 16px; min-width: 100%">
+                                <div class="form-group">
+                                    <div class="col-sm-10">
+                                        <select class="form-control" required aria-required="true" name="objetivo" id="objetivo" data-ng-options="tipoObjetivo.ID as tipoObjetivo.Nombre for tipoObjetivo in TiposObjetivo" ng-model="PlanKinesicoD.Objetivo.ID">
+                                            <option value="">Seleccione</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <button class="remove" ng-hide="columnsO.length == 1" ng-click="removeColumnO($index)">x</button>
+                                    </div>
+                                </div>
+                            </fieldset>
                             <span class="clearfix"></span>
                             <h3 class="text-blue mt10">Intervencion</h3>
                             <div class="form-group">
@@ -422,7 +450,7 @@
                                     <label class="control-label pull-right" for="AEROBICO">EJERCICIO AEROBICO</label>
                                 </div>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="AEROBICO" placeholder="EJERCICIO AEROBICO" ng-model="FichaKinesiologia.PlanKinesico.AEROBICO" maxlength="250">
+                                    <input type="text" class="form-control" id="AEROBICO" placeholder="EJERCICIO AEROBICO" ng-model="Ficha.FichaKinesiologia.PlanKinesico.AEROBICO" maxlength="250">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -430,7 +458,7 @@
                                     <label class="control-label pull-right" for="SOBRECARGA">EJERCICIO SOBRECARGA</label>
                                 </div>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="SOBRECARGA" placeholder="EJERCICIO SOBRECARGA" ng-model="FichaKinesiologia.PlanKinesico.SOBRECARGA" maxlength="250">
+                                    <input type="text" class="form-control" id="SOBRECARGA" placeholder="EJERCICIO SOBRECARGA" ng-model="Ficha.FichaKinesiologia.PlanKinesico.SOBRECARGA" maxlength="250">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -438,7 +466,7 @@
                                     <label class="control-label pull-right" for="FUNCIONAL">ENTRENAMIENTO FUNCIONAL</label>
                                 </div>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="FUNCIONAL" placeholder="ENTRENAMIENTO FUNCIONAL" ng-model="FichaKinesiologia.PlanKinesico.FUNCIONAL" maxlength="250">
+                                    <input type="text" class="form-control" id="FUNCIONAL" placeholder="ENTRENAMIENTO FUNCIONAL" ng-model="Ficha.FichaKinesiologia.PlanKinesico.FUNCIONAL" maxlength="250">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -446,12 +474,13 @@
                                     <label class="control-label pull-right" for="EDUCACION">EDUCACION HABITOS CARDIOPROTECTORES</label>
                                 </div>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="EDUCACION" placeholder="EDUCACION HABITOS CARDIOPROTECTORES" ng-model="FichaKinesiologia.PlanKinesico.EDUCACION" maxlength="250">
+                                    <input type="text" class="form-control" id="EDUCACION" placeholder="EDUCACION HABITOS CARDIOPROTECTORES" ng-model="Ficha.FichaKinesiologia.PlanKinesico.EDUCACION" maxlength="250">
                                 </div>
                             </div>
                             <span class="clearfix"></span>
                             <div class="form-group">
                                 <div class="col-sm-12 text-right">
+                                    <a class="btn  blue medium btnPrevious" ng-click="previous()">Anterior</a>
                                     <button id="btnGuardar" type="button" class="btn  blue medium">Guardar</button>
                                 </div>
                             </div>
