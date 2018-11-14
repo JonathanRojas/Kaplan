@@ -214,11 +214,19 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="models\CachedType.vb" />
+    <Compile Include="models\ERGOESPIROMETRIA.vb" />
+    <Compile Include="models\EvolucionEgresoKine.vb" />
+    <Compile Include="models\EvolucionIngresoKine.vb" />
     <Compile Include="models\Ficha.vb" />
     <Compile Include="models\FichaKinesiologia.vb" />
     <Compile Include="models\httpResult.vb" />
-    <Compile Include="models\TipoEstadoCivil.vb" />
-    <Compile Include="models\TipoSexo.vb" />
+    <Compile Include="models\Paciente.vb" />
+    <Compile Include="models\PlanKinesico.vb" />
+    <Compile Include="models\SHUTTLE.vb" />
+    <Compile Include="models\TipoComuna.vb" />
+    <Compile Include="models\TipoDiagnosticoKine.vb" />
+    <Compile Include="models\TipoObjetivoKine.vb" />
+    <Compile Include="models\TipoRegion.vb" />
     <Compile Include="models\Usuario.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -239,6 +247,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="models\Persona.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

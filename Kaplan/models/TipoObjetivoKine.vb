@@ -1,18 +1,18 @@
 ﻿Imports Kaplan.Clases
 Namespace Tipos
 
-    Public Class TipoSexo
+    Public Class TipoObjetivoKine
         Inherits BaseType
-        Private Shared CachedTipo As New CachedType(Of TipoSexo)
-        Private Shared CachedCollection As New Dictionary(Of Integer, TipoSexo)
+        Private Shared CachedTipo As New CachedType(Of TipoObjetivoKine)
+        Private Shared CachedCollection As New Dictionary(Of Integer, TipoObjetivoKine)
         Shared Sub New()
-            CachedTipo.DataPackage = "TipoSexo"
+            CachedTipo.DataPackage = "ListarTipoObjetivoKine"
         End Sub
-        Shared Function getTipos() As List(Of TipoSexo)
+        Shared Function getTipos() As List(Of TipoObjetivoKine)
             CachedTipo.CachedCollection = CachedCollection
             Return CachedTipo.getTipos
         End Function
-        Shared Function getTipo(prmID As Integer) As TipoSexo
+        Shared Function getTipo(prmID As Integer) As TipoObjetivoKine
             CachedTipo.CachedCollection = CachedCollection
             Return CachedTipo.getTipo(prmID)
         End Function
