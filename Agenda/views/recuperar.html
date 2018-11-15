@@ -2,7 +2,7 @@
 <nav class="navbar navbar-default navbar-dark" role="navigation">
     <div class="container">
         <!-- LOGO -->
-        <a class="navbar-brand page-scroll" href="#!login"><i class="fa fa-heartbeat hidden-xs" aria-hidden="true"></i>Fundación<span class="text-light">Kaplan</span></a>
+        <a class="navbar-brand page-scroll" href="" style="line-height: normal"><i class="fa fa-heartbeat hidden-xs" aria-hidden="true"></i> Fundación <span class="text-light">Kaplan</span></a>
         <!-- END / LOGO -->
 
     </div>
@@ -16,9 +16,9 @@
                     <h2 class="animated" data-animation="bounceInLeft">Recuperar contraseña</h2>
                     <p class="text-blue animated" data-animation="bounceInLeft">Ingresa tu dirección de correo para recibir la contraseña de tu cuenta.</p>
                 </div>
-                <form action="#" id="contact">
-                    <input id="email" type="text" class="form-control" placeholder="Dirección de Email">
-                    <input id="contactFormBtn" type="submit" class="btn blue medium" value="Enviar">
+                <form ng-submit="formSubmit()" class="form" id="FormLogin">                    
+                    <input type="email" class="form-control" ng-model="Email" placeholder="Dirección de Email" required="" />
+                    <button type="submit" id="btnGuardar" class="btn blue small" form="FormLogin" style="height:100%; font-size: 20px; font-weight: bold; margin-top: 15px;" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Enviando ...">Enviar</button>
                 </form>
             </div>
         </div>
