@@ -176,6 +176,7 @@
     <Content Include="js\controllers\licenciaController.js" />
     <Content Include="js\controllers\loginController.js" />
     <Content Include="js\controllers\planController.js" />
+    <Content Include="js\controllers\recuperarController.js" />
     <Content Include="js\controllers\reservaAnularController.js" />
     <Content Include="js\controllers\reservaController.js" />
     <Content Include="js\controllers\reservaObservacionController.js" />
@@ -210,6 +211,7 @@
     <Content Include="js\script\moment-with-locales.js" />
     <Content Include="js\services\pacienteService.js" />
     <Content Include="js\services\tipoService.js" />
+    <Content Include="views\recuperar.html" />
     <Content Include="VerDocumentoCsv.aspx" />
     <Content Include="views\agendaDiaHora.html" />
     <Content Include="views\calendario.html" />
@@ -219,7 +221,7 @@
     <Content Include="views\finalizarPlan.html" />
     <Content Include="views\licencia.html" />
     <Content Include="views\paciente.html" />
-    <Content Include="views\Plan.html" />
+    <Content Include="views\plan.html" />
     <Content Include="views\reserva.html" />
     <Content Include="views\reservaAnular.html" />
     <Content Include="views\reservaObservacion.html" />

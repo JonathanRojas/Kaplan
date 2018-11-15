@@ -25,7 +25,6 @@ Namespace Clases
 
                 Dim Especialista As OleDbParameter = cmd.Parameters.Add("@inId", OleDbType.Decimal, Nothing)
                 Especialista.Direction = ParameterDirection.Input
-                'Especialista.Value = DBNull.Value
                 Especialista.Value = IIf(inEspecialista = -1, DBNull.Value, inEspecialista)
 
                 conn.Open()

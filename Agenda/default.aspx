@@ -48,58 +48,6 @@
     </div>
     <!-- Footer -->
     <footer>
-        <!-- Container -->
-        <div class="container">
-            <!-- Row Begin -->
-            <div class="row">
-
-                <div class="col-md-3">
-                    <%--<div class="widget">
-                        <h2 class="logo-font"><i class="fa fa-heartbeat" aria-hidden="true"></i>Kosi<span class="text-blue text-light">Medic</span></h2>
-                        <br>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    </div>--%>
-                </div>
-
-                <div class="col-md-3">
-                    <%-- <div class="widget">
-                        <h3>Socials <span class="bottom-lin"></span></h3>
-                        <ul>
-                            <li>Facebook</li>
-                            <li>Twitter</li>
-                            <li>Youtube</li>
-                            <li>Linkedin</li>
-                        </ul>
-                    </div>--%>
-                </div>
-
-                <div class="col-md-3">
-                    <%--   <div class="widget">
-                        <h3>About Us</h3>
-                        <ul>
-                            <li><a href="doctors.html">Doctors</a></li>
-                            <li><a href="departments.html">Departments</a></li>
-                            <li><a href="timetable.html">Timetable</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                        </ul>
-                    </div>--%>
-                </div>
-
-                <div class="col-md-3">
-                    <%-- <div class="widget">
-                        <h3>Contact</h3>
-                        <ul>
-                            <li>My Street, NY 10036, United States</li>
-                            <li>Phone: 1-800-555-5555</li>
-                            <li>Email: example@kosimedic.com</li>
-                            <li>Office Offers: 09:00am - 17:00pm</li>
-                        </ul>
-                    </div>--%>
-                </div>
-            </div>
-            <!-- ./end Row -->
-        </div>
-        <!-- ./end Container -->
         <!-- Footer Copyright -->
         <div class="footer-slogan">
             Sistema Agenda Electrónica & Ficha Clínica Electrónica &copy; 2019 - Fundación Kaplan
@@ -111,14 +59,10 @@
         <a href="#totop"><i class="fa fa-angle-double-up"></i></a>
     </div>
     <!-- ./end Scroll to top -->
-
-
-
     <!-- Script Files -->
     <script src="js/script/bootstrap/bootstrap.min.js"></script>
     <script src="js/script/main.js"></script>
     <script src="js/script/jquery.easing.min.js"></script>
-    <%--<script src="js/script/bootstrap-datepicker.js"></script>--%>
     <script src="js/script/jquery.appear.js"></script>
     <script src="js/script/jquery.countTo.js"></script>
 
@@ -147,7 +91,7 @@
     <script src="js/controllers/reservaObservacionController.js"></script>
     <script src="js/controllers/planController.js"></script>
     <script src="js/controllers/finalizarPlanController.js"></script>
-
+    <script src="js/controllers/recuperarController.js"></script>
     <script src="js/services/tipoService.js"></script>
     <script src="js/services/planService.js"></script>
     <script src="js/services/agendaDiaHoraService.js"></script>

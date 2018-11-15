@@ -31,6 +31,23 @@ Public Class doGet
         Return ""
     End Function
     <WebMethod(EnableSession:=True)>
+    Public Function getCorreo(inEmail As String) As String
+        Dim vResultado As Boolean = Usuario.getUsuarioEmail(inEmail)
+        Dim js As New JavaScriptSerializer
+        js.MaxJsonLength = Int32.MaxValue
+        Dim vResult As New httpResult
+        If Not IsNothing(vResultado) Then
+            vResult.result = True
+            vResult.data = ""
+        Else
+            vResult.result = False
+        End If
+
+        Context.Response.Write(js.Serialize(vResult))
+        Context.Response.End()
+        Return ""
+    End Function
+    <WebMethod(EnableSession:=True)>
     Public Function getResumenCalendario(ByVal inFecha As Date, ByVal inEspecialista As Integer) As String
         Dim msj As String
         Dim vListado As List(Of ResumenCalendario) = ResumenCalendario.getResumenCalendario(inFecha, inEspecialista)

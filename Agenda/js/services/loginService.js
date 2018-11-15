@@ -47,7 +47,6 @@
             deferred.reject(response);
         };
         return deferred.promise;
-
     };
 
     LoginServ.getLoginLocal = function (Usuario) {
@@ -59,6 +58,25 @@
         WindowsService.setVariable('v_idespecialista', Usuario.IdEspecialista);
         return true;
     };
+
+    LoginServ.getCorreo = function (Email) {
+        var deferred = $q.defer();
+        $http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getCorreo?inEmail=' + Email
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    }
 
     LoginServ.getisAuthenticated = function () {
         return WindowsService.getVariable('isAuthenticated');

@@ -10,6 +10,12 @@ app.config(function ($routeProvider) {
             controller: 'loginController',
             controllerAs: 'login'
         })
+        .when('/recuperar', {
+            templateUrl: 'views/recuperar.html',
+            inputs: { id: -1 },
+            controller: 'recuperarController',
+            controllerAs: 'recuperar'
+        })
         .when('/paciente', {
             templateUrl: 'views/paciente.html',
             inputs: { id: -1 },
