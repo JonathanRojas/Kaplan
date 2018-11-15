@@ -1,1 +1,40 @@
-﻿<div class="doted-bg1" style="min-height: 500px"></div>
+﻿    <section id="suggestions" class="doted-bg1" ng-controller="inicioController">
+        <div class="container">
+            <div class="row mb50">
+                <div class="col-md-6">
+                    <div class="section-title mb20">
+                        <p class="text-blue animated" data-animation="bounceInLeft">Bienvenido a Fundación Kaplan</p>
+                        <h2 class="animated" data-animation="bounceInLeft">Ficha Médica</h2>
+                    </div>
+                    <p>La Ficha Médica fue diseñada para registrar el historial médico de los pacientes en un medio electrónico, con el objetivo de estructurar de manera completa y profesional los antecedentes clínicos del paciente</p>
+                    <blockquote>
+                        <p>Ingrese el Rut del paciente y presione Buscar, una vez validado el Rut podra navegar por las distintas fichas del paciente.</p>
+                    </blockquote>
+                </div>
+                <div class="col-md-6 pull-bottom">
+                    <div class="form-group">
+                        <div class="col-sm-1">
+                            <label class="control-label pull-right" for="rut">Rut</label>
+                        </div>
+                        <div class="col-sm-3">
+                            <input type="number" class="form-control" id="rut" name="rut" required placeholder="Rut" min="0" ng-maxlength="8" ng-disabled="rutvalido" ng-model="Paciente.Persona.Rut">
+                        </div>
+                        <div class="col-sm-1">
+                            <label class="control-label pull-right" for="dv">Dv</label>
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control" id="dv" name="dv" required placeholder="DV" ng-disabled="rutvalido" maxlength="1" ng-model="Paciente.Persona.Dv">
+                        </div>
+                        <div class="col-sm-5">
+                            <a class="btn small" id="btnBuscar" ng-click="frmPaciente.rut.$invalid || frmPaciente.dv.$invalid || getRut()" role="button" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Buscando ..." ng-if="!rutvalido">
+                                Buscar <!--data-target="#collapseDataPaciente"-->
+                            </a>
+                            <a class="btn border small" ng-click="Limpiar()" role="button" ng-if="rutvalido">
+                                Limpiar <!--data-target="#collapseDataPaciente"-->
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

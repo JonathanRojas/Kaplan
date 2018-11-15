@@ -15,6 +15,7 @@ Namespace Clases
         Public Property SHUTTLE As SHUTTLE
         Public Property EvolucionEgresoKine As EvolucionEgresoKine
         Public Property EvolucionIngresoKine As EvolucionIngresoKine
+        Public Property PlanKinesico As PlanKinesico
         Public Property Fecha As Date
         Public ReadOnly Property FechaString As String
             Get

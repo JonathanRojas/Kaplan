@@ -168,7 +168,8 @@
     <Content Include="js\controllers\defaultController.js" />
     <Content Include="js\controllers\fichaController.js" />
     <Content Include="js\controllers\fichaEnfermeriaController.js" />
-    <Content Include="js\controllers\fichaKinesologiaController.js" />
+    <Content Include="js\controllers\fichaKinesiologiaController.js" />
+    <Content Include="js\controllers\inicioController.js" />
     <Content Include="js\controllers\loginController.js" />
     <Content Include="js\script\angular-locale_es-cl.js" />
     <Content Include="js\script\angular-modal-service.js" />
@@ -193,7 +194,7 @@
     <Content Include="login.html" />
     <Content Include="views\ficha.html" />
     <Content Include="views\fichaEnfermeria.html" />
-    <Content Include="views\fichaKinesologia.html" />
+    <Content Include="views\fichaKinesiologia.html" />
     <Content Include="views\inicio.html" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -221,10 +222,12 @@
     <Compile Include="models\FichaKinesiologia.vb" />
     <Compile Include="models\httpResult.vb" />
     <Compile Include="models\Paciente.vb" />
+    <Compile Include="models\Plan.vb" />
     <Compile Include="models\PlanKinesico.vb" />
     <Compile Include="models\SHUTTLE.vb" />
     <Compile Include="models\TipoComuna.vb" />
     <Compile Include="models\TipoDiagnosticoKine.vb" />
+    <Compile Include="models\TipoEstadoPlan.vb" />
     <Compile Include="models\TipoObjetivoKine.vb" />
     <Compile Include="models\TipoRegion.vb" />
     <Compile Include="models\Usuario.vb" />

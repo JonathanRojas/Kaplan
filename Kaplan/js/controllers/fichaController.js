@@ -1,5 +1,5 @@
-﻿app.controller("fichaController", ['$scope', 'Notification', 'LoginService', '$location',
-function ($scope, Notification, LoginService, $location) {
+﻿app.controller("fichaController", ['$scope', 'Notification', 'LoginService', '$location', 'ServiceObservadorUser', 'fichaService',
+function ($scope, Notification, LoginService, $location, ServiceObservadorUser, fichaService) {
 
     if (LoginService.getisAuthenticated()) {
         $scope.tipo = LoginService.getTipo();
@@ -17,6 +17,21 @@ function ($scope, Notification, LoginService, $location) {
             name: "views/inicio.html",
             url: "views/inicio.html"
         };
+
+        this.receive = function (message) {
+            if (message.Estado == 1) {
+                $scope.rutvalido = true;
+                $scope.Titulo = message.Persona.Nombre + " " + message.Persona.Paterno + " " + message.Persona.Materno;
+                $scope.RutPaciente = message.Persona.Rut + "-" + message.Persona.Dv;
+            } else {
+                $scope.Titulo = null;
+                $scope.RutPaciente = null;
+                $scope.rutvalido = false;
+            };
+
+        };
+        ServiceObservadorUser.listenMessage(this);
+        
     };
 
     $scope.CerrarSesion = function () {

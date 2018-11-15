@@ -18,3 +18,27 @@ app.config(function (NotificationProvider) {
     });
 
 });
+
+app.service("ServiceObservadorUser", function () {
+    this._message = [];
+    function defaultReceive(message) {
+        if (!this.messages) {
+            this.messages = [];
+        }
+        this.messages.push(message);
+    }
+
+    this.listenMessage = function (sub) {
+        this._message.push(sub);
+        if (typeof sub.receive !== "function") {
+            sub.receive = defaultReceive;
+        }
+    };
+
+    this.sendMessage = function (message) {
+        var len = this._message.length;
+        for (var i = 0; i < len; i++) {
+            this._message[i].receive(message);
+        }
+    };
+});

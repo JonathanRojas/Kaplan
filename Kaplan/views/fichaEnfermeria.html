@@ -10,9 +10,9 @@
     <!-- Container -->
     <div class="container effect8 nopadding">
         <!-- Row -->
-        <div class="row">
+        <div class="row mb50">
             <form class="form-horizontal" name="frmEnfermeria" id="contact" role="form" ng-disabled="true">
-                <div class="col-md-12">
+                <div class="col-sm-12">
                     <div class="tabs-menu">
                         <ul class="nav nav-tabs nav-justified" role="tablist">
                             <li role="presentation" class="active"><a data-target="#antecedentesP" aria-controls="home" role="tab" data-toggle="tab">Antecedentes Personales</a></li>
@@ -23,7 +23,6 @@
                         </ul>
                     </div>
                     <div class="tab-content">
-
                         <div ng-class="{hidden: !loading}">
                             <h5>Cargando Antecedentes Personales... <i class="fa fa-user hidden-xs" aria-hidden="true"></i></h5>
                             <div class="progress">
@@ -141,7 +140,7 @@
                                     <input type="text" class="form-control" id="Procedencia" placeholder="Procedencia del Paciente" ng-model="FichaEnfermeria.Paciente.Persona.Procedencia" maxlength="250">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group mb50">
                                 <div class="col-sm-12 text-right">
                                     <button id="btnSiguiente" type="button" class="btn  blue medium">Siguiente</button>
                                 </div>

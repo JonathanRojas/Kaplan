@@ -32,277 +32,124 @@ Public Class doGet
         Return ""
     End Function
 
-    '#Region "Tipos"
-    '    <WebMethod(EnableSession:=True)>
-    '    Public Function getTipoSexo() As String
-    '        Dim vTipos As List(Of TipoSexo) = TipoSexo.getTipos
-    '        Dim js As New JavaScriptSerializer
-    '        Dim vResult As New httpResult
-    '        If Not IsNothing(vTipos) Then
-    '            vResult.result = True
-    '            vResult.data = vTipos
-    '        Else
-    '            vResult.result = False
-    '            vResult.data = vTipos
-    '        End If
+    <WebMethod(EnableSession:=True)>
+    Public Function getPaciente(intRut As Integer, strPasaporte As String) As String
+        Dim NoData As Boolean
+        Dim vPaciente As Paciente = Paciente.getPaciente(intRut, strPasaporte, NoData)
+        Dim js As New JavaScriptSerializer
+        Dim vResult As New httpResult
 
-    '        Context.Response.Write(js.Serialize(vResult))
+        If Not IsNothing(vPaciente) Then
+            vResult.result = True
+            vResult.data = vPaciente
+        Else
+            If NoData Then
+                vResult.errorcode = 404
+            Else
+                vResult.errorcode = 202
+            End If
+            vResult.result = False
+            vResult.data = vPaciente
+        End If
+        Context.Response.Write(js.Serialize(vResult))
 
-    '        Context.Response.End()
-    '        Return ""
-    '    End Function
-    '    <WebMethod(EnableSession:=True)>
-    '    Public Function getTipoEstadoCivil() As String
-    '        Dim vTipos As List(Of TipoEstadoCivil) = TipoEstadoCivil.getTipos
-    '        Dim js As New JavaScriptSerializer
-    '        Dim vResult As New httpResult
-    '        If Not IsNothing(vTipos) Then
-    '            vResult.result = True
-    '            vResult.data = vTipos
-    '        Else
-    '            vResult.result = False
-    '            vResult.data = vTipos
-    '        End If
+        Context.Response.End()
+        Return ""
+    End Function
 
-    '        Context.Response.Write(js.Serialize(vResult))
+    <WebMethod(EnableSession:=True)>
+    Public Function getPlanesxRut(intRut As Integer) As String
+        Dim vPlan As List(Of Plan) = Plan.getPlanesxRut(intRut)
+        Dim js As New JavaScriptSerializer
+        Dim vResult As New httpResult
 
-    '        Context.Response.End()
-    '        Return ""
-    '    End Function
-    '    <WebMethod(EnableSession:=True)>
-    '    Public Function getTipoRegion() As String
-    '        Dim vTipos As List(Of TipoRegion) = TipoRegion.getTipos
-    '        Dim js As New JavaScriptSerializer
-    '        Dim vResult As New httpResult
-    '        If Not IsNothing(vTipos) Then
-    '            vResult.result = True
-    '            vResult.data = vTipos
-    '        Else
-    '            vResult.result = False
-    '            vResult.data = vTipos
-    '        End If
+        If Not IsNothing(vPlan) Then
+            vResult.result = True
+            vResult.data = vPlan
+        Else
+            vResult.result = False
+            vResult.data = vPlan
+        End If
+        Context.Response.Write(js.Serialize(vResult))
 
-    '        Context.Response.Write(js.Serialize(vResult))
+        Context.Response.End()
+        Return ""
+    End Function
 
-    '        Context.Response.End()
-    '        Return ""
-    '    End Function
-    '    <WebMethod(EnableSession:=True)>
-    '    Public Function getTipoComuna() As String
-    '        Dim vTipos As List(Of TipoComuna) = TipoComuna.getTipos
-    '        Dim js As New JavaScriptSerializer
-    '        Dim vResult As New httpResult
-    '        If Not IsNothing(vTipos) Then
-    '            vResult.result = True
-    '            vResult.data = vTipos
-    '        Else
-    '            vResult.result = False
-    '            vResult.data = vTipos
-    '        End If
+#Region "Tipos"
+    <WebMethod(EnableSession:=True)>
+    Public Function getTipoObjetivoKine() As String
+        Dim vTipos As List(Of TipoObjetivoKine) = TipoObjetivoKine.getTipos
+        Dim js As New JavaScriptSerializer
+        Dim vResult As New httpResult
+        If Not IsNothing(vTipos) Then
+            vResult.result = True
+            vResult.data = vTipos
+        Else
+            vResult.result = False
+            vResult.data = vTipos
+        End If
 
-    '        Context.Response.Write(js.Serialize(vResult))
+        Context.Response.Write(js.Serialize(vResult))
 
-    '        Context.Response.End()
-    '        Return ""
-    '    End Function
-    '    <WebMethod(EnableSession:=True)>
-    '    Public Function getTipoPais() As String
-    '        Dim vTipos As List(Of TipoPais) = TipoPais.getTipos
-    '        Dim js As New JavaScriptSerializer
-    '        Dim vResult As New httpResult
-    '        If Not IsNothing(vTipos) Then
-    '            vResult.result = True
-    '            vResult.data = vTipos
-    '        Else
-    '            vResult.result = False
-    '            vResult.data = vTipos
-    '        End If
+        Context.Response.End()
+        Return ""
+    End Function
+    <WebMethod(EnableSession:=True)>
+    Public Function getTipoDiagnosticoKine() As String
+        Dim vTipos As List(Of TipoDiagnosticoKine) = TipoDiagnosticoKine.getTipos
+        Dim js As New JavaScriptSerializer
+        Dim vResult As New httpResult
+        If Not IsNothing(vTipos) Then
+            vResult.result = True
+            vResult.data = vTipos
+        Else
+            vResult.result = False
+            vResult.data = vTipos
+        End If
 
-    '        Context.Response.Write(js.Serialize(vResult))
+        Context.Response.Write(js.Serialize(vResult))
 
-    '        Context.Response.End()
-    '        Return ""
-    '    End Function
-    '    <WebMethod(EnableSession:=True)>
-    '    Public Function getTipoPrevision() As String
-    '        Dim vTipos As List(Of TipoPrevision) = TipoPrevision.getTipos
-    '        Dim js As New JavaScriptSerializer
-    '        Dim vResult As New httpResult
-    '        If Not IsNothing(vTipos) Then
-    '            vResult.result = True
-    '            vResult.data = vTipos
-    '        Else
-    '            vResult.result = False
-    '            vResult.data = vTipos
-    '        End If
+        Context.Response.End()
+        Return ""
+    End Function
+    <WebMethod(EnableSession:=True)>
+    Public Function getTipoRegion() As String
+        Dim vTipos As List(Of TipoRegion) = TipoRegion.getTipos
+        Dim js As New JavaScriptSerializer
+        Dim vResult As New httpResult
+        If Not IsNothing(vTipos) Then
+            vResult.result = True
+            vResult.data = vTipos
+        Else
+            vResult.result = False
+            vResult.data = vTipos
+        End If
 
-    '        Context.Response.Write(js.Serialize(vResult))
+        Context.Response.Write(js.Serialize(vResult))
 
-    '        Context.Response.End()
-    '        Return ""
-    '    End Function
-    '    <WebMethod(EnableSession:=True)>
-    '    Public Function getTipoEspecialidad() As String
-    '        Dim vTipos As List(Of TipoEspecialidad) = TipoEspecialidad.getTipos
-    '        Dim js As New JavaScriptSerializer
-    '        Dim vResult As New httpResult
-    '        If Not IsNothing(vTipos) Then
-    '            vResult.result = True
-    '            vResult.data = vTipos
-    '        Else
-    '            vResult.result = False
-    '            vResult.data = vTipos
-    '        End If
+        Context.Response.End()
+        Return ""
+    End Function
+    <WebMethod(EnableSession:=True)>
+    Public Function getTipoComuna() As String
+        Dim vTipos As List(Of TipoComuna) = TipoComuna.getTipos
+        Dim js As New JavaScriptSerializer
+        Dim vResult As New httpResult
+        If Not IsNothing(vTipos) Then
+            vResult.result = True
+            vResult.data = vTipos
+        Else
+            vResult.result = False
+            vResult.data = vTipos
+        End If
 
-    '        Context.Response.Write(js.Serialize(vResult))
+        Context.Response.Write(js.Serialize(vResult))
 
-    '        Context.Response.End()
-    '        Return ""
-    '    End Function
-    '    <WebMethod(EnableSession:=True)>
-    '    Public Function getTipoDias() As String
-    '        Dim vTipos As List(Of TipoDia) = TipoDia.getTipos
-    '        Dim js As New JavaScriptSerializer
-    '        Dim vResult As New httpResult
-    '        If Not IsNothing(vTipos) Then
-    '            vResult.result = True
-    '            vResult.data = vTipos
-    '        Else
-    '            vResult.result = False
-    '            vResult.data = vTipos
-    '        End If
+        Context.Response.End()
+        Return ""
+    End Function
 
-    '        Context.Response.Write(js.Serialize(vResult))
-
-    '        Context.Response.End()
-    '        Return ""
-    '    End Function
-    '    <WebMethod(EnableSession:=True)>
-    '    Public Function getTipoHoras() As String
-    '        Dim vTipos As List(Of TipoHora) = TipoHora.getTipos
-    '        Dim js As New JavaScriptSerializer
-    '        Dim vResult As New httpResult
-    '        If Not IsNothing(vTipos) Then
-    '            vResult.result = True
-    '            vResult.data = vTipos
-    '        Else
-    '            vResult.result = False
-    '            vResult.data = vTipos
-    '        End If
-
-    '        Context.Response.Write(js.Serialize(vResult))
-
-    '        Context.Response.End()
-    '        Return ""
-    '    End Function
-    '    <WebMethod(EnableSession:=True)>
-    '    Public Function getTipoAnulada() As String
-    '        Dim vTipos As List(Of TipoAnulada) = TipoAnulada.getTipos
-    '        Dim js As New JavaScriptSerializer
-    '        Dim vResult As New httpResult
-    '        If Not IsNothing(vTipos) Then
-    '            vResult.result = True
-    '            vResult.data = vTipos
-    '        Else
-    '            vResult.result = False
-    '            vResult.data = vTipos
-    '        End If
-
-    '        Context.Response.Write(js.Serialize(vResult))
-
-    '        Context.Response.End()
-    '        Return ""
-    '    End Function
-    '    <WebMethod(EnableSession:=True)>
-    '    Public Function getTipoNoRealizada() As String
-    '        Dim vTipos As List(Of TipoNoRealizada) = TipoNoRealizada.getTipos
-    '        Dim js As New JavaScriptSerializer
-    '        Dim vResult As New httpResult
-    '        If Not IsNothing(vTipos) Then
-    '            vResult.result = True
-    '            vResult.data = vTipos
-    '        Else
-    '            vResult.result = False
-    '            vResult.data = vTipos
-    '        End If
-
-    '        Context.Response.Write(js.Serialize(vResult))
-
-    '        Context.Response.End()
-    '        Return ""
-    '    End Function
-    '    <WebMethod(EnableSession:=True)>
-    '    Public Function getTipoMotivoPlan() As String
-    '        Dim vTipos As List(Of TipoMotivoPlan) = TipoMotivoPlan.getTipos
-    '        Dim js As New JavaScriptSerializer
-    '        Dim vResult As New httpResult
-    '        If Not IsNothing(vTipos) Then
-    '            vResult.result = True
-    '            vResult.data = vTipos
-    '        Else
-    '            vResult.result = False
-    '            vResult.data = vTipos
-    '        End If
-
-    '        Context.Response.Write(js.Serialize(vResult))
-
-    '        Context.Response.End()
-    '        Return ""
-    '    End Function
-    '    <WebMethod(EnableSession:=True)>
-    '    Public Function getTipoEstadoReserva() As String
-    '        Dim vTipos As List(Of TipoEstadoReserva) = TipoEstadoReserva.getTipos
-    '        Dim js As New JavaScriptSerializer
-    '        Dim vResult As New httpResult
-    '        If Not IsNothing(vTipos) Then
-    '            vResult.result = True
-    '            vResult.data = vTipos
-    '        Else
-    '            vResult.result = False
-    '            vResult.data = vTipos
-    '        End If
-
-    '        Context.Response.Write(js.Serialize(vResult))
-
-    '        Context.Response.End()
-    '        Return ""
-    '    End Function
-    '    <WebMethod(EnableSession:=True)>
-    '    Public Function getTipoEstadoPlan() As String
-    '        Dim vTipos As List(Of TipoEstadoPlan) = TipoEstadoPlan.getTipos
-    '        Dim js As New JavaScriptSerializer
-    '        Dim vResult As New httpResult
-    '        If Not IsNothing(vTipos) Then
-    '            vResult.result = True
-    '            vResult.data = vTipos
-    '        Else
-    '            vResult.result = False
-    '            vResult.data = vTipos
-    '        End If
-
-    '        Context.Response.Write(js.Serialize(vResult))
-
-    '        Context.Response.End()
-    '        Return ""
-    '    End Function
-    '    <WebMethod(EnableSession:=True)>
-    '    Public Function getTipoReserva() As String
-    '        Dim vTipos As List(Of TipoReserva) = TipoReserva.getTipos
-    '        Dim js As New JavaScriptSerializer
-    '        Dim vResult As New httpResult
-    '        If Not IsNothing(vTipos) Then
-    '            vResult.result = True
-    '            vResult.data = vTipos
-    '        Else
-    '            vResult.result = False
-    '            vResult.data = vTipos
-    '        End If
-
-    '        Context.Response.Write(js.Serialize(vResult))
-
-    '        Context.Response.End()
-    '        Return ""
-    '    End Function
-    '#End Region
+#End Region
 
 End Class

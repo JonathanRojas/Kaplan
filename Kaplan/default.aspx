@@ -44,76 +44,34 @@
 </head>
 <body ng-app="app" class="doted-bg" ng-cloak ng-controller="defaultController" onundo="javascript:window.localStorage.clear()">
 
-    <div id="main">
-        <div ng-view></div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div id="main">
+                <div ng-view></div>
+            </div>
+        </div>     
     </div>
     <!-- Footer -->
-    <footer>
-        <!-- Container -->
-        <div class="container">
-            <!-- Row Begin -->
-            <div class="row">
-
-                <div class="col-md-3">
-                    <%--<div class="widget">
-                        <h2 class="logo-font"><i class="fa fa-heartbeat" aria-hidden="true"></i>Kosi<span class="text-blue text-light">Medic</span></h2>
-                        <br>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    </div>--%>
+            <footer>
+                <!-- Container -->
+                <div class="container">
+                    <!-- Row Begin -->
+                    <div class="row">
+                    </div>
+                    <!-- ./end Row -->
                 </div>
-
-                <div class="col-md-3">
-                    <%-- <div class="widget">
-                        <h3>Socials <span class="bottom-lin"></span></h3>
-                        <ul>
-                            <li>Facebook</li>
-                            <li>Twitter</li>
-                            <li>Youtube</li>
-                            <li>Linkedin</li>
-                        </ul>
-                    </div>--%>
+                <!-- ./end Container -->
+                <!-- Footer Copyright -->
+                <div class="footer-slogan">
+                    Sistema Agenda Electrónica & Ficha Clínica Electrónica &copy; 2019 - Fundación Kaplan
                 </div>
-
-                <div class="col-md-3">
-                    <%--   <div class="widget">
-                        <h3>About Us</h3>
-                        <ul>
-                            <li><a href="doctors.html">Doctors</a></li>
-                            <li><a href="departments.html">Departments</a></li>
-                            <li><a href="timetable.html">Timetable</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                        </ul>
-                    </div>--%>
-                </div>
-
-                <div class="col-md-3">
-                    <%-- <div class="widget">
-                        <h3>Contact</h3>
-                        <ul>
-                            <li>My Street, NY 10036, United States</li>
-                            <li>Phone: 1-800-555-5555</li>
-                            <li>Email: example@kosimedic.com</li>
-                            <li>Office Offers: 09:00am - 17:00pm</li>
-                        </ul>
-                    </div>--%>
-                </div>
+                <!-- ./end Footer Copyright -->
+            </footer>
+            <!-- Scroll to top -->
+            <div class="scroll-top">
+                <a href="#totop"><i class="fa fa-angle-double-up"></i></a>
             </div>
-            <!-- ./end Row -->
-        </div>
-        <!-- ./end Container -->
-        <!-- Footer Copyright -->
-        <div class="footer-slogan">
-            Sistema Agenda Electrónica & Ficha Clínica Electrónica &copy; 2019 - Fundación Kaplan
-        </div>
-        <!-- ./end Footer Copyright -->
-    </footer>
-    <!-- Scroll to top -->
-    <div class="scroll-top">
-        <a href="#totop"><i class="fa fa-angle-double-up"></i></a>
-    </div>
-    <!-- ./end Scroll to top -->
-
-
+            <!-- ./end Scroll to top -->
 
     <!-- Script Files -->
     <script src="js/script/bootstrap/bootstrap.min.js"></script>
@@ -136,9 +94,11 @@
     <script src="js/controllers/defaultController.js"></script>
     <script src="js/controllers/fichaController.js"></script>
     <script src="js/controllers/fichaEnfermeriaController.js"></script>
-    <script src="js/controllers/fichaKinesologiaController.js"></script>
+    <script src="js/controllers/fichaKinesiologiaController.js"></script>
     <script src="js/controllers/loginController.js"></script>
+    <script src="js/controllers/inicioController.js"></script>
 
+    <script src="js/services/fichaService.js"></script>
     <script src="js/services/tipoService.js"></script>
     <script src="js/services/loginService.js"></script>
     <script src="js/services/WindowsService.js"></script>

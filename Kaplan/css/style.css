@@ -1914,7 +1914,7 @@ ul.dropdown-menu > li:last-child > a {
     background-image: url('../img/bg-4-xl.png');
     height: 100%;
     width: 100%;
-    padding: 60px 0;
+    padding: 25px 0;
     /*border-bottom: 1px solid #ccc;*/
 }
 
@@ -3109,3 +3109,4 @@ body.boxed {
     padding: 2px 8px 5px;
     vertical-align: top;
     line-height: 100%;
+}
