@@ -6,10 +6,10 @@ Imports System.Data.SqlClient
 Namespace Clases
 
     Public Class ERGOESPIROMETRIA
-        Public Property FechaIngreso As Date
-        Public ReadOnly Property FechaIngresoString As String
+        Public Property EFechaIngreso As Date
+        Public ReadOnly Property EFechaIngresoString As String
             Get
-                Return FechaIngreso.ToString("dd MMM yyyy")
+                Return EFechaIngreso.ToString("dd MMM yyyy")
             End Get
         End Property
         Public Property EFechaEgreso As Date

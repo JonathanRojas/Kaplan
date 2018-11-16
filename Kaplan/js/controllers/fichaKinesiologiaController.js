@@ -15,6 +15,12 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
             $scope.loading = !(!$scope.loadingTipoRegion && !$scope.loadingTipoDiagnosticoKine && !$scope.loadingTipoObjetivoKine && !$scope.loadingTipoComuna && !$scope.loadingPlanes);
         };
 
+        if (parseInt(LoginService.getTipo()) == 5) {
+            $scope.FormEditabe = false;
+        } else {
+            $scope.FormEditabe = true;
+        };
+
         //$scope.loadingData = false;
         //$scope.StopLoading();
 
@@ -95,6 +101,77 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
             msg = { title: 'Error Listar Planes' };
             Notification.error(msg);
         });
+
+        $scope.CambioPlan = function (plan) {
+            if (typeof plan !== 'undefined') {
+                fichaService.getSesionesxPlan(plan).then(function (result) {
+                    $scope.Sesiones = result.data;
+                }, function (reason) {
+                    msg = { title: 'Error Listar Planes' };
+                    Notification.error(msg);
+                });
+            };            
+        };
+
+        $scope.CambiarSesion = function (sesion) {
+            if (typeof sesion !== 'undefined') {
+                fichaService.getFichaKinesiologiasxReserva(sesion).then(function (result) {
+                    if (result.data.length !== 0) {
+                        $scope.Ficha = result.data;
+                        fichaService.getPaciente(parseInt(fichaService.getRutPaciente()), null).then(function (result) {
+                            $scope.Paciente = result.data;
+                            $scope.Paciente.Persona.FechaNac = moment($scope.Paciente.Persona.FechaNac);
+                            $('#collapseDataPaciente').collapse('show');
+                        }, function (reason) {
+                            msg = { title: 'Error Al cargar datos del paciente' };
+                            Notification.error(msg);
+                            $('#collapseDataPaciente').collapse('hide');
+                        });
+                    } else {
+                        $('#collapseDataPaciente').collapse('hide');
+                    };
+                }, function (reason) {
+                    if (reason.errorcode == 404) {
+                        if (parseInt(LoginService.getTipo()) == 5) {
+                            msg = { title: 'Sesion Sin Ficha, Complete la ficha para esta sesion' };
+                            Notification.warning(msg);
+                            fichaService.getPaciente(parseInt(fichaService.getRutPaciente()), null).then(function (result) {
+                                $scope.Paciente = result.data;
+                                $scope.Paciente.Persona.FechaNac = moment($scope.Paciente.Persona.FechaNac);
+                                $('#collapseDataPaciente').collapse('show');
+                            }, function (reason) {
+                                msg = { title: 'Error Al cargar datos del paciente' };
+                                Notification.error(msg);
+                                $('#collapseDataPaciente').collapse('hide');
+                            });
+                        } else {
+                            msg = { title: 'Sesion Sin Ficha' };
+                            Notification.warning(msg);
+                            $('#collapseDataPaciente').collapse('hide');
+                        };
+                    } else {
+                        msg = { title: 'Error al Buscar Ficha' };
+                        Notification.error(msg);
+                        $('#collapseDataPaciente').collapse('hide');
+                    }
+                });
+            } else {
+                $('#collapseDataPaciente').collapse('hide');
+            };            
+        };
+
+        $scope.SaveFicha = function () {
+            $scope.Ficha.FichaKinesiologia.IdEspecialista = parseInt(LoginService.getIdEspecialista())
+            fichaService.SaveFichaKinesiologia($scope.Ficha, $scope.columnsD, $scope.columnsO)
+               .then(function (result) {
+                   msg = { title: 'Ficha creada con éxito', message: "" };
+                   Notification.success(msg);
+               }, function (reason) {
+                   msg = { title: 'Error guardando Ficha' };
+                   Notification.error(msg);
+                   $scope.saving = false;
+               });
+        }
 
     };
 }]);

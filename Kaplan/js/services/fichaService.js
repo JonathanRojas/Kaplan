@@ -55,5 +55,71 @@
 
     };
 
+    FichaServ.getSesionesxPlan = function (plan) {
+        var deferred = $q.defer();
+        $http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getSesionesxPlan?intPlan=' + plan
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+
+    };
+
+    FichaServ.getFichaKinesiologiasxReserva = function (id) {
+        var deferred = $q.defer();
+        $http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getFichaKinesiologiasxReserva?intReserva=' + id
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+
+    };
+
+    FichaServ.SaveFichaKinesiologia = function (ficha, columnsD, columnsO) {
+        var deferred = $q.defer();
+        var myFormData = new FormData();
+         //var diag = { 'FichaKinesiologia': { 'PlanKinesico': { 'Diagnostico': columnsD, 'Objetivo': columnsO } } };
+        myFormData.append("Ficha", angular.toJson(ficha))
+
+        $http({
+            method: 'POST',
+            url: 'doPost.asmx/SaveFichaKinesiologia',
+            data: myFormData,
+            transformRequest: angular.identity,
+            headers: { 'Content-Type': undefined }
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);;
+        };
+
+        return deferred.promise;
+    };
+
     return FichaServ;
 }]);

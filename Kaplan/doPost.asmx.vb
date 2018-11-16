@@ -40,4 +40,24 @@ Public Class doPost
         Return ""
     End Function
 
+    <WebMethod(EnableSession:=True)>
+    Public Function SaveFichaKinesiologia() As String
+        Dim js As New JavaScriptSerializer
+
+        Dim vFicha As Ficha = js.Deserialize(Context.Request.Form("Ficha"), GetType(Ficha))
+        Dim vResult As New httpResult
+
+        If vFicha.registrarFichaKinesiologia() Then
+            vResult.result = True
+        Else
+            vResult.result = False
+            vResult.message = "Error guardando registro"
+        End If
+
+        Context.Response.Write(js.Serialize(vResult))
+        Context.Response.End()
+
+        Return ""
+    End Function
+
 End Class

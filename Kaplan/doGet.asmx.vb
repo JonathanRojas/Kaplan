@@ -76,6 +76,51 @@ Public Class doGet
         Return ""
     End Function
 
+    <WebMethod(EnableSession:=True)>
+    Public Function getSesionesxPlan(intPlan As Integer) As String
+        Dim vSesiones As List(Of Sesion) = Sesion.getSesionxPlan(intPlan)
+        Dim js As New JavaScriptSerializer
+        Dim vResult As New httpResult
+
+        If Not IsNothing(vSesiones) Then
+            vResult.result = True
+            vResult.data = vSesiones
+        Else
+            vResult.result = False
+            vResult.data = vSesiones
+        End If
+        Context.Response.Write(js.Serialize(vResult))
+
+        Context.Response.End()
+        Return ""
+    End Function
+
+    <WebMethod(EnableSession:=True)>
+    Public Function getFichaKinesiologiasxReserva(intReserva As Integer) As String
+
+        Dim NoData As Boolean
+        Dim vficha As Ficha = Ficha.getFichaKinesiologia(intReserva, NoData)
+        Dim js As New JavaScriptSerializer
+        Dim vResult As New httpResult
+
+        If Not IsNothing(vficha) Then
+            vResult.result = True
+            vResult.data = vficha
+        Else
+            If NoData Then
+                vResult.errorcode = 404
+            Else
+                vResult.errorcode = 202
+            End If
+            vResult.result = False
+            vResult.data = vficha
+        End If
+        Context.Response.Write(js.Serialize(vResult))
+
+        Context.Response.End()
+        Return ""
+    End Function
+
 #Region "Tipos"
     <WebMethod(EnableSession:=True)>
     Public Function getTipoObjetivoKine() As String
