@@ -45,7 +45,13 @@ app.config(function ($routeProvider) {
             inputs: { id: -1 },
             controller: 'especialistaAusenciasController',
             controllerAs: 'especialistaAusencias'
-        })     
+        })
+        .when('/motivoCierrePlan', {
+            templateUrl: 'views/motivoCierrePlan.html',
+            inputs: { id: -1 },
+            controller: 'motivoCierrePlanController',
+            controllerAs: 'motivoCierrePlan'
+        })
         .otherwise({
             redirectTo: '/'
         });

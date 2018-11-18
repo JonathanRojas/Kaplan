@@ -139,7 +139,7 @@ img {
     background: #32dac3;
     text-decoration: none;
     outline: none !important;
-    font-weight: 500;
+    font-weight: bold;
     color: #fff !important;
     font-size: 14px;
     padding: 13px 65px;
@@ -2488,7 +2488,7 @@ ul.dropdown-menu > li:last-child > a {
         }
 
         #timetable table th, #timetable table td {
-            padding: 10px 30px 10px 30px;            
+            padding: 10px 30px 10px 30px;
             width: auto;
             height: 60px;
             border: 2px solid #b0bbc3;
@@ -2655,14 +2655,19 @@ footer {
         margin-right: 0 !important;
         padding: 13px 40px;
         height: 50px !important;
-        border-top: 2px solid #f4f4f4;
+        border-top: 2px solid #32b8da;        
+        font-family: 'Raleway', Arial, sans-serif;
+        font-weight: 700;
     }
 
     .tabs-menu .nav-tabs > li.active > a, .tabs-menu .nav > li > a:focus {
-        background-color: #fff;
+        background-color: #36badc;
         cursor: pointer;
         border: none;
         border-top: 2px solid #32b8da;
+        font-family: 'Raleway', Arial, sans-serif;
+        font-weight: 700;
+        color:#fff;
     }
 
 .nav-tabs.nav-justified > .active > a, .nav-tabs.nav-justified > .active > a:focus, .nav-tabs.nav-justified > .active > a:hover {
@@ -2816,8 +2821,7 @@ blockquote {
 #contact .form-control {
     background: #fff;
     border-radius: 4px;
-    margin: 0px 0;
-    color: #fff;
+    margin: 0px 0;    
     border-color: #07a7e3;
     color: #07a7e3;
     outline: none;
@@ -2828,6 +2832,7 @@ blockquote {
     border: 1px solid #32b8da;
     margin-bottom: 5px;
     padding: 10px 15px;
+    font-weight: bold;
 }
 
 #contact textarea.form-control {

@@ -39,10 +39,9 @@ function ($scope, ModalService, ResumenCalendarioService, Notification, LoginSer
         $scope.cargarSemana(moment())
 
         $scope.VerDetalleHora = function (inFecha, inDia, inHora, inReservas) {
-            if (inReservas > 0) {
-                var date = new Date();
-                date = moment(inFecha).startOf('isoWeek').add(inDia - 1, 'days');
-
+            var date = new Date();
+            date = moment(inFecha).startOf('isoWeek').add(inDia - 1, 'days');
+            if (inReservas > 0) {                
                 ModalService.showModal({
                     templateUrl: "views/agendaDiaHora.html",
                     inputs: { fecha: date.format("YYYY-MM-DD"), dia: inDia, hora: inHora },
@@ -59,7 +58,7 @@ function ($scope, ModalService, ResumenCalendarioService, Notification, LoginSer
             else {
                 ModalService.showModal({
                     templateUrl: "views/reserva.html",
-                    inputs: { fecha: inFecha, dia: inDia, hora: inHora },
+                    inputs: { fecha: date.format("YYYY-MM-DD"), dia: inDia, hora: inHora },
                     controller: "reservaController"
                 }).then(function (modal) {
                     modal.element.modal();

@@ -93,6 +93,21 @@ function ($scope, ModalService, reservaService, Notification, pacienteService, T
         }
     };
 
+    $scope.FiltrarPaciente = function (rutFiltro) {
+        if (rutFiltro !== null) {
+            $scope.Rut = parseInt(rutFiltro.toString().substring(0, rutFiltro.toString().length - 1));
+            $scope.Dv = rutFiltro.toString().charAt(rutFiltro.toString().length - 1);
+            $scope.getRut();
+        }
+    };
+
+    TipoService.getPacientesFiltro().then(function (result) {
+        $scope.PacientesFiltro = result.data;
+    }, function (reason) {
+        msg = { title: 'Error Lista de Pacientes Filtro' };
+        Notification.error(msg);
+    });
+
     $scope.cargarEspecialistas = function (inEspecialidad) {
         if (inEspecialidad !== undefined) {
             reservaService.getEspecialistasEsp(inEspecialidad).then(function (result) {

@@ -33,7 +33,7 @@
     <!-- Template CSS Files  -->
     <link href="css/style.css" rel="stylesheet">
     <link href="css/media.css" rel="stylesheet">
-
+    <link href="css/select2.min.css" rel="stylesheet">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/fav-144.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/fav-114.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/fav-72.png">
@@ -41,6 +41,7 @@
     <link rel="shortcut icon" href="img/favicon.ico">
 
     <script src="js/script/jquery-3.1.1.min.js"></script>
+    <script src="js/script/select2.min.js"></script>
 </head>
 <body ng-app="app" class="doted-bg" ng-cloak ng-controller="defaultController" onundo="javascript:window.localStorage.clear()">
     <div id="main">
@@ -86,6 +87,7 @@
     <script src="js/controllers/headerController.js"></script>
     <script src="js/controllers/especialistaMisHorasController.js"></script>
     <script src="js/controllers/especialistaAusenciasController.js"></script>
+    <script src="js/controllers/motivoCierrePlanController.js"></script>
     <script src="js/controllers/licenciaController.js"></script>
     <script src="js/controllers/reservaAnularController.js"></script>
     <script src="js/controllers/reservaObservacionController.js"></script>
@@ -97,6 +99,7 @@
     <script src="js/services/agendaDiaHoraService.js"></script>
     <script src="js/services/calendarioService.js"></script>
     <script src="js/services/reservaService.js"></script>
+    <script src="js/services/motivoCierrePlanService.js"></script>
     <script src="js/services/pacienteService.js"></script>
     <script src="js/services/especialistaService.js"></script>
     <script src="js/services/licenciaService.js"></script>

@@ -92,7 +92,7 @@ Namespace Clases
             Dim vDataSet As New DataSet
             adapter.Fill(vDataSet)
 
-            If Not outError.Value.Equals(0) Then
+            If Not outError.Value.Equals(1) Then
                 enviarCorreo(inEmail, outLogin.Value, outPass.Value)
                 Return True
             Else

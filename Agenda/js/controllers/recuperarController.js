@@ -9,8 +9,9 @@ function ($scope, Notification, $location, LoginService) {
                 $("#btnGuardar").button('reset');
                 $location.path('/');
             }, function (reason) {
-                Notification.error('Error al enviar correo');
+                Notification.error(reason.message);
                 $("#btnGuardar").button('reset');
+                $scope.Email = "";
             });
     };
 }]);

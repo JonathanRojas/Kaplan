@@ -20,6 +20,7 @@ function ($scope, ModalService, reservaService, Notification, TipoService, $elem
         $scope.Reserva.Especialista.Persona.FechaNac = moment($scope.Reserva.Especialista.Persona.FechaNac);
         $scope.Reserva.Paciente.Reservas = null;
         $scope.Reserva.Paciente.Planes = null;
+        $scope.Reserva.Paciente.Licencias= null;
         reservaService.anularReserva($scope.Reserva).then(function (result) {
             msg = { title: 'Reserva anulada con éxito', message: "" };
             Notification.success(msg);
