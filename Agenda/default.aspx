@@ -42,6 +42,7 @@
 
     <script src="js/script/jquery-3.1.1.min.js"></script>
     <script src="js/script/select2.min.js"></script>
+    <script src="js/script/md5.js"></script>
 </head>
 <body ng-app="app" class="doted-bg" ng-cloak ng-controller="defaultController" onundo="javascript:window.localStorage.clear()">
     <div id="main">

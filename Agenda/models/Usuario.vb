@@ -8,6 +8,7 @@ Namespace Clases
         Public Property Id As Integer
         Public Property User As String
         Public Property Pass As String
+        Public Property PassEncrypted As String
         Public Property Nombres As String
         Public Property Tipo As Integer
         Public Property IdEspecialista As Integer
@@ -21,9 +22,9 @@ Namespace Clases
             inUser.Direction = ParameterDirection.Input
             inUser.Value = Me.User
 
-            Dim inPass As OleDbParameter = cmd.Parameters.Add("@inPass", OleDbType.VarChar, 50)
+            Dim inPass As OleDbParameter = cmd.Parameters.Add("@inPass", OleDbType.VarChar, 100)
             inPass.Direction = ParameterDirection.Input
-            inPass.Value = Me.Pass
+            inPass.Value = Me.PassEncrypted
 
             Dim outError As OleDbParameter = cmd.Parameters.Add("@outError", OleDbType.Integer)
             outError.Direction = ParameterDirection.Output

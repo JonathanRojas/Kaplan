@@ -185,6 +185,7 @@
     <Content Include="js\script\bootstrap\bootstrap.js" />
     <Content Include="js\script\bootstrap\bootstrap.min.js" />
     <Content Include="js\script\bootstrap\npm.js" />
+    <Content Include="js\script\md5.js" />
     <Content Include="js\script\select2.min.js" />
     <Content Include="js\services\agendaDiaHoraService.js" />
     <Content Include="js\services\calendarioService.js" />
