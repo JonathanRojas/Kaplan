@@ -277,5 +277,42 @@ Public Class doPost1
 
         Return ""
     End Function
+    <WebMethod(EnableSession:=True)>
+    Public Function registrarMotivoCierrePlan() As String
+        Dim js As New JavaScriptSerializer
 
+        Dim vMotivoCierrePlan As MotivoCierrePlan = js.Deserialize(Context.Request.Form("MotivoCierre"), GetType(MotivoCierrePlan))
+        Dim vResult As New httpResult
+
+        If vMotivoCierrePlan.registrarMotivo() Then
+            vResult.result = True
+        Else
+            vResult.result = False
+            vResult.message = "Error eliminando registro"
+        End If
+
+        Context.Response.Write(js.Serialize(vResult))
+        Context.Response.End()
+
+        Return ""
+    End Function
+    <WebMethod(EnableSession:=True)>
+    Public Function EliminarMotivoCierrePlan() As String
+        Dim js As New JavaScriptSerializer
+
+        Dim vMotivoCierrePlan As MotivoCierrePlan = js.Deserialize(Context.Request.Form("MotivoCierre"), GetType(MotivoCierrePlan))
+        Dim vResult As New httpResult
+
+        If vMotivoCierrePlan.eliminarMotivo() Then
+            vResult.result = True
+        Else
+            vResult.result = False
+            vResult.message = "Error eliminando registro"
+        End If
+
+        Context.Response.Write(js.Serialize(vResult))
+        Context.Response.End()
+
+        Return ""
+    End Function
 End Class

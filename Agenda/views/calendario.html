@@ -17,11 +17,12 @@
                 <h3>Semana</h3>
             </div>        
             <div class="col-md-2  col-xs-6">
-                <input moment-picker="FechaSemana" today="true" ng-model="FechaSemana" change="cargarSemana(FechaSemana)" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Semana">
+                <input moment-picker="FechaSemana" today="true" ng-model="FechaSemana" change="cargarSemana(FechaSemana)" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Semana" style="color:#07a7e3; border-color:#07a7e3">
             </div>
             <div class="col-md-4">
             </div>
         </div>
+        <hr />
         <!-- Row -->
         <div class="row" ng-class="{hidden: loading}">
             <div class="col-md-12">
@@ -31,10 +32,10 @@
                             <th class="text-center" style="border-color: #b0bbc3">Hora</th>
                             <th class="text-center" style="border-color: #b0bbc3">Lunes</th>
                             <th class="text-center" style="border-color: #b0bbc3">Martes</th>
-                            <th class="text-center" style="border-color: #b0bbc3">Miercoles</th>
+                            <th class="text-center" style="border-color: #b0bbc3">Miércoles</th>
                             <th class="text-center" style="border-color: #b0bbc3">Jueves</th>
                             <th class="text-center" style="border-color: #b0bbc3">Viernes</th>
-                            <th class="text-center" style="border-color: #b0bbc3">Sabado</th>
+                            <th class="text-center" style="border-color: #b0bbc3">Sábado</th>
                         </tr>
                         <tr ng-repeat="dia in Dias">
                             <td class="time" style="background-color:#4c6575; color:#fff">{{dia.Hora}}</td>

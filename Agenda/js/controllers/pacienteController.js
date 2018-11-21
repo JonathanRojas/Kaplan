@@ -36,7 +36,6 @@ function ($scope, $http, ModalService, pacienteService, TipoService, Notificatio
                 EstadoCivil: { ID: null },
                 Prevision: { ID: null }
             }
-
         };
 
         $scope.getRut = function () {
@@ -150,7 +149,7 @@ function ($scope, $http, ModalService, pacienteService, TipoService, Notificatio
         $scope.nuevaLicencia = function () {
             ModalService.showModal({
                 templateUrl: "views/licencia.html",
-                inputs: { rut: $scope.Paciente.Id, id: -1, inicio:null, termino:null, obs:null },
+                inputs: { rut: $scope.Paciente.Id, id: -1, inicio: null, termino: null, obs: null },
                 controller: "licenciaController"
             }).then(function (modal) {
                 modal.element.modal();
@@ -240,7 +239,30 @@ function ($scope, $http, ModalService, pacienteService, TipoService, Notificatio
         };
 
         $scope.Limpiar = function () {
-            $scope.Paciente = null       
+            $scope.Paciente = {
+                Id: -1,
+                Estado: -1,
+                Persona: {
+                    Id: -1,
+                    Rut: null,
+                    Dv: null,
+                    Nombre: null,
+                    Paterno: null,
+                    Materno: null,
+                    FechaNac: null,
+                    Sexo: { ID: null },
+                    Nacionalidad: { ID: null },
+                    Comuna: { ID: null },
+                    Region: { ID: null },
+                    Direccion: null,
+                    Email: null,
+                    Movil: null,
+                    Telefono: null,
+                    SituacionLaboral: null,
+                    EstadoCivil: { ID: null },
+                    Prevision: { ID: null }
+                }
+            };
             $scope.rutvalido = false;
             $('#collapseDataPaciente').collapse('hide');
         };
@@ -249,6 +271,21 @@ function ($scope, $http, ModalService, pacienteService, TipoService, Notificatio
             var url = 'VerDocumentoCsv.aspx?tipo=ReporteMasivo&prmRut=' + $scope.Paciente.Persona.Rut
             window.open(url, '_blank')
         };
+
+        $scope.FiltrarPaciente = function (rutFiltro) {
+            if (rutFiltro !== null) {
+                $scope.Paciente.Persona.Rut = parseInt(rutFiltro.toString().substring(0, rutFiltro.toString().length - 1));
+                $scope.Paciente.Persona.Dv = rutFiltro.toString().charAt(rutFiltro.toString().length - 1);
+                $scope.getRut();
+            }
+        };
+
+        TipoService.getPacientesFiltro().then(function (result) {
+            $scope.PacientesFiltro = result.data;
+        }, function (reason) {
+            msg = { title: 'Error Lista de Pacientes Filtro' };
+            Notification.error(msg);
+        });
 
         TipoService.getTipoEstadoCivil().then(function (result) {
             $scope.TipoEstadoCiviles = result.data;

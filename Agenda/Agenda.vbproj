@@ -139,6 +139,7 @@
     <Content Include="css\font-awesome-4.7.0\HELP-US-OUT.txt" />
     <Content Include="css\font-awesome.min.css" />
     <Content Include="css\media.css" />
+    <Content Include="css\select2.min.css" />
     <Content Include="css\style.css" />
     <Content Include="default.aspx" />
     <Content Include="doGet.asmx" />
@@ -175,6 +176,7 @@
     <Content Include="js\controllers\headerController.js" />
     <Content Include="js\controllers\licenciaController.js" />
     <Content Include="js\controllers\loginController.js" />
+    <Content Include="js\controllers\motivoCierrePlanController.js" />
     <Content Include="js\controllers\planController.js" />
     <Content Include="js\controllers\recuperarController.js" />
     <Content Include="js\controllers\reservaAnularController.js" />
@@ -183,11 +185,13 @@
     <Content Include="js\script\bootstrap\bootstrap.js" />
     <Content Include="js\script\bootstrap\bootstrap.min.js" />
     <Content Include="js\script\bootstrap\npm.js" />
+    <Content Include="js\script\select2.min.js" />
     <Content Include="js\services\agendaDiaHoraService.js" />
     <Content Include="js\services\calendarioService.js" />
     <Content Include="js\services\especialistaService.js" />
     <Content Include="js\services\licenciaService.js" />
     <Content Include="js\services\loginService.js" />
+    <Content Include="js\services\motivoCierrePlanService.js" />
     <Content Include="js\services\planService.js" />
     <Content Include="js\services\reservaService.js" />
     <Content Include="js\services\WindowsService.js" />
@@ -211,6 +215,7 @@
     <Content Include="js\script\moment-with-locales.js" />
     <Content Include="js\services\pacienteService.js" />
     <Content Include="js\services\tipoService.js" />
+    <Content Include="views\motivoCierrePlan.html" />
     <Content Include="views\recuperar.html" />
     <Content Include="VerDocumentoCsv.aspx" />
     <Content Include="views\agendaDiaHora.html" />
@@ -250,6 +255,7 @@
     <Compile Include="models\Especialista.vb" />
     <Compile Include="models\httpResult.vb" />
     <Compile Include="models\Licencia.vb" />
+    <Compile Include="models\MotivoCierrePlan.vb" />
     <Compile Include="models\Paciente.vb" />
     <Compile Include="models\Persona.vb" />
     <Compile Include="models\Plan.vb" />
@@ -266,6 +272,7 @@
     <Compile Include="models\TipoMotivo.vb" />
     <Compile Include="models\TipoMotivoPlan.vb" />
     <Compile Include="models\TipoNoRealizada.vb" />
+    <Compile Include="models\TipoPacienteFiltro.vb" />
     <Compile Include="models\TipoRegion.vb" />
     <Compile Include="models\TipoPrevision.vb" />
     <Compile Include="models\TipoPais.vb" />
@@ -355,7 +362,7 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
-    <None Include="My Project\PublishProfiles\Jona.pubxml" />
+    <None Include="My Project\PublishProfiles\Agenda.pubxml" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>

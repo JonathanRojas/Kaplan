@@ -36,11 +36,12 @@ Public Class doGet
         Dim js As New JavaScriptSerializer
         js.MaxJsonLength = Int32.MaxValue
         Dim vResult As New httpResult
-        If Not IsNothing(vResultado) Then
+        If vResultado Then
             vResult.result = True
             vResult.data = ""
         Else
             vResult.result = False
+            vResult.message = "Email no válido"
         End If
 
         Context.Response.Write(js.Serialize(vResult))
@@ -303,6 +304,24 @@ Public Class doGet
         Return ""
     End Function
     <WebMethod(EnableSession:=True)>
+    Public Function getMotivosCierrePlan() As String
+        Dim vListado As List(Of MotivoCierrePlan) = MotivoCierrePlan.getMotivosCierrePlan()
+        Dim js As New JavaScriptSerializer
+        js.MaxJsonLength = Int32.MaxValue
+        Dim vResult As New httpResult
+        If Not IsNothing(vListado) Then
+            vResult.result = True
+            vResult.data = vListado
+        Else
+            vResult.result = False
+            vResult.message = "Error Listado Motivos Cierre Plan"
+        End If
+
+        Context.Response.Write(js.Serialize(vResult))
+        Context.Response.End()
+        Return ""
+    End Function
+    <WebMethod(EnableSession:=True)>
     Public Function getEstadisticaxReserva(ByVal inPaciente As Integer, ByVal inEspecialista As Integer) As String
         Dim vReserva As Reserva = Reserva.getEstadisticaxReserva(inPaciente, inEspecialista)
         Dim js As New JavaScriptSerializer
@@ -321,6 +340,24 @@ Public Class doGet
     End Function
 
 #Region "Tipos"
+    <WebMethod(EnableSession:=True)>
+    Public Function getPacientesFiltro() As String
+        Dim vTipos As List(Of TipoPacienteFiltro) = TipoPacienteFiltro.getTipos
+        Dim js As New JavaScriptSerializer
+        Dim vResult As New httpResult
+        If Not IsNothing(vTipos) Then
+            vResult.result = True
+            vResult.data = vTipos
+        Else
+            vResult.result = False
+            vResult.data = vTipos
+        End If
+
+        Context.Response.Write(js.Serialize(vResult))
+
+        Context.Response.End()
+        Return ""
+    End Function
     <WebMethod(EnableSession:=True)>
     Public Function getTipoSexo() As String
         Dim vTipos As List(Of TipoSexo) = TipoSexo.getTipos

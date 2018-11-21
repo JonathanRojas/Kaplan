@@ -29,6 +29,19 @@
                         </div>
                     </div>
                     <div class="row">
+                        <div class="col-sm-2">
+                            <label class="control-label" for="nombre" ng-if="!rutvalido">Paciente</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-check">
+                                <select ng-if="!rutvalido" ng-model="PacienteFiltro.ID" ng-change="FiltrarPaciente(PacienteFiltro.ID)" class="js-example-basic-single form-control" style="width: 100%" name="pacienteFiltro" id="pacienteFiltro" data-ng-options="pacienteFiltro.ID as pacienteFiltro.Nombre for pacienteFiltro in PacientesFiltro">
+                                    <option value="">Paciente</option>
+                                </select>
+                                <script ng-if="!rutvalido" type="text/javascript">$(document).ready(function () { $('.js-example-basic-single').select2(); });</script>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col-sm-2 short-div">
                             <label class="control-label" for="sexo">Rut</label>
                         </div>
