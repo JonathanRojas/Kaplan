@@ -19,7 +19,7 @@
                 </div>
                 <div class="col-sm-4">
                     <h2 class="animated" data-animation="bounceInLeft">Plan:</h2>
-                    <select ng-model="Ficha.Id" class="form-control" required aria-required="true" name="plan" id="plan" data-ng-options="plan.Id as plan.Nombre for plan in Planes" ng-change="CambioPlan(Ficha.Id)">
+                    <select ng-model="Plan.Id" class="form-control" required aria-required="true" name="plan" id="plan" data-ng-options="plan.Id as plan.Nombre for plan in Planes" ng-change="CambioPlan(Plan.Id)">
                         <option value="">Seleccione</option>
                     </select>
                 </div>
@@ -209,7 +209,7 @@
                                                                 <label class="control-label pull-right" for="fecha">Fecha</label>
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                <input moment-picker="EFechaIngreso" today="true" ng-model="Ficha.FichaKinesiologia.ERGOESPIROMETRIA.FechaIngreso" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Ingreso">
+                                                                <input moment-picker="EFechaIngreso" today="true" ng-model="Ficha.FichaKinesiologia.ERGOESPIROMETRIA.EFechaIngreso" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Ingreso">
                                                             </div>
                                                             <div class="col-sm-4">
                                                                 <input moment-picker="EFechaEgreso" today="true" ng-model="Ficha.FichaKinesiologia.ERGOESPIROMETRIA.EFechaEgreso" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Egreso">
@@ -310,10 +310,10 @@
                                                                 <label class="control-label pull-right" for="fecha">Fecha</label>
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                <input moment-picker="SFechaIngreso" today="true" ng-model="Ficha.FichaKinesiologia.SHUTTLE.FechaIngreso" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Ingreso">
+                                                                <input moment-picker="SFechaIngreso" today="true" ng-model="Ficha.FichaKinesiologia.SHUTTLE.EFechaIngreso" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Ingreso">
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                <input moment-picker="SFechaEgreso" today="true" ng-model="Ficha.FichaKinesiologia.SHUTTLE.FechaEgreso" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Egreso">
+                                                                <input moment-picker="SFechaEgreso" today="true" ng-model="Ficha.FichaKinesiologia.SHUTTLE.EFechaEgreso" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Egreso">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
@@ -513,7 +513,7 @@
                                                         <fieldset ng-repeat="PlanKinesicoD in columnsD" style="padding: 16px; min-width: 100%">
                                                             <div class="form-group">
                                                                 <div class="col-sm-10">
-                                                                    <select class="form-control" required aria-required="true" ng-disabled="FormEditabe" name="diagnostico" id="diagnostico" data-ng-options="tipoDiagnostico.ID as tipoDiagnostico.Nombre for tipoDiagnostico in TiposDiagnostico" ng-model="PlanKinesicoD.Diagnostico.ID">
+                                                                    <select class="form-control" required aria-required="true" ng-disabled="FormEditabe" name="diagnostico" id="diagnostico" data-ng-options="tipoDiagnostico.ID as tipoDiagnostico.Nombre for tipoDiagnostico in TiposDiagnostico" ng-model="PlanKinesicoD.Tipo.ID">
                                                                         <option value="">Seleccione</option>
                                                                     </select>
                                                                 </div>
@@ -546,7 +546,7 @@
                                                         <fieldset ng-repeat="PlanKinesicoO in columnsO" style="padding: 16px; min-width: 100%">
                                                             <div class="form-group">
                                                                 <div class="col-sm-10">
-                                                                    <select class="form-control" required aria-required="true" ng-disabled="FormEditabe" name="objetivo" id="objetivo" data-ng-options="tipoObjetivo.ID as tipoObjetivo.Nombre for tipoObjetivo in TiposObjetivo" ng-model="PlanKinesicoD.Objetivo.ID">
+                                                                    <select class="form-control" required aria-required="true" ng-disabled="FormEditabe" name="objetivo" id="objetivo" data-ng-options="tipoObjetivo.ID as tipoObjetivo.Nombre for tipoObjetivo in TiposObjetivo" ng-model="PlanKinesicoO.Tipo.ID">
                                                                         <option value="">Seleccione</option>
                                                                     </select>
                                                                 </div>

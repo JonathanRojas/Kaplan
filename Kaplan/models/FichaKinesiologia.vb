@@ -7,6 +7,7 @@ Namespace Clases
 
     Public Class FichaKinesiologia
         Public Property Id As Integer
+        Public Property IdReserva As Integer
         Public Property Riesgo As String
         Public Property NumeroSesion As Integer
         Public Property IdEspecialista As Integer
@@ -16,12 +17,6 @@ Namespace Clases
         Public Property EvolucionEgresoKine As EvolucionEgresoKine
         Public Property EvolucionIngresoKine As EvolucionIngresoKine
         Public Property PlanKinesico As PlanKinesico
-        Public Property Fecha As Date
-        Public ReadOnly Property FechaString As String
-            Get
-                Return Fecha.ToString("dd MMM yyyy")
-            End Get
-        End Property
         Public Shared Function MapeoFichaKine(prmDatos As DataTable) As FichaKinesiologia
             Try
                 Dim vKinesiologia As New FichaKinesiologia
@@ -29,6 +24,7 @@ Namespace Clases
                 Dim prmRow As DataRow = prmDatos.Rows(0)
 
                 vKinesiologia.Id = prmRow("id_ficha_kine").ToString
+                vKinesiologia.IdReserva = prmRow("id_reserva").ToString
                 vKinesiologia.Riesgo = prmRow("riesgo").ToString
                 vKinesiologia.TipoEvaluacion = prmRow("tipo_evaluacion").ToString
 
