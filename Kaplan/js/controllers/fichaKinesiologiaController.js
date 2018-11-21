@@ -24,7 +24,7 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
         //$scope.loadingData = false;
         //$scope.StopLoading();
 
-        $scope.columnsO = [{ colId: 'col1', Objetivo: { ID: '' } }];
+        $scope.columnsO = [{ colId: 'col1', Tipo: { ID: '' } , Id: -1}];
 
         $scope.addNewColumnO = function () {
             var newItemNo = $scope.columnsO.length + 1;
@@ -35,7 +35,7 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
             $scope.columnsO.splice(index, 1);
         };
 
-        $scope.columnsD = [{ colId: 'col1', Diagnostico: { ID: '' } }];
+        $scope.columnsD = [{ colId: 'col1', Tipo: { ID: '' }, Id: -1 }];
 
         $scope.addNewColumnD = function () {
             var newItemNo = $scope.columnsD.length + 1;
@@ -118,6 +118,12 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
                 fichaService.getFichaKinesiologiasxReserva(sesion).then(function (result) {
                     if (result.data.length !== 0) {
                         $scope.Ficha = result.data;
+                        $scope.Ficha.FichaKinesiologia.ERGOESPIROMETRIA.EFechaIngreso = moment($scope.Ficha.FichaKinesiologia.ERGOESPIROMETRIA.EFechaIngreso);
+                        $scope.Ficha.FichaKinesiologia.ERGOESPIROMETRIA.EFechaEgreso = moment($scope.Ficha.FichaKinesiologia.ERGOESPIROMETRIA.EFechaEgreso);
+                        $scope.Ficha.FichaKinesiologia.SHUTTLE.EFechaIngreso = moment($scope.Ficha.FichaKinesiologia.SHUTTLE.EFechaIngreso);
+                        $scope.Ficha.FichaKinesiologia.SHUTTLE.EFechaEgreso = moment($scope.Ficha.FichaKinesiologia.SHUTTLE.EFechaEgreso);
+                        $scope.Ficha.FichaKinesiologia.EvolucionIngresoKine.Fecha = moment($scope.Ficha.FichaKinesiologia.EvolucionIngresoKine.Fecha);
+                        $scope.Ficha.FichaKinesiologia.EvolucionEgresoKine.Fecha = moment($scope.Ficha.FichaKinesiologia.EvolucionEgresoKine.Fecha);
                         fichaService.getPaciente(parseInt(fichaService.getRutPaciente()), null).then(function (result) {
                             $scope.Paciente = result.data;
                             $scope.Paciente.Persona.FechaNac = moment($scope.Paciente.Persona.FechaNac);
@@ -138,6 +144,7 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
                             fichaService.getPaciente(parseInt(fichaService.getRutPaciente()), null).then(function (result) {
                                 $scope.Paciente = result.data;
                                 $scope.Paciente.Persona.FechaNac = moment($scope.Paciente.Persona.FechaNac);
+                                $scope.Ficha = {FichaKinesiologia: { Id: -1, IdReserva: sesion }};
                                 $('#collapseDataPaciente').collapse('show');
                             }, function (reason) {
                                 msg = { title: 'Error Al cargar datos del paciente' };
@@ -161,8 +168,12 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
         };
 
         $scope.SaveFicha = function () {
+            $scope.Ficha.Fecha = moment($scope.Ficha.Fecha);
+            $scope.Ficha.FichaKinesiologia.PlanKinesico.Diagnostico = $scope.columnsD;
+            $scope.Ficha.FichaKinesiologia.PlanKinesico.Objetivo = $scope.columnsO;
             $scope.Ficha.FichaKinesiologia.IdEspecialista = parseInt(LoginService.getIdEspecialista())
-            fichaService.SaveFichaKinesiologia($scope.Ficha, $scope.columnsD, $scope.columnsO)
+            console.log($scope.Ficha)
+            fichaService.SaveFichaKinesiologia($scope.Ficha)
                .then(function (result) {
                    msg = { title: 'Ficha creada con éxito', message: "" };
                    Notification.success(msg);

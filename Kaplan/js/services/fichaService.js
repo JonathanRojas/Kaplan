@@ -95,7 +95,7 @@
 
     };
 
-    FichaServ.SaveFichaKinesiologia = function (ficha, columnsD, columnsO) {
+    FichaServ.SaveFichaKinesiologia = function (ficha) {
         var deferred = $q.defer();
         var myFormData = new FormData();
          //var diag = { 'FichaKinesiologia': { 'PlanKinesico': { 'Diagnostico': columnsD, 'Objetivo': columnsO } } };

@@ -19,10 +19,10 @@ Namespace Clases
             Try
                 Dim vEvolucion As New EvolucionEgresoKine
                 prmDatos.DefaultView.RowFilter = "id_tipo = 2"
-                Dim prmRow As DataRow = prmDatos.Rows(0)
+                Dim prmRow As DataRowView = prmDatos.DefaultView.Item(0)
                 vEvolucion.Id = prmRow("id_evolucion").ToString
-                    vEvolucion.Observacion = prmRow("observacion").ToString
-                    vEvolucion.EME = prmRow("eva_mus_esq").ToString
+                vEvolucion.Observacion = prmRow("observacion").ToString
+                vEvolucion.EME = prmRow("eva_mus_esq").ToString
                 vEvolucion.Fecha = prmRow("fecha").ToString
 
                 Return vEvolucion

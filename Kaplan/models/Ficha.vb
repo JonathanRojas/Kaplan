@@ -43,10 +43,12 @@ Namespace Clases
                 Dim vKinesiologia As New FichaKinesiologia
                 Dim vEvolucionE As New EvolucionEgresoKine
                 Dim vEvolucionI As New EvolucionIngresoKine
+                Dim vPlanKinesico As New PlanKinesico
+
                 vficha.FichaKinesiologia = vKinesiologia.MapeoFichaKine(prmDatos.Tables(0))
                 vficha.FichaKinesiologia.EvolucionEgresoKine = vEvolucionE.Mapeo(prmDatos.Tables(1))
                 vficha.FichaKinesiologia.EvolucionIngresoKine = vEvolucionI.Mapeo(prmDatos.Tables(1))
-                'vficha.FichaKinesiologia.PlanKinesico = vKinesiologia.PlanKinesico.MapeoPlan(prmDatos.Tables(4))
+                vficha.FichaKinesiologia.PlanKinesico = vPlanKinesico.MapeoPlan(prmDatos.Tables(4))
                 'vficha.FichaKinesiologia.PlanKinesico = vKinesiologia.EvolucionIngresoKine.Mapeo(prmDatos.Tables(2))
                 'vficha.FichaKinesiologia.PlanKinesico = vKinesiologia.EvolucionIngresoKine.Mapeo(prmDatos.Tables(3))
 
@@ -66,9 +68,13 @@ Namespace Clases
             inId.Direction = ParameterDirection.Input
             inId.Value = 1
 
+            Dim inIdKine As OleDbParameter = cmd.Parameters.Add("@id_ficha_kine", OleDbType.Decimal, Nothing)
+            inIdKine.Direction = ParameterDirection.Input
+            inIdKine.Value = Me.FichaKinesiologia.Id
+
             Dim inid_reserva As OleDbParameter = cmd.Parameters.Add("@id_reserva", OleDbType.Decimal, Nothing)
             inid_reserva.Direction = ParameterDirection.Input
-            inid_reserva.Value = 1
+            inid_reserva.Value = Me.FichaKinesiologia.IdReserva
 
             Dim inRiesgo As OleDbParameter = cmd.Parameters.Add("@riesgo", OleDbType.VarChar, 500)
             inRiesgo.Direction = ParameterDirection.Input
@@ -77,10 +83,6 @@ Namespace Clases
             Dim inTipoEvaluacion As OleDbParameter = cmd.Parameters.Add("@TipoEvaluacion", OleDbType.VarChar, 500)
             inTipoEvaluacion.Direction = ParameterDirection.Input
             inTipoEvaluacion.Value = Me.FichaKinesiologia.TipoEvaluacion
-
-            Dim inNumeroSesion As OleDbParameter = cmd.Parameters.Add("@nro_sesion", OleDbType.Decimal, Nothing)
-            inNumeroSesion.Direction = ParameterDirection.Input
-            inNumeroSesion.Value = 24
 
             Dim inIdEspecialista As OleDbParameter = cmd.Parameters.Add("@id_especialista", OleDbType.Decimal, Nothing)
             inIdEspecialista.Direction = ParameterDirection.Input
@@ -238,12 +240,45 @@ Namespace Clases
             inevolcuion_observacion_2.Direction = ParameterDirection.Input
             inevolcuion_observacion_2.Value = Me.FichaKinesiologia.EvolucionEgresoKine.Observacion
 
+            Dim inidPlan_kine As OleDbParameter = cmd.Parameters.Add("@v_idPlan_kine", OleDbType.Decimal, Nothing)
+            inidPlan_kine.Direction = ParameterDirection.Input
+            inidPlan_kine.Value = Me.FichaKinesiologia.PlanKinesico.Id
+
+            Dim ineje_aerobico As OleDbParameter = cmd.Parameters.Add("@eje_aerobico", OleDbType.VarChar, 500)
+            ineje_aerobico.Direction = ParameterDirection.Input
+            ineje_aerobico.Value = Me.FichaKinesiologia.PlanKinesico.AEROBICO
+
+            Dim ineje_sobrecarga As OleDbParameter = cmd.Parameters.Add("@eje_sobrecarga", OleDbType.VarChar, 500)
+            ineje_sobrecarga.Direction = ParameterDirection.Input
+            ineje_sobrecarga.Value = Me.FichaKinesiologia.PlanKinesico.SOBRECARGA
+
+            Dim inentre_funcional As OleDbParameter = cmd.Parameters.Add("@entre_funcional", OleDbType.VarChar, 500)
+            inentre_funcional.Direction = ParameterDirection.Input
+            inentre_funcional.Value = Me.FichaKinesiologia.PlanKinesico.FUNCIONAL
+
+            Dim inedu_habitos_cardio As OleDbParameter = cmd.Parameters.Add("@edu_habitos_cardio", OleDbType.VarChar, 500)
+            inedu_habitos_cardio.Direction = ParameterDirection.Input
+            inedu_habitos_cardio.Value = Me.FichaKinesiologia.PlanKinesico.EDUCACION
+
+            Dim indiagnostico As OleDbParameter = cmd.Parameters.Add("@diagnostico", OleDbType.VarChar, 5000)
+            indiagnostico.Direction = ParameterDirection.Input
+            indiagnostico.Value = Me.FichaKinesiologia.PlanKinesico.ToJSONDiagnostico(Me.FichaKinesiologia.PlanKinesico.Diagnostico)
+
+            Dim inobjetivo As OleDbParameter = cmd.Parameters.Add("@objetivo", OleDbType.VarChar, 5000)
+            inobjetivo.Direction = ParameterDirection.Input
+            inobjetivo.Value = Me.FichaKinesiologia.PlanKinesico.ToJSONObjetivo(Me.FichaKinesiologia.PlanKinesico.Objetivo)
+
             Dim outError As OleDbParameter = cmd.Parameters.Add("@outError", OleDbType.Integer)
             outError.Direction = ParameterDirection.Output
+
+            Dim outIdKine As OleDbParameter = cmd.Parameters.Add("@outIdKine", OleDbType.Integer)
+            outIdKine.Direction = ParameterDirection.Output
 
             conn.Open()
             cmd.ExecuteReader()
             conn.Close()
+
+            Dim idkine = CInt(cmd.Parameters("@outIdKine").Value)
 
             Return CInt(cmd.Parameters("@outError").Value)
         End Function
