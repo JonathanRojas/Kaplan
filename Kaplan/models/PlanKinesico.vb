@@ -38,39 +38,6 @@ Namespace Clases
             Catch ex As Exception
                 Return Nothing
             End Try
-
-        End Function
-
-        Public Shared Function MapeoDiagnostico(prmDatos As DataTable) As List(Of Tipos.TipoDiagnosticoKine)
-            Try
-                For Each vRow As DataRow In prmDatos.Rows
-                    Dim vDiagnostico As New Tipos.TipoDiagnosticoKine
-                    vDiagnostico.ID = vRow("id_diagnostico").ToString
-                    vDiagnostico.Nombre = vRow("observacion").ToString
-                    vDiagnostico.Activo = vRow("eva_mus_esq").ToString
-                    MapeoDiagnostico.Add(vDiagnostico)
-                Next
-                Return MapeoDiagnostico
-            Catch ex As Exception
-                Return Nothing
-            End Try
-
-        End Function
-
-        Public Shared Function MapeoObjetivo(prmDatos As DataTable) As List(Of Tipos.TipoObjetivoKine)
-            Try
-                For Each vRow As DataRow In prmDatos.Rows
-                    Dim vObjetivo As New Tipos.TipoObjetivoKine
-                    vObjetivo.ID = vRow("id_evolucion").ToString
-                    vObjetivo.Nombre = vRow("observacion").ToString
-                    vObjetivo.Activo = vRow("eva_mus_esq").ToString
-                    MapeoObjetivo.Add(vObjetivo)
-                Next
-                Return MapeoObjetivo
-            Catch ex As Exception
-                Return Nothing
-            End Try
-
         End Function
 
         Public Function ToJSONDiagnostico(rows As List(Of PlanKinesicoDiagnostico)) As String

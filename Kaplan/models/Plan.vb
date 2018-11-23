@@ -1,6 +1,4 @@
-﻿
-
-Imports Kaplan.Clases
+﻿Imports Kaplan.Clases
 Imports System.Globalization
 Imports System.Data.OleDb
 Imports System.Data.SqlClient
@@ -46,6 +44,7 @@ Namespace Clases
                 conn.Close()
                 Return getPlanesxRut
             Catch exc As Exception
+                Return Nothing
             End Try
 
         End Function

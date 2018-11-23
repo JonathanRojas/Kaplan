@@ -190,6 +190,7 @@
     <Content Include="js\script\jquery.countTo.js" />
     <Content Include="js\script\jquery.easing.min.js" />
     <Content Include="js\script\main.js" />
+    <Content Include="js\script\md5.js" />
     <Content Include="js\script\moment-with-locales.js" />
     <Content Include="js\script\table2excel.js" />
     <Content Include="js\services\fichaService.js" />

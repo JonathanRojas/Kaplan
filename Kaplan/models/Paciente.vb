@@ -10,30 +10,35 @@ Namespace Clases
         Public Property Persona As Persona
 
         Public Shared Function getPaciente(inRut As Integer, strPasaporte As String, ByRef NoData As Boolean) As Paciente
-            Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("BuscarPersona", conn)
-            cmd.CommandType = CommandType.StoredProcedure
 
-            Dim Rut As OleDbParameter = cmd.Parameters.Add("@inRut", OleDbType.Decimal, Nothing)
-            Rut.Direction = ParameterDirection.Input
-            Rut.Value = inRut
+            Try
+                Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
+                Dim cmd As OleDbCommand = New OleDbCommand("BuscarPersona", conn)
+                cmd.CommandType = CommandType.StoredProcedure
 
-            Dim Pasaporte As OleDbParameter = cmd.Parameters.Add("@inPasaporte", OleDbType.VarChar, 100)
-            Pasaporte.Direction = ParameterDirection.Input
-            Pasaporte.Value = strPasaporte
+                Dim Rut As OleDbParameter = cmd.Parameters.Add("@inRut", OleDbType.Decimal, Nothing)
+                Rut.Direction = ParameterDirection.Input
+                Rut.Value = inRut
 
-            Dim adapter As OleDbDataAdapter = New OleDbDataAdapter(cmd)
-            Dim vDataSet As New DataSet
-            adapter.Fill(vDataSet)
-            If Not vDataSet.Tables(0).Rows.Count.Equals(0) Then
-                If Not vDataSet.Tables(0).Rows(0)("ID_PAC").Equals(DBNull.Value) Then
-                    getPaciente = Mapeo(vDataSet)
+                Dim Pasaporte As OleDbParameter = cmd.Parameters.Add("@inPasaporte", OleDbType.VarChar, 100)
+                Pasaporte.Direction = ParameterDirection.Input
+                Pasaporte.Value = strPasaporte
+
+                Dim adapter As OleDbDataAdapter = New OleDbDataAdapter(cmd)
+                Dim vDataSet As New DataSet
+                adapter.Fill(vDataSet)
+                If Not vDataSet.Tables(0).Rows.Count.Equals(0) Then
+                    If Not vDataSet.Tables(0).Rows(0)("ID_PAC").Equals(DBNull.Value) Then
+                        getPaciente = Mapeo(vDataSet)
+                    End If
                 End If
-            End If
 
-            If vDataSet.Tables(0).Rows.Count = 0 OrElse vDataSet.Tables(0).Rows(0)("ID_PAC").Equals(DBNull.Value) Then NoData = True
+                If vDataSet.Tables(0).Rows.Count = 0 OrElse vDataSet.Tables(0).Rows(0)("ID_PAC").Equals(DBNull.Value) Then NoData = True
 
-            Return getPaciente
+                Return getPaciente
+            Catch exc As Exception
+                Return Nothing
+            End Try
         End Function
 
         Private Shared Function Mapeo(prmDatos As DataSet) As Paciente

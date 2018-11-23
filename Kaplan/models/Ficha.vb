@@ -17,24 +17,30 @@ Namespace Clases
         Public Property FichaKinesiologia As FichaKinesiologia
 
         Public Shared Function getFichaKinesiologia(inId As Integer, ByRef NoData As Boolean) As Ficha
-            Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("BuscarFichaKinesiologiaxReserva", conn)
-            cmd.CommandType = CommandType.StoredProcedure
+            Try
+                Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
+                Dim cmd As OleDbCommand = New OleDbCommand("BuscarFichaKinesiologiaxReserva", conn)
+                cmd.CommandType = CommandType.StoredProcedure
 
-            Dim id As OleDbParameter = cmd.Parameters.Add("@inId", OleDbType.Decimal, Nothing)
-            id.Direction = ParameterDirection.Input
-            id.Value = inId
+                Dim id As OleDbParameter = cmd.Parameters.Add("@inId", OleDbType.Decimal, Nothing)
+                id.Direction = ParameterDirection.Input
+                id.Value = inId
 
-            Dim adapter As OleDbDataAdapter = New OleDbDataAdapter(cmd)
-            Dim vDataSet As New DataSet
-            adapter.Fill(vDataSet)
-            If Not vDataSet.Tables(0).Rows.Count.Equals(0) Then
-                getFichaKinesiologia = MapeoFichaKine(vDataSet)
-            End If
+                Dim adapter As OleDbDataAdapter = New OleDbDataAdapter(cmd)
+                Dim vDataSet As New DataSet
+                adapter.Fill(vDataSet)
+                If Not vDataSet.Tables(0).Rows.Count.Equals(0) Then
+                    getFichaKinesiologia = MapeoFichaKine(vDataSet)
+                End If
 
-            If vDataSet.Tables(0).Rows.Count = 0 Then NoData = True
+                If vDataSet.Tables(0).Rows.Count = 0 Then NoData = True
 
-            Return getFichaKinesiologia
+                Return getFichaKinesiologia
+
+            Catch exc As Exception
+                Return Nothing
+            End Try
+
         End Function
 
         Private Shared Function MapeoFichaKine(prmDatos As DataSet) As Ficha
@@ -44,14 +50,15 @@ Namespace Clases
                 Dim vEvolucionE As New EvolucionEgresoKine
                 Dim vEvolucionI As New EvolucionIngresoKine
                 Dim vPlanKinesico As New PlanKinesico
+                Dim vDiagnostico As New PlanKinesicoDiagnostico
+                Dim vObjetivo As New PlanKinesicoObjetivo
 
                 vficha.FichaKinesiologia = vKinesiologia.MapeoFichaKine(prmDatos.Tables(0))
                 vficha.FichaKinesiologia.EvolucionEgresoKine = vEvolucionE.Mapeo(prmDatos.Tables(1))
                 vficha.FichaKinesiologia.EvolucionIngresoKine = vEvolucionI.Mapeo(prmDatos.Tables(1))
                 vficha.FichaKinesiologia.PlanKinesico = vPlanKinesico.MapeoPlan(prmDatos.Tables(4))
-                'vficha.FichaKinesiologia.PlanKinesico = vKinesiologia.EvolucionIngresoKine.Mapeo(prmDatos.Tables(2))
-                'vficha.FichaKinesiologia.PlanKinesico = vKinesiologia.EvolucionIngresoKine.Mapeo(prmDatos.Tables(3))
-
+                vficha.FichaKinesiologia.PlanKinesico.Diagnostico = vDiagnostico.MapeoDiagnostico(prmDatos.Tables(2))
+                vficha.FichaKinesiologia.PlanKinesico.Objetivo = vObjetivo.MapeoObjetivo(prmDatos.Tables(3))
 
                 Return vficha
             Catch ex As Exception
@@ -260,11 +267,11 @@ Namespace Clases
             inedu_habitos_cardio.Direction = ParameterDirection.Input
             inedu_habitos_cardio.Value = Me.FichaKinesiologia.PlanKinesico.EDUCACION
 
-            Dim indiagnostico As OleDbParameter = cmd.Parameters.Add("@diagnostico", OleDbType.VarChar, 5000)
+            Dim indiagnostico As OleDbParameter = cmd.Parameters.Add("@diagnostico", OleDbType.VarChar, -1)
             indiagnostico.Direction = ParameterDirection.Input
             indiagnostico.Value = Me.FichaKinesiologia.PlanKinesico.ToJSONDiagnostico(Me.FichaKinesiologia.PlanKinesico.Diagnostico)
 
-            Dim inobjetivo As OleDbParameter = cmd.Parameters.Add("@objetivo", OleDbType.VarChar, 5000)
+            Dim inobjetivo As OleDbParameter = cmd.Parameters.Add("@objetivo", OleDbType.VarChar, -1)
             inobjetivo.Direction = ParameterDirection.Input
             inobjetivo.Value = Me.FichaKinesiologia.PlanKinesico.ToJSONObjetivo(Me.FichaKinesiologia.PlanKinesico.Objetivo)
 

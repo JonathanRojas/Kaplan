@@ -3,6 +3,7 @@ function ($scope, Notification, $location, LoginService) {
 
     $scope.formSubmit = function () {
         $("#btnGuardar").button('loading');
+        $scope.Usuario.Pass = md5($scope.Usuario.Pass);
         LoginService.getIngresar($scope.Usuario)
             .then(function (result) {
                 LoginService.getLoginServer($scope.Usuario.User).then(function (result) {
