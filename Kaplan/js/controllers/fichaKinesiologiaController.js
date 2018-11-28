@@ -4,6 +4,7 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
         LoginService.getCerrarSesion();
         $location.path('cerrarsesion');
     } else {
+        waitingDialog.show('Cargando Ficha...', { dialogSize: 'sm' });
         $scope.loading = true;
         //$scope.loadingData = true;
         $scope.loadingTipoRegion = true;
@@ -13,6 +14,7 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
         $scope.loadingPlanes = true;
         $scope.StopLoading = function () {
             $scope.loading = !(!$scope.loadingTipoRegion && !$scope.loadingTipoDiagnosticoKine && !$scope.loadingTipoObjetivoKine && !$scope.loadingTipoComuna && !$scope.loadingPlanes);
+            if (!$scope.loading) { waitingDialog.hide(); }
         };
 
         if (parseInt(LoginService.getTipo()) == 5) {
@@ -115,6 +117,7 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
 
         $scope.CambiarSesion = function (sesion) {
             if (typeof sesion !== 'undefined') {
+                waitingDialog.show('Cargando Ficha...', { dialogSize: 'sm' });
                 fichaService.getFichaKinesiologiasxReserva(sesion).then(function (result) {
                     if (result.data.length !== 0) {
                         $scope.Ficha = result.data;
@@ -130,13 +133,16 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
                             $scope.Paciente = result.data;
                             $scope.Paciente.Persona.FechaNac = moment($scope.Paciente.Persona.FechaNac);
                             $('#collapseDataPaciente').collapse('show');
+                            waitingDialog.hide();
                         }, function (reason) {
                             msg = { title: 'Error Al cargar datos del paciente' };
                             Notification.error(msg);
                             $('#collapseDataPaciente').collapse('hide');
+                            waitingDialog.hide();
                         });
                     } else {
                         $('#collapseDataPaciente').collapse('hide');
+                        waitingDialog.hide();
                     };
                 }, function (reason) {
                     if (reason.errorcode == 404) {
@@ -148,42 +154,78 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
                                 $scope.Paciente.Persona.FechaNac = moment($scope.Paciente.Persona.FechaNac);
                                 $scope.Ficha = {FichaKinesiologia: { Id: -1, IdReserva: sesion }};
                                 $('#collapseDataPaciente').collapse('show');
+                                waitingDialog.hide();
                             }, function (reason) {
                                 msg = { title: 'Error Al cargar datos del paciente' };
                                 Notification.error(msg);
                                 $('#collapseDataPaciente').collapse('hide');
+                                waitingDialog.hide();
                             });
                         } else {
                             msg = { title: 'Sesion Sin Ficha' };
                             Notification.warning(msg);
                             $('#collapseDataPaciente').collapse('hide');
+                            waitingDialog.hide();
                         };
                     } else {
                         msg = { title: 'Error al Buscar Ficha' };
                         Notification.error(msg);
                         $('#collapseDataPaciente').collapse('hide');
+                        waitingDialog.hide();
                     }
                 });
             } else {
                 $('#collapseDataPaciente').collapse('hide');
+                waitingDialog.hide();
             };            
         };
 
         $scope.SaveFicha = function () {
-            $scope.Ficha.Fecha = moment($scope.Ficha.Fecha);
-            $scope.Ficha.FichaKinesiologia.PlanKinesico.Diagnostico = $scope.columnsD;
-            $scope.Ficha.FichaKinesiologia.PlanKinesico.Objetivo = $scope.columnsO;
-            $scope.Ficha.FichaKinesiologia.IdEspecialista = parseInt(LoginService.getIdEspecialista())
-            console.log($scope.Ficha)
-            fichaService.SaveFichaKinesiologia($scope.Ficha)
-               .then(function (result) {
-                   msg = { title: 'Ficha creada con éxito', message: "" };
-                   Notification.success(msg);
-               }, function (reason) {
-                   msg = { title: 'Error guardando Ficha' };
-                   Notification.error(msg);
-                   $scope.saving = false;
-               });
+            if ($scope.ValidarForm()) {
+                $scope.Ficha.Fecha = moment($scope.Ficha.Fecha);
+                $scope.Ficha.FichaKinesiologia.PlanKinesico.Diagnostico = $scope.columnsD;
+                $scope.Ficha.FichaKinesiologia.PlanKinesico.Objetivo = $scope.columnsO;
+                $scope.Ficha.FichaKinesiologia.IdEspecialista = parseInt(LoginService.getIdEspecialista())
+                waitingDialog.show('Guardando Ficha...', { dialogSize: 'sm' });
+                fichaService.SaveFichaKinesiologia($scope.Ficha)
+                   .then(function (result) {
+                       msg = { title: 'Ficha creada con éxito', message: "" };
+                       Notification.success(msg);
+                       waitingDialog.hide();
+                       window.scrollTo(0,0);
+                       //$scope.CambiarSesion($scope.Sesion.Id);
+                   }, function (reason) {
+                       msg = { title: 'Error guardando Ficha' };
+                       Notification.error(msg);
+                       $scope.saving = false;
+                       waitingDialog.hide();
+                   });
+            };
+        }
+
+        $scope.ValidarForm = function () {
+            var error = 0;
+            var msg = 'Los siguientes campos son requeridos :<br>';
+            $(':input[required]', '#frmKinesiologia').each(function () {
+                $(this).css('border', '1px solid #32b8da');
+                if ($(this).val() == '') {
+                    msg += '<br><b>' + $(this).attr('placeholder') + '</b>';
+                    $(this).css('border', '2px solid red');
+                    /*if (error == 0) {
+                        $(this).focus();
+                        var tab = $(this).closest('.tab-pane').attr('id');
+                        $('#myTab a[href="#' + tab + '"]').tab('show');
+                    }*/
+                    error = 1;
+                }
+            });
+            if (error == 1) {
+                msg = { title: 'Ups, Faltan campos por completar', message: msg, delay: 5000 };
+                Notification.warning(msg);
+                return false;
+            } else {
+                return true;
+            }
         }
 
     };

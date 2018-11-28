@@ -1,35 +1,35 @@
 ﻿<section id="suggestions" class="doted-bg1" ng-controller="fichaKinesiologiaController">
-    <form class="form-horizontal" name="frmKinesiologia" id="contact" role="form" ng-disabled="true" ng-submit="SaveFicha()">
+    <form class="form-horizontal formodif" name="frmKinesiologia" id="frmKinesiologia" role="form" ng-disabled="true">
         <div class="section-title text-center">
-            <div ng-class="{hidden: !loading}" class="animated" data-animation="bounceInLeft">
+            <!--<div ng-class="{hidden: !loading}" class="animated" data-animation="bounceInLeft">
                 <h5>Cargando Datos de la Ficha... <i class="fa fa-user hidden-xs" aria-hidden="true"></i></h5>
                 <div class="progress">
                     <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%; background-color: #32b8da;">
                     </div>
                 </div>
-            </div>
+            </div>-->
             <h3 class="animated hidden-xs" data-animation="bounceInLeft" ng-class="{hidden: loading}">
                 <label class="text-blue animated hidden-xs" data-animation="bounceInLeft">
-                    Ficha Kinesologia
+                    Ficha Kinesiologia
                 </label>
             </h3>
             <div class="row mb10" ng-class="{hidden: loading}">
-                <div class="col-sm-2">
+                <div class="col-sm-3">
 
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-3">
                     <h2 class="animated" data-animation="bounceInLeft">Plan:</h2>
-                    <select ng-model="Plan.Id" class="form-control" required aria-required="true" name="plan" id="plan" data-ng-options="plan.Id as plan.Nombre for plan in Planes" ng-change="CambioPlan(Plan.Id)">
+                    <select ng-model="Plan.Id" class="form-control" required aria-required="true" name="plan" id="plan" ng-disabled="Sesion.Id !== undefined && Plan.Id !== undefined" data-ng-options="plan.Id as plan.Nombre for plan in Planes" ng-change="CambioPlan(Plan.Id)">
                         <option value="">Seleccione</option>
                     </select>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-3">
                     <h2 class="animated" data-animation="bounceInLeft">Sesiones:</h2>
                     <select ng-model="Sesion.Id" class="form-control" required aria-required="true" name="sesion" id="sesion" data-ng-options="sesion.Id as sesion.Nombre for sesion in Sesiones" ng-change="CambiarSesion(Sesion.Id)">
                         <option value="">Seleccione</option>
                     </select>
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-3">
 
                 </div>
             </div>
@@ -108,7 +108,7 @@
                                                             </div>
                                                             <div class="col-sm-4">
                                                                 <div class="form-check">
-                                                                    <select class="form-control" required aria-required="true" ng-disabled="FormEditabe" name="region" id="region" data-ng-options="tipoRegion.ID as tipoRegion.Nombre for tipoRegion in TipoRegiones" ng-model="Paciente.Persona.Region.ID">
+                                                                    <select class="form-control" required aria-required="true" placeholder="Region" ng-disabled="FormEditabe" name="region" id="region" data-ng-options="tipoRegion.ID as tipoRegion.Nombre for tipoRegion in TipoRegiones" ng-model="Paciente.Persona.Region.ID">
                                                                         <option value="">Seleccione</option>
                                                                     </select>
                                                                 </div>
@@ -118,7 +118,7 @@
                                                             </div>
                                                             <div class="col-sm-4">
                                                                 <div class="form-check">
-                                                                    <select class="form-control" required aria-required="true" ng-disabled="FormEditabe" name="comuna" id="comuna" data-ng-options="tipoComuna.ID as tipoComuna.Nombre for tipoComuna in TipoComunas" ng-model="Paciente.Persona.Comuna.ID">
+                                                                    <select class="form-control" required aria-required="true" placeholder="Comuna" ng-disabled="FormEditabe" name="comuna" id="comuna" data-ng-options="tipoComuna.ID as tipoComuna.Nombre for tipoComuna in TipoComunas" ng-model="Paciente.Persona.Comuna.ID">
                                                                         <option value="">Seleccione</option>
                                                                     </select>
                                                                 </div>
@@ -151,7 +151,7 @@
                                                                 <label class="control-label pull-right" for="situacionLaboral">Situación Laboral</label>
                                                             </div>
                                                             <div class="col-sm-10">
-                                                                <textarea class="form-control" id="situacionLaboral" rows="4" required aria-required="true" ng-disabled="FormEditabe" ng-model="Paciente.Persona.SituacionLaboral" maxlength="250"></textarea>
+                                                                <textarea class="form-control" id="situacionLaboral" rows="4" placeholder="Situación Laboral" required aria-required="true" ng-disabled="FormEditabe" ng-model="Paciente.Persona.SituacionLaboral" maxlength="250"></textarea>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
@@ -425,7 +425,7 @@
                                                                 <label class="control-label pull-right" for="EME">EVALUACION MUSCULO-ESQUELETICA</label>
                                                             </div>
                                                             <div class="col-sm-8">
-                                                                <textarea class="form-control" id="EME" rows="3" ng-model="Ficha.FichaKinesiologia.EvolucionIngresoKine.EME" required aria-required="true" ng-disabled="FormEditabe" maxlength="250"></textarea>
+                                                                <textarea class="form-control" id="EME" rows="3" ng-model="Ficha.FichaKinesiologia.EvolucionIngresoKine.EME" required aria-required="true" ng-disabled="FormEditabe" maxlength="250" placeholder="EVALUACION MUSCULO-ESQUELETICA - Ingreso"></textarea>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
@@ -433,7 +433,7 @@
                                                                 <label class="control-label pull-right" for="Observacion">Observacion</label>
                                                             </div>
                                                             <div class="col-sm-8">
-                                                                <textarea class="form-control" id="Observacion" rows="3" ng-model="Ficha.FichaKinesiologia.EvolucionIngresoKine.Observacion" required aria-required="true" ng-disabled="FormEditabe" maxlength="250"></textarea>
+                                                                <textarea class="form-control" id="Observacion" rows="3" ng-model="Ficha.FichaKinesiologia.EvolucionIngresoKine.Observacion" required aria-required="true" ng-disabled="FormEditabe" placeholder="EVALUACION MUSCULO-ESQUELETICA - Observacion" maxlength="250"></textarea>
                                                             </div>
                                                         </div>
                                                         <span class="clearfix"></span>
@@ -466,7 +466,7 @@
                                                                 <label class="control-label pull-right" for="EMEE">EVALUACION MUSCULO-ESQUELETICA</label>
                                                             </div>
                                                             <div class="col-sm-8">
-                                                                <textarea class="form-control" id="EMEE" rows="3" ng-model="Ficha.FichaKinesiologia.EvolucionEgresoKine.EME" required aria-required="true" ng-disabled="FormEditabe" maxlength="250"></textarea>
+                                                                <textarea class="form-control" id="EMEE" rows="3" ng-model="Ficha.FichaKinesiologia.EvolucionEgresoKine.EME" required placeholder="EVALUACION MUSCULO-ESQUELETICA - Egreso" aria-required="true" ng-disabled="FormEditabe" maxlength="250"></textarea>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
@@ -474,7 +474,7 @@
                                                                 <label class="control-label pull-right" for="ObservacionE">Observacion</label>
                                                             </div>
                                                             <div class="col-sm-8">
-                                                                <textarea class="form-control" id="ObservacionE" rows="3" ng-model="Ficha.FichaKinesiologia.EvolucionEgresoKine.Observacion" required aria-required="true" ng-disabled="FormEditabe" maxlength="250"></textarea>
+                                                                <textarea class="form-control" id="ObservacionE" rows="3" ng-model="Ficha.FichaKinesiologia.EvolucionEgresoKine.Observacion" required placeholder="EVALUACION MUSCULO-ESQUELETICA - Observacion" aria-required="true" ng-disabled="FormEditabe" maxlength="250"></textarea>
                                                             </div>
                                                         </div>
                                                         <span class="clearfix"></span>
@@ -513,7 +513,7 @@
                                                         <fieldset ng-repeat="PlanKinesicoD in columnsD" style="padding: 16px; min-width: 100%">
                                                             <div class="form-group">
                                                                 <div class="col-sm-10">
-                                                                    <select class="form-control" required aria-required="true" ng-disabled="FormEditabe" name="diagnostico" id="diagnostico" data-ng-options="tipoDiagnostico.ID as tipoDiagnostico.Nombre for tipoDiagnostico in TiposDiagnostico" ng-model="PlanKinesicoD.Tipo.ID">
+                                                                    <select class="form-control" required aria-required="true" placeholder="Diagnostico" ng-disabled="FormEditabe" name="diagnostico" id="diagnostico" data-ng-options="tipoDiagnostico.ID as tipoDiagnostico.Nombre for tipoDiagnostico in TiposDiagnostico" ng-model="PlanKinesicoD.Tipo.ID">
                                                                         <option value="">Seleccione</option>
                                                                     </select>
                                                                 </div>
@@ -546,7 +546,7 @@
                                                         <fieldset ng-repeat="PlanKinesicoO in columnsO" style="padding: 16px; min-width: 100%">
                                                             <div class="form-group">
                                                                 <div class="col-sm-10">
-                                                                    <select class="form-control" required aria-required="true" ng-disabled="FormEditabe" name="objetivo" id="objetivo" data-ng-options="tipoObjetivo.ID as tipoObjetivo.Nombre for tipoObjetivo in TiposObjetivo" ng-model="PlanKinesicoO.Tipo.ID">
+                                                                    <select class="form-control" required aria-required="true" placeholder="Objetivo" ng-disabled="FormEditabe" name="objetivo" id="objetivo" data-ng-options="tipoObjetivo.ID as tipoObjetivo.Nombre for tipoObjetivo in TiposObjetivo" ng-model="PlanKinesicoO.Tipo.ID">
                                                                         <option value="">Seleccione</option>
                                                                     </select>
                                                                 </div>
@@ -613,7 +613,7 @@
                                 <div class="form-group mb10">
                                     <div class="col-sm-12 text-right">
                                         <a class="btn  blue medium btnPrevious" ng-click="previous()">Anterior</a>
-                                        <button id="btnGuardar" type="submit" ng-show="!FormEditabe" class="btn  blue medium">Guardar</button>
+                                        <button id="btnGuardar" type="button" ng-show="!FormEditabe" class="btn  blue medium" ng-click="SaveFicha()">Guardar</button>
                                     </div>
                                 </div>
                             </div>

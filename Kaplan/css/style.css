@@ -3110,3 +3110,50 @@ body.boxed {
     vertical-align: top;
     line-height: 100%;
 }
+
+.formodif .form-control {
+    background: #fff;
+    border-radius: 4px;
+    margin: 0px 0;
+    color: #fff;
+    border-color: #07a7e3;
+    color: #07a7e3;
+    outline: none;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+    width: 100%;
+    border: 1px solid #32b8da;
+    margin-bottom: 5px;
+    /*padding: 10px 15px;*/
+}
+
+.formodif textarea.form-control {
+    height: 120px;
+    border: 1px solid #32b8da;
+    padding: 15px 15px;
+}
+
+.formodif .error, .error {
+    margin-top: -15px;
+    font-size: 10px;
+    margin-bottom: 15px;
+    display: block;
+    color: #ed6a5d;
+}
+
+.formodif .message-sent, .message-sent {
+    background-color: #32dac3;
+    padding: 15px 10px;
+    color: #fff;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.formodif .message-not-sent, .message-not-sent {
+    background-color: #ed6a5d;
+    padding: 15px 10px;
+    color: #fff;
+    width: 100%;
+    margin-bottom: 15px;
+}
