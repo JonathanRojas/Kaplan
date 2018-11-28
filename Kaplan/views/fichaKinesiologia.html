@@ -503,7 +503,7 @@
                                                                 <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionKine"><i class="fa fa-heartbeat" aria-hidden="true"></i>Diagnostico Kinesico</a>
                                                             </div>
                                                             <div class="col-sm-5">
-                                                                <button type="button" class="btn border small pull-left" ng-click="addNewColumnD()">+ Diagnostico</button>
+                                                                <button type="button" class="btn border small pull-left" ng-show="!FormEditabe" ng-click="addNewColumnD()">+ Diagnostico</button>
                                                             </div>
                                                         </div>
                                                     </h4>
@@ -518,7 +518,7 @@
                                                                     </select>
                                                                 </div>
                                                                 <div class="col-sm-2">
-                                                                    <button class="remove" ng-hide="columnsD.length == 1" ng-click="removeColumnD($index)">x</button>
+                                                                    <button class="remove" ng-hide="columnsD.length == 1 || FormEditabe" ng-click="removeColumnD($index)">x</button>
                                                                 </div>
                                                             </div>
                                                         </fieldset>
@@ -536,7 +536,7 @@
                                                                 <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionObj"><i class="fa fa-heartbeat" aria-hidden="true"></i>Objetivos</a>
                                                             </div>
                                                             <div class="col-sm-5">
-                                                                <button type="button" class="btn border small pull-left" ng-click="addNewColumnO()">+ Objetivos</button>
+                                                                <button type="button" class="btn border small pull-left" ng-show="!FormEditabe" ng-click="addNewColumnO()">+ Objetivos</button>
                                                             </div>
                                                         </div>
                                                     </h4>
@@ -546,12 +546,12 @@
                                                         <fieldset ng-repeat="PlanKinesicoO in columnsO" style="padding: 16px; min-width: 100%">
                                                             <div class="form-group">
                                                                 <div class="col-sm-10">
-                                                                    <select class="form-control" required aria-required="true" placeholder="Objetivo" ng-disabled="FormEditabe" name="objetivo" id="objetivo" data-ng-options="tipoObjetivo.ID as tipoObjetivo.Nombre for tipoObjetivo in TiposObjetivo" ng-model="PlanKinesicoO.Tipo.ID">
+                                                                    <select class="form-control" required aria-required="true" placeholder="Objetivo" ng-disabled="FormEditabe"  name="objetivo" id="objetivo" data-ng-options="tipoObjetivo.ID as tipoObjetivo.Nombre for tipoObjetivo in TiposObjetivo" ng-model="PlanKinesicoO.Tipo.ID">
                                                                         <option value="">Seleccione</option>
                                                                     </select>
                                                                 </div>
                                                                 <div class="col-sm-2">
-                                                                    <button class="remove" ng-hide="columnsO.length == 1" ng-click="removeColumnO($index)">x</button>
+                                                                    <button class="remove" ng-hide="columnsO.length == 1 || FormEditabe" ng-click="removeColumnO($index)">x</button>
                                                                 </div>
                                                             </div>
                                                         </fieldset>
