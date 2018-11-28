@@ -4,9 +4,11 @@
         <!-- Container -->
         <div class="container-fluid">
             <!-- Row -->
-            <div class="row mb50">
-                <div class="col-lg-6 pull-left col-sm-6 pull-left col-md-6 col-xs-12" ng-if="rutvalido">
-                    Paciente: {{Titulo}} - Rut: {{RutPaciente}}
+            <div class="row mb50">              
+                <div class="col-lg-6 pull-left col-sm-6 pull-left col-md-6 col-xs-12">
+                    <div class="dropdown pull-left">
+                        <span class="dropdown-toggle" id="dropdownLang" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-user" style="color:#fff"></i><span style="color:#fff">Paciente:</span> {{Titulo}} - Rut: {{RutPaciente}}</span>                      
+                    </div>
                 </div>
                 <div class="col-lg-6 pull-right col-sm-6 pull-right col-md-6 col-xs-12">
                     <div class="dropdown pull-right">
@@ -46,19 +48,19 @@
                         <a class="page-scroll" href="#page-top"></a>
                     </li>
                     <li>
-                        <a href="" ng-click="nav('views/fichaEnfermeria.html')">Ficha Enfermeria<i class="fa fa-users fa-2x hidden-xs" aria-hidden="true"></i></a>
+                        <a href="" ng-click="nav('views/fichaEnfermeria.html')">Ficha Enfermería<i class="fa fa-users fa-2x hidden-xs" aria-hidden="true"></i></a>
                     </li>
                     <li>
-                        <a href="" ng-click="nav('views/fichaKinesiologia.html')">Ficha Kinesiologia<i class="fa fa-users fa-2x hidden-xs" aria-hidden="true"></i></a>
+                        <a href="" ng-click="nav('views/fichaKinesiologia.html')">Ficha Kinesiología<i class="fa fa-users fa-2x hidden-xs" aria-hidden="true"></i></a>
                     </li>
                     <li>
                         <a href="" ng-click="nav('views/fichaEnfermeria.html')">Ficha Nutricionista<i class="fa fa-users fa-2x hidden-xs" aria-hidden="true"></i></a>
                     </li>
                     <li>
-                        <a href="" ng-click="nav('views/fichaEnfermeria.html')">Ficha Psicologo<i class="fa fa-users fa-2x hidden-xs" aria-hidden="true"></i></a>
+                        <a href="" ng-click="nav('views/fichaEnfermeria.html')">Ficha Psicólogo<i class="fa fa-users fa-2x hidden-xs" aria-hidden="true"></i></a>
                     </li>
                     <li>
-                        <a href="" ng-click="nav('views/fichaEnfermeria.html')">Ficha Medico<i class="fa fa-users fa-2x hidden-xs" aria-hidden="true"></i></a>
+                        <a href="" ng-click="nav('views/fichaEnfermeria.html')">Ficha Médico<i class="fa fa-users fa-2x hidden-xs" aria-hidden="true"></i></a>
                     </li>
                 </ul> <!-- END / NAVBAR RIGHT -->
             </div>
