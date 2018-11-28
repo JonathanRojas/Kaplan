@@ -210,7 +210,7 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
                 $(this).css('border', '1px solid #32b8da');
                 if ($(this).val() == '') {
                     msg += '<br><b>' + $(this).attr('placeholder') + '</b>';
-                    $(this).css('border', '2px solid red');
+                    $(this).css('border', '2px solid #F57E7D');
                     /*if (error == 0) {
                         $(this).focus();
                         var tab = $(this).closest('.tab-pane').attr('id');
@@ -220,7 +220,7 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
                 }
             });
             if (error == 1) {
-                msg = { title: 'Ups, Faltan campos por completar', message: msg, delay: 5000 };
+                msg = { title: 'Ups, faltan campos por completar', message: msg, delay: 5000 };
                 Notification.warning(msg);
                 return false;
             } else {
