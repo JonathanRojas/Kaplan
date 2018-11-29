@@ -11,7 +11,7 @@ Imports Kaplan.Clases
 <ToolboxItem(False)> _
 Public Class doPost
     Inherits System.Web.Services.WebService
-
+#Region "Generales"
     <WebMethod(EnableSession:=True)>
     Public Function getIngresar() As String
         Dim js As New JavaScriptSerializer
@@ -39,7 +39,9 @@ Public Class doPost
 
         Return ""
     End Function
+#End Region
 
+#Region "Kinesiología"
     <WebMethod(EnableSession:=True)>
     Public Function SaveFichaKinesiologia() As String
         Dim js As New JavaScriptSerializer
@@ -59,5 +61,19 @@ Public Class doPost
 
         Return ""
     End Function
+#End Region
+
+#Region "Psicología"
+
+#End Region
+#Region "Enfermería"
+
+#End Region
+#Region "Nutrición"
+
+#End Region
+#Region "Médico"
+
+#End Region
 
 End Class
