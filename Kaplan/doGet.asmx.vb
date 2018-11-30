@@ -211,24 +211,24 @@ Public Class doGet
     End Function
 #End Region
 #Region "Tipos Psicología"
-    '<WebMethod(EnableSession:=True)>
-    'Public Function getTipoSintomalogia() As String
-    '    Dim vTipos As List(Of TipoSintomalogia) = TipoSintomalogia.getTipos
-    '    Dim js As New JavaScriptSerializer
-    '    Dim vResult As New httpResult
-    '    If Not IsNothing(vTipos) Then
-    '        vResult.result = True
-    '        vResult.data = vTipos
-    '    Else
-    '        vResult.result = False
-    '        vResult.data = vTipos
-    '    End If
+    <WebMethod(EnableSession:=True)>
+    Public Function getTipoSintomatologia() As String
+        Dim vTipos As List(Of TipoSintomatologia) = TipoSintomatologia.getTipos
+        Dim js As New JavaScriptSerializer
+        Dim vResult As New httpResult
+        If Not IsNothing(vTipos) Then
+            vResult.result = True
+            vResult.data = vTipos
+        Else
+            vResult.result = False
+            vResult.data = vTipos
+        End If
 
-    '    Context.Response.Write(js.Serialize(vResult))
+        Context.Response.Write(js.Serialize(vResult))
 
-    '    Context.Response.End()
-    '    Return ""
-    'End Function
+        Context.Response.End()
+        Return ""
+    End Function
 #End Region
 #Region "Tipos Enfermería"
 #End Region
