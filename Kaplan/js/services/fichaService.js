@@ -95,11 +95,11 @@
 
     };
 
-    FichaServ.SaveFichaKinesiologia = function (ficha) {
+    FichaServ.SaveFichaKinesiologia = function (ficha, paciente) {
         var deferred = $q.defer();
         var myFormData = new FormData();
-         //var diag = { 'FichaKinesiologia': { 'PlanKinesico': { 'Diagnostico': columnsD, 'Objetivo': columnsO } } };
         myFormData.append("Ficha", angular.toJson(ficha))
+        myFormData.append("paciente", angular.toJson(paciente))
 
         $http({
             method: 'POST',

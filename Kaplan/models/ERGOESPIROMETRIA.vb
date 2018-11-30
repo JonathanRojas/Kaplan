@@ -18,18 +18,18 @@ Namespace Clases
                 Return EFechaEgreso.ToString("dd MMM yyyy")
             End Get
         End Property
-        Public Property VO2LIngreso As String
-        Public Property VO2LEgreso As String
-        Public Property VO2MIngreso As String
-        Public Property VO2MEgreso As String
-        Public Property FCIngreso As String
-        Public Property FCEgreso As String
-        Public Property PulsoIngreso As String
-        Public Property PulsoEgreso As String
-        Public Property VEIngreso As String
-        Public Property VEEgreso As String
-        Public Property METSIngreso As String
-        Public Property METSEgreso As String
+        Public Property VO2LIngreso As Double
+        Public Property VO2LEgreso As Double
+        Public Property VO2MIngreso As Double
+        Public Property VO2MEgreso As Double
+        Public Property FCIngreso As Double
+        Public Property FCEgreso As Double
+        Public Property PulsoIngreso As Double
+        Public Property PulsoEgreso As Double
+        Public Property VEIngreso As Double
+        Public Property VEEgreso As Double
+        Public Property METSIngreso As Double
+        Public Property METSEgreso As Double
     End Class
 
 End Namespace

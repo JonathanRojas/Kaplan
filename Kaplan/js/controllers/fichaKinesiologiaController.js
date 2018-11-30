@@ -183,11 +183,12 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
         $scope.SaveFicha = function () {
             if ($scope.ValidarForm()) {
                 $scope.Ficha.Fecha = moment($scope.Ficha.Fecha);
+                $scope.Paciente.Persona.FechaNac = moment($scope.Paciente.Persona.FechaNac);
                 $scope.Ficha.FichaKinesiologia.PlanKinesico.Diagnostico = $scope.columnsD;
                 $scope.Ficha.FichaKinesiologia.PlanKinesico.Objetivo = $scope.columnsO;
                 $scope.Ficha.FichaKinesiologia.IdEspecialista = parseInt(LoginService.getIdEspecialista())
                 waitingDialog.show('Guardando Ficha...', { dialogSize: 'sm' });
-                fichaService.SaveFichaKinesiologia($scope.Ficha)
+                fichaService.SaveFichaKinesiologia($scope.Ficha, $scope.Paciente)
                    .then(function (result) {
                        msg = { title: 'Ficha creada con éxito', message: "" };
                        Notification.success(msg);

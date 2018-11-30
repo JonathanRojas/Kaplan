@@ -47,10 +47,15 @@ Public Class doPost
         Dim js As New JavaScriptSerializer
 
         Dim vFicha As Ficha = js.Deserialize(Context.Request.Form("Ficha"), GetType(Ficha))
+        Dim vPaciente As Paciente = js.Deserialize(Context.Request.Form("paciente"), GetType(Paciente))
         Dim vResult As New httpResult
-
-        If vFicha.registrarFichaKinesiologia() Then
-            vResult.result = True
+        If vPaciente.ModificarPaciente() Then
+            If vFicha.registrarFichaKinesiologia() Then
+                vResult.result = True
+            Else
+                vResult.result = False
+                vResult.message = "Error guardando registro"
+            End If
         Else
             vResult.result = False
             vResult.message = "Error guardando registro"

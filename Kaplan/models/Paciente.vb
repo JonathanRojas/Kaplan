@@ -69,6 +69,64 @@ Namespace Clases
             End Try
 
         End Function
+        Public Function ModificarPaciente() As Boolean
+            Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
+            Dim cmd As OleDbCommand = New OleDbCommand("ModificarPacienteFicha", conn)
+            cmd.CommandType = CommandType.StoredProcedure
+
+            Dim inId As OleDbParameter = cmd.Parameters.Add("@inIdPersona", OleDbType.Decimal, Nothing)
+            inId.Direction = ParameterDirection.Input
+            inId.Value = Me.Persona.Id
+
+            Dim inNombre As OleDbParameter = cmd.Parameters.Add("@inNombre", OleDbType.VarChar, 250)
+            inNombre.Direction = ParameterDirection.Input
+            inNombre.Value = Me.Persona.Nombre
+
+            Dim inPaterno As OleDbParameter = cmd.Parameters.Add("@inPaterno", OleDbType.VarChar, 200)
+            inPaterno.Direction = ParameterDirection.Input
+            inPaterno.Value = Me.Persona.Paterno
+
+            Dim inMaterno As OleDbParameter = cmd.Parameters.Add("@inMaterno", OleDbType.VarChar, 200)
+            inMaterno.Direction = ParameterDirection.Input
+            inMaterno.Value = Me.Persona.Materno
+
+            Dim inFechNac As OleDbParameter = cmd.Parameters.Add("@inFechNac", OleDbType.Date, Nothing)
+            inFechNac.Direction = ParameterDirection.Input
+            inFechNac.Value = Me.Persona.FechaNac
+
+            Dim inRegion As OleDbParameter = cmd.Parameters.Add("@inRegion", OleDbType.Decimal, Nothing)
+            inRegion.Direction = ParameterDirection.Input
+            inRegion.Value = Me.Persona.Region.ID
+
+            Dim inSituacionLaboral As OleDbParameter = cmd.Parameters.Add("@inSituacionLaboral", OleDbType.VarChar, 250)
+            inSituacionLaboral.Direction = ParameterDirection.Input
+            inSituacionLaboral.Value = Me.Persona.SituacionLaboral
+
+            Dim inComuna As OleDbParameter = cmd.Parameters.Add("@inComuna", OleDbType.Decimal, Nothing)
+            inComuna.Direction = ParameterDirection.Input
+            inComuna.Value = Me.Persona.Comuna.ID
+
+            Dim inDireccion As OleDbParameter = cmd.Parameters.Add("@inDireccion", OleDbType.VarChar, 250)
+            inDireccion.Direction = ParameterDirection.Input
+            inDireccion.Value = Me.Persona.Direccion
+
+            Dim inTelefono As OleDbParameter = cmd.Parameters.Add("@inTelefono", OleDbType.Decimal, Nothing)
+            inTelefono.Direction = ParameterDirection.Input
+            inTelefono.Value = Me.Persona.Telefono
+
+            Dim inMovil As OleDbParameter = cmd.Parameters.Add("@inMovil", OleDbType.Decimal, Nothing)
+            inMovil.Direction = ParameterDirection.Input
+            inMovil.Value = Me.Persona.Movil
+
+            Dim outError As OleDbParameter = cmd.Parameters.Add("@outError", OleDbType.Integer)
+            outError.Direction = ParameterDirection.Output
+
+            conn.Open()
+            cmd.ExecuteReader()
+            conn.Close()
+
+            Return CInt(cmd.Parameters("@outError").Value)
+        End Function
 
     End Class
 End Namespace

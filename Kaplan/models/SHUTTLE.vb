@@ -18,20 +18,20 @@ Namespace Clases
                 Return EFechaEgreso.ToString("dd MMM yyyy")
             End Get
         End Property
-        Public Property METROSIngreso As String
-        Public Property METROSEgreso As String
-        Public Property NIVELIngreso As String
-        Public Property NIVELEgreso As String
-        Public Property VO2MIngreso As String
-        Public Property VO2MEgreso As String
-        Public Property METSIngreso As String
-        Public Property METSEgreso As String
-        Public Property FCIngreso As String
-        Public Property FCEgreso As String
-        Public Property FCMTIngreso As String
-        Public Property FCMTEgreso As String
-        Public Property METSMAXIngreso As String
-        Public Property METSMAXEgreso As String
+        Public Property METROSIngreso As Double
+        Public Property METROSEgreso As Double
+        Public Property NIVELIngreso As Double
+        Public Property NIVELEgreso As Double
+        Public Property VO2MIngreso As Double
+        Public Property VO2MEgreso As Double
+        Public Property METSIngreso As Double
+        Public Property METSEgreso As Double
+        Public Property FCIngreso As Double
+        Public Property FCEgreso As Double
+        Public Property FCMTIngreso As Double
+        Public Property FCMTEgreso As Double
+        Public Property METSMAXIngreso As Double
+        Public Property METSMAXEgreso As Double
     End Class
 
 End Namespace
