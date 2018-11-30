@@ -75,6 +75,8 @@
 
     };
 
+    /*  Kinesiología    */
+
     FichaServ.getFichaKinesiologiasxReserva = function (id) {
         var deferred = $q.defer();
         $http({
@@ -119,6 +121,28 @@
         };
 
         return deferred.promise;
+    };
+
+    /*  Psicología    */
+
+    FichaServ.getFichaPsicologiaxReserva = function (id) {
+        var deferred = $q.defer();
+        $http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getFichaPsicologiaxReserva?intReserva=' + id
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+
     };
 
     return FichaServ;
