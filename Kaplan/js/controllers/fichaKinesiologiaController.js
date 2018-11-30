@@ -106,7 +106,7 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
 
         $scope.CambioPlan = function (plan) {
             if (typeof plan !== 'undefined') {
-                fichaService.getSesionesxPlan(plan).then(function (result) {
+                fichaService.getSesionesxPlan(plan, 5).then(function (result) {
                     $scope.Sesiones = result.data;
                 }, function (reason) {
                     msg = { title: 'Error Listar Planes' };
