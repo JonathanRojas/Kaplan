@@ -55,12 +55,12 @@
 
     };
 
-    FichaServ.getSesionesxPlan = function (plan) {
+    FichaServ.getSesionesxPlan = function (plan, especialidad) {
         var deferred = $q.defer();
         $http({
             method: "GET",
             async: true,
-            url: 'doGet.asmx/getSesionesxPlan?intPlan=' + plan
+            url: 'doGet.asmx/getSesionesxPlan?intPlan=' + plan + '&intEspecialidad=' + especialidad
         }).then(onSuccess, onFailure);
         function onSuccess(response) {
             if (response.data.result)

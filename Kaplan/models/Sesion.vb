@@ -19,7 +19,7 @@ Namespace Clases
                 Return Nothing
             End Try
         End Function
-        Public Shared Function getSesionxPlan(ByVal intPlan As Integer) As List(Of Sesion)
+        Public Shared Function getSesionxPlan(ByVal intPlan As Integer, ByVal intEspecialidad As Integer) As List(Of Sesion)
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
                 Dim cmd As OleDbCommand = New OleDbCommand("BuscarSesionesxPlan", conn)
@@ -28,6 +28,10 @@ Namespace Clases
                 Dim Plan As OleDbParameter = cmd.Parameters.Add("@inIdPlan", OleDbType.Decimal, Nothing)
                 Plan.Direction = ParameterDirection.Input
                 Plan.Value = intPlan
+
+                Dim Especialidad As OleDbParameter = cmd.Parameters.Add("@inIdEspecialidad", OleDbType.Decimal, Nothing)
+                Especialidad.Direction = ParameterDirection.Input
+                Especialidad.Value = intEspecialidad
 
                 conn.Open()
                 Dim adapter As OleDbDataAdapter = New OleDbDataAdapter(cmd)

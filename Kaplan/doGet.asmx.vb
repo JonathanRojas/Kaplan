@@ -74,8 +74,8 @@ Public Class doGet
         Return ""
     End Function
     <WebMethod(EnableSession:=True)>
-    Public Function getSesionesxPlan(intPlan As Integer) As String
-        Dim vSesiones As List(Of Sesion) = Sesion.getSesionxPlan(intPlan)
+    Public Function getSesionesxPlan(intPlan As Integer, intEspecialidad As Integer) As String
+        Dim vSesiones As List(Of Sesion) = Sesion.getSesionxPlan(intPlan, intEspecialidad)
         Dim js As New JavaScriptSerializer
         Dim vResult As New httpResult
 
