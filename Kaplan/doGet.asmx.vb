@@ -120,9 +120,32 @@ Public Class doGet
         Return ""
     End Function
 #End Region
-
 #Region "Psicología"
+    <WebMethod(EnableSession:=True)>
+    Public Function getFichaPsicologiasReserva(intReserva As Integer) As String
 
+        Dim NoData As Boolean
+        Dim vficha As Ficha = Ficha.getFichaPsicologias(intReserva, NoData)
+        Dim js As New JavaScriptSerializer
+        Dim vResult As New httpResult
+
+        If Not IsNothing(vficha) Then
+            vResult.result = True
+            vResult.data = vficha
+        Else
+            If NoData Then
+                vResult.errorcode = 404
+            Else
+                vResult.errorcode = 202
+            End If
+            vResult.result = False
+            vResult.data = vficha
+        End If
+        Context.Response.Write(js.Serialize(vResult))
+
+        Context.Response.End()
+        Return ""
+    End Function
 #End Region
 #Region "Enfermería"
 

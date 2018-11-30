@@ -228,6 +228,8 @@
     <Compile Include="models\EvolucionIngresoKine.vb" />
     <Compile Include="models\Ficha.vb" />
     <Compile Include="models\FichaKinesiologia.vb" />
+    <Compile Include="models\FichaPsicologia.vb" />
+    <Compile Include="models\Had.vb" />
     <Compile Include="models\httpResult.vb" />
     <Compile Include="models\Paciente.vb" />
     <Compile Include="models\Plan.vb" />
@@ -235,6 +237,7 @@
     <Compile Include="models\PlanKinesicoDiagnostico.vb" />
     <Compile Include="models\PlanKinesicoObjetivo.vb" />
     <Compile Include="models\Sesion.vb" />
+    <Compile Include="models\Sf36.vb" />
     <Compile Include="models\SHUTTLE.vb" />
     <Compile Include="models\TipoComuna.vb" />
     <Compile Include="models\TipoDiagnosticoKine.vb" />
