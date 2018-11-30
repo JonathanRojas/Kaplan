@@ -83,12 +83,12 @@
 
     /*  Tipos Psicología    */
 
-    tipoServ.getTipoSintomalogia = function () {
+    tipoServ.getTipoSintomatologia = function () {
         var deferred = $q.defer();
         $http({
             method: "GET",
             async: true,
-            url: 'doGet.asmx/getTipoSintomalogia'
+            url: 'doGet.asmx/getTipoSintomatologia'
         }).then(onSuccess, onFailure);
         function onSuccess(response) {
             if (response.data.result)

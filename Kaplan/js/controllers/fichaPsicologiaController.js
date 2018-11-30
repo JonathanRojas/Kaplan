@@ -6,14 +6,9 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
     } else {
         waitingDialog.show('Cargando Ficha...', { dialogSize: 'sm' });
         $scope.loading = true;
-        //$scope.loadingData = true;
-        $scope.loadingTipoRegion = true;
-        $scope.loadingTipoDiagnosticoKine = true;
-        $scope.loadingTipoObjetivoKine = true;
-        $scope.loadingTipoComuna = true;
-        $scope.loadingPlanes = true;
+        $scope.TiposSintomatologia = true;
         $scope.StopLoading = function () {
-            $scope.loading = !(!$scope.loadingTipoRegion && !$scope.loadingTipoDiagnosticoKine && !$scope.loadingTipoObjetivoKine && !$scope.loadingTipoComuna && !$scope.loadingPlanes);
+            $scope.loading = !(!$scope.loadingTiposSintomatologia);
             if (!$scope.loading) { waitingDialog.hide(); }
         };
 
@@ -34,7 +29,7 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
 
         $scope.CambioPlan = function (plan) {
             if (typeof plan !== 'undefined') {
-                fichaService.getSesionesxPlan(plan).then(function (result) {
+                fichaService.getSesionesxPlan(plan, 4).then(function (result) {
                     $scope.Sesiones = result.data;
                 }, function (reason) {
                     msg = { title: 'Error Listar Planes' };
@@ -44,12 +39,12 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
         };
 
         /*  Tipos   */
-        tipoService.getTipoObjetivoKine().then(function (result) {
-            $scope.TiposObjetivo = result.data;
-            $scope.loadingTipoObjetivoKine = false;
+        tipoService.getTipoSintomatologia().then(function (result) {
+            $scope.TiposSintomatologia = result.data;
+            $scope.loadingTiposSintomatologia = false;
             $scope.StopLoading();
         }, function (reason) {
-            msg = { title: 'Error Listar Tipo Objetivo Kine' };
+            msg = { title: 'Error Listar Tipo Sintomatología Kine' };
             Notification.error(msg);
         });
         /*  Fin Tipos   */
