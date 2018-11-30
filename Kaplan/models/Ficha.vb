@@ -103,51 +103,51 @@ Namespace Clases
             inErgo_fecha_egr.Direction = ParameterDirection.Input
             inErgo_fecha_egr.Value = Me.FichaKinesiologia.ERGOESPIROMETRIA.EFechaEgreso
 
-            Dim inergo_vol_ing As OleDbParameter = cmd.Parameters.Add("@ergo_vol_ing", OleDbType.VarChar, 50)
+            Dim inergo_vol_ing As OleDbParameter = cmd.Parameters.Add("@ergo_vol_ing", OleDbType.Decimal, Nothing)
             inergo_vol_ing.Direction = ParameterDirection.Input
             inergo_vol_ing.Value = Me.FichaKinesiologia.ERGOESPIROMETRIA.VO2LIngreso
 
-            Dim inergo_vol_egr As OleDbParameter = cmd.Parameters.Add("@ergo_vol_egr", OleDbType.VarChar, 50)
+            Dim inergo_vol_egr As OleDbParameter = cmd.Parameters.Add("@ergo_vol_egr", OleDbType.Decimal, Nothing)
             inergo_vol_egr.Direction = ParameterDirection.Input
             inergo_vol_egr.Value = Me.FichaKinesiologia.ERGOESPIROMETRIA.VO2LEgreso
 
-            Dim inergo_voml_ing As OleDbParameter = cmd.Parameters.Add("@ergo_voml_ing", OleDbType.VarChar, 50)
+            Dim inergo_voml_ing As OleDbParameter = cmd.Parameters.Add("@ergo_voml_ing", OleDbType.Decimal, Nothing)
             inergo_voml_ing.Direction = ParameterDirection.Input
             inergo_voml_ing.Value = Me.FichaKinesiologia.ERGOESPIROMETRIA.VO2MIngreso
 
-            Dim inergo_voml_egr As OleDbParameter = cmd.Parameters.Add("@ergo_voml_egr", OleDbType.VarChar, 50)
+            Dim inergo_voml_egr As OleDbParameter = cmd.Parameters.Add("@ergo_voml_egr", OleDbType.Decimal, Nothing)
             inergo_voml_egr.Direction = ParameterDirection.Input
             inergo_voml_egr.Value = Me.FichaKinesiologia.ERGOESPIROMETRIA.VO2MEgreso
 
-            Dim inergo_fcmax_ing As OleDbParameter = cmd.Parameters.Add("@ergo_fcmax_ing", OleDbType.VarChar, 50)
+            Dim inergo_fcmax_ing As OleDbParameter = cmd.Parameters.Add("@ergo_fcmax_ing", OleDbType.Decimal, Nothing)
             inergo_fcmax_ing.Direction = ParameterDirection.Input
             inergo_fcmax_ing.Value = Me.FichaKinesiologia.ERGOESPIROMETRIA.FCIngreso
 
-            Dim inergo_fcmax_egr As OleDbParameter = cmd.Parameters.Add("@ergo_fcmax_egr", OleDbType.VarChar, 50)
+            Dim inergo_fcmax_egr As OleDbParameter = cmd.Parameters.Add("@ergo_fcmax_egr", OleDbType.Decimal, Nothing)
             inergo_fcmax_egr.Direction = ParameterDirection.Input
             inergo_fcmax_egr.Value = Me.FichaKinesiologia.ERGOESPIROMETRIA.FCEgreso
 
-            Dim inergo_pulso_ing As OleDbParameter = cmd.Parameters.Add("@ergo_pulso_ing", OleDbType.VarChar, 50)
+            Dim inergo_pulso_ing As OleDbParameter = cmd.Parameters.Add("@ergo_pulso_ing", OleDbType.Decimal, Nothing)
             inergo_pulso_ing.Direction = ParameterDirection.Input
             inergo_pulso_ing.Value = Me.FichaKinesiologia.ERGOESPIROMETRIA.PulsoIngreso
 
-            Dim inergo_pulso_egr As OleDbParameter = cmd.Parameters.Add("@ergo_pulso_egr", OleDbType.VarChar, 50)
+            Dim inergo_pulso_egr As OleDbParameter = cmd.Parameters.Add("@ergo_pulso_egr", OleDbType.Decimal, Nothing)
             inergo_pulso_egr.Direction = ParameterDirection.Input
             inergo_pulso_egr.Value = Me.FichaKinesiologia.ERGOESPIROMETRIA.PulsoEgreso
 
-            Dim inergo_ve_ing As OleDbParameter = cmd.Parameters.Add("@ergo_ve_ing", OleDbType.VarChar, 50)
+            Dim inergo_ve_ing As OleDbParameter = cmd.Parameters.Add("@ergo_ve_ing", OleDbType.Decimal, Nothing)
             inergo_ve_ing.Direction = ParameterDirection.Input
             inergo_ve_ing.Value = Me.FichaKinesiologia.ERGOESPIROMETRIA.VEIngreso
 
-            Dim inergo_ve_egr As OleDbParameter = cmd.Parameters.Add("@ergo_ve_egr", OleDbType.VarChar, 50)
+            Dim inergo_ve_egr As OleDbParameter = cmd.Parameters.Add("@ergo_ve_egr", OleDbType.Decimal, Nothing)
             inergo_ve_egr.Direction = ParameterDirection.Input
             inergo_ve_egr.Value = Me.FichaKinesiologia.ERGOESPIROMETRIA.VEEgreso
 
-            Dim inergo_mets_ing As OleDbParameter = cmd.Parameters.Add("@ergo_mets_ing", OleDbType.VarChar, 50)
+            Dim inergo_mets_ing As OleDbParameter = cmd.Parameters.Add("@ergo_mets_ing", OleDbType.Decimal, Nothing)
             inergo_mets_ing.Direction = ParameterDirection.Input
             inergo_mets_ing.Value = Me.FichaKinesiologia.ERGOESPIROMETRIA.METSIngreso
 
-            Dim inergo_mets_egr As OleDbParameter = cmd.Parameters.Add("@ergo_mets_egr", OleDbType.VarChar, 50)
+            Dim inergo_mets_egr As OleDbParameter = cmd.Parameters.Add("@ergo_mets_egr", OleDbType.Decimal, Nothing)
             inergo_mets_egr.Direction = ParameterDirection.Input
             inergo_mets_egr.Value = Me.FichaKinesiologia.ERGOESPIROMETRIA.METSEgreso
 
@@ -159,59 +159,59 @@ Namespace Clases
             inshu_fecha_egr.Direction = ParameterDirection.Input
             inshu_fecha_egr.Value = Me.FichaKinesiologia.SHUTTLE.EFechaEgreso
 
-            Dim inshu_mts_ing As OleDbParameter = cmd.Parameters.Add("@shu_mts_ing", OleDbType.VarChar, 50)
+            Dim inshu_mts_ing As OleDbParameter = cmd.Parameters.Add("@shu_mts_ing", OleDbType.Decimal, Nothing)
             inshu_mts_ing.Direction = ParameterDirection.Input
             inshu_mts_ing.Value = Me.FichaKinesiologia.SHUTTLE.METROSIngreso
 
-            Dim inshu_mts_egr As OleDbParameter = cmd.Parameters.Add("@shu_mts_egr", OleDbType.VarChar, 50)
+            Dim inshu_mts_egr As OleDbParameter = cmd.Parameters.Add("@shu_mts_egr", OleDbType.Decimal, Nothing)
             inshu_mts_egr.Direction = ParameterDirection.Input
             inshu_mts_egr.Value = Me.FichaKinesiologia.SHUTTLE.METROSEgreso
 
-            Dim inshu_niv_ing As OleDbParameter = cmd.Parameters.Add("@shu_niv_ing", OleDbType.VarChar, 50)
+            Dim inshu_niv_ing As OleDbParameter = cmd.Parameters.Add("@shu_niv_ing", OleDbType.Decimal, Nothing)
             inshu_niv_ing.Direction = ParameterDirection.Input
             inshu_niv_ing.Value = Me.FichaKinesiologia.SHUTTLE.NIVELIngreso
 
-            Dim inshu_niv_egr As OleDbParameter = cmd.Parameters.Add("@shu_niv_egr", OleDbType.VarChar, 50)
+            Dim inshu_niv_egr As OleDbParameter = cmd.Parameters.Add("@shu_niv_egr", OleDbType.Decimal, Nothing)
             inshu_niv_egr.Direction = ParameterDirection.Input
             inshu_niv_egr.Value = Me.FichaKinesiologia.SHUTTLE.NIVELEgreso
 
-            Dim inshu_vol_ing As OleDbParameter = cmd.Parameters.Add("@shu_vol_ing", OleDbType.VarChar, 50)
+            Dim inshu_vol_ing As OleDbParameter = cmd.Parameters.Add("@shu_vol_ing", OleDbType.Decimal, Nothing)
             inshu_vol_ing.Direction = ParameterDirection.Input
             inshu_vol_ing.Value = Me.FichaKinesiologia.SHUTTLE.VO2MIngreso
 
-            Dim inshu_vol_egr As OleDbParameter = cmd.Parameters.Add("@shu_vol_egr", OleDbType.VarChar, 50)
+            Dim inshu_vol_egr As OleDbParameter = cmd.Parameters.Add("@shu_vol_egr", OleDbType.Decimal, Nothing)
             inshu_vol_egr.Direction = ParameterDirection.Input
             inshu_vol_egr.Value = Me.FichaKinesiologia.SHUTTLE.VO2MEgreso
 
-            Dim inshu_mets_ing As OleDbParameter = cmd.Parameters.Add("@shu_mets_ing", OleDbType.VarChar, 50)
+            Dim inshu_mets_ing As OleDbParameter = cmd.Parameters.Add("@shu_mets_ing", OleDbType.Decimal, Nothing)
             inshu_mets_ing.Direction = ParameterDirection.Input
             inshu_mets_ing.Value = Me.FichaKinesiologia.SHUTTLE.METSIngreso
 
-            Dim inshu_mets_egr As OleDbParameter = cmd.Parameters.Add("@shu_mets_egr", OleDbType.VarChar, 50)
+            Dim inshu_mets_egr As OleDbParameter = cmd.Parameters.Add("@shu_mets_egr", OleDbType.Decimal, Nothing)
             inshu_mets_egr.Direction = ParameterDirection.Input
             inshu_mets_egr.Value = Me.FichaKinesiologia.SHUTTLE.METSEgreso
 
-            Dim inshu_fcmax_ing As OleDbParameter = cmd.Parameters.Add("@shu_fcmax_ing", OleDbType.VarChar, 50)
+            Dim inshu_fcmax_ing As OleDbParameter = cmd.Parameters.Add("@shu_fcmax_ing", OleDbType.Decimal, Nothing)
             inshu_fcmax_ing.Direction = ParameterDirection.Input
             inshu_fcmax_ing.Value = Me.FichaKinesiologia.SHUTTLE.FCIngreso
 
-            Dim inshu_fcmax_egr As OleDbParameter = cmd.Parameters.Add("@shu_fcmax_egr", OleDbType.VarChar, 50)
+            Dim inshu_fcmax_egr As OleDbParameter = cmd.Parameters.Add("@shu_fcmax_egr", OleDbType.Decimal, Nothing)
             inshu_fcmax_egr.Direction = ParameterDirection.Input
             inshu_fcmax_egr.Value = Me.FichaKinesiologia.SHUTTLE.FCEgreso
 
-            Dim inshu_fcmt_ing As OleDbParameter = cmd.Parameters.Add("@shu_fcmt_ing", OleDbType.VarChar, 50)
+            Dim inshu_fcmt_ing As OleDbParameter = cmd.Parameters.Add("@shu_fcmt_ing", OleDbType.Decimal, Nothing)
             inshu_fcmt_ing.Direction = ParameterDirection.Input
             inshu_fcmt_ing.Value = Me.FichaKinesiologia.SHUTTLE.FCMTIngreso
 
-            Dim inshu_fcmt_egr As OleDbParameter = cmd.Parameters.Add("@shu_fcmt_egr", OleDbType.VarChar, 50)
+            Dim inshu_fcmt_egr As OleDbParameter = cmd.Parameters.Add("@shu_fcmt_egr", OleDbType.Decimal, Nothing)
             inshu_fcmt_egr.Direction = ParameterDirection.Input
             inshu_fcmt_egr.Value = Me.FichaKinesiologia.SHUTTLE.FCMTEgreso
 
-            Dim inshu_metsmax_ing As OleDbParameter = cmd.Parameters.Add("@shu_metsmax_ing", OleDbType.VarChar, 50)
+            Dim inshu_metsmax_ing As OleDbParameter = cmd.Parameters.Add("@shu_metsmax_ing", OleDbType.Decimal, Nothing)
             inshu_metsmax_ing.Direction = ParameterDirection.Input
             inshu_metsmax_ing.Value = Me.FichaKinesiologia.SHUTTLE.METSMAXIngreso
 
-            Dim inshu_metsmax_egr As OleDbParameter = cmd.Parameters.Add("@shu_metsmax_egr", OleDbType.VarChar, 50)
+            Dim inshu_metsmax_egr As OleDbParameter = cmd.Parameters.Add("@shu_metsmax_egr", OleDbType.Decimal, Nothing)
             inshu_metsmax_egr.Direction = ParameterDirection.Input
             inshu_metsmax_egr.Value = Me.FichaKinesiologia.SHUTTLE.METSMAXEgreso
 
