@@ -40,7 +40,6 @@ Namespace Clases
                 Return Nothing
             End Try
         End Function
-
         Private Shared Function Mapeo(prmDatos As DataSet) As Paciente
             Try
                 Dim vPaciente As New Paciente
@@ -127,6 +126,5 @@ Namespace Clases
 
             Return CInt(cmd.Parameters("@outError").Value)
         End Function
-
     End Class
 End Namespace

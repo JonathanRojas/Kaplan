@@ -1,6 +1,7 @@
 ﻿app.factory('fichaService', ['$http', '$q', 'WindowsService', function ($http, $q, WindowsService) {
     var FichaServ = [];
 
+    /*  Generales   */
     FichaServ.getPaciente = function (rut, pasaporte) {
         var deferred = $q.defer();
         $http({
@@ -124,13 +125,12 @@
     };
 
     /*  Psicología    */
-
     FichaServ.getFichaPsicologiaxReserva = function (id) {
         var deferred = $q.defer();
         $http({
             method: "GET",
             async: true,
-            url: 'doGet.asmx/getFichaPsicologiaxReserva?intReserva=' + id
+            url: 'doGet.asmx/getFichaPsicologiasReserva?intReserva=' + id
         }).then(onSuccess, onFailure);
         function onSuccess(response) {
             if (response.data.result)
@@ -144,6 +144,30 @@
         return deferred.promise;
 
     };
+    FichaServ.SaveFichaPsicologia = function (ficha, paciente) {
+        var deferred = $q.defer();
+        var myFormData = new FormData();
+        myFormData.append("Ficha", angular.toJson(ficha))
+        myFormData.append("paciente", angular.toJson(paciente))
 
+        $http({
+            method: 'POST',
+            url: 'doPost.asmx/SaveFichaPsicologia',
+            data: myFormData,
+            transformRequest: angular.identity,
+            headers: { 'Content-Type': undefined }
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);;
+        };
+
+        return deferred.promise;
+    };
     return FichaServ;
 }]);
