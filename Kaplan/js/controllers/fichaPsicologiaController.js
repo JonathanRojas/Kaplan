@@ -68,7 +68,7 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
                     };
                 }, function (reason) {
                     if (reason.errorcode == 404) {
-                        if (parseInt(LoginService.getTipo()) == 5) {
+                        if (parseInt(LoginService.getTipo()) == 4) {
                             msg = { title: 'Sesion Sin Ficha, Complete la ficha para esta sesion' };
                             Notification.warning(msg);
                             fichaService.getPaciente(parseInt(fichaService.getRutPaciente()), null).then(function (result) {
