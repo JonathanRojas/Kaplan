@@ -77,7 +77,6 @@
     };
 
     /*  Kinesiología    */
-
     FichaServ.getFichaKinesiologiasxReserva = function (id) {
         var deferred = $q.defer();
         $http({
@@ -97,7 +96,6 @@
         return deferred.promise;
 
     };
-
     FichaServ.SaveFichaKinesiologia = function (ficha, paciente) {
         var deferred = $q.defer();
         var myFormData = new FormData();
@@ -123,7 +121,6 @@
 
         return deferred.promise;
     };
-
     /*  Psicología    */
     FichaServ.getFichaPsicologiaxReserva = function (id) {
         var deferred = $q.defer();

@@ -242,6 +242,7 @@
     <Compile Include="models\TipoApoyoSocial.vb" />
     <Compile Include="models\TipoComuna.vb" />
     <Compile Include="models\TipoConcienciaFactor.vb" />
+    <Compile Include="models\TipoDerivacion.vb" />
     <Compile Include="models\TipoDerivacionAPS.vb" />
     <Compile Include="models\TipoDiagnosticoKine.vb" />
     <Compile Include="models\TipoDificultadResp.vb" />
