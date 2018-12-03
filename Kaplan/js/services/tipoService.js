@@ -275,6 +275,669 @@
         return deferred.promise;
     };
     /*  Tipos Enfermería    */
+    tipoServ.getTipoAbdomenA = function () {
+        var deferred = http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoAbdomenA'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoAbdomenB = function () {
+        var deferred = http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoAbdomenB'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoActividadLaboral = function () {
+        var deferred = http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoActividadLaboral'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoActividadRecreativa = function () {
+        var deferred = http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoActividadRecreativa'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoAdherenciaFarma = function () {
+        var deferred = http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoAdherenciaFarma'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoAF = function () {
+        var deferred = http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoAF'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoAgua = function () {
+        var deferred = http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoAgua'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoBebNec = function () {
+        var deferred = http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoBebNec'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoCabeza = function () {
+        var deferred = http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoCabeza'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoCuello = function () {
+        var deferred = http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoCuello'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoDeposicion = function () {
+        var deferred = http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoDeposicion'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoDiuresis = function () {
+        var deferred = http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoDiuresis'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoDLP = function () {
+        var deferred = http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoDLP'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoDM = function () {
+        var deferred = http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoDM'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoEEII = function () {
+        var deferred = http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoEEII'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoEESS = function () {
+        var deferred = http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoEESS'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoEstadoAnimo = function () {
+        var deferred = http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoEstadoAnimo'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoEstres = function () {
+        var deferred = http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoEstres'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoFrutaVerdura = function () {
+        var deferred = http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoFrutaVerdura'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoGrasas = function () {
+        var deferred = http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoGrasas'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoHTA = function () {
+        var deferred = http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoHTA'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoLlenCap = function () {
+        var deferred = http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoLlenCap'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoMotivacion = function () {
+        var deferred = http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoMotivacion'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoOH = function () {
+        var deferred = http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoOH'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoPatronRespiratorio = function () {
+        var deferred = http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoPatronRespiratorio'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoRegimenHiposodico = function () {
+        var deferred = http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoRegimenHiposodico'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoSED = function () {
+        var deferred = http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoSED'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoSPOB = function () {
+        var deferred = http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoSPOB'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoSuenoNocturnoA = function () {
+        var deferred = http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoSuenoNocturnoA'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoSuenoNocturnoB = function () {
+        var deferred = http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoSuenoNocturnoB'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoSuenoNocturnoC = function () {
+        var deferred = http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoSuenoNocturnoC'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoTB = function () {
+        var deferred = http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoTB'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoTBA = function () {
+        var deferred = http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoTBA'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoTBB = function () {
+        var deferred = http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoTBB'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoToraxA = function () {
+        var deferred = http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoToraxA'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoToraxB = function () {
+        var deferred = http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoToraxB'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoToraxC = function () {
+        var deferred = http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoToraxC'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoToraxD = function () {
+        var deferred = http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoToraxD'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoValoracion = function () {
+        var deferred = http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoValoracion'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
     /*  Tipos Nutrición     */
     tipoServ.getTipoAlergiaAlimentaria = function () {
         var deferred = http({

@@ -181,108 +181,108 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
             msg = { title: 'Error Listar Tipo Alergia Alimentarias' };
             Notification.error(msg);
         });
-        tipoService.getTipoComuna().then(function (result) {
-            $scope.TipoComunas = result.data;
-            $scope.loadingTipoComuna = false;
+        tipoService.getTipoAversionAlimentaria().then(function (result) {
+            $scope.TipoAversionAlimentarias = result.data;
+            $scope.loadingTipoAversionAlimentaria = false;
             $scope.StopLoading();
         }, function (reason) {
-            msg = { title: 'Error Listar Tipo Comuna' };
+            msg = { title: 'Error Listar Tipo Aversión Alimentaria' };
             Notification.error(msg);
         });
-        tipoService.getTipoComuna().then(function (result) {
-            $scope.TipoComunas = result.data;
-            $scope.loadingTipoComuna = false;
+        tipoService.getTipoAzucar().then(function (result) {
+            $scope.TipoAzucares = result.data;
+            $scope.loadingTipoAzucar = false;
             $scope.StopLoading();
         }, function (reason) {
-            msg = { title: 'Error Listar Tipo Comuna' };
+            msg = { title: 'Error Listar Tipo Azucar' };
             Notification.error(msg);
         });
-        tipoService.getTipoComuna().then(function (result) {
-            $scope.TipoComunas = result.data;
-            $scope.loadingTipoComuna = false;
+        tipoService.getTipoCarne().then(function (result) {
+            $scope.TipoCarnes = result.data;
+            $scope.loadingTipoCarne = false;
             $scope.StopLoading();
         }, function (reason) {
-            msg = { title: 'Error Listar Tipo Comuna' };
+            msg = { title: 'Error Listar Tipo Carne' };
             Notification.error(msg);
         });
-        tipoService.getTipoComuna().then(function (result) {
-            $scope.TipoComunas = result.data;
-            $scope.loadingTipoComuna = false;
+        tipoService.getTipoCribaje().then(function (result) {
+            $scope.TipoCribajes = result.data;
+            $scope.loadingTipoCribaje = false;
             $scope.StopLoading();
         }, function (reason) {
-            msg = { title: 'Error Listar Tipo Comuna' };
+            msg = { title: 'Error Listar Tipo Cribaje' };
             Notification.error(msg);
         });
-        tipoService.getTipoComuna().then(function (result) {
-            $scope.TipoComunas = result.data;
-            $scope.loadingTipoComuna = false;
+        tipoService.getTipoFruta().then(function (result) {
+            $scope.TipoFrutas = result.data;
+            $scope.loadingTipoFruta = false;
             $scope.StopLoading();
         }, function (reason) {
-            msg = { title: 'Error Listar Tipo Comuna' };
+            msg = { title: 'Error Listar Tipo Fruta' };
             Notification.error(msg);
         });
-        tipoService.getTipoComuna().then(function (result) {
-            $scope.TipoComunas = result.data;
-            $scope.loadingTipoComuna = false;
+        tipoService.getTipoIntoleranciaAlimentaria().then(function (result) {
+            $scope.TipoIntoleranciaAlimentarias = result.data;
+            $scope.loadingTipoIntoleranciaAlimentaria = false;
             $scope.StopLoading();
         }, function (reason) {
-            msg = { title: 'Error Listar Tipo Comuna' };
+            msg = { title: 'Error Listar Tipo Intolerancia Alimentaria' };
             Notification.error(msg);
         });
-        tipoService.getTipoComuna().then(function (result) {
-            $scope.TipoComunas = result.data;
-            $scope.loadingTipoComuna = false;
+        tipoService.getTipoLacteo().then(function (result) {
+            $scope.TipoLacteos = result.data;
+            $scope.loadingTipoLacteo = false;
             $scope.StopLoading();
         }, function (reason) {
-            msg = { title: 'Error Listar Tipo Comuna' };
+            msg = { title: 'Error Listar Tipo Lacteo' };
             Notification.error(msg);
         });
-        tipoService.getTipoComuna().then(function (result) {
-            $scope.TipoComunas = result.data;
-            $scope.loadingTipoComuna = false;
+        tipoService.getTipoLegumbre().then(function (result) {
+            $scope.TipoLegumbres = result.data;
+            $scope.loadingTipoLegumbre = false;
             $scope.StopLoading();
         }, function (reason) {
-            msg = { title: 'Error Listar Tipo Comuna' };
+            msg = { title: 'Error Listar Tipo Legumbre' };
             Notification.error(msg);
         });
-        tipoService.getTipoComuna().then(function (result) {
-            $scope.TipoComunas = result.data;
-            $scope.loadingTipoComuna = false;
+        tipoService.getTipoLiquido().then(function (result) {
+            $scope.TipoLiquidos = result.data;
+            $scope.loadingTipoLiquido = false;
             $scope.StopLoading();
         }, function (reason) {
-            msg = { title: 'Error Listar Tipo Comuna' };
+            msg = { title: 'Error Listar Tipo Liquido' };
             Notification.error(msg);
         });
-        tipoService.getTipoComuna().then(function (result) {
-            $scope.TipoComunas = result.data;
-            $scope.loadingTipoComuna = false;
+        tipoService.getTipoPescado().then(function (result) {
+            $scope.TipoPescados = result.data;
+            $scope.loadingTipoPescado = false;
             $scope.StopLoading();
         }, function (reason) {
-            msg = { title: 'Error Listar Tipo Comuna' };
+            msg = { title: 'Error Listar Tipo Pescado' };
             Notification.error(msg);
         });
-        tipoService.getTipoComuna().then(function (result) {
-            $scope.TipoComunas = result.data;
-            $scope.loadingTipoComuna = false;
+        tipoService.getTipoPreferenciaAlimentaria().then(function (result) {
+            $scope.TipoPreferenciaAlimentarias = result.data;
+            $scope.loadingTipoPreferenciaAlimentaria = false;
             $scope.StopLoading();
         }, function (reason) {
-            msg = { title: 'Error Listar Tipo Comuna' };
+            msg = { title: 'Error Listar Tipo Preferencia Alimentaria' };
             Notification.error(msg);
         });
-        tipoService.getTipoComuna().then(function (result) {
-            $scope.TipoComunas = result.data;
-            $scope.loadingTipoComuna = false;
+        tipoService.getTipoSodio().then(function (result) {
+            $scope.TipoSodios = result.data;
+            $scope.loadingTipoSodio = false;
             $scope.StopLoading();
         }, function (reason) {
-            msg = { title: 'Error Listar Tipo Comuna' };
+            msg = { title: 'Error Listar Tipo Sodio' };
             Notification.error(msg);
         });
-        tipoService.getTipoComuna().then(function (result) {
-            $scope.TipoComunas = result.data;
-            $scope.loadingTipoComuna = false;
+        tipoService.getTipoVerdura().then(function (result) {
+            $scope.TipoVerduras = result.data;
+            $scope.loadingTipoVerdura = false;
             $scope.StopLoading();
         }, function (reason) {
-            msg = { title: 'Error Listar Tipo Comuna' };
+            msg = { title: 'Error Listar Tipo Verdura' };
             Notification.error(msg);
         });
 
