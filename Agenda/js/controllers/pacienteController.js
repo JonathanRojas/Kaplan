@@ -123,7 +123,9 @@ function ($scope, $http, ModalService, pacienteService, TipoService, Notificatio
             } else {
                 $("#btnModificar").button('loading');
             }
-
+            $scope.Paciente.Licencias = null;            
+            $scope.Paciente.Reservas = null;
+            $scope.Paciente.Planes = null;
             pacienteService.registrarPaciente($scope.Paciente).then(function (result) {
                 if ($scope.Paciente.Persona.Id == -1) {
                     $("#btnGuardar").button('reset');

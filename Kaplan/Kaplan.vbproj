@@ -172,6 +172,7 @@
     <Content Include="js\controllers\fichaController.js" />
     <Content Include="js\controllers\fichaEnfermeriaController.js" />
     <Content Include="js\controllers\fichaKinesiologiaController.js" />
+    <Content Include="js\controllers\fichaNutricionController.js" />
     <Content Include="js\controllers\fichaPsicologiaController.js" />
     <Content Include="js\controllers\inicioController.js" />
     <Content Include="js\controllers\loginController.js" />
