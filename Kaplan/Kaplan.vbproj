@@ -202,6 +202,7 @@
     <Content Include="views\ficha.html" />
     <Content Include="views\fichaEnfermeria.html" />
     <Content Include="views\fichaKinesiologia.html" />
+    <Content Include="views\fichaNutricion.html" />
     <Content Include="views\fichaPsicologia.html" />
     <Content Include="views\inicio.html" />
     <Content Include="Web.config" />
@@ -222,6 +223,20 @@
       <DependentUpon>doPost.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="models\nutricion\TipoAlergiaAlimentaria.vb" />
+    <Compile Include="models\nutricion\TipoAversionAlimentaria.vb" />
+    <Compile Include="models\nutricion\TipoAzucar.vb" />
+    <Compile Include="models\nutricion\TipoCarne.vb" />
+    <Compile Include="models\nutricion\TipoCribaje.vb" />
+    <Compile Include="models\nutricion\TipoFruta.vb" />
+    <Compile Include="models\nutricion\TipoIntolerenciaAlimentaria.vb" />
+    <Compile Include="models\nutricion\TipoLacteo.vb" />
+    <Compile Include="models\nutricion\TipoLegumbre.vb" />
+    <Compile Include="models\nutricion\TipoLiquido.vb" />
+    <Compile Include="models\nutricion\TipoPescado.vb" />
+    <Compile Include="models\nutricion\TipoPreferenciaAlimentaria.vb" />
+    <Compile Include="models\nutricion\TipoSodio.vb" />
+    <Compile Include="models\nutricion\TipoVerdura.vb" />
     <Compile Include="models\otros\CachedType.vb" />
     <Compile Include="models\kinesiologia\Ergoespirometria.vb" />
     <Compile Include="models\kinesiologia\EvolucionEgresoKine.vb" />

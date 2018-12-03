@@ -1,6 +1,6 @@
 ﻿<section id="suggestions" class="doted-bg1" ng-controller="fichaPsicologiaController">
     <form class="form-horizontal formodif" name="frmPsicologia" id="frmPsicologia" role="form" ng-disabled="true">
-        <div class="section-title text-center">       
+        <div class="section-title text-center">
             <h3 class="animated hidden-xs" data-animation="bounceInLeft" ng-class="{hidden: loading}">
                 <label class="text-blue animated hidden-xs" data-animation="bounceInLeft">
                     Ficha Psicología
@@ -176,10 +176,10 @@
                                                                 <label class="control-label pull-right" for="Sinto">Sintomatología Prevalente</label>
                                                             </div>
                                                             <div class="col-sm-3">
-                                                                <select ng-model="Ficha.FichaPsicologia.Sintomatologia.ID" name="sintomatologia" id="sintomatologia" data-ng-options="tipoSintomatologia.ID as tipoSintomatologia.Nombre for tipoSintomatologia in TiposSintomatologia" class="form-control" required aria-required="true" placeholder="Sintomatologia" ng-disabled="FormEditabe" >
+                                                                <select ng-model="Ficha.FichaPsicologia.Sintomatologia.ID" name="sintomatologia" id="sintomatologia" data-ng-options="tipoSintomatologia.ID as tipoSintomatologia.Nombre for tipoSintomatologia in TiposSintomatologia" class="form-control" required aria-required="true" placeholder="Sintomatologia" ng-disabled="FormEditabe">
                                                                     <option value="">Seleccione</option>
                                                                 </select>
-                                                            </div> 
+                                                            </div>
                                                             <div class="col-sm-3">
                                                                 <label class="control-label pull-right" for="METS">Trauma Post-Operativo</label>
                                                             </div>
@@ -187,7 +187,7 @@
                                                                 <select ng-model="Ficha.FichaPsicologia.TraumaPostOp.ID" name="traumaPostOp" id="derivacionAPS" data-ng-options="tipoTraumaPostOp.ID as tipoTraumaPostOp.Nombre for tipoTraumaPostOp in TiposTraumaPostOp" class="form-control" required aria-required="true" placeholder="Trauma Post-Operatorio" ng-disabled="FormEditabe">
                                                                     <option value="">Seleccione</option>
                                                                 </select>
-                                                            </div>                                                           
+                                                            </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="col-sm-3">
@@ -197,7 +197,7 @@
                                                                 <select ng-model="Ficha.FichaPsicologia.DerivacionAPS.ID" name="derivacionAPS" id="derivacionAPS" data-ng-options="tipoDerivacionAPS.ID as tipoDerivacionAPS.Nombre for tipoDerivacionAPS in TiposDerivacionAPS" class="form-control" required aria-required="true" placeholder="Derivacion a APS" ng-disabled="FormEditabe">
                                                                     <option value="">Seleccione</option>
                                                                 </select>
-                                                            </div>   
+                                                            </div>
                                                             <div class="col-sm-3">
                                                                 <label class="control-label pull-right" for="METS">Conciencia de Factores de Riesgo</label>
                                                             </div>
@@ -205,7 +205,7 @@
                                                                 <select ng-model="Ficha.FichaPsicologia.ConcienciaFactor.ID" name="concienciaFactor" id="concienciaFactor" data-ng-options="tipoConcienciaFactor.ID as tipoConcienciaFactor.Nombre for tipoConcienciaFactor in TiposConcienciaFactor" class="form-control" required aria-required="true" placeholder="Conciencia de factores de riesgo" ng-disabled="FormEditabe">
                                                                     <option value="">Seleccione</option>
                                                                 </select>
-                                                            </div>                                                     
+                                                            </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="col-sm-3">
@@ -238,7 +238,7 @@
                                                                 <label class="control-label pull-right" for="METS">N° de Sesiones Gimnasio</label>
                                                             </div>
                                                             <div class="col-sm-3">
-                                                                
+
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
@@ -249,7 +249,7 @@
                                                                 <Select ng-model="Ficha.FichaPsicologia.RasgoPersonalidad.ID" name="rasgoPersonalidad" id="rasgoPersonalidad" data-ng-options="tipoRasgoPersonalidad.ID as tipoRasgoPersonalidad.Nombre for tipoRasgoPersonalidad in TiposRasgoPersonalidad" Class="form-control" required aria-required="true" placeholder="TipoRasgoPersonalidad" ng-disabled="FormEditabe">
                                                                     <option value=""> Seleccione</option>
                                                                 </Select>
-                                                            </div>   
+                                                            </div>
                                                             <div class="col-sm-3">
                                                                 <label class="control-label pull-right" for="METS">Ingreso a Taller</label>
                                                             </div>
@@ -257,7 +257,7 @@
                                                                 <Select ng-model="Ficha.FichaPsicologia.IngresoTaller.ID" name="ingresoTaller" id="ingresoTaller" data-ng-options="tipoIngresoTaller.ID as tipoIngresoTaller.Nombre for tipoIngresoTaller in TiposIngresoTaller" Class="form-control" required aria-required="true" placeholder="TipoIngresoTaller" ng-disabled="FormEditabe">
                                                                     <option value=""> Seleccione</option>
                                                                 </Select>
-                                                            </div>                                                       
+                                                            </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="col-sm-3">
@@ -276,7 +276,7 @@
                                                                     <option value=""> Seleccione</option>
                                                                 </Select>
                                                             </div>
-                                                        </div>   
+                                                        </div>
                                                         <div class="form-group">
                                                             <div class="col-sm-2">
                                                                 <label class="control-label pull-right" for="situacionLaboral">Observaciones</label>
@@ -284,12 +284,12 @@
                                                             <div class="col-sm-10">
                                                                 <textarea class="form-control" id="Observaciones" rows="4" placeholder="Observaciones" required aria-required="true" ng-disabled="FormEditabe" ng-model="Ficha.FichaPsicologia.Observacion" maxlength="250"></textarea>
                                                             </div>
-                                                        </div>                                                   
+                                                        </div>
                                                         <span class="clearfix"></span>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>                                                                             
+                                        </div>
                                     </div>
                                     <div class="row mb50">
                                         <div class="col-sm-12">
@@ -328,7 +328,7 @@
                                                             </div>
                                                             <div class="col-sm-2">
                                                                 <input moment-picker="EFechaEgreso" today="true" ng-model="Ficha.FichaPsicologia.Sf36.FechaAEgr" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Egreso">
-                                                            </div>                                                            
+                                                            </div>
                                                             <div class="col-sm-2">
                                                                 <label class="control-label pull-right" for="fecha">Fecha</label>
                                                             </div>
@@ -337,27 +337,27 @@
                                                             </div>
                                                             <div class="col-sm-2">
                                                                 <input moment-picker="SFechaEgreso" today="true" ng-model="Ficha.FichaPsicologia.Sf36.FechaBEgr" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Egreso">
-                                                            </div>                                                      
+                                                            </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="col-sm-2">
                                                                 <label class="control-label pull-right" for="fecha">Función Física</label>
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <input ng-model="Ficha.FichaPsicologia.Sf36.FuncionFisicaIng"type="text" class="form-control" id="FuncionFisicaIng" placeholder="Funcion Fisica Ing." required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                                <input ng-model="Ficha.FichaPsicologia.Sf36.FuncionFisicaIng" type="text" class="form-control" id="FuncionFisicaIng" placeholder="Funcion Fisica Ing." required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
                                                             </div>
                                                             <div class="col-sm-2">
                                                                 <input ng-model="Ficha.FichaPsicologia.Sf36.FuncionFisicaEgr" type="text" class="form-control" id="FuncionFisicaEgr" placeholder="Funcion Fisica Egr." required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
-                                                            </div>                                                            
+                                                            </div>
                                                             <div class="col-sm-2">
                                                                 <label class="control-label pull-right" for="fecha">Vitalidad</label>
-                                                            </div>  
+                                                            </div>
                                                             <div class="col-sm-2">
                                                                 <input ng-model="Ficha.FichaPsicologia.Sf36.VitalidadIng" type="text" class="form-control" id="FuncionFisicaIng" placeholder="Funcion Fisica Ing." required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
                                                             </div>
                                                             <div class="col-sm-2">
                                                                 <input ng-model="Ficha.FichaPsicologia.Sf36.VitalidadEgr" type="text" class="form-control" id="FuncionFisicaEgr" placeholder="Funcion Fisica Egr." required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
-                                                            </div>                                                          
+                                                            </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="col-sm-2">
@@ -368,7 +368,7 @@
                                                             </div>
                                                             <div class="col-sm-2">
                                                                 <input ng-model="Ficha.FichaPsicologia.Sf36.RolFisicoEgr" type="text" class="form-control" id="FuncionFisicaEgr" placeholder="Funcion Fisica Egr." required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
-                                                            </div>   
+                                                            </div>
                                                             <div class="col-sm-2">
                                                                 <label class="control-label pull-right" for="METROS">Función Social</label>
                                                             </div>
@@ -438,7 +438,7 @@
                                                             <div class="col-sm-2">
                                                                 <input ng-model="Ficha.FichaPsicologia.Sf36.SaludMentalEgr" type="text" class="form-control" id="FuncionFisicaEgr" placeholder="Funcion Fisica Egr." required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
                                                             </div>
-                                                        </div>-->    
+                                                        </div>-->
                                                         <div class="form-group">
                                                             <div class="col-sm-2">
                                                                 <label class="control-label pull-right" for="situacionLaboral">Observaciones</label>
@@ -446,12 +446,12 @@
                                                             <div class="col-sm-10">
                                                                 <textarea ng-model="Ficha.FichaPsicologia.Sf36.Observacion" class="form-control" id="situacionLaboral" rows="4" placeholder="Situación Laboral" required aria-required="true" ng-disabled="FormEditabe" maxlength="250"></textarea>
                                                             </div>
-                                                        </div>                                                     
+                                                        </div>
                                                         <span class="clearfix"></span>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>                                        
+                                        </div>
                                     </div>
                                     <div class="row mb50">
                                         <div class="col-sm-12">
@@ -499,14 +499,14 @@
                                                             </div>
                                                             <div class="col-sm-2">
                                                                 <input moment-picker="SFechaEgreso" today="true" ng-model="Ficha.FichaPsicologia.Had.FechaBEgr" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Egreso">
-                                                            </div>                                                            
+                                                            </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="col-sm-2">
                                                                 <label class="control-label pull-right" for="fecha">Ansiedad</label>
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <input ng-model="Ficha.FichaPsicologia.Had.AnsiedadIng"type="text" class="form-control" id="FuncionFisicaIng" placeholder="Funcion Fisica Ing." required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                                <input ng-model="Ficha.FichaPsicologia.Had.AnsiedadIng" type="text" class="form-control" id="FuncionFisicaIng" placeholder="Funcion Fisica Ing." required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
                                                             </div>
                                                             <div class="col-sm-2">
                                                                 <input ng-model="Ficha.FichaPsicologia.Had.AnsiedadEgr" type="text" class="form-control" id="FuncionFisicaEgr" placeholder="Funcion Fisica Egr." required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
@@ -540,7 +540,7 @@
                                                             <div class="col-sm-2">
                                                                 <input ng-model="Ficha.FichaPsicologia.Had.SubEscalaDepresionEgr" type="text" class="form-control" id="FuncionFisicaEgr" placeholder="Funcion Fisica Egr." required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
                                                             </div>
-                                                        </div>                                                        
+                                                        </div>
                                                         <div class="form-group">
                                                             <div class="col-sm-2">
                                                                 <label class="control-label pull-right" for="situacionLaboral">Observaciones</label>
@@ -574,8 +574,8 @@
                                                     </h4>
                                                 </div>
                                                 <div id="accordionAnt" class="panel-collapse collapse in">
-                                                    <div class="panel-body">                                                        
-                                                        <div class="form-group">                                                           
+                                                    <div class="panel-body">
+                                                        <div class="form-group">
                                                             <div class="col-sm-12">
                                                                 <textarea ng-model="Ficha.FichaPsicologia.Antecedentes" class="form-control" id="antecedentes" rows="4" placeholder="Antecedentes" required aria-required="true" ng-disabled="FormEditabe" maxlength="250"></textarea>
                                                             </div>
