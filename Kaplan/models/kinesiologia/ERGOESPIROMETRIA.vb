@@ -5,7 +5,7 @@ Imports System.Data.SqlClient
 
 Namespace Clases
 
-    Public Class SHUTTLE
+    Public Class Ergoespirometria
         Public Property EFechaIngreso As Date
         Public ReadOnly Property EFechaIngresoString As String
             Get
@@ -18,20 +18,18 @@ Namespace Clases
                 Return EFechaEgreso.ToString("dd MMM yyyy")
             End Get
         End Property
-        Public Property METROSIngreso As Double
-        Public Property METROSEgreso As Double
-        Public Property NIVELIngreso As Double
-        Public Property NIVELEgreso As Double
+        Public Property VO2LIngreso As Double
+        Public Property VO2LEgreso As Double
         Public Property VO2MIngreso As Double
         Public Property VO2MEgreso As Double
-        Public Property METSIngreso As Double
-        Public Property METSEgreso As Double
         Public Property FCIngreso As Double
         Public Property FCEgreso As Double
-        Public Property FCMTIngreso As Double
-        Public Property FCMTEgreso As Double
-        Public Property METSMAXIngreso As Double
-        Public Property METSMAXEgreso As Double
+        Public Property PulsoIngreso As Double
+        Public Property PulsoEgreso As Double
+        Public Property VEIngreso As Double
+        Public Property VEEgreso As Double
+        Public Property METSIngreso As Double
+        Public Property METSEgreso As Double
     End Class
 
 End Namespace
