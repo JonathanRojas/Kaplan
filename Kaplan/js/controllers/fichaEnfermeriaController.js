@@ -9,12 +9,12 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
         $scope.loading = true;
         //$scope.loadingData = true;
         $scope.loadingTipoRegion = true;
-        $scope.loadingTipoDiagnosticoKine = true;
-        $scope.loadingTipoObjetivoKine = true;
+        //$scope.loadingTipoDiagnosticoKine = true;
+        //$scope.loadingTipoObjetivoKine = true;
         $scope.loadingTipoComuna = true;
         $scope.loadingPlanes = true;
         $scope.StopLoading = function () {
-            $scope.loading = !(!$scope.loadingTipoRegion && !$scope.loadingTipoDiagnosticoKine && !$scope.loadingTipoObjetivoKine && !$scope.loadingTipoComuna && !$scope.loadingPlanes);
+            $scope.loading = !(!$scope.loadingTipoRegion && !$scope.loadingTipoComuna && !$scope.loadingPlanes);
             if (!$scope.loading) { waitingDialog.hide(); }
         };
         /*Fin*/

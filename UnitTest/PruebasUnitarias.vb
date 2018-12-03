@@ -22,7 +22,7 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
     <TestMethod()> Public Sub PruebaReservasxPlan()
         Dim idPlan = 10
         Dim resultado As New List(Of Kaplan.Clases.Sesion)
-        resultado = Kaplan.Clases.Sesion.getSesionxPlan(idPlan)
+        resultado = Kaplan.Clases.Sesion.getSesionxPlan(idPlan, 2)
         Assert.AreEqual(False, Not IsNothing(resultado))
 
     End Sub
