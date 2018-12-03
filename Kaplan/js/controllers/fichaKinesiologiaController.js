@@ -4,6 +4,8 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
         LoginService.getCerrarSesion();
         $location.path('cerrarsesion');
     } else {
+
+        /*Validacion de Carga inicial*/
         waitingDialog.show('Cargando Ficha...', { dialogSize: 'sm' });
         $scope.loading = true;
         //$scope.loadingData = true;
@@ -16,16 +18,17 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
             $scope.loading = !(!$scope.loadingTipoRegion && !$scope.loadingTipoDiagnosticoKine && !$scope.loadingTipoObjetivoKine && !$scope.loadingTipoComuna && !$scope.loadingPlanes);
             if (!$scope.loading) { waitingDialog.hide(); }
         };
+        /*Fin*/
 
+        /*Validacion de perfil para editar la ficha*/
         if (parseInt(LoginService.getTipo()) == 5) {
             $scope.FormEditabe = false;
         } else {
             $scope.FormEditabe = true;
         };
+        /*Fin*/
 
-        //$scope.loadingData = false;
-        //$scope.StopLoading();
-
+       /*Creacion de input variables*/
         $scope.columnsO = [{ colId: 'col1', Tipo: { ID: '' } , Id: -1}];
 
         $scope.addNewColumnO = function () {
@@ -47,7 +50,9 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
         $scope.removeColumnD = function (index) {
             $scope.columnsD.splice(index, 1);
         };
+        /*Fin*/
 
+        /*Accion de para avanzar o retroceder en un tabpanel*/
         $scope.next = function () {
             $('.nav-tabs > .active').next('li').find('a').each(function () {
                 $(this).attr("data-toggle", "tab");
@@ -58,7 +63,9 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
         $scope.previous = function () {
             $('.nav-tabs > .active').prev('li').find('a').trigger('click');
         };
+        /*Fin*/
 
+        /*Tipo Services*/
         tipoService.getTipoObjetivoKine().then(function (result) {
             $scope.TiposObjetivo = result.data;
             $scope.loadingTipoObjetivoKine = false;
@@ -94,7 +101,9 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
             msg = { title: 'Error Listar Tipo Comuna' };
             Notification.error(msg);
         });
+        /*Fin*/
 
+        /*Carga de Planes*/
         fichaService.getPlanesxRut(parseInt(fichaService.getRutPaciente())).then(function (result) {
             $scope.Planes = result.data;
             $scope.loadingPlanes = false;
@@ -103,7 +112,9 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
             msg = { title: 'Error Listar Planes' };
             Notification.error(msg);
         });
+        /*Fin*/
 
+        /*Funciones*/
         $scope.CambioPlan = function (plan) {
             if (typeof plan !== 'undefined') {
                 fichaService.getSesionesxPlan(plan, 5).then(function (result) {
@@ -228,6 +239,7 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
                 return true;
             }
         }
+        /*Fin*/
 
     };
 }]);

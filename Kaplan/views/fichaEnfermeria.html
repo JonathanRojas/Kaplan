@@ -1,13 +1,6 @@
 ﻿<section id="suggestions" class="doted-bg1" ng-controller="fichaEnfermeriaController">
     <form class="form-horizontal formodif" name="frmEnfermeria" id="frmEnfermeria" role="form" ng-disabled="true">
         <div class="section-title text-center">
-            <!--<div ng-class="{hidden: !loading}" class="animated" data-animation="bounceInLeft">
-                <h5>Cargando Datos de la Ficha... <i class="fa fa-user hidden-xs" aria-hidden="true"></i></h5>
-                <div class="progress">
-                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%; background-color: #32b8da;">
-                    </div>
-                </div>
-            </div>-->
             <h3 class="animated hidden-xs" data-animation="bounceInLeft" ng-class="{hidden: loading}">
                 <label class="text-blue animated hidden-xs" data-animation="bounceInLeft">
                     Ficha Enfermería
@@ -15,7 +8,6 @@
             </h3>
             <div class="row mb10" ng-class="{hidden: loading}">
                 <div class="col-sm-3">
-
                 </div>
                 <div class="col-sm-3">
                     <h2 class="animated" data-animation="bounceInLeft">Plan:</h2>
@@ -43,8 +35,9 @@
                         <div class="tabs-menu">
                             <ul class="nav nav-tabs nav-justified" role="tablist">
                                 <li role="presentation" class="active"><a data-target="#antecedentesTab" aria-controls="home" role="tab" data-toggle="tab">Antecedentes Personales</a></li>
-                                <li role="presentation"><a data-target="#fichaTab" aria-controls="profile" role="tab" data-toggle="tab">Ficha</a></li>
-                                <li role="presentation"><a data-target="#planTab" aria-controls="profile" role="tab" data-toggle="tab">Plan Kinesico</a></li>
+                                <li role="presentation"><a data-target="#fichaTab" aria-controls="profile" role="tab" data-toggle="tab">Antecedentes Médicos</a></li>
+                                <li role="presentation"><a data-target="#evoTab" aria-controls="profile" role="tab" data-toggle="tab">Evolución</a></li>
+                                <li role="presentation"><a data-target="#planTab" aria-controls="profile" role="tab" data-toggle="tab">Plan Enfermería</a></li>
                             </ul>
                         </div>
                         <div class="tab-content">
@@ -159,13 +152,13 @@
                                                                 <label class="control-label pull-right" for="tipoEvaluacion">Tipo Evaluacion</label>
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="tipoEvaluacion" required aria-required="true" ng-disabled="FormEditabe" placeholder="Tipo Evaluacion" ng-model="Ficha.FichaKinesiologia.TipoEvaluacion" maxlength="250">
+                                                                <input type="text" class="form-control" id="tipoEvaluacion" required aria-required="true" ng-disabled="FormEditabe" placeholder="Tipo Evaluacion" ng-model="Ficha.FichaEnfermeria.TipoEvaluacion" maxlength="250">
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <label class="control-label pull-right" for="Riesgo">Riesgo</label>
+                                                                <label class="control-label pull-right" for="Riesgo">Procedencia</label>
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="Riesgo" required aria-required="true" ng-disabled="FormEditabe" placeholder="Riesgo" ng-model="Ficha.FichaKinesiologia.Riesgo" maxlength="250">
+                                                                <input type="text" class="form-control" id="Procedencia" required aria-required="true" ng-disabled="FormEditabe" placeholder="Procedencia" ng-model="Ficha.FichaEnfermeria.Procedencia" maxlength="250">
                                                             </div>
                                                         </div>
                                                         <span class="clearfix"></span>
@@ -185,212 +178,67 @@
                             <div role="tabpanel" class="tab-pane fade" id="fichaTab">
                                 <div class="panel-group" id="accordion">
                                     <div class="row mb50">
-                                        <div class="col-sm-6 col-xs-12">
+                                        <div class="col-sm-12 col-xs-12">
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">
                                                     <h4 class="panel-title">
-                                                        <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionERGO"><i class="fa fa-heartbeat" aria-hidden="true"></i>ERGOESPIROMETRIA</a>
+                                                        <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionAmedico"><i class="fa fa-heartbeat" aria-hidden="true"></i>Antecedentes Médicos</a>
                                                     </h4>
                                                 </div>
-                                                <div id="accordionERGO" class="panel-collapse collapse in">
+                                                <div id="accordionAmedico" class="panel-collapse collapse in">
                                                     <div class="panel-body">
                                                         <div class="form-group">
-                                                            <div class="col-sm-4">
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label" for="Diagnostico">Diagnostico</label>
                                                             </div>
                                                             <div class="col-sm-4" align="center">
-                                                                <label class="control-label" for="Ingreso">Ingreso</label>
+                                                                <input type="text" class="form-control" id="Diagnostico" placeholder="Diagnostico Médico" ng-model="Ficha.FichaEnfermeria.Diagnostico" required aria-required="true" ng-disabled="FormEditabe" maxlength="500">
+                                                            </div>
+                                                            <div class="col-sm-2" align="center">
+                                                                <label class="control-label" for="FechaDiagnostico">Fecha</label>
                                                             </div>
                                                             <div class="col-sm-4" align="center">
-                                                                <label class="control-label" for="Egreso">Egreso</label>
+                                                                <input moment-picker="FechaDiagnostico" today="true" ng-model="Ficha.FichaEnfermeria.FechaDiagnostico" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Diagnostico">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <div class="col-sm-4">
-                                                                <label class="control-label pull-right" for="fecha">Fecha</label>
-                                                            </div>
-                                                            <div class="col-sm-4">
-                                                                <input moment-picker="EFechaIngreso" today="true" ng-model="Ficha.FichaKinesiologia.ERGOESPIROMETRIA.EFechaIngreso" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Ingreso">
-                                                            </div>
-                                                            <div class="col-sm-4">
-                                                                <input moment-picker="EFechaEgreso" today="true" ng-model="Ficha.FichaKinesiologia.ERGOESPIROMETRIA.EFechaEgreso" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Egreso">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <div class="col-sm-4">
-                                                                <label class="control-label pull-right" for="VO2L">VO2 L/min</label>
-                                                            </div>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="VO2LIngreso" placeholder="VO2 L/min Ingreso" ng-model="Ficha.FichaKinesiologia.ERGOESPIROMETRIA.VO2LIngreso" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
-                                                            </div>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="VO2LEgreso" placeholder="VO2 L/min Egreso" ng-model="Ficha.FichaKinesiologia.ERGOESPIROMETRIA.VO2LEgreso" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <div class="col-sm-4">
-                                                                <label class="control-label pull-right" for="VO2M">VO2 ml/kg/min</label>
-                                                            </div>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="VO2MIngreso" placeholder="VO2 ml/kg/min Ingreso" ng-model="Ficha.FichaKinesiologia.ERGOESPIROMETRIA.VO2MIngreso" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
-                                                            </div>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="VO2MEgreso" placeholder="VO2 ml/kg/min Egreso" ng-model="Ficha.FichaKinesiologia.ERGOESPIROMETRIA.VO2MEgreso" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <div class="col-sm-4">
-                                                                <label class="control-label pull-right" for="FC">FC MAX</label>
-                                                            </div>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="FCIngreso" placeholder="FC MAX Ingreso" ng-model="Ficha.FichaKinesiologia.ERGOESPIROMETRIA.FCIngreso" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
-                                                            </div>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="FCEgreso" placeholder="FC MAX Egreso" ng-model="Ficha.FichaKinesiologia.ERGOESPIROMETRIA.FCEgreso" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <div class="col-sm-4">
-                                                                <label class="control-label pull-right" for="pulso">PULSO O2</label>
-                                                            </div>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="PulsoIngreso" placeholder="PULSO O2 Ingreso" ng-model="Ficha.FichaKinesiologia.ERGOESPIROMETRIA.PulsoIngreso" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
-                                                            </div>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="PulsoEgreso" placeholder="PULSO O2 Egreso" ng-model="Ficha.FichaKinesiologia.ERGOESPIROMETRIA.PulsoEgreso" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <div class="col-sm-4">
-                                                                <label class="control-label pull-right" for="VE">VE/VCO2 SLOPE</label>
-                                                            </div>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="VEIngreso" placeholder="VE/VCO2 SLOPE Ingreso" ng-model="Ficha.FichaKinesiologia.ERGOESPIROMETRIA.VEIngreso" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
-                                                            </div>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="VEEgreso" placeholder="VE/VCO2 SLOPE Egreso" ng-model="Ficha.FichaKinesiologia.ERGOESPIROMETRIA.VEEgreso" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <div class="col-sm-4">
-                                                                <label class="control-label pull-right" for="METS">METS</label>
-                                                            </div>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="METSIngreso" placeholder="METS Ingreso" ng-model="Ficha.FichaKinesiologia.ERGOESPIROMETRIA.METSIngreso" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
-                                                            </div>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="METSEgreso" placeholder="METS Egreso" ng-model="Ficha.FichaKinesiologia.ERGOESPIROMETRIA.METSEgreso" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
-                                                            </div>
-                                                        </div>
-                                                        <span class="clearfix"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-xs-12">
-                                            <div class="panel panel-default">
-                                                <div class="panel-heading">
-                                                    <h4 class="panel-title">
-                                                        <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionSHU"><i class="fa fa-heartbeat" aria-hidden="true"></i>SHUTTLE</a>
-                                                    </h4>
-                                                </div>
-                                                <div id="accordionSHU" class="panel-collapse collapse in">
-                                                    <div class="panel-body">
-                                                        <div class="form-group">
-                                                            <div class="col-sm-4">
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label" for="cxproced">Cx/Proced</label>
                                                             </div>
                                                             <div class="col-sm-4" align="center">
-                                                                <label class="control-label" for="Ingreso">Ingreso</label>
+                                                                <input type="text" class="form-control" id="cxproced" placeholder="Cx/Proced" ng-model="Ficha.FichaEnfermeria.CxProced" required aria-required="true" ng-disabled="FormEditabe" maxlength="500">
+                                                            </div>
+                                                            <div class="col-sm-2" align="center">
+                                                                <label class="control-label" for="FechaCxProced">Fecha</label>
                                                             </div>
                                                             <div class="col-sm-4" align="center">
-                                                                <label class="control-label" for="Egreso">Egreso</label>
+                                                                <input moment-picker="FechaCxProced" today="true" ng-model="Ficha.FichaEnfermeria.FechaCxProced" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Cx/Proced">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <div class="col-sm-4">
-                                                                <label class="control-label pull-right" for="fecha">Fecha</label>
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label" for="Controles">Controles</label>
                                                             </div>
-                                                            <div class="col-sm-4">
-                                                                <input moment-picker="SFechaIngreso" today="true" ng-model="Ficha.FichaKinesiologia.SHUTTLE.EFechaIngreso" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Ingreso">
+                                                            <div class="col-sm-4" align="center">
+                                                                <input type="text" class="form-control" id="Controles" placeholder="Controles" ng-model="Ficha.FichaEnfermeria.Controles" required aria-required="true" ng-disabled="FormEditabe" maxlength="500">
                                                             </div>
-                                                            <div class="col-sm-4">
-                                                                <input moment-picker="SFechaEgreso" today="true" ng-model="Ficha.FichaKinesiologia.SHUTTLE.EFechaEgreso" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Egreso">
+                                                            <div class="col-sm-2" align="center">
+                                                                <label class="control-label" for="FechaAlta">Fecha Alta</label>
                                                             </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <div class="col-sm-4">
-                                                                <label class="control-label pull-right" for="METROS">METROS</label>
-                                                            </div>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="METROSIngreso" placeholder="METROS Ingreso" ng-model="Ficha.FichaKinesiologia.SHUTTLE.METROSIngreso" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
-                                                            </div>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="METROSEgreso" placeholder="METROS Egreso" ng-model="Ficha.FichaKinesiologia.SHUTTLE.METROSEgreso" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                            <div class="col-sm-4" align="center">
+                                                                <input moment-picker="FechaAlta" today="true" ng-model="Ficha.FichaEnfermeria.FechaAlta" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Alta">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <div class="col-sm-4">
-                                                                <label class="control-label pull-right" for="NIVEL">NIVEL COMP</label>
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label" for="HeridaCX">Herida Cx</label>
                                                             </div>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="NIVELIngreso" placeholder="NIVEL COMP Ingreso" ng-model="Ficha.FichaKinesiologia.SHUTTLE.NIVELIngreso" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                            <div class="col-sm-4" align="center">
+                                                                <input type="text" class="form-control" id="HeridaCX" placeholder="Herida CX" ng-model="Ficha.FichaEnfermeria.HeridaCX" required aria-required="true" ng-disabled="FormEditabe" maxlength="500">
                                                             </div>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="NIVELEgreso" placeholder="NIVEL COMP Egreso" ng-model="Ficha.FichaKinesiologia.SHUTTLE.NIVELEgreso" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                            <div class="col-sm-2" align="center">
                                                             </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <div class="col-sm-4">
-                                                                <label class="control-label pull-right" for="VO2M">VO2 ml/Kg/min</label>
-                                                            </div>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="VO2MIngreso" placeholder="VO2 ml/Kg/min Ingreso" ng-model="Ficha.FichaKinesiologia.SHUTTLE.VO2MIngreso" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
-                                                            </div>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="VO2MEgreso" placeholder="VO2 ml/Kg/min Egreso" ng-model="Ficha.FichaKinesiologia.SHUTTLE.VO2MEgreso" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <div class="col-sm-4">
-                                                                <label class="control-label pull-right" for="METS">METS</label>
-                                                            </div>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="METSIngreso" placeholder="METS Ingreso" ng-model="Ficha.FichaKinesiologia.SHUTTLE.METSIngreso" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
-                                                            </div>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="METSEgreso" placeholder="METS Egreso" ng-model="Ficha.FichaKinesiologia.SHUTTLE.METSEgreso" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <div class="col-sm-4">
-                                                                <label class="control-label pull-right" for="fc">FC MAX</label>
-                                                            </div>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="FCIngreso" placeholder="FC MAX Ingreso" ng-model="Ficha.FichaKinesiologia.SHUTTLE.FCIngreso" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
-                                                            </div>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="FCEgreso" placeholder="FC MAX Egreso" ng-model="Ficha.FichaKinesiologia.SHUTTLE.FCEgreso" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <div class="col-sm-4">
-                                                                <label class="control-label pull-right" for="FCMT">% FCMT</label>
-                                                            </div>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="FCMTIngreso" placeholder="% FCMT Ingreso" ng-model="Ficha.FichaKinesiologia.SHUTTLE.FCMTIngreso" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
-                                                            </div>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="FCMTEgreso" placeholder="% FCMT Egreso" ng-model="Ficha.FichaKinesiologia.SHUTTLE.FCMTEgreso" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <div class="col-sm-4">
-                                                                <label class="control-label pull-right" for="METSMAX">METS MAX</label>
-                                                            </div>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="METSMAXIngreso" placeholder="METS MAX Ingreso" ng-model="Ficha.FichaKinesiologia.SHUTTLE.METSMAXIngreso" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
-                                                            </div>
-                                                            <div class="col-sm-4">
-                                                                <input type="text" class="form-control" id="METSMAXEgreso" placeholder="METS MAX Egreso" ng-model="Ficha.FichaKinesiologia.SHUTTLE.METSMAXEgreso" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                            <div class="col-sm-4" align="center">
                                                             </div>
                                                         </div>
                                                         <span class="clearfix"></span>
@@ -400,40 +248,91 @@
                                         </div>
                                     </div>
                                     <div class="row mb50">
-                                        <div class="col-sm-6">
+                                        <div class="col-sm-12 col-xs-12">
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">
                                                     <h4 class="panel-title">
-                                                        <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionEI"><i class="fa fa-heartbeat" aria-hidden="true"></i>Evolucion Ingreso</a>
+                                                        <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionFactorRiesgo"><i class="fa fa-heartbeat" aria-hidden="true"></i>Factores de Riesgo</a>
                                                     </h4>
                                                 </div>
-                                                <div id="accordionEI" class="panel-collapse collapse in">
+                                                <div id="accordionFactorRiesgo" class="panel-collapse collapse in">
                                                     <div class="panel-body">
                                                         <div class="form-group">
-                                                            <div class="col-sm-4">
-                                                                <label class="control-label pull-right" for="Fechaei">Fecha</label>
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label" for="HTA">HTA</label>
                                                             </div>
-                                                            <div class="col-sm-4">
-                                                                <input moment-picker="Fechaei" today="true" ng-model="Ficha.FichaKinesiologia.EvolucionIngresoKine.Fecha" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Ingreso">
+                                                            <div class="col-sm-2" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="HTA" ng-disabled="FormEditabe" name="HTA" id="HTA" data-ng-options="tipoHTA.ID as tipoHTA.Nombre for tipoHTA in TiposHTA" ng-model="Ficha.FichaEnfermeria.HTA.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
                                                             </div>
-                                                            <div class="col-sm-4">
-
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label" for="DM">DM</label>
+                                                            </div>
+                                                            <div class="col-sm-2" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="DM" ng-disabled="FormEditabe" name="DM" id="DM" data-ng-options="tipoDM.ID as tipoDM.Nombre for tipoDM in TiposDM" ng-model="Ficha.FichaEnfermeria.DM.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label" for="DLP">DLP</label>
+                                                            </div>
+                                                            <div class="col-sm-2" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="DLP" ng-disabled="FormEditabe" name="DM" id="DM" data-ng-options="tipoDLP.ID as tipoDLP.Nombre for tipoDLP in TiposDLP" ng-model="Ficha.FichaEnfermeria.DLP.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <div class="col-sm-4">
-                                                                <label class="control-label pull-right" for="EME">EVALUACION MUSCULO-ESQUELETICA</label>
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label" for="SED">SED</label>
                                                             </div>
-                                                            <div class="col-sm-8">
-                                                                <textarea class="form-control" id="EME" rows="3" ng-model="Ficha.FichaKinesiologia.EvolucionIngresoKine.EME" required aria-required="true" ng-disabled="FormEditabe" maxlength="250" placeholder="EVALUACION MUSCULO-ESQUELETICA - Ingreso"></textarea>
+                                                            <div class="col-sm-2" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="SED" ng-disabled="FormEditabe" name="SED" id="SED" data-ng-options="tipoSED.ID as tipoSED.Nombre for tipoSED in TiposSED" ng-model="Ficha.FichaEnfermeria.SED.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label" for="SPOB">SP/OB</label>
+                                                            </div>
+                                                            <div class="col-sm-2" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="SP/OB" ng-disabled="FormEditabe" name="SPOB" id="SPOB" data-ng-options="tipoSPOB.ID as tipoSPOB.Nombre for tipoSPOB in TiposSPOB" ng-model="Ficha.FichaEnfermeria.SPOB.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label" for="TB">TB</label>
+                                                            </div>
+                                                            <div class="col-sm-2" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="TB" ng-disabled="FormEditabe" name="TB" id="TB" data-ng-options="tipoTB.ID as tipoTB.Nombre for tipoTB in TiposTB" ng-model="Ficha.FichaEnfermeria.TB.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <div class="col-sm-4">
-                                                                <label class="control-label pull-right" for="Observacion">Observacion</label>
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label" for="OH">OH</label>
                                                             </div>
-                                                            <div class="col-sm-8">
-                                                                <textarea class="form-control" id="Observacion" rows="3" ng-model="Ficha.FichaKinesiologia.EvolucionIngresoKine.Observacion" required aria-required="true" ng-disabled="FormEditabe" placeholder="EVALUACION MUSCULO-ESQUELETICA - Observacion" maxlength="250"></textarea>
+                                                            <div class="col-sm-2" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="OH" ng-disabled="FormEditabe" name="OH" id="OH" data-ng-options="tipoOH.ID as tipoOH.Nombre for tipoOH in TiposOH" ng-model="Ficha.FichaEnfermeria.OH.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label" for="AF">AF</label>
+                                                            </div>
+                                                            <div class="col-sm-2" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="AF" ng-disabled="FormEditabe" name="AF" id="AF" data-ng-options="tipoAF.ID as tipoAF.Nombre for tipoAF in TiposAF" ng-model="Ficha.FichaEnfermeria.AF.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label" for="Estres">Estrés</label>
+                                                            </div>
+                                                            <div class="col-sm-2" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="Estrés" ng-disabled="FormEditabe" name="Estres" id="Estres" data-ng-options="tipoEstres.ID as tipoEstres.Nombre for tipoEstres in TiposEstres" ng-model="Ficha.FichaEnfermeria.Estres.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                         <span class="clearfix"></span>
@@ -441,42 +340,213 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-sm-6">
+                                    </div>
+                                    <div class="row mb50">
+                                        <div class="col-sm-12 col-xs-12">
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">
                                                     <h4 class="panel-title">
-                                                        <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionEE"><i class="fa fa-heartbeat" aria-hidden="true"></i>Evolucion Egreso</a>
+                                                        <div class="row mb50">
+                                                            <div class="col-sm-5">
+                                                                <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionMedicamentos"><i class="fa fa-heartbeat" aria-hidden="true"></i>Medicamentos</a>
+                                                            </div>
+                                                            <div class="col-sm-5">
+                                                                <button type="button" class="btn border small pull-left" ng-show="!FormEditabe" ng-click="addNewColumnMedicamentos()">+ Medicamentos</button>
+                                                            </div>
+                                                        </div>
                                                     </h4>
                                                 </div>
-                                                <div id="accordionEE" class="panel-collapse collapse in">
+                                                <div id="accordionMedicamentos" class="panel-collapse collapse in">
                                                     <div class="panel-body">
                                                         <div class="form-group">
-                                                            <div class="col-sm-4">
-                                                                <label class="control-label pull-right" for="Fechaee">Fecha</label>
+                                                            <div class="col-sm-3">
+                                                                <label class="control-label" align="center" for="NombreMedicamento">Nombre</label>
                                                             </div>
-                                                            <div class="col-sm-4">
-                                                                <input moment-picker="Fechaee" today="true" ng-model="Ficha.FichaKinesiologia.EvolucionEgresoKine.Fecha" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Egreso">
+                                                            <div class="col-sm-3">
+                                                                <label class="control-label" align="center" for="ObservacionMedicamento">Observación</label>
                                                             </div>
-                                                            <div class="col-sm-4">
-
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label" align="center" for="DosisMedicamento">Dosis</label>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label" align="center" for="HorarioMedicamento">Horario</label>
+                                                            </div>
+                                                            <div class="col-sm-1">
+                                                            </div>
+                                                        </div>
+                                                        <fieldset ng-repeat="Medicamentos in columnsMedicamentos" style="padding: 16px; min-width: 100%">
+                                                            <div class="form-group">
+                                                                <div class="col-sm-3">
+                                                                    <input type="text" class="form-control" id="NombreMedicamento" placeholder="Nombre Medicamento" ng-model="Medicamentos.Nombre" required aria-required="true" ng-disabled="FormEditabe" maxlength="500">
+                                                                </div>
+                                                                <div class="col-sm-3">
+                                                                    <input type="text" class="form-control" id="ObservacionMedicamento" placeholder="Observación Medicamento" ng-model="Medicamentos.Observacion" required aria-required="true" ng-disabled="FormEditabe" maxlength="500">
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <input type="number" class="form-control" id="DosisMedicamento" placeholder="Dosis Medicamento" ng-model="Medicamentos.Dosis" required aria-required="true" ng-disabled="FormEditabe" min="0">
+                                                                </div>
+                                                                <div class="col-sm-3">
+                                                                    <input type="text" class="form-control" id="HorarioMedicamento" placeholder="Horario Medicamento" ng-model="Medicamentos.Horario" required aria-required="true" ng-disabled="FormEditabe" maxlength="50">
+                                                                </div>
+                                                                <div class="col-sm-1">
+                                                                    <button class="remove" ng-hide="columnsMedicamentos.length == 1 || FormEditabe" ng-click="removeColumnMedicamentos($index)">x</button>
+                                                                </div>
+                                                            </div>
+                                                        </fieldset>
+                                                        <span class="clearfix"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb50">
+                                        <div class="col-sm-12 col-xs-12">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                        <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionFactorRiesgo"><i class="fa fa-heartbeat" aria-hidden="true"></i>Factores de Riesgo</a>
+                                                    </h4>
+                                                </div>
+                                                <div id="accordionFactorRiesgo" class="panel-collapse collapse in">
+                                                    <div class="panel-body">
+                                                        <div class="form-group">
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label" for="HTA">HTA</label>
+                                                            </div>
+                                                            <div class="col-sm-2" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="HTA" ng-disabled="FormEditabe" name="HTA" id="HTA" data-ng-options="tipoHTA.ID as tipoHTA.Nombre for tipoHTA in TiposHTA" ng-model="Ficha.FichaEnfermeria.HTA.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label" for="DM">DM</label>
+                                                            </div>
+                                                            <div class="col-sm-2" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="DM" ng-disabled="FormEditabe" name="DM" id="DM" data-ng-options="tipoDM.ID as tipoDM.Nombre for tipoDM in TiposDM" ng-model="Ficha.FichaEnfermeria.DM.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label" for="DLP">DLP</label>
+                                                            </div>
+                                                            <div class="col-sm-2" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="DLP" ng-disabled="FormEditabe" name="DM" id="DM" data-ng-options="tipoDLP.ID as tipoDLP.Nombre for tipoDLP in TiposDLP" ng-model="Ficha.FichaEnfermeria.DLP.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <div class="col-sm-4">
-                                                                <label class="control-label pull-right" for="EMEE">EVALUACION MUSCULO-ESQUELETICA</label>
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label" for="SED">SED</label>
                                                             </div>
-                                                            <div class="col-sm-8">
-                                                                <textarea class="form-control" id="EMEE" rows="3" ng-model="Ficha.FichaKinesiologia.EvolucionEgresoKine.EME" required placeholder="EVALUACION MUSCULO-ESQUELETICA - Egreso" aria-required="true" ng-disabled="FormEditabe" maxlength="250"></textarea>
+                                                            <div class="col-sm-2" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="SED" ng-disabled="FormEditabe" name="SED" id="SED" data-ng-options="tipoSED.ID as tipoSED.Nombre for tipoSED in TiposSED" ng-model="Ficha.FichaEnfermeria.SED.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label" for="SPOB">SP/OB</label>
+                                                            </div>
+                                                            <div class="col-sm-2" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="SP/OB" ng-disabled="FormEditabe" name="SPOB" id="SPOB" data-ng-options="tipoSPOB.ID as tipoSPOB.Nombre for tipoSPOB in TiposSPOB" ng-model="Ficha.FichaEnfermeria.SPOB.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label" for="TB">TB</label>
+                                                            </div>
+                                                            <div class="col-sm-2" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="TB" ng-disabled="FormEditabe" name="TB" id="TB" data-ng-options="tipoTB.ID as tipoTB.Nombre for tipoTB in TiposTB" ng-model="Ficha.FichaEnfermeria.TB.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <div class="col-sm-4">
-                                                                <label class="control-label pull-right" for="ObservacionE">Observacion</label>
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label" for="OH">OH</label>
                                                             </div>
-                                                            <div class="col-sm-8">
-                                                                <textarea class="form-control" id="ObservacionE" rows="3" ng-model="Ficha.FichaKinesiologia.EvolucionEgresoKine.Observacion" required placeholder="EVALUACION MUSCULO-ESQUELETICA - Observacion" aria-required="true" ng-disabled="FormEditabe" maxlength="250"></textarea>
+                                                            <div class="col-sm-2" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="OH" ng-disabled="FormEditabe" name="OH" id="OH" data-ng-options="tipoOH.ID as tipoOH.Nombre for tipoOH in TiposOH" ng-model="Ficha.FichaEnfermeria.OH.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label" for="AF">AF</label>
+                                                            </div>
+                                                            <div class="col-sm-2" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="AF" ng-disabled="FormEditabe" name="AF" id="AF" data-ng-options="tipoAF.ID as tipoAF.Nombre for tipoAF in TiposAF" ng-model="Ficha.FichaEnfermeria.AF.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label" for="Estres">Estrés</label>
+                                                            </div>
+                                                            <div class="col-sm-2" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="Estrés" ng-disabled="FormEditabe" name="Estres" id="Estres" data-ng-options="tipoEstres.ID as tipoEstres.Nombre for tipoEstres in TiposEstres" ng-model="Ficha.FichaEnfermeria.Estres.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
                                                             </div>
                                                         </div>
+                                                        <span class="clearfix"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-12 text-right">
+                                        <a class="btn  blue medium btnPrevious" ng-click="previous()">Anterior</a>
+                                        <a class="btn  blue medium btnNext" ng-click="next()">Siguiente</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="evoTab">
+                                <div class="panel-group" id="accordion">
+                                    <div class="row mb50">
+                                        <div class="col-sm-12 col-xs-12">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                        <div class="row mb50">
+                                                            <div class="col-sm-5">
+                                                                <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionEvolucion"><i class="fa fa-heartbeat" aria-hidden="true"></i>Evolución</a>
+                                                            </div>
+                                                            <div class="col-sm-5">
+                                                                <button type="button" class="btn border small pull-left" ng-show="!FormEditabe" ng-click="addNewColumnEvolucion()">+ Evolución</button>
+                                                            </div>
+                                                        </div>
+                                                    </h4>
+                                                </div>
+                                                <div id="accordionEvolucion" class="panel-collapse collapse in">
+                                                    <div class="panel-body">
+                                                        <div class="form-group">
+                                                            <div class="col-sm-2">
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label" align="center" for="FechaEvolucion">Fecha</label>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <label class="control-label" align="center" for="EvolucionEnfermeria">Evolución</label>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                            </div>
+                                                        </div>
+                                                        <fieldset ng-repeat="Evolucion in columnsEvolucion" style="padding: 16px; min-width: 100%">
+                                                            <div class="form-group">
+                                                                <div class="col-sm-2">
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <input moment-picker="FechaEvolucion" today="true" ng-model="Ficha.FichaEnfermeria.EvolucionEnfermeria.Fecha" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Evolución">
+                                                                </div>
+                                                                <div class="col-sm-6">
+                                                                    <textarea class="form-control" id="EvolucionEnfermeria" rows="3" ng-model="Ficha.FichaEnfermeria.EvolucionEnfermeria.Evolucion" required aria-required="true" ng-disabled="FormEditabe" maxlength="500" placeholder="Evolución Enfermeria"></textarea>
+                                                                </div>
+                                                                <div class="col-sm-1">
+                                                                    <button class="remove" ng-hide="columnsEvolucion.length == 1 || FormEditabe" ng-click="removeColumnEvolucion($index)">x</button>
+                                                                </div>
+                                                            </div>
+                                                        </fieldset>
                                                         <span class="clearfix"></span>
                                                     </div>
                                                 </div>
@@ -500,25 +570,25 @@
                                                     <h4 class="panel-title">
                                                         <div class="row mb50">
                                                             <div class="col-sm-5">
-                                                                <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionKine"><i class="fa fa-heartbeat" aria-hidden="true"></i>Diagnostico Kinesico</a>
+                                                                <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionDiagPlan"><i class="fa fa-heartbeat" aria-hidden="true"></i>Diagnostico</a>
                                                             </div>
                                                             <div class="col-sm-5">
-                                                                <button type="button" class="btn border small pull-left" ng-show="!FormEditabe" ng-click="addNewColumnD()">+ Diagnostico</button>
+                                                                <button type="button" class="btn border small pull-left" ng-show="!FormEditabe" ng-click="addNewColumnDiagnostico()">+ Diagnostico</button>
                                                             </div>
                                                         </div>
                                                     </h4>
                                                 </div>
-                                                <div id="accordionKine" class="panel-collapse collapse in">
+                                                <div id="accordionDiagPlan" class="panel-collapse collapse in">
                                                     <div class="panel-body">
-                                                        <fieldset ng-repeat="PlanKinesicoD in columnsD" style="padding: 16px; min-width: 100%">
+                                                        <fieldset ng-repeat="Diagnostico in columnsDiagnostico" style="padding: 16px; min-width: 100%">
                                                             <div class="form-group">
                                                                 <div class="col-sm-10">
-                                                                    <select class="form-control" required aria-required="true" placeholder="Diagnostico" ng-disabled="FormEditabe" name="diagnostico" id="diagnostico" data-ng-options="tipoDiagnostico.ID as tipoDiagnostico.Nombre for tipoDiagnostico in TiposDiagnostico" ng-model="PlanKinesicoD.Tipo.ID">
+                                                                    <select class="form-control" required aria-required="true" placeholder="Diagnostico Plan Enfermeria" ng-disabled="FormEditabe" name="diagnostico" id="diagnostico" data-ng-options="tipoDiagnostico.ID as tipoDiagnostico.Nombre for tipoDiagnostico in TiposDiagnostico" ng-model="Diagnostico.Tipo.ID">
                                                                         <option value="">Seleccione</option>
                                                                     </select>
                                                                 </div>
                                                                 <div class="col-sm-2">
-                                                                    <button class="remove" ng-hide="columnsD.length == 1 || FormEditabe" ng-click="removeColumnD($index)">x</button>
+                                                                    <button class="remove" ng-hide="columnsDiagnostico.length == 1 || FormEditabe" ng-click="removeColumnDiagnostico($index)">x</button>
                                                                 </div>
                                                             </div>
                                                         </fieldset>
@@ -533,25 +603,25 @@
                                                     <h4 class="panel-title">
                                                         <div class="row mb50">
                                                             <div class="col-sm-5">
-                                                                <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionObj"><i class="fa fa-heartbeat" aria-hidden="true"></i>Objetivos</a>
+                                                                <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionObjPlan"><i class="fa fa-heartbeat" aria-hidden="true"></i>Objetivos</a>
                                                             </div>
                                                             <div class="col-sm-5">
-                                                                <button type="button" class="btn border small pull-left" ng-show="!FormEditabe" ng-click="addNewColumnO()">+ Objetivos</button>
+                                                                <button type="button" class="btn border small pull-left" ng-show="!FormEditabe" ng-click="addNewColumnObjetivos()">+ Objetivos</button>
                                                             </div>
                                                         </div>
                                                     </h4>
                                                 </div>
-                                                <div id="accordionObj" class="panel-collapse collapse in">
+                                                <div id="accordionObjPlan" class="panel-collapse collapse in">
                                                     <div class="panel-body">
-                                                        <fieldset ng-repeat="PlanKinesicoO in columnsO" style="padding: 16px; min-width: 100%">
+                                                        <fieldset ng-repeat="Objetivos in columnsObjetivos" style="padding: 16px; min-width: 100%">
                                                             <div class="form-group">
                                                                 <div class="col-sm-10">
-                                                                    <select class="form-control" required aria-required="true" placeholder="Objetivo" ng-disabled="FormEditabe" name="objetivo" id="objetivo" data-ng-options="tipoObjetivo.ID as tipoObjetivo.Nombre for tipoObjetivo in TiposObjetivo" ng-model="PlanKinesicoO.Tipo.ID">
+                                                                    <select class="form-control" required aria-required="true" placeholder="Objetivo Plan Enfermeria" ng-disabled="FormEditabe" name="objetivo" id="objetivo" data-ng-options="tipoObjetivo.ID as tipoObjetivo.Nombre for tipoObjetivo in TiposObjetivo" ng-model="Objetivos.Tipo.ID">
                                                                         <option value="">Seleccione</option>
                                                                     </select>
                                                                 </div>
                                                                 <div class="col-sm-2">
-                                                                    <button class="remove" ng-hide="columnsO.length == 1 || FormEditabe" ng-click="removeColumnO($index)">x</button>
+                                                                    <button class="remove" ng-hide="columnsObjetivos.length == 1 || FormEditabe" ng-click="removeColumnObjetivos($index)">x</button>
                                                                 </div>
                                                             </div>
                                                         </fieldset>
@@ -566,43 +636,81 @@
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">
                                                     <h4 class="panel-title">
-                                                        <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionInter"><i class="fa fa-heartbeat" aria-hidden="true"></i>Intervencion</a>
+                                                        <div class="row mb50">
+                                                            <div class="col-sm-5">
+                                                                <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionPlanNic"><i class="fa fa-heartbeat" aria-hidden="true"></i>Plan de Cuidados - Nic: Intervenciones </a>
+                                                            </div>
+                                                            <div class="col-sm-5">
+                                                                <button type="button" class="btn border small pull-left" ng-show="!FormEditabe" ng-click="addNewColumnIntervenciones()">+ Nic</button>
+                                                            </div>
+                                                        </div>
                                                     </h4>
                                                 </div>
-                                                <div id="accordionInter" class="panel-collapse collapse in">
+                                                <div id="accordionPlanNic" class="panel-collapse collapse in">
+                                                    <div class="panel-body">
+                                                        <fieldset ng-repeat="Intervenciones in columnsIntervenciones" style="padding: 16px; min-width: 100%">
+                                                            <div class="form-group">
+                                                                <div class="col-sm-10">
+                                                                    <select class="form-control" required aria-required="true" placeholder="Plan de Cuidados - Nic: Intervenciones" ng-disabled="FormEditabe" name="Intervenciones" id="Intervenciones" data-ng-options="tipoIntervencion.ID as tipoIntervencion.Nombre for tipoIntervencion in TiposIntervencion" ng-model="Intervenciones.Tipo.ID">
+                                                                        <option value="">Seleccione</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <button class="remove" ng-hide="columnsIntervenciones.length == 1 || FormEditabe" ng-click="removeColumnIntervenciones($index)">x</button>
+                                                                </div>
+                                                            </div>
+                                                        </fieldset>
+                                                        <span class="clearfix"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-xs-12">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                        <div class="row mb50">
+                                                            <div class="col-sm-5">
+                                                                <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionObjPlan"><i class="fa fa-heartbeat" aria-hidden="true"></i>Plan de Cuidados - Indicadores</a>
+                                                            </div>
+                                                            <div class="col-sm-5">
+                                                                <button type="button" class="btn border small pull-left" ng-show="!FormEditabe" ng-click="addNewColumnIndicadores()">+ Indicadores</button>
+                                                            </div>
+                                                        </div>
+                                                    </h4>
+                                                </div>
+                                                <div id="accordionObjPlan" class="panel-collapse collapse in">
                                                     <div class="panel-body">
                                                         <div class="form-group">
-                                                            <div class="col-sm-4">
-                                                                <label class="control-label pull-right" for="AEROBICO">EJERCICIO AEROBICO</label>
+                                                            <div class="col-sm-6">
                                                             </div>
-                                                            <div class="col-sm-8">
-                                                                <input type="text" class="form-control" id="AEROBICO" placeholder="EJERCICIO AEROBICO" ng-model="Ficha.FichaKinesiologia.PlanKinesico.AEROBICO" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label" align="center" for="InicioIndicador">Inicio</label>
                                                             </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <div class="col-sm-4">
-                                                                <label class="control-label pull-right" for="SOBRECARGA">EJERCICIO SOBRECARGA</label>
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label" align="center" for="FinalIndicador">Final</label>
                                                             </div>
-                                                            <div class="col-sm-8">
-                                                                <input type="text" class="form-control" id="SOBRECARGA" placeholder="EJERCICIO SOBRECARGA" ng-model="Ficha.FichaKinesiologia.PlanKinesico.SOBRECARGA" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                            <div class="col-sm-2">
                                                             </div>
                                                         </div>
-                                                        <div class="form-group">
-                                                            <div class="col-sm-4">
-                                                                <label class="control-label pull-right" for="FUNCIONAL">ENTRENAMIENTO FUNCIONAL</label>
+                                                        <fieldset ng-repeat="Indicadores in columnsIndicadores" style="padding: 16px; min-width: 100%">
+                                                            <div class="form-group">
+                                                                <div class="col-sm-6">
+                                                                    <select class="form-control" required aria-required="true" placeholder="Plan de Cuidados - Indicadores" ng-disabled="FormEditabe" name="indicador" id="indicador" data-ng-options="tipoIndicador.ID as tipoIndicador.Nombre for tipoIndicador in TiposIndicador" ng-model="Indicadores.Tipo.ID">
+                                                                        <option value="">Seleccione</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <input type="number" class="form-control" id="InicioIndicador" placeholder="Inicio Indicador" ng-model="Indicadores.Inicio" required aria-required="true" ng-disabled="FormEditabe" min="0">
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <input type="number" class="form-control" id="FinalIndicador" placeholder="Final Indicador" ng-model="Indicadores.Final" required aria-required="true" ng-disabled="FormEditabe" min="0">
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <button class="remove" ng-hide="columnsIndicadores.length == 1 || FormEditabe" ng-click="removeColumnIndicadores($index)">x</button>
+                                                                </div>
                                                             </div>
-                                                            <div class="col-sm-8">
-                                                                <input type="text" class="form-control" id="FUNCIONAL" placeholder="ENTRENAMIENTO FUNCIONAL" ng-model="Ficha.FichaKinesiologia.PlanKinesico.FUNCIONAL" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group mb50">
-                                                            <div class="col-sm-4">
-                                                                <label class="control-label pull-right" for="EDUCACION">EDUCACION HABITOS CARDIOPROTECTORES</label>
-                                                            </div>
-                                                            <div class="col-sm-8">
-                                                                <input type="text" class="form-control" id="EDUCACION" placeholder="EDUCACION HABITOS CARDIOPROTECTORES" ng-model="Ficha.FichaKinesiologia.PlanKinesico.EDUCACION" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
-                                                            </div>
-                                                        </div>
+                                                        </fieldset>
                                                         <span class="clearfix"></span>
                                                     </div>
                                                 </div>

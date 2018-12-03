@@ -1,7 +1,10 @@
 ﻿app.controller("fichaController", ['$scope', 'Notification', 'LoginService', '$location', 'ServiceObservadorUser', 'fichaService',
 function ($scope, Notification, LoginService, $location, ServiceObservadorUser, fichaService) {
 
-    if (LoginService.getisAuthenticated()) {
+    if (!LoginService.getisAuthenticated() == true) {
+        LoginService.getCerrarSesion();
+        $location.path('cerrarsesion');
+    } else {
         $scope.tipo = LoginService.getTipo();
         $scope.Nombres = LoginService.getUserName();
 

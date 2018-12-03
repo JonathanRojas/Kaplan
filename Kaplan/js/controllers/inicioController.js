@@ -1,8 +1,10 @@
-﻿app.controller("inicioController", ['$scope', 'Notification', 'fichaService', 'ServiceObservadorUser', 'LoginService',
-function ($scope, Notification, fichaService, ServiceObservadorUser, LoginService) {
+﻿app.controller("inicioController", ['$scope', 'Notification', 'fichaService', 'ServiceObservadorUser', 'LoginService', '$location',
+function ($scope, Notification, fichaService, ServiceObservadorUser, LoginService, $location) {
 
-    if (LoginService.getisAuthenticated()) {
-
+    if (!LoginService.getisAuthenticated() == true) {
+        LoginService.getCerrarSesion();
+        $location.path('cerrarsesion');
+    } else {
         if (fichaService.getisRutvalido()) {
             fichaService.getPaciente(parseInt(fichaService.getRutPaciente()), null).then(function (result) {
                 $scope.Paciente = result.data;
