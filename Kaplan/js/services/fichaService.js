@@ -211,5 +211,50 @@
 
         return deferred.promise;
     };
+    /*  Enfermeria    */
+    FichaServ.getFichaEnfermeriaxReserva = function (id) {
+        var deferred = $q.defer();
+        $http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getFichaKinesiologiasxReserva?intReserva=' + id
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+
+    };
+    FichaServ.SaveFichaEnfermeria = function (ficha, paciente) {
+        var deferred = $q.defer();
+        var myFormData = new FormData();
+        myFormData.append("Ficha", angular.toJson(ficha))
+        myFormData.append("paciente", angular.toJson(paciente))
+
+        $http({
+            method: 'POST',
+            url: 'doPost.asmx/SaveFichaEnfermeria',
+            data: myFormData,
+            transformRequest: angular.identity,
+            headers: { 'Content-Type': undefined }
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);;
+        };
+
+        return deferred.promise;
+    };
     return FichaServ;
 }]);
