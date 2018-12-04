@@ -977,6 +977,60 @@
         };
         return deferred.promise;
     };
+    tipoServ.getTipoDiagnosticoEnfermeria = function () {
+        var deferred = $q.defer();
+        $http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoDiagnosticoEnfermeria'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoIndicador = function () {
+        var deferred = $q.defer();
+        $http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoIndicador'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoIntervencion = function () {
+        var deferred = $q.defer();
+        $http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoIntervencion'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
     /*  Tipos Nutrición     */
     tipoServ.getTipoAlergiaAlimentaria = function () {
         var deferred = $q.defer();

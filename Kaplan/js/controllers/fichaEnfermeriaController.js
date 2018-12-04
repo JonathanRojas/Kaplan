@@ -7,14 +7,53 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
         /*Validacion de Carga inicial*/
         waitingDialog.show('Cargando Ficha...', { dialogSize: 'sm' });
         $scope.loading = true;
-        //$scope.loadingData = true;
+        $scope.loadingTiposAVD = true;
         $scope.loadingTipoRegion = true;
-        //$scope.loadingTipoDiagnosticoKine = true;
-        //$scope.loadingTipoObjetivoKine = true;
+        $scope.loadingTiposAbdomena = true;
+        $scope.loadingTiposAbdomenb = true;
         $scope.loadingTipoComuna = true;
         $scope.loadingPlanes = true;
+        $scope.loadingTiposAdeherenciaFarma = true;
+        $scope.loadingTiposActividadesRecreativas = true;
+        $scope.loadingTiposAF = true;
+        $scope.loadingTiposAgua = true;
+        $scope.loadingTiposBebidaNec = true;
+        $scope.loadingTiposCabeza = true;
+        $scope.loadingTiposCuello = true;
+        $scope.loadingTiposDeposicion = true;
+        $scope.loadingTiposDiuresis = true;
+        $scope.loadingTiposDLP = true;
+        $scope.loadingTiposDM = true;
+        $scope.loadingTiposEEII = true;
+        $scope.loadingTiposEESS = true;
+        $scope.loadingTiposEA = true;
+        $scope.loadingTiposEstres = true;
+        $scope.loadingTiposFrutayVerdura = true;
+        $scope.loadingTiposGrasas = true;
+        $scope.loadingTiposHTA = true;
+        $scope.loadingTiposllencap = true;
+        $scope.loadingTiposMotivacion = true;
+        $scope.loadingTiposOH = true;
+        $scope.loadingTiposPatronRespiratorio = true;
+        $scope.loadingTiposRegimenHiposodico = true;
+        $scope.loadingTiposSED = true;
+        $scope.loadingTiposSPOB = true;
+        $scope.loadingTiposSuenoNocturnoa = true;
+        $scope.loadingTiposSuenoNocturnob = true;
+        $scope.loadingTiposSuenoNocturnoc = true;
+        $scope.loadingTiposTB = true;
+        $scope.loadingTiposTBa = true;
+        $scope.loadingTiposTBb = true;
+        $scope.loadingTiposToraxa = true;
+        $scope.loadingTiposToraxb = true;
+        $scope.loadingTiposToraxc = true;
+        $scope.loadingTiposToraxd = true;
+        $scope.loadingTiposValoracion = true;
+        $scope.loadingTiposDiagnostico = true;
+        $scope.loadingTiposIndicador = true;
+        $scope.loadingTiposIntervencion = true;
         $scope.StopLoading = function () {
-            $scope.loading = !(!$scope.loadingTipoRegion && !$scope.loadingTipoComuna && !$scope.loadingPlanes);
+            $scope.loading = !(!$scope.loadingTipoRegion && !$scope.loadingTipoComuna && !$scope.loadingPlanes && !$scope.loadingTiposAbdomena && !$scope.loadingTiposAbdomenb && !$scope.loadingTiposAVD && !$scope.loadingTiposActividadesRecreativas && !$scope.loadingTiposAdeherenciaFarma && !$scope.loadingTiposAF && !$scope.loadingTiposAgua && !$scope.loadingTiposBebidaNec && !$scope.loadingTiposCabeza && !$scope.loadingTiposCuello && !$scope.loadingTiposDeposicion && !$scope.loadingTiposDiuresis && !$scope.loadingTiposDLP && !$scope.loadingTiposDM && !$scope.loadingTiposEEII && !$scope.loadingTiposEESS && !$scope.loadingTiposEA && !$scope.loadingTiposEstres && !$scope.loadingTiposFrutayVerdura && !$scope.loadingTiposGrasas && !$scope.loadingTiposHTA && !$scope.loadingTiposllencap && !$scope.loadingTiposMotivacion && !$scope.loadingTiposOH && !$scope.loadingTiposPatronRespiratorio && !$scope.loadingTiposRegimenHiposodico && !$scope.loadingTiposSED && !$scope.loadingTiposSPOB && !$scope.loadingTiposSuenoNocturnoa && !$scope.loadingTiposSuenoNocturnob && !$scope.loadingTiposSuenoNocturnoc && !$scope.loadingTiposTB && !$scope.loadingTiposTBa && !$scope.loadingTiposTBb && !$scope.loadingTiposToraxa && !$scope.loadingTiposToraxb && !$scope.loadingTiposToraxc && !$scope.loadingTiposToraxd && !$scope.loadingTiposValoracion && !$scope.loadingTiposDiagnostico && !$scope.loadingTiposIndicador && !$scope.loadingTiposIntervencion);
             if (!$scope.loading) { waitingDialog.hide(); }
         };
         /*Fin*/
@@ -115,6 +154,393 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
             msg = { title: 'Error Listar Tipo Comuna' };
             Notification.error(msg);
         });
+
+        tipoService.getTipoAbdomenA().then(function (result) {
+            $scope.TiposAbdomena = result.data;
+            $scope.loadingTiposAbdomena = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo Abdomen' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoAbdomenB().then(function (result) {
+            $scope.TiposAbdomenb = result.data;
+            $scope.loadingTiposAbdomenb = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo Abdomen' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoActividadLaboral().then(function (result) {
+            $scope.TiposAVD = result.data;
+            $scope.loadingTiposAVD = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo AVD' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoActividadRecreativa().then(function (result) {
+            $scope.TiposActividadesRecreativas = result.data;
+            $scope.loadingTiposActividadesRecreativas = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo ACtividades Recreativas' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoAdherenciaFarma().then(function (result) {
+            $scope.TiposAdeherenciaFarma = result.data;
+            $scope.loadingTiposAdeherenciaFarma = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo Adeherencia Farma' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoAF().then(function (result) {
+            $scope.TiposAF = result.data;
+            $scope.loadingTiposAF = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo AF' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoAgua().then(function (result) {
+            $scope.TiposAgua = result.data;
+            $scope.loadingTiposAgua = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo Agua' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoBebNec().then(function (result) {
+            $scope.TiposBebidaNec = result.data;
+            $scope.loadingTiposBebidaNec = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo Bebidas y/o Nec.' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoCabeza().then(function (result) {
+            $scope.TiposCabeza = result.data;
+            $scope.loadingTiposCabeza = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo Cabeza' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoCuello().then(function (result) {
+            $scope.TiposCuello = result.data;
+            $scope.loadingTiposCuello = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo Cuello' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoDeposicion().then(function (result) {
+            $scope.TiposDeposicion = result.data;
+            $scope.loadingTiposDeposicion = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo Deposicion' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoDiuresis().then(function (result) {
+            $scope.TiposDiuresis = result.data;
+            $scope.loadingTiposDiuresis = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo Diuresis' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoDLP().then(function (result) {
+            $scope.TiposDLP = result.data;
+            $scope.loadingTiposDLP = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo DLP' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoDM().then(function (result) {
+            $scope.TiposDM = result.data;
+            $scope.loadingTiposDM = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo DM' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoEEII().then(function (result) {
+            $scope.TiposEEII = result.data;
+            $scope.loadingTiposEEII = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo EEII' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoEESS().then(function (result) {
+            $scope.TiposEESS = result.data;
+            $scope.loadingTiposEESS = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo EESS' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoEstadoAnimo().then(function (result) {
+            $scope.TiposEA = result.data;
+            $scope.loadingTiposEA = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo Estado Animo' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoEstres().then(function (result) {
+            $scope.TiposEstres = result.data;
+            $scope.loadingTiposEstres = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo Estres' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoFrutaVerdura().then(function (result) {
+            $scope.TiposFrutayVerdura = result.data;
+            $scope.loadingTiposFrutayVerdura = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo Fruta y Verduras' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoGrasas().then(function (result) {
+            $scope.TiposGrasas = result.data;
+            $scope.loadingTiposGrasas = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo Grasas' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoHTA().then(function (result) {
+            $scope.TiposHTA = result.data;
+            $scope.loadingTiposHTA = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo HTA' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoLlenCap().then(function (result) {
+            $scope.Tiposllencap = result.data;
+            $scope.loadingTiposllencap = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo Llen Cap' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoMotivacion().then(function (result) {
+            $scope.TiposMotivacion = result.data;
+            $scope.loadingTiposMotivacion = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo Motivacion' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoOH().then(function (result) {
+            $scope.TiposOH = result.data;
+            $scope.loadingTiposOH = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo OH' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoPatronRespiratorio().then(function (result) {
+            $scope.TiposPatronRespiratorio = result.data;
+            $scope.loadingTiposPatronRespiratorio = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo Patron Respiratorio' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoRegimenHiposodico().then(function (result) {
+            $scope.TiposRegimenHiposodico = result.data;
+            $scope.loadingTiposRegimenHiposodico = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo Regimen Hiposodico' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoSED().then(function (result) {
+            $scope.TiposSED = result.data;
+            $scope.loadingTiposSED = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo SED' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoSPOB().then(function (result) {
+            $scope.TiposSPOB = result.data;
+            $scope.loadingTiposSPOB = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo SO/OB' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoSuenoNocturnoA().then(function (result) {
+            $scope.TiposSuenoNocturnoa = result.data;
+            $scope.loadingTiposSuenoNocturnoa = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo Sueño Nocturno' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoSuenoNocturnoB().then(function (result) {
+            $scope.TiposSuenoNocturnob = result.data;
+            $scope.loadingTiposSuenoNocturnob = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo Sueño Nocturno' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoSuenoNocturnoC().then(function (result) {
+            $scope.TiposSuenoNocturnoc = result.data;
+            $scope.loadingTiposSuenoNocturnoc = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo Sueño Nocturno' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoTB().then(function (result) {
+            $scope.TiposTB = result.data;
+            $scope.loadingTiposTB = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo TB' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoTBA().then(function (result) {
+            $scope.TiposTBa = result.data;
+            $scope.loadingTiposTBa = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo TB' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoTBB().then(function (result) {
+            $scope.TiposTBb = result.data;
+            $scope.loadingTiposTBb = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo TB' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoToraxA().then(function (result) {
+            $scope.TiposToraxa = result.data;
+            $scope.loadingTiposToraxa = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo Torax' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoToraxB().then(function (result) {
+            $scope.TiposToraxb = result.data;
+            $scope.loadingTiposToraxb = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo Torax' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoToraxC().then(function (result) {
+            $scope.TiposToraxc = result.data;
+            $scope.loadingTiposToraxc = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo Torax' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoToraxD().then(function (result) {
+            $scope.TiposToraxd = result.data;
+            $scope.loadingTiposToraxd = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo Torax' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoValoracion().then(function (result) {
+            $scope.TiposRespiracion = result.data;
+            $scope.TiposAlimentacion = result.data;
+            $scope.TiposEliminacion = result.data;
+            $scope.TiposDescanso = result.data;
+            $scope.TiposHigienePiel = result.data;
+            $scope.TiposActividades = result.data;
+            $scope.TiposVestirse = result.data;
+            $scope.TiposComunicarse = result.data;
+            $scope.TiposAutoRealizacion = result.data;
+            $scope.loadingTiposValoracion = false;
+
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo Valoraciones' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoDiagnosticoEnfermeria().then(function (result) {
+            $scope.TiposDiagnostico = result.data;
+            $scope.loadingTiposDiagnostico = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo Diagnostico' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoIntervencion().then(function (result) {
+            $scope.TiposIntervencion = result.data;
+            $scope.loadingTiposIntervencion = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo Intervencion' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoIndicador().then(function (result) {
+            $scope.TiposIndicador = result.data;
+            $scope.loadingTiposIndicador = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo Indicador' };
+            Notification.error(msg);
+        });
         /*Fin*/
 
         /*Carga de Planes*/
@@ -209,11 +635,14 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
             if ($scope.ValidarForm()) {
                 $scope.Ficha.Fecha = moment($scope.Ficha.Fecha);
                 $scope.Paciente.Persona.FechaNac = moment($scope.Paciente.Persona.FechaNac);
-                $scope.Ficha.FichaKinesiologia.PlanKinesico.Diagnostico = $scope.columnsD;
-                $scope.Ficha.FichaKinesiologia.PlanKinesico.Objetivo = $scope.columnsO;
-                $scope.Ficha.FichaKinesiologia.IdEspecialista = parseInt(LoginService.getIdEspecialista())
+                $scope.Ficha.FichaEnfermeria.MedicamentosEnfermeria = $scope.columnsMedicamentos;
+                $scope.Ficha.FichaEnfermeria.EvolucionEnfermeria = $scope.columnsEvolucion;
+                $scope.Ficha.FichaEnfermeria.PlanEnfermeria.Diagnostico = $scope.columnsDiagnostico;
+                $scope.Ficha.FichaEnfermeria.PlanEnfermeria.Intervencion = $scope.columnsIntervenciones;
+                $scope.Ficha.FichaEnfermeria.PlanEnfermeria.Indicadores = $scope.columnsIndicadores;
+                $scope.Ficha.FichaEnfermeria.IdEspecialista = parseInt(LoginService.getIdEspecialista())
                 waitingDialog.show('Guardando Ficha...', { dialogSize: 'sm' });
-                fichaService.SaveFichaKinesiologia($scope.Ficha, $scope.Paciente)
+                fichaService.SaveFichaEnfermeria($scope.Ficha, $scope.Paciente)
                    .then(function (result) {
                        msg = { title: 'Ficha creada con éxito', message: "" };
                        Notification.success(msg);
