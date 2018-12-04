@@ -977,13 +977,12 @@
         };
         return deferred.promise;
     };
-    /*  Tipos Nutrición     */
-    tipoServ.getTipoAlergiaAlimentaria = function () {
+    tipoServ.getTipoDiagnosticoEnfermeria = function () {
         var deferred = $q.defer();
         $http({
             method: "GET",
             async: true,
-            url: 'doGet.asmx/getTipoAlergiaAlimentaria'
+            url: 'doGet.asmx/getTipoDiagnosticoEnfermeria'
         }).then(onSuccess, onFailure);
         function onSuccess(response) {
             if (response.data.result)
@@ -996,12 +995,49 @@
         };
         return deferred.promise;
     };
-    tipoServ.getTipoApetito = function () {
+    tipoServ.getTipoIndicador = function () {
         var deferred = $q.defer();
         $http({
             method: "GET",
             async: true,
-            url: 'doGet.asmx/getTipoApetito'
+            url: 'doGet.asmx/getTipoIndicador'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoIntervencion = function () {
+        var deferred = $q.defer();
+        $http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoIntervencion'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    /*  Tipos Nutrición     */
+    tipoServ.getTipoAlergiaAlimentaria = function () {
+        var deferred = $q.defer();
+        $http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoAlergiaAlimentaria'
         }).then(onSuccess, onFailure);
         function onSuccess(response) {
             if (response.data.result)
@@ -1218,24 +1254,6 @@
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoSodio'
-        }).then(onSuccess, onFailure);
-        function onSuccess(response) {
-            if (response.data.result)
-            { deferred.resolve(response.data); }
-            else
-            { deferred.reject(response.data) }
-        }
-        function onFailure(response) {
-            deferred.reject(response);
-        };
-        return deferred.promise;
-    };
-    tipoServ.getTipoSuplemento = function () {
-        var deferred = $q.defer();
-        $http({
-            method: "GET",
-            async: true,
-            url: 'doGet.asmx/getTipoSuplemento'
         }).then(onSuccess, onFailure);
         function onSuccess(response) {
             if (response.data.result)

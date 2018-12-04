@@ -761,10 +761,10 @@
                                                                 <div class="col-sm-2">
                                                                 </div>
                                                                 <div class="col-sm-2">
-                                                                    <input moment-picker="FechaEvolucion" today="true" ng-model="Ficha.FichaEnfermeria.EvolucionEnfermeria.Fecha" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Evolución">
+                                                                    <input moment-picker="FechaEvolucion" today="true" ng-model="Evolucion.Fecha" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Evolución">
                                                                 </div>
                                                                 <div class="col-sm-6">
-                                                                    <textarea class="form-control" id="EvolucionEnfermeria" rows="4" ng-model="Ficha.FichaEnfermeria.EvolucionEnfermeria.Evolucion" required aria-required="true" ng-disabled="FormEditabe" maxlength="500" placeholder="Evolución Enfermeria"></textarea>
+                                                                    <textarea class="form-control" id="EvolucionEnfermeria" rows="4" ng-model="Evolucion.Evolucion" required aria-required="true" ng-disabled="FormEditabe" maxlength="500" placeholder="Evolución Enfermeria"></textarea>
                                                                 </div>
                                                                 <div class="col-sm-1">
                                                                     <button class="remove" ng-hide="columnsEvolucion.length == 1 || FormEditabe" ng-click="removeColumnEvolucion($index)">x</button>
@@ -818,19 +818,6 @@
                                                             </div>
                                                             <div class="col-sm-5" align="center">
                                                                 <input type="text" class="form-control" id="RespiracionObservacion" placeholder="Respiración Observación" ng-model="Ficha.FichaEnfermeria.PlanEnfermeria.RespiracionObservacion" required aria-required="true" ng-disabled="FormEditabe" maxlength="500">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <div class="col-sm-2">
-                                                                <label class="control-label pull-right" for="Alimentacion">Alimentación</label>
-                                                            </div>
-                                                            <div class="col-sm-5" align="center">
-                                                                <select class="form-control" required aria-required="true" placeholder="Alimentación" ng-disabled="FormEditabe" name="Alimentacion" id="Alimentacion" data-ng-options="tipoAlimentacion.ID as tipoAlimentacion.Nombre for tipoAlimentacion in TiposAlimentacion" ng-model="Ficha.FichaEnfermeria.PlanEnfermeria.Alimentacion.ID">
-                                                                    <option value="">Seleccione</option>
-                                                                </select>
-                                                            </div>
-                                                            <div class="col-sm-5" align="center">
-                                                                <input type="text" class="form-control" id="AlimentacionObservacion" placeholder="Alimentación Observación" ng-model="Ficha.FichaEnfermeria.PlanEnfermeria.AlimentacionObservacion" required aria-required="true" ng-disabled="FormEditabe" maxlength="500">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">

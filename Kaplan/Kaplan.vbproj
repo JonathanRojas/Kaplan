@@ -224,10 +224,19 @@
       <DependentUpon>doPost.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="models\nutricion\FichaNutricion.vb" />
-    <Compile Include="models\nutricion\MedicionesAntropometricas.vb" />
+    <Compile Include="models\enfermeria\AnamnesisEnfermeria.vb" />
+    <Compile Include="models\enfermeria\EvolucionEnfermeria.vb" />
+    <Compile Include="models\enfermeria\ExamenFisicoEnfermeria.vb" />
+    <Compile Include="models\enfermeria\FichaEnfermeria.vb" />
+    <Compile Include="models\enfermeria\MedicamentosEnfermeria.vb" />
+    <Compile Include="models\enfermeria\PlanEnfermeria.vb" />
+    <Compile Include="models\enfermeria\PlanEnfermeriaDiagnostico.vb" />
+    <Compile Include="models\enfermeria\PlanEnfermeriaIndicador.vb" />
+    <Compile Include="models\enfermeria\PlanEnfermeriaIntervencion.vb" />
+    <Compile Include="models\enfermeria\TipoDiagnosticoEnfermeria.vb" />
+    <Compile Include="models\enfermeria\TipoIndicador.vb" />
+    <Compile Include="models\enfermeria\TipoIntervencion.vb" />
     <Compile Include="models\nutricion\TipoAlergiaAlimentaria.vb" />
-    <Compile Include="models\nutricion\TipoApetito.vb" />
     <Compile Include="models\nutricion\TipoAversionAlimentaria.vb" />
     <Compile Include="models\nutricion\TipoAzucar.vb" />
     <Compile Include="models\nutricion\TipoCarne.vb" />
@@ -240,7 +249,6 @@
     <Compile Include="models\nutricion\TipoPescado.vb" />
     <Compile Include="models\nutricion\TipoPreferenciaAlimentaria.vb" />
     <Compile Include="models\nutricion\TipoSodio.vb" />
-    <Compile Include="models\nutricion\TipoSuplemento.vb" />
     <Compile Include="models\nutricion\TipoVerdura.vb" />
     <Compile Include="models\otros\CachedType.vb" />
     <Compile Include="models\kinesiologia\Ergoespirometria.vb" />

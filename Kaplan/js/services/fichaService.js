@@ -166,13 +166,13 @@
 
         return deferred.promise;
     };
-    /*  Nutrición    */
-    FichaServ.getFichaNutricionxReserva = function (id) {
+    /*  Enfermeria    */
+    FichaServ.getFichaEnfermeriaxReserva = function (id) {
         var deferred = $q.defer();
         $http({
             method: "GET",
             async: true,
-            url: 'doGet.asmx/getFichaNutricionReserva?intReserva=' + id
+            url: 'doGet.asmx/getFichaKinesiologiasxReserva?intReserva=' + id
         }).then(onSuccess, onFailure);
         function onSuccess(response) {
             if (response.data.result)
@@ -186,7 +186,7 @@
         return deferred.promise;
 
     };
-    FichaServ.SaveFichaNutricion = function (ficha, paciente) {
+    FichaServ.SaveFichaEnfermeria = function (ficha, paciente) {
         var deferred = $q.defer();
         var myFormData = new FormData();
         myFormData.append("Ficha", angular.toJson(ficha))
@@ -194,7 +194,7 @@
 
         $http({
             method: 'POST',
-            url: 'doPost.asmx/SaveFichaPsicologia',
+            url: 'doPost.asmx/SaveFichaEnfermeria',
             data: myFormData,
             transformRequest: angular.identity,
             headers: { 'Content-Type': undefined }

@@ -150,31 +150,7 @@ Public Class doGet
 
 #End Region
 #Region "Nutrición"
-    <WebMethod(EnableSession:=True)>
-    Public Function getFichaNutricionReserva(intReserva As Integer) As String
 
-        Dim NoData As Boolean
-        Dim vficha As Ficha = Ficha.getFichaNutricion(intReserva, NoData)
-        Dim js As New JavaScriptSerializer
-        Dim vResult As New httpResult
-
-        If Not IsNothing(vficha) Then
-            vResult.result = True
-            vResult.data = vficha
-        Else
-            If NoData Then
-                vResult.errorcode = 404
-            Else
-                vResult.errorcode = 202
-            End If
-            vResult.result = False
-            vResult.data = vficha
-        End If
-        Context.Response.Write(js.Serialize(vResult))
-
-        Context.Response.End()
-        Return ""
-    End Function
 #End Region
 #Region "Médico"
 
@@ -1159,11 +1135,9 @@ Public Class doGet
         Context.Response.End()
         Return ""
     End Function
-#End Region
-#Region "Tipos Nutrición"
     <WebMethod(EnableSession:=True)>
-    Public Function getTipoAlergiaAlimentaria() As String
-        Dim vTipos As List(Of TipoAlergiaAlimentaria) = TipoAlergiaAlimentaria.getTipos
+    Public Function getTipoDiagnosticoEnfermeria() As String
+        Dim vTipos As List(Of TipoDiagnosticoEnfermeria) = TipoDiagnosticoEnfermeria.getTipos
         Dim js As New JavaScriptSerializer
         Dim vResult As New httpResult
         If Not IsNothing(vTipos) Then
@@ -1180,8 +1154,46 @@ Public Class doGet
         Return ""
     End Function
     <WebMethod(EnableSession:=True)>
-    Public Function getTipoApetito() As String
-        Dim vTipos As List(Of TipoApetito) = TipoApetito.getTipos
+    Public Function getTipoIndicador() As String
+        Dim vTipos As List(Of TipoIndicador) = TipoIndicador.getTipos
+        Dim js As New JavaScriptSerializer
+        Dim vResult As New httpResult
+        If Not IsNothing(vTipos) Then
+            vResult.result = True
+            vResult.data = vTipos
+        Else
+            vResult.result = False
+            vResult.data = vTipos
+        End If
+
+        Context.Response.Write(js.Serialize(vResult))
+
+        Context.Response.End()
+        Return ""
+    End Function
+    <WebMethod(EnableSession:=True)>
+    Public Function getTipoIntervencion() As String
+        Dim vTipos As List(Of TipoIntervencion) = TipoIntervencion.getTipos
+        Dim js As New JavaScriptSerializer
+        Dim vResult As New httpResult
+        If Not IsNothing(vTipos) Then
+            vResult.result = True
+            vResult.data = vTipos
+        Else
+            vResult.result = False
+            vResult.data = vTipos
+        End If
+
+        Context.Response.Write(js.Serialize(vResult))
+
+        Context.Response.End()
+        Return ""
+    End Function
+#End Region
+#Region "Tipos Nutrición"
+    <WebMethod(EnableSession:=True)>
+    Public Function getTipoAlergiaAlimentaria() As String
+        Dim vTipos As List(Of TipoAlergiaAlimentaria) = TipoAlergiaAlimentaria.getTipos
         Dim js As New JavaScriptSerializer
         Dim vResult As New httpResult
         If Not IsNothing(vTipos) Then
@@ -1398,24 +1410,6 @@ Public Class doGet
     <WebMethod(EnableSession:=True)>
     Public Function getTipoSodio() As String
         Dim vTipos As List(Of TipoSodio) = TipoSodio.getTipos
-        Dim js As New JavaScriptSerializer
-        Dim vResult As New httpResult
-        If Not IsNothing(vTipos) Then
-            vResult.result = True
-            vResult.data = vTipos
-        Else
-            vResult.result = False
-            vResult.data = vTipos
-        End If
-
-        Context.Response.Write(js.Serialize(vResult))
-
-        Context.Response.End()
-        Return ""
-    End Function
-    <WebMethod(EnableSession:=True)>
-    Public Function getTipoSuplemento() As String
-        Dim vTipos As List(Of TipoSuplemento) = TipoSuplemento.getTipos
         Dim js As New JavaScriptSerializer
         Dim vResult As New httpResult
         If Not IsNothing(vTipos) Then
