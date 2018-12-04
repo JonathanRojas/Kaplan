@@ -13,7 +13,7 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
             if (!$scope.loading) { waitingDialog.hide(); }
         };
 
-        if (parseInt(LoginService.getTipo()) == 4) {
+        if (parseInt(LoginService.getTipo()) == 6) {
             $scope.FormEditabe = false;
         } else {
             $scope.FormEditabe = true;
@@ -29,7 +29,7 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
         });
         $scope.CambioPlan = function (plan) {
             if (typeof plan !== 'undefined') {
-                fichaService.getSesionesxPlan(plan, 4).then(function (result) {
+                fichaService.getSesionesxPlan(plan, 6).then(function (result) {
                     $scope.Sesiones = result.data;
                 }, function (reason) {
                     msg = { title: 'Error Listar Planes' };
@@ -68,7 +68,7 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
                     };
                 }, function (reason) {
                     if (reason.errorcode == 404) {
-                        if (parseInt(LoginService.getTipo()) == 4) {
+                        if (parseInt(LoginService.getTipo()) == 6) {
                             msg = { title: 'Sesion Sin Ficha, Complete la ficha para esta sesion' };
                             Notification.warning(msg);
                             fichaService.getPaciente(parseInt(fichaService.getRutPaciente()), null).then(function (result) {

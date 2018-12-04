@@ -92,7 +92,6 @@ Public Class doGet
         Return ""
     End Function
 #End Region
-
 #Region "Kinesiología"
     <WebMethod(EnableSession:=True)>
     Public Function getFichaKinesiologiasxReserva(intReserva As Integer) As String
@@ -1175,7 +1174,7 @@ Public Class doGet
         Return ""
     End Function
     <WebMethod(EnableSession:=True)>
-    Public Function getAzuca() As String
+    Public Function getTipoAzucar() As String
         Dim vTipos As List(Of TipoAzucar) = TipoAzucar.getTipos
         Dim js As New JavaScriptSerializer
         Dim vResult As New httpResult
@@ -1394,5 +1393,4 @@ Public Class doGet
 #Region "Tipos Médico"
 #End Region
 #End Region
-
 End Class

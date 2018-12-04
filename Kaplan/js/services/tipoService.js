@@ -276,7 +276,8 @@
     };
     /*  Tipos Enfermería    */
     tipoServ.getTipoAbdomenA = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoAbdomenA'
@@ -293,7 +294,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoAbdomenB = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoAbdomenB'
@@ -310,7 +312,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoActividadLaboral = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoActividadLaboral'
@@ -327,7 +330,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoActividadRecreativa = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoActividadRecreativa'
@@ -344,7 +348,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoAdherenciaFarma = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoAdherenciaFarma'
@@ -361,7 +366,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoAF = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoAF'
@@ -378,7 +384,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoAgua = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoAgua'
@@ -395,7 +402,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoBebNec = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoBebNec'
@@ -412,7 +420,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoCabeza = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoCabeza'
@@ -429,7 +438,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoCuello = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoCuello'
@@ -446,7 +456,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoDeposicion = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoDeposicion'
@@ -463,7 +474,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoDiuresis = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoDiuresis'
@@ -480,7 +492,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoDLP = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoDLP'
@@ -497,7 +510,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoDM = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoDM'
@@ -514,7 +528,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoEEII = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoEEII'
@@ -531,7 +546,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoEESS = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoEESS'
@@ -548,7 +564,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoEstadoAnimo = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoEstadoAnimo'
@@ -565,7 +582,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoEstres = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoEstres'
@@ -582,7 +600,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoFrutaVerdura = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoFrutaVerdura'
@@ -599,7 +618,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoGrasas = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoGrasas'
@@ -616,7 +636,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoHTA = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoHTA'
@@ -633,7 +654,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoLlenCap = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoLlenCap'
@@ -650,7 +672,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoMotivacion = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoMotivacion'
@@ -667,7 +690,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoOH = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoOH'
@@ -684,7 +708,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoPatronRespiratorio = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoPatronRespiratorio'
@@ -701,7 +726,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoRegimenHiposodico = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoRegimenHiposodico'
@@ -718,7 +744,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoSED = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoSED'
@@ -735,7 +762,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoSPOB = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoSPOB'
@@ -752,7 +780,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoSuenoNocturnoA = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoSuenoNocturnoA'
@@ -769,7 +798,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoSuenoNocturnoB = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoSuenoNocturnoB'
@@ -786,7 +816,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoSuenoNocturnoC = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoSuenoNocturnoC'
@@ -803,7 +834,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoTB = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoTB'
@@ -820,7 +852,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoTBA = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoTBA'
@@ -837,7 +870,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoTBB = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoTBB'
@@ -854,7 +888,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoToraxA = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoToraxA'
@@ -871,7 +906,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoToraxB = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoToraxB'
@@ -888,7 +924,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoToraxC = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoToraxC'
@@ -905,7 +942,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoToraxD = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoToraxD'
@@ -922,7 +960,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoValoracion = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoValoracion'
@@ -940,7 +979,8 @@
     };
     /*  Tipos Nutrición     */
     tipoServ.getTipoAlergiaAlimentaria = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoAlergiaAlimentaria'
@@ -957,7 +997,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoAversionAlimentaria = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoAversionAlimentaria'
@@ -974,7 +1015,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoAzucar = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoAzucar'
@@ -991,7 +1033,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoCarne = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoCarne'
@@ -1008,7 +1051,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoCribaje = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoCribaje'
@@ -1025,7 +1069,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoFruta = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoFruta'
@@ -1041,11 +1086,12 @@
         };
         return deferred.promise;
     };
-    tipoServ.getTipoIntolerenciaAlimentaria = function () {
-        var deferred = http({
+    tipoServ.getTipoIntoleranciaAlimentaria = function () {
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
-            url: 'doGet.asmx/getTipoIntolerenciaAlimentaria'
+            url: 'doGet.asmx/getTipoIntoleranciaAlimentaria'
         }).then(onSuccess, onFailure);
         function onSuccess(response) {
             if (response.data.result)
@@ -1059,7 +1105,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoLacteo = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoLacteo'
@@ -1076,7 +1123,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoLegumbre = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoLegumbre'
@@ -1093,7 +1141,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoLiquido = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoLiquido'
@@ -1110,7 +1159,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoPescado = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoPescado'
@@ -1127,7 +1177,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoPreferenciaAlimentaria = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoPreferenciaAlimentaria'
@@ -1144,7 +1195,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoSodio = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoSodio'
@@ -1161,7 +1213,8 @@
         return deferred.promise;
     };
     tipoServ.getTipoVerdura = function () {
-        var deferred = http({
+        var deferred = $q.defer();
+        $http({
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoVerdura'
