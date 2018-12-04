@@ -176,15 +176,17 @@
                                                                 <label class="control-label pull-right" for="Sinto">Diagnóstico Médico</label>
                                                             </div>
                                                             <div class="col-sm-3">
-                                                                <input ng-model="Ficha.FichaNutricion.Diagnostico" type="text" class="form-control" id="DiagnosticoMedico" placeholder="Diagnóstico Médico" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                                <select ng-model="Ficha.FichaPsicologia.Sintomatologia.ID" name="sintomatologia" id="sintomatologia" data-ng-options="tipoSintomatologia.ID as tipoSintomatologia.Nombre for tipoSintomatologia in TiposSintomatologia" class="form-control" required aria-required="true" placeholder="Sintomatologia" ng-disabled="FormEditabe">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
                                                             </div>
                                                             <div class="col-sm-3">
                                                                 <label class="control-label pull-right" for="METS">CX/Procedimiento</label>
                                                             </div>
                                                             <div class="col-sm-3">
-                                                                <div class="col-sm-3">
-                                                                    <input ng-model="Ficha.FichaNutricion.CxProced" type="text" class="form-control" id="CX/Procedimiento" placeholder="CX/Procedimiento" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
-                                                                </div>
+                                                                <select ng-model="Ficha.FichaPsicologia.TraumaPostOp.ID" name="traumaPostOp" id="derivacionAPS" data-ng-options="tipoTraumaPostOp.ID as tipoTraumaPostOp.Nombre for tipoTraumaPostOp in TiposTraumaPostOp" class="form-control" required aria-required="true" placeholder="Trauma Post-Operatorio" ng-disabled="FormEditabe">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
                                                             </div>
                                                         </div>                                                        
                                                         <span class="clearfix"></span>
@@ -208,25 +210,19 @@
                                                                 <label class="control-label pull-right" for="fecha">Sedentario</label>
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <select ng-model="Ficha.FichaNutricion.Sedentario.ID" name="Sedentario" id="Sedentario" data-ng-options="tipoSedentario.ID as tipoSedentario.Nombre for tipoSedentario in TipoSedentarios" class="form-control" required aria-required="true" placeholder="Sedentario" ng-disabled="FormEditabe">
-                                                                    <option value="">Seleccione</option>
-                                                                </select>
+                                                                <input moment-picker="EFechaIngreso" today="true" ng-model="Ficha.FichaPsicologia.Sf36.FechaAIng" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Ingreso">
                                                             </div>
                                                             <div class="col-sm-2">
                                                                 <label class="control-label pull-right" for="fecha">HTA</label>
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <select ng-model="Ficha.FichaNutricion.HTA.ID" name="HTA" id="HTA" data-ng-options="tipoHTA.ID as tipoHTA.Nombre for tipoHTA in TipoHTAs" class="form-control" required aria-required="true" placeholder="HTA" ng-disabled="FormEditabe">
-                                                                    <option value="">Seleccione</option>
-                                                                </select>
+                                                                <input moment-picker="EFechaEgreso" today="true" ng-model="Ficha.FichaPsicologia.Sf36.FechaAEgr" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Egreso">
                                                             </div>
                                                             <div class="col-sm-2">
                                                                 <label class="control-label pull-right" for="fecha">SB/OB</label>
                                                             </div>                                                            
                                                             <div class="col-sm-2">
-                                                                <select ng-model="Ficha.FichaNutricion.SBOB.ID" name="SBOB" id="SBOB" data-ng-options="tipoSBOB.ID as tipoSBOB.Nombre for tipoSBOB in TipoSBOBs" class="form-control" required aria-required="true" placeholder="SBOB" ng-disabled="FormEditabe">
-                                                                    <option value="">Seleccione</option>
-                                                                </select>
+                                                                <input moment-picker="SFechaIngreso" today="true" ng-model="Ficha.FichaPsicologia.Sf36.FechaBIng" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Ingreso">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
@@ -234,25 +230,19 @@
                                                                 <label class="control-label pull-right" for="fecha">Estrés</label>
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <select ng-model="Ficha.FichaNutricion.Estres.ID" name="Estres" id="Estres" data-ng-options="tipoEstres.ID as tipoEstres.Nombre for tipoEstres in TipoEstress" class="form-control" required aria-required="true" placeholder="Estres" ng-disabled="FormEditabe">
-                                                                    <option value="">Seleccione</option>
-                                                                </select>
+                                                                <input moment-picker="EFechaIngreso" today="true" ng-model="Ficha.FichaPsicologia.Sf36.FechaAIng" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Ingreso">
                                                             </div>
                                                             <div class="col-sm-2">
                                                                 <label class="control-label pull-right" for="fecha">DM</label>
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <select ng-model="Ficha.FichaNutricion.DM.ID" name="DM" id="DM" data-ng-options="tipoDM.ID as tipoDM.Nombre for tipoDM in TipoDMs" class="form-control" required aria-required="true" placeholder="DM" ng-disabled="FormEditabe">
-                                                                    <option value="">Seleccione</option>
-                                                                </select>
+                                                                <input moment-picker="EFechaEgreso" today="true" ng-model="Ficha.FichaPsicologia.Sf36.FechaAEgr" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Egreso">
                                                             </div>
                                                             <div class="col-sm-2">
                                                                 <label class="control-label pull-right" for="fecha">OH</label>
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <select ng-model="Ficha.FichaNutricion.OH.ID" name="OH" id="OH" data-ng-options="tipoOH.ID as tipoOH.Nombre for tipoOH in TipoOHs" class="form-control" required aria-required="true" placeholder="OH" ng-disabled="FormEditabe">
-                                                                    <option value="">Seleccione</option>
-                                                                </select>
+                                                                <input moment-picker="SFechaIngreso" today="true" ng-model="Ficha.FichaPsicologia.Sf36.FechaBIng" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Ingreso">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
@@ -260,26 +250,20 @@
                                                                 <label class="control-label pull-right" for="fecha">Tabaco</label>
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <select ng-model="Ficha.FichaNutricion.Tabaco.ID" name="Tabaco" id="Tabaco" data-ng-options="tipoTB.ID as tipoTB.Nombre for tipoTB in TipoTBs" class="form-control" required aria-required="true" placeholder="Tabaco" ng-disabled="FormEditabe">
-                                                                    <option value="">Seleccione</option>
-                                                                </select>
+                                                                <input moment-picker="EFechaIngreso" today="true" ng-model="Ficha.FichaPsicologia.Sf36.FechaAIng" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Ingreso">
                                                             </div>
                                                             <div class="col-sm-2">
                                                                 <label class="control-label pull-right" for="fecha">DLP</label>
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <select ng-model="Ficha.FichaNutricion.DLP.ID" name="DLP" id="DLP" data-ng-options="tipoDLP.ID as tipoDLP.Nombre for tipoDLP in TipoDLPs" class="form-control" required aria-required="true" placeholder="DLP" ng-disabled="FormEditabe">
-                                                                    <option value="">Seleccione</option>
-                                                                </select>
+                                                                <input moment-picker="EFechaEgreso" today="true" ng-model="Ficha.FichaPsicologia.Sf36.FechaAEgr" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Egreso">
                                                             </div>
-                                                            <!--<div class="col-sm-2">
+                                                            <div class="col-sm-2">
                                                                 <label class="control-label pull-right" for="fecha">Otros</label>
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <select ng-model="Ficha.FichaNutricion.DLP.ID" name="Estres" id="Estres" data-ng-options="tipoEstres.ID as tipoEstres.Nombre for tipoEstres in TipoEstress" class="form-control" required aria-required="true" placeholder="Estres" ng-disabled="FormEditabe">
-                                                                    <option value="">Seleccione</option>
-                                                                </select>
-                                                            </div>-->
+                                                                <input moment-picker="SFechaIngreso" today="true" ng-model="Ficha.FichaPsicologia.Sf36.FechaBIng" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Ingreso">
+                                                            </div>
                                                         </div>
                                                         <span class="clearfix"></span>
                                                     </div>
@@ -302,16 +286,16 @@
                                                                 <label class="control-label pull-right" for="fecha">Peso Actual</label>
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <input ng-model="Ficha.FichaNutricion.MedicionesAntropometricas.PesoActual" type="text" class="form-control" id="PesoActual" placeholder="PesoActual" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                                <input moment-picker="EFechaIngreso" today="true" ng-model="Ficha.FichaPsicologia.Sf36.FechaAIng" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Ingreso">
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <label class="control-label pull-left" for="fecha">Kilos</label>
+                                                                <label class="control-label pull-right" for="fecha">Kilos</label>
                                                             </div>
                                                             <div class="col-sm-2">
                                                                 <label class="control-label pull-right" for="fecha">Peso Habitual</label>
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <input ng-model="Ficha.FichaNutricion.MedicionesAntropometricas.PesoHabitual" type="text" class="form-control" id="PesoHabitual" placeholder="PesoHabitual" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                                <input moment-picker="EFechaEgreso" today="true" ng-model="Ficha.FichaPsicologia.Sf36.FechaAEgr" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Egreso">
                                                             </div>
                                                             <div class="col-sm-2">
                                                                 <label class="control-label pull-right" for="fecha">Adulto Mayor</label>
@@ -322,19 +306,19 @@
                                                                 <label class="control-label pull-right" for="fecha">Talla</label>
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <input ng-model="Ficha.FichaNutricion.MedicionesAntropometricas.Talla" type="text" class="form-control" id="Talla" placeholder="Talla" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                                <input moment-picker="EFechaIngreso" today="true" ng-model="Ficha.FichaPsicologia.Sf36.FechaAIng" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Ingreso">
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <label class="control-label pull-left" for="fecha">Metros</label>
+                                                                <label class="control-label pull-right" for="fecha">Metros</label>
                                                             </div>
                                                             <div class="col-sm-2">
                                                                 <label class="control-label pull-right" for="fecha">Peso Mínimo Acep.</label>
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <input ng-model="Ficha.FichaNutricion.MedicionesAntropometricas.PesoMinimo" type="text" class="form-control" id="PesoMinimo" placeholder="PesoMinimo" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                                <input moment-picker="EFechaEgreso" today="true" ng-model="Ficha.FichaPsicologia.Sf36.FechaAEgr" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Egreso">
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <input ng-model="Ficha.FichaNutricion.MedicionesAntropometricas.PesoMinimoMayor" type="text" class="form-control" id="PesoMinimoMayor" placeholder="PesoMinimoMayor" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                                <input moment-picker="EFechaEgreso" today="true" ng-model="Ficha.FichaPsicologia.Sf36.FechaAEgr" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Egreso">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
@@ -342,19 +326,19 @@
                                                                 <label class="control-label pull-right" for="fecha">IMC</label>
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <input ng-model="Ficha.FichaNutricion.MedicionesAntropometricas.IMC" type="text" class="form-control" id="IMC" placeholder="IMC" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                                <input moment-picker="EFechaIngreso" today="true" ng-model="Ficha.FichaPsicologia.Sf36.FechaAIng" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Ingreso">
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <label class="control-label pull-left" for="fecha">KG/m<sup>2</sup></label>
+                                                                <label class="control-label pull-right" for="fecha">KG/m2</label>
                                                             </div>
                                                             <div class="col-sm-2">
                                                                 <label class="control-label pull-right" for="fecha">Peso Máximo Acep.</label>
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <input ng-model="Ficha.FichaNutricion.MedicionesAntropometricas.PesoMaximo" type="text" class="form-control" id="PesoMaximo" placeholder="PesoMaximo" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                                <input moment-picker="EFechaEgreso" today="true" ng-model="Ficha.FichaPsicologia.Sf36.FechaAEgr" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Egreso">
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <input ng-model="Ficha.FichaNutricion.MedicionesAntropometricas.PesoMaximoMayor" type="text" class="form-control" id="PesoMaximomayor" placeholder="PesoMaximomayor" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                                <input moment-picker="EFechaEgreso" today="true" ng-model="Ficha.FichaPsicologia.Sf36.FechaAEgr" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Egreso">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
@@ -362,17 +346,17 @@
                                                                 <label class="control-label pull-right" for="fecha">Estado Nutricional según IMC</label>
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                <label class="control-label pull-left" for="fecha" ng-bind="Ficha.FichaNutricion.MedicionesAntropometricas.EstadoIMC"></label>
+                                                                <label class="control-label pull-right" for="fecha">Sobrepeso</label>
                                                             </div>                                                            
                                                             <div class="col-sm-2">
                                                                 <label class="control-label pull-right" for="fecha">Peso Ideal</label>
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <input ng-model="Ficha.FichaNutricion.MedicionesAntropometricas.PesoIdeal" type="text" class="form-control" id="PesoIdeal" placeholder="PesoIdeal" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
-                                                            </div>                                                            
+                                                                <input moment-picker="EFechaEgreso" today="true" ng-model="Ficha.FichaPsicologia.Sf36.FechaAEgr" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Egreso">
+                                                            </div>
                                                             <div class="col-sm-2">
-                                                                <input ng-model="Ficha.FichaNutricion.MedicionesAntropometricas.PesoIdealMayor" type="text" class="form-control" id="PesoIdealMayor" placeholder="PesoIdealMayor" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
-                                                            </div>                                                            
+                                                                <input moment-picker="EFechaEgreso" today="true" ng-model="Ficha.FichaPsicologia.Sf36.FechaAEgr" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Egreso">
+                                                            </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="col-sm-2">
@@ -385,7 +369,7 @@
                                                                 <label class="control-label pull-right" for="fecha">Estado Nut. IMC/AM</label>
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                <label class="control-label pull-left" for="fecha" ng-bind="Ficha.FichaNutricion.MedicionesAntropometricas.EstadoIMCAM"></label>
+                                                                <label class="control-label pull-right" for="fecha">Normal</label>
                                                             </div>                                                            
                                                         </div>
                                                         <div class="form-group">
@@ -393,19 +377,19 @@
                                                                 <label class="control-label pull-right" for="fecha">Masa Grasa Corporal (Kg)</label>
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <input ng-model="Ficha.FichaNutricion.MedicionesAntropometricas.MasaGrasaCorporal" type="text" class="form-control" id="MasaGrasaCorporal" placeholder="MasaGrasaCorporal" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                                <input moment-picker="EFechaIngreso" today="true" ng-model="Ficha.FichaPsicologia.Sf36.FechaAIng" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Ingreso">
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <label class="control-label pull-left" for="fecha" ng-bind="Ficha.FichaNutricion.MedicionesAntropometricas.EstadoIMCAM"></label>
+                                                                <input moment-picker="EFechaIngreso" today="true" ng-model="Ficha.FichaPsicologia.Sf36.FechaAIng" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Ingreso">
                                                             </div>
                                                             <div class="col-sm-2">
                                                                 <label class="control-label pull-right" for="fecha">Masa Magra (%)</label>
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <input ng-model="Ficha.FichaNutricion.MedicionesAntropometricas.MasaGrasaPorc" type="text" class="form-control" id="MasaGrasaPorc" placeholder="MasaGrasaPorc" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                                <input moment-picker="EFechaEgreso" today="true" ng-model="Ficha.FichaPsicologia.Sf36.FechaAEgr" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Egreso">
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <label class="control-label pull-left" for="fecha" ng-bind="Ficha.FichaNutricion.MedicionesAntropometricas.EstadoIMCAM"></label>
+                                                                <input moment-picker="EFechaEgreso" today="true" ng-model="Ficha.FichaPsicologia.Sf36.FechaAEgr" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Egreso">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
@@ -413,19 +397,19 @@
                                                                 <label class="control-label pull-right" for="fecha">Masa Magra (Kg)</label>
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <input ng-model="Ficha.FichaNutricion.MedicionesAntropometricas.MasaMagra" type="text" class="form-control" id="MasaMagra" placeholder="MasaMagra" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                                <input moment-picker="EFechaIngreso" today="true" ng-model="Ficha.FichaPsicologia.Sf36.FechaAIng" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Ingreso">
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <label class="control-label pull-left" for="fecha" ng-bind="Ficha.FichaNutricion.MedicionesAntropometricas.EstadoIMCAM"></label>
+                                                                <input moment-picker="EFechaIngreso" today="true" ng-model="Ficha.FichaPsicologia.Sf36.FechaAIng" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Ingreso">
                                                             </div>
                                                             <div class="col-sm-2">
                                                                 <label class="control-label pull-right" for="fecha">Grasa Visceral (%)</label>
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <input ng-model="Ficha.FichaNutricion.MedicionesAntropometricas.MasaGrasaPorc" type="text" class="form-control" id="MasaGrasaPorc" placeholder="MasaGrasaPorc" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                                <input moment-picker="EFechaEgreso" today="true" ng-model="Ficha.FichaPsicologia.Sf36.FechaAEgr" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Egreso">
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <label class="control-label pull-left" for="fecha" ng-bind="Ficha.FichaNutricion.MedicionesAntropometricas.EstadoIMCAM"></label>
+                                                                <input moment-picker="EFechaEgreso" today="true" ng-model="Ficha.FichaPsicologia.Sf36.FechaAEgr" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Egreso">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
@@ -433,16 +417,16 @@
                                                                 <label class="control-label pull-right" for="fecha">Indice Cintura Cadera</label>
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                <input ng-model="Ficha.FichaNutricion.MedicionesAntropometricas.MasaGrasaPorc" type="text" class="form-control" id="MasaGrasaPorc" placeholder="MasaGrasaPorc" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                                <input moment-picker="EFechaIngreso" today="true" ng-model="Ficha.FichaPsicologia.Sf36.FechaAIng" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Ingreso">
                                                             </div>
                                                             <div class="col-sm-2">
                                                                 <label class="control-label pull-right" for="fecha">P. Cintura</label>
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <input ng-model="Ficha.FichaNutricion.MedicionesAntropometricas.PCintura" type="text" class="form-control" id="PCintura" placeholder="PCintura" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                                <input moment-picker="EFechaEgreso" today="true" ng-model="Ficha.FichaPsicologia.Sf36.FechaAEgr" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Egreso">
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <label class="control-label pull-left" for="fecha" ng-bind="Ficha.FichaNutricion.MedicionesAntropometricas.EstadoIMCAM"></label>
+                                                                <input moment-picker="EFechaEgreso" today="true" ng-model="Ficha.FichaPsicologia.Sf36.FechaAEgr" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Egreso">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
@@ -450,16 +434,17 @@
                                                                 <label class="control-label pull-right" for="fecha">MNA para A. Mayor</label>
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                <input ng-model="Ficha.FichaNutricion.MedicionesAntropometricas.MNA" type="text" class="form-control" id="MNA" placeholder="MNA" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                                <input moment-picker="EFechaIngreso" today="true" ng-model="Ficha.FichaPsicologia.Sf36.FechaAIng" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Ingreso">
                                                             </div>
                                                             <div class="col-sm-2">
                                                                 <label class="control-label pull-right" for="fecha">Cribaje</label>
                                                             </div>
-                                                            <div class="col-sm-4">
-                                                                <select ng-model="Ficha.FichaNutricion.MedicionesAntropometricas.Cribaje.ID" name="Cribaje" id="Cribaje" data-ng-options="tipoCribaje.ID as tipoCribaje.Nombre for tipoCribaje in TipoCribajes" class="form-control" required aria-required="true" placeholder="TipoCribaje" ng-disabled="FormEditabe">
-                                                                    <option value="">Seleccione</option>
-                                                                </select>
-                                                            </div>                                                            
+                                                            <div class="col-sm-2">
+                                                                <input moment-picker="EFechaEgreso" today="true" ng-model="Ficha.FichaPsicologia.Sf36.FechaAEgr" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Egreso">
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <input moment-picker="EFechaEgreso" today="true" ng-model="Ficha.FichaPsicologia.Sf36.FechaAEgr" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Egreso">
+                                                            </div>
                                                         </div>
                                                         <span class="clearfix"></span>
                                                     </div>

@@ -40,9 +40,17 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
         $scope.CambiarSesion = function (sesion) {
             if (typeof sesion !== 'undefined') {
                 waitingDialog.show('Cargando Ficha...', { dialogSize: 'sm' });
-                fichaService.getFichaNutricionxReserva(sesion).then(function (result) {
+                fichaService.getFichaPsicologiaxReserva(sesion).then(function (result) {
                     if (result.data.length !== 0) {
                         $scope.Ficha = result.data;
+                        $scope.Ficha.FichaPsicologia.Sf36.FechaAIng = moment($scope.Ficha.FichaPsicologia.Sf36.FechaAIng);
+                        $scope.Ficha.FichaPsicologia.Sf36.FechaAEgr = moment($scope.Ficha.FichaPsicologia.Sf36.FechaAEgr);
+                        $scope.Ficha.FichaPsicologia.Sf36.FechaBIng = moment($scope.Ficha.FichaPsicologia.Sf36.FechaBIng);
+                        $scope.Ficha.FichaPsicologia.Sf36.FechaBEgr = moment($scope.Ficha.FichaPsicologia.Sf36.FechaBEgr);
+                        $scope.Ficha.FichaPsicologia.Had.FechaAIng = moment($scope.Ficha.FichaPsicologia.Had.FechaAIng);
+                        $scope.Ficha.FichaPsicologia.Had.FechaAEgr = moment($scope.Ficha.FichaPsicologia.Had.FechaAEgr);
+                        $scope.Ficha.FichaPsicologia.Had.FechaBIng = moment($scope.Ficha.FichaPsicologia.Had.FechaBIng);
+                        $scope.Ficha.FichaPsicologia.Had.FechaBEgr = moment($scope.Ficha.FichaPsicologia.Had.FechaBEgr);
                         fichaService.getPaciente(parseInt(fichaService.getRutPaciente()), null).then(function (result) {
                             $scope.Paciente = result.data;
                             $scope.Paciente.Persona.FechaNac = moment($scope.Paciente.Persona.FechaNac);
@@ -173,14 +181,6 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
             msg = { title: 'Error Listar Tipo Alergia Alimentarias' };
             Notification.error(msg);
         });
-        tipoService.getTipoApetito().then(function (result) {
-            $scope.TipoApetitos = result.data;
-            $scope.loadingTipoApetito = false;
-            $scope.StopLoading();
-        }, function (reason) {
-            msg = { title: 'Error Listar Tipo Apetito' };
-            Notification.error(msg);
-        });
         tipoService.getTipoAversionAlimentaria().then(function (result) {
             $scope.TipoAversionAlimentarias = result.data;
             $scope.loadingTipoAversionAlimentaria = false;
@@ -277,14 +277,6 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
             msg = { title: 'Error Listar Tipo Sodio' };
             Notification.error(msg);
         });
-        tipoService.getTipoSuplemento().then(function (result) {
-            $scope.TipoSuplementos = result.data;
-            $scope.loadingTipoSuplemento = false;
-            $scope.StopLoading();
-        }, function (reason) {
-            msg = { title: 'Error Listar Tipo Sodio' };
-            Notification.error(msg);
-        });
         tipoService.getTipoVerdura().then(function (result) {
             $scope.TipoVerduras = result.data;
             $scope.loadingTipoVerdura = false;
@@ -294,78 +286,6 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
             Notification.error(msg);
         });
 
-        tipoService.getTipoCribaje().then(function (result) {
-            $scope.TipoCribajes = result.data;
-            $scope.loadingTipoCribaje = false;
-            $scope.StopLoading();
-        }, function (reason) {
-            msg = { title: 'Error Listar Tipo Cribaje' };
-            Notification.error(msg);
-        });
-        tipoService.getTipoDLP().then(function (result) {
-            $scope.TipoDLPs = result.data;
-            $scope.loadingTipoDLP = false;
-            $scope.StopLoading();
-        }, function (reason) {
-            msg = { title: 'Error Listar Tipo DLP' };
-            Notification.error(msg);
-        });
-        tipoService.getTipoDM().then(function (result) {
-            $scope.TipoDMs = result.data;
-            $scope.loadingTipoDM = false;
-            $scope.StopLoading();
-        }, function (reason) {
-            msg = { title: 'Error Listar Tipo DM' };
-            Notification.error(msg);
-        });
-        tipoService.getTipoEstres().then(function (result) {
-            $scope.TipoEstress = result.data;
-            $scope.loadingTipoEstres = false;
-            $scope.StopLoading();
-        }, function (reason) {
-            msg = { title: 'Error Listar Tipo Estres' };
-            Notification.error(msg);
-        });
-        tipoService.getTipoHTA().then(function (result) {
-            $scope.TipoHTAs = result.data;
-            $scope.loadingTipoHTA = false;
-            $scope.StopLoading();
-        }, function (reason) {
-            msg = { title: 'Error Listar Tipo HTA' };
-            Notification.error(msg);
-        });
-        tipoService.getTipoOH().then(function (result) {
-            $scope.TipoOHs = result.data;
-            $scope.loadingTipoDLP = false;
-            $scope.StopLoading();
-        }, function (reason) {
-            msg = { title: 'Error Listar Tipo OH' };
-            Notification.error(msg);
-        });
-        tipoService.getTipoSED().then(function (result) {
-            $scope.TipoSedentarios = result.data;
-            $scope.loadingTipoSedentario = false;
-            $scope.StopLoading();
-        }, function (reason) {
-            msg = { title: 'Error Listar Tipo Sedentario' };
-            Notification.error(msg);
-        });        
-        tipoService.getTipoSPOB().then(function (result) {
-            $scope.TipoSBOBs = result.data;
-            $scope.loadingTipoSBOB = false;
-            $scope.StopLoading();
-        }, function (reason) {
-            msg = { title: 'Error Listar Tipo SBOB' };
-            Notification.error(msg);
-        });
-        tipoService.getTipoTB().then(function (result) {
-            $scope.TipoTBs = result.data;
-            $scope.loadingTipoTB = false;
-            $scope.StopLoading();
-        }, function (reason) {
-            msg = { title: 'Error Listar Tipo TB' };
-            Notification.error(msg);
-        });
         /*  Fin Tipos   */
     };
 }]);
