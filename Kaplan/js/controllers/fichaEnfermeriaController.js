@@ -60,6 +60,28 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
         $scope.removeColumnDiagnostico = function (index) {
             $scope.columnsDiagnostico.splice(index, 1);
         };
+        //---------------------------------------------------------//
+        $scope.columnsIntervenciones = [{ colId: 'col1', Tipo: { ID: '' }, Id: -1 }];
+
+        $scope.addNewColumnIntervenciones = function () {
+            var newItemNo = $scope.columnsIntervenciones.length + 1;
+            $scope.columnsIntervenciones.push({ 'colId': 'col' + newItemNo });
+        };
+
+        $scope.removeColumnIntervenciones = function (index) {
+            $scope.columnsIntervenciones.splice(index, 1);
+        };
+        //---------------------------------------------------------//
+        $scope.columnsIndicadores = [{ colId: 'col1', Tipo: { ID: '' }, Id: -1, Inicio: '', Final: '' }];
+
+        $scope.addNewColumnIndicadores = function () {
+            var newItemNo = $scope.columnsIndicadores.length + 1;
+            $scope.columnsIndicadores.push({ 'colId': 'col' + newItemNo });
+        };
+
+        $scope.removeColumnIndicadores = function (index) {
+            $scope.columnsIndicadores.splice(index, 1);
+        };
         /*Fin*/
 
         /*Accion de para avanzar o retroceder en un tabpanel*/
@@ -149,7 +171,7 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
                     };
                 }, function (reason) {
                     if (reason.errorcode == 404) {
-                        if (parseInt(LoginService.getTipo()) == 5) {
+                        if (parseInt(LoginService.getTipo()) == 3) {
                             msg = { title: 'Sesion Sin Ficha, Complete la ficha para esta sesion' };
                             Notification.warning(msg);
                             fichaService.getPaciente(parseInt(fichaService.getRutPaciente()), null).then(function (result) {

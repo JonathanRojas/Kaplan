@@ -189,13 +189,13 @@
                                                     <div class="panel-body">
                                                         <div class="form-group">
                                                             <div class="col-sm-2">
-                                                                <label class="control-label" for="Diagnostico">Diagnostico</label>
+                                                                <label class="control-label pull-right" for="Diagnostico">Diagnostico</label>
                                                             </div>
                                                             <div class="col-sm-4" align="center">
                                                                 <input type="text" class="form-control" id="Diagnostico" placeholder="Diagnostico Médico" ng-model="Ficha.FichaEnfermeria.Diagnostico" required aria-required="true" ng-disabled="FormEditabe" maxlength="500">
                                                             </div>
                                                             <div class="col-sm-2" align="center">
-                                                                <label class="control-label" for="FechaDiagnostico">Fecha</label>
+                                                                <label class="control-label pull-right" for="FechaDiagnostico">Fecha</label>
                                                             </div>
                                                             <div class="col-sm-4" align="center">
                                                                 <input moment-picker="FechaDiagnostico" today="true" ng-model="Ficha.FichaEnfermeria.FechaDiagnostico" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Diagnostico">
@@ -203,13 +203,13 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="col-sm-2">
-                                                                <label class="control-label" for="cxproced">Cx/Proced</label>
+                                                                <label class="control-label pull-right" for="cxproced">Cx/Proced</label>
                                                             </div>
                                                             <div class="col-sm-4" align="center">
                                                                 <input type="text" class="form-control" id="cxproced" placeholder="Cx/Proced" ng-model="Ficha.FichaEnfermeria.CxProced" required aria-required="true" ng-disabled="FormEditabe" maxlength="500">
                                                             </div>
                                                             <div class="col-sm-2" align="center">
-                                                                <label class="control-label" for="FechaCxProced">Fecha</label>
+                                                                <label class="control-label pull-right" for="FechaCxProced">Fecha</label>
                                                             </div>
                                                             <div class="col-sm-4" align="center">
                                                                 <input moment-picker="FechaCxProced" today="true" ng-model="Ficha.FichaEnfermeria.FechaCxProced" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Cx/Proced">
@@ -217,13 +217,13 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="col-sm-2">
-                                                                <label class="control-label" for="Controles">Controles</label>
+                                                                <label class="control-label pull-right" for="Controles">Controles</label>
                                                             </div>
                                                             <div class="col-sm-4" align="center">
                                                                 <input type="text" class="form-control" id="Controles" placeholder="Controles" ng-model="Ficha.FichaEnfermeria.Controles" required aria-required="true" ng-disabled="FormEditabe" maxlength="500">
                                                             </div>
                                                             <div class="col-sm-2" align="center">
-                                                                <label class="control-label" for="FechaAlta">Fecha Alta</label>
+                                                                <label class="control-label pull-right" for="FechaAlta">Fecha Alta</label>
                                                             </div>
                                                             <div class="col-sm-4" align="center">
                                                                 <input moment-picker="FechaAlta" today="true" ng-model="Ficha.FichaEnfermeria.FechaAlta" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Alta">
@@ -231,7 +231,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="col-sm-2">
-                                                                <label class="control-label" for="HeridaCX">Herida Cx</label>
+                                                                <label class="control-label pull-right" for="HeridaCX">Herida Cx</label>
                                                             </div>
                                                             <div class="col-sm-4" align="center">
                                                                 <input type="text" class="form-control" id="HeridaCX" placeholder="Herida CX" ng-model="Ficha.FichaEnfermeria.HeridaCX" required aria-required="true" ng-disabled="FormEditabe" maxlength="500">
@@ -258,78 +258,78 @@
                                                 <div id="accordionFactorRiesgo" class="panel-collapse collapse in">
                                                     <div class="panel-body">
                                                         <div class="form-group">
-                                                            <div class="col-sm-2">
-                                                                <label class="control-label" for="HTA">HTA</label>
+                                                            <div class="col-sm-1">
+                                                                <label class="control-label pull-right" for="HTA">HTA</label>
                                                             </div>
-                                                            <div class="col-sm-2" align="center">
+                                                            <div class="col-sm-3" align="center">
                                                                 <select class="form-control" required aria-required="true" placeholder="HTA" ng-disabled="FormEditabe" name="HTA" id="HTA" data-ng-options="tipoHTA.ID as tipoHTA.Nombre for tipoHTA in TiposHTA" ng-model="Ficha.FichaEnfermeria.HTA.ID">
                                                                     <option value="">Seleccione</option>
                                                                 </select>
                                                             </div>
-                                                            <div class="col-sm-2">
-                                                                <label class="control-label" for="DM">DM</label>
+                                                            <div class="col-sm-1">
+                                                                <label class="control-label pull-right" for="DM">DM</label>
                                                             </div>
-                                                            <div class="col-sm-2" align="center">
+                                                            <div class="col-sm-3" align="center">
                                                                 <select class="form-control" required aria-required="true" placeholder="DM" ng-disabled="FormEditabe" name="DM" id="DM" data-ng-options="tipoDM.ID as tipoDM.Nombre for tipoDM in TiposDM" ng-model="Ficha.FichaEnfermeria.DM.ID">
                                                                     <option value="">Seleccione</option>
                                                                 </select>
                                                             </div>
-                                                            <div class="col-sm-2">
-                                                                <label class="control-label" for="DLP">DLP</label>
+                                                            <div class="col-sm-1">
+                                                                <label class="control-label pull-right" for="DLP">DLP</label>
                                                             </div>
-                                                            <div class="col-sm-2" align="center">
+                                                            <div class="col-sm-3" align="center">
                                                                 <select class="form-control" required aria-required="true" placeholder="DLP" ng-disabled="FormEditabe" name="DM" id="DM" data-ng-options="tipoDLP.ID as tipoDLP.Nombre for tipoDLP in TiposDLP" ng-model="Ficha.FichaEnfermeria.DLP.ID">
                                                                     <option value="">Seleccione</option>
                                                                 </select>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <div class="col-sm-2">
-                                                                <label class="control-label" for="SED">SED</label>
+                                                            <div class="col-sm-1">
+                                                                <label class="control-label pull-right" for="SED">SED</label>
                                                             </div>
-                                                            <div class="col-sm-2" align="center">
+                                                            <div class="col-sm-3" align="center">
                                                                 <select class="form-control" required aria-required="true" placeholder="SED" ng-disabled="FormEditabe" name="SED" id="SED" data-ng-options="tipoSED.ID as tipoSED.Nombre for tipoSED in TiposSED" ng-model="Ficha.FichaEnfermeria.SED.ID">
                                                                     <option value="">Seleccione</option>
                                                                 </select>
                                                             </div>
-                                                            <div class="col-sm-2">
-                                                                <label class="control-label" for="SPOB">SP/OB</label>
+                                                            <div class="col-sm-1">
+                                                                <label class="control-label pull-right" for="SPOB">SP/OB</label>
                                                             </div>
-                                                            <div class="col-sm-2" align="center">
+                                                            <div class="col-sm-3" align="center">
                                                                 <select class="form-control" required aria-required="true" placeholder="SP/OB" ng-disabled="FormEditabe" name="SPOB" id="SPOB" data-ng-options="tipoSPOB.ID as tipoSPOB.Nombre for tipoSPOB in TiposSPOB" ng-model="Ficha.FichaEnfermeria.SPOB.ID">
                                                                     <option value="">Seleccione</option>
                                                                 </select>
                                                             </div>
-                                                            <div class="col-sm-2">
-                                                                <label class="control-label" for="TB">TB</label>
+                                                            <div class="col-sm-1">
+                                                                <label class="control-label pull-right" for="TB">TB</label>
                                                             </div>
-                                                            <div class="col-sm-2" align="center">
+                                                            <div class="col-sm-3" align="center">
                                                                 <select class="form-control" required aria-required="true" placeholder="TB" ng-disabled="FormEditabe" name="TB" id="TB" data-ng-options="tipoTB.ID as tipoTB.Nombre for tipoTB in TiposTB" ng-model="Ficha.FichaEnfermeria.TB.ID">
                                                                     <option value="">Seleccione</option>
                                                                 </select>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <div class="col-sm-2">
-                                                                <label class="control-label" for="OH">OH</label>
+                                                            <div class="col-sm-1">
+                                                                <label class="control-label pull-right" for="OH">OH</label>
                                                             </div>
-                                                            <div class="col-sm-2" align="center">
+                                                            <div class="col-sm-3" align="center">
                                                                 <select class="form-control" required aria-required="true" placeholder="OH" ng-disabled="FormEditabe" name="OH" id="OH" data-ng-options="tipoOH.ID as tipoOH.Nombre for tipoOH in TiposOH" ng-model="Ficha.FichaEnfermeria.OH.ID">
                                                                     <option value="">Seleccione</option>
                                                                 </select>
                                                             </div>
-                                                            <div class="col-sm-2">
-                                                                <label class="control-label" for="AF">AF</label>
+                                                            <div class="col-sm-1">
+                                                                <label class="control-label pull-right" for="AF">AF</label>
                                                             </div>
-                                                            <div class="col-sm-2" align="center">
+                                                            <div class="col-sm-3" align="center">
                                                                 <select class="form-control" required aria-required="true" placeholder="AF" ng-disabled="FormEditabe" name="AF" id="AF" data-ng-options="tipoAF.ID as tipoAF.Nombre for tipoAF in TiposAF" ng-model="Ficha.FichaEnfermeria.AF.ID">
                                                                     <option value="">Seleccione</option>
                                                                 </select>
                                                             </div>
-                                                            <div class="col-sm-2">
-                                                                <label class="control-label" for="Estres">Estrés</label>
+                                                            <div class="col-sm-1">
+                                                                <label class="control-label pull-right" for="Estres">Estrés</label>
                                                             </div>
-                                                            <div class="col-sm-2" align="center">
+                                                            <div class="col-sm-3" align="center">
                                                                 <select class="form-control" required aria-required="true" placeholder="Estrés" ng-disabled="FormEditabe" name="Estres" id="Estres" data-ng-options="tipoEstres.ID as tipoEstres.Nombre for tipoEstres in TiposEstres" ng-model="Ficha.FichaEnfermeria.Estres.ID">
                                                                     <option value="">Seleccione</option>
                                                                 </select>
@@ -351,7 +351,7 @@
                                                                 <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionMedicamentos"><i class="fa fa-heartbeat" aria-hidden="true"></i>Medicamentos</a>
                                                             </div>
                                                             <div class="col-sm-5">
-                                                                <button type="button" class="btn border small pull-left" ng-show="!FormEditabe" ng-click="addNewColumnMedicamentos()">+ Medicamentos</button>
+                                                                <button type="button" class="btn border small pull-right" ng-show="!FormEditabe" ng-click="addNewColumnMedicamentos()">+ Medicamentos</button>
                                                             </div>
                                                         </div>
                                                     </h4>
@@ -359,17 +359,17 @@
                                                 <div id="accordionMedicamentos" class="panel-collapse collapse in">
                                                     <div class="panel-body">
                                                         <div class="form-group">
-                                                            <div class="col-sm-3">
-                                                                <label class="control-label" align="center" for="NombreMedicamento">Nombre</label>
+                                                            <div class="col-sm-3" style="text-align:center">
+                                                                <label class="control-label" for="NombreMedicamento">Nombre</label>
                                                             </div>
-                                                            <div class="col-sm-3">
-                                                                <label class="control-label" align="center" for="ObservacionMedicamento">Observación</label>
+                                                            <div class="col-sm-3" style="text-align:center">
+                                                                <label class="control-label" for="ObservacionMedicamento">Observación</label>
                                                             </div>
-                                                            <div class="col-sm-2">
-                                                                <label class="control-label" align="center" for="DosisMedicamento">Dosis</label>
+                                                            <div class="col-sm-2" style="text-align:center">
+                                                                <label class="control-label" for="DosisMedicamento">Dosis</label>
                                                             </div>
-                                                            <div class="col-sm-2">
-                                                                <label class="control-label" align="center" for="HorarioMedicamento">Horario</label>
+                                                            <div class="col-sm-2" style="text-align:center">
+                                                                <label class="control-label" for="HorarioMedicamento">Horario</label>
                                                             </div>
                                                             <div class="col-sm-1">
                                                             </div>
@@ -404,87 +404,311 @@
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">
                                                     <h4 class="panel-title">
-                                                        <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionFactorRiesgo"><i class="fa fa-heartbeat" aria-hidden="true"></i>Factores de Riesgo</a>
+                                                        <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionAnamnesis"><i class="fa fa-heartbeat" aria-hidden="true"></i>Anamnesis</a>
                                                     </h4>
                                                 </div>
-                                                <div id="accordionFactorRiesgo" class="panel-collapse collapse in">
+                                                <div id="accordionAnamnesis" class="panel-collapse collapse in">
                                                     <div class="panel-body">
                                                         <div class="form-group">
                                                             <div class="col-sm-2">
-                                                                <label class="control-label" for="HTA">HTA</label>
+                                                                <label class="control-label pull-left" for="AntecedentesRelevantes">Antecedentes Relevantes</label>
                                                             </div>
-                                                            <div class="col-sm-2" align="center">
-                                                                <select class="form-control" required aria-required="true" placeholder="HTA" ng-disabled="FormEditabe" name="HTA" id="HTA" data-ng-options="tipoHTA.ID as tipoHTA.Nombre for tipoHTA in TiposHTA" ng-model="Ficha.FichaEnfermeria.HTA.ID">
-                                                                    <option value="">Seleccione</option>
-                                                                </select>
+                                                            <div class="col-sm-7">
+                                                                <input type="text" class="form-control" id="AntecedentesRelevantes" ng-model="Ficha.FichaEnfermeria.AnamnesisEnfermeria.AntecedentesRelevantes" required aria-required="true" ng-disabled="FormEditabe" maxlength="500" placeholder="Antecedentes Relevantes">
                                                             </div>
+                                                        </div>
+                                                        <div class="form-group">
                                                             <div class="col-sm-2">
-                                                                <label class="control-label" for="DM">DM</label>
+                                                                <label class="control-label pull-right" for="PatronRespiratorio">Patrón Respiratorio</label>
                                                             </div>
-                                                            <div class="col-sm-2" align="center">
-                                                                <select class="form-control" required aria-required="true" placeholder="DM" ng-disabled="FormEditabe" name="DM" id="DM" data-ng-options="tipoDM.ID as tipoDM.Nombre for tipoDM in TiposDM" ng-model="Ficha.FichaEnfermeria.DM.ID">
-                                                                    <option value="">Seleccione</option>
-                                                                </select>
-                                                            </div>
-                                                            <div class="col-sm-2">
-                                                                <label class="control-label" for="DLP">DLP</label>
-                                                            </div>
-                                                            <div class="col-sm-2" align="center">
-                                                                <select class="form-control" required aria-required="true" placeholder="DLP" ng-disabled="FormEditabe" name="DM" id="DM" data-ng-options="tipoDLP.ID as tipoDLP.Nombre for tipoDLP in TiposDLP" ng-model="Ficha.FichaEnfermeria.DLP.ID">
+                                                            <div class="col-sm-7" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="Patrón Respiratorio" ng-disabled="FormEditabe" name="PatronRespiratorio" id="PatronRespiratorio" data-ng-options="tipoPatronRespiratorio.ID as tipoPatronRespiratorio.Nombre for tipoPatronRespiratorio in TiposPatronRespiratorio" ng-model="Ficha.FichaEnfermeria.AnamnesisEnfermeria.PatronRespiratorio.ID">
                                                                     <option value="">Seleccione</option>
                                                                 </select>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="col-sm-2">
-                                                                <label class="control-label" for="SED">SED</label>
+                                                                <label class="control-label pull-right" for="RegimenHiposodico">Regimen Hiposodico</label>
                                                             </div>
                                                             <div class="col-sm-2" align="center">
-                                                                <select class="form-control" required aria-required="true" placeholder="SED" ng-disabled="FormEditabe" name="SED" id="SED" data-ng-options="tipoSED.ID as tipoSED.Nombre for tipoSED in TiposSED" ng-model="Ficha.FichaEnfermeria.SED.ID">
+                                                                <select class="form-control" required aria-required="true" placeholder="Regimen Hiposodico" ng-disabled="FormEditabe" name="RegimenHiposodico" id="RegimenHiposodico" data-ng-options="tipoRegimenHiposodico.ID as tipoRegimenHiposodico.Nombre for tipoRegimenHiposodico in TiposRegimenHiposodico" ng-model="Ficha.FichaEnfermeria.AnamnesisEnfermeria.RegimenHiposodico.ID">
                                                                     <option value="">Seleccione</option>
                                                                 </select>
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <label class="control-label" for="SPOB">SP/OB</label>
+                                                                <label class="control-label pull-right" for="FrutayVerdura">Fruta y Verdura</label>
                                                             </div>
                                                             <div class="col-sm-2" align="center">
-                                                                <select class="form-control" required aria-required="true" placeholder="SP/OB" ng-disabled="FormEditabe" name="SPOB" id="SPOB" data-ng-options="tipoSPOB.ID as tipoSPOB.Nombre for tipoSPOB in TiposSPOB" ng-model="Ficha.FichaEnfermeria.SPOB.ID">
+                                                                <select class="form-control" required aria-required="true" placeholder="Fruta y Verdura" ng-disabled="FormEditabe" name="FrutayVerdura" id="FrutayVerdura" data-ng-options="tipoFrutayVerdura.ID as tipoFrutayVerdura.Nombre for tipoFrutayVerdura in TiposFrutayVerdura" ng-model="Ficha.FichaEnfermeria.AnamnesisEnfermeria.FrutayVerdura.ID">
                                                                     <option value="">Seleccione</option>
                                                                 </select>
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <label class="control-label" for="TB">TB</label>
+                                                                <label class="control-label pull-right" for="Agua">Agua</label>
                                                             </div>
                                                             <div class="col-sm-2" align="center">
-                                                                <select class="form-control" required aria-required="true" placeholder="TB" ng-disabled="FormEditabe" name="TB" id="TB" data-ng-options="tipoTB.ID as tipoTB.Nombre for tipoTB in TiposTB" ng-model="Ficha.FichaEnfermeria.TB.ID">
+                                                                <select class="form-control" required aria-required="true" placeholder="Agua" ng-disabled="FormEditabe" name="Agua" id="Agua" data-ng-options="tipoAgua.ID as tipoAgua.Nombre for tipoAgua in TiposAgua" ng-model="Ficha.FichaEnfermeria.AnamnesisEnfermeria.Agua.ID">
                                                                     <option value="">Seleccione</option>
                                                                 </select>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="col-sm-2">
-                                                                <label class="control-label" for="OH">OH</label>
+                                                                <label class="control-label pull-right" for="BebidaNec">Bebida y/o Nec.</label>
                                                             </div>
                                                             <div class="col-sm-2" align="center">
-                                                                <select class="form-control" required aria-required="true" placeholder="OH" ng-disabled="FormEditabe" name="OH" id="OH" data-ng-options="tipoOH.ID as tipoOH.Nombre for tipoOH in TiposOH" ng-model="Ficha.FichaEnfermeria.OH.ID">
+                                                                <select class="form-control" required aria-required="true" placeholder="Bebida y/o Nec." ng-disabled="FormEditabe" name="BebidaNec" id="BebidaNec" data-ng-options="tipoBebidaNec.ID as tipoBebidaNec.Nombre for tipoBebidaNec in TiposBebidaNec" ng-model="Ficha.FichaEnfermeria.AnamnesisEnfermeria.BebidaNec.ID">
                                                                     <option value="">Seleccione</option>
                                                                 </select>
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <label class="control-label" for="AF">AF</label>
+                                                                <label class="control-label pull-right" for="Grasas">Grasas</label>
                                                             </div>
                                                             <div class="col-sm-2" align="center">
-                                                                <select class="form-control" required aria-required="true" placeholder="AF" ng-disabled="FormEditabe" name="AF" id="AF" data-ng-options="tipoAF.ID as tipoAF.Nombre for tipoAF in TiposAF" ng-model="Ficha.FichaEnfermeria.AF.ID">
+                                                                <select class="form-control" required aria-required="true" placeholder="Grasas" ng-disabled="FormEditabe" name="Grasas" id="Grasas" data-ng-options="tipoGrasas.ID as tipoGrasas.Nombre for tipoGrasas in TiposGrasas" ng-model="Ficha.FichaEnfermeria.AnamnesisEnfermeria.Grasas.ID">
                                                                     <option value="">Seleccione</option>
                                                                 </select>
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <label class="control-label" for="Estres">Estrés</label>
+                                                                <label class="control-label pull-right" for="Diuresis">Diuresis</label>
                                                             </div>
                                                             <div class="col-sm-2" align="center">
-                                                                <select class="form-control" required aria-required="true" placeholder="Estrés" ng-disabled="FormEditabe" name="Estres" id="Estres" data-ng-options="tipoEstres.ID as tipoEstres.Nombre for tipoEstres in TiposEstres" ng-model="Ficha.FichaEnfermeria.Estres.ID">
+                                                                <select class="form-control" required aria-required="true" placeholder="Diuresis" ng-disabled="FormEditabe" name="Diuresis" id="Diuresis" data-ng-options="tipoDiuresis.ID as tipoDiuresis.Nombre for tipoDiuresis in TiposDiuresis" ng-model="Ficha.FichaEnfermeria.AnamnesisEnfermeria.Diuresis.ID">
                                                                     <option value="">Seleccione</option>
                                                                 </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label pull-right" for="Deposicion">Deposicion</label>
+                                                            </div>
+                                                            <div class="col-sm-2" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="Deposicion" ng-disabled="FormEditabe" name="Deposicion" id="Deposicion" data-ng-options="tipoDeposicion.ID as tipoDeposicion.Nombre for tipoDeposicion in TiposDeposicion" ng-model="Ficha.FichaEnfermeria.AnamnesisEnfermeria.Deposicion.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-1">
+                                                                <label class="control-label pull-right" for="TB">TB</label>
+                                                            </div>
+                                                            <div class="col-sm-2" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="TB" ng-disabled="FormEditabe" name="TBa" id="TBa" data-ng-options="tipoTBa.ID as tipoTBa.Nombre for tipoTBa in TiposTBa" ng-model="Ficha.FichaEnfermeria.AnamnesisEnfermeria.TBa.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-2" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="TB" ng-disabled="FormEditabe" name="TBb" id="TBb" data-ng-options="tipoTBb.ID as tipoTBb.Nombre for tipoTBb in TiposTBb" ng-model="Ficha.FichaEnfermeria.AnamnesisEnfermeria.TBb.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-1">
+                                                                <label class="control-label pull-right" for="EA">EA</label>
+                                                            </div>
+                                                            <div class="col-sm-2" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="EA" ng-disabled="FormEditabe" name="EA" id="EA" data-ng-options="tipoEA.ID as tipoEA.Nombre for tipoEA in TiposEA" ng-model="Ficha.FichaEnfermeria.AnamnesisEnfermeria.EA.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label pull-right" for="SuenoNocturno">Sueño Nocturno</label>
+                                                            </div>
+                                                            <div class="col-sm-2" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="Sueño Nocturno" ng-disabled="FormEditabe" name="SuenoNocturnoa" id="SuenoNocturnoa" data-ng-options="tipoSuenoNocturnoa.ID as tipoSuenoNocturnoa.Nombre for tipoSuenoNocturnoa in TiposSuenoNocturnoa" ng-model="Ficha.FichaEnfermeria.AnamnesisEnfermeria.SuenoNocturnoa.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-2" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="Sueño Nocturno" ng-disabled="FormEditabe" name="SuenoNocturnoa" id="SuenoNocturnoa" data-ng-options="tipoSuenoNocturnob.ID as tipoSuenoNocturnob.Nombre for tipoSuenoNocturnob in TiposSuenoNocturnob" ng-model="Ficha.FichaEnfermeria.AnamnesisEnfermeria.SuenoNocturnob.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-2" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="Sueño Nocturno" ng-disabled="FormEditabe" name="SuenoNocturnoa" id="SuenoNocturnoa" data-ng-options="tipoSuenoNocturnoc.ID as tipoSuenoNocturnoc.Nombre for tipoSuenoNocturnoc in TiposSuenoNocturnoc" ng-model="Ficha.FichaEnfermeria.AnamnesisEnfermeria.SuenoNocturnoc.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label pull-right" for="Motivacion">Motivacion</label>
+                                                            </div>
+                                                            <div class="col-sm-2" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="Motivacion" ng-disabled="FormEditabe" name="Motivacion" id="Motivacion" data-ng-options="tipoMotivacion.ID as tipoMotivacion.Nombre for tipoMotivacion in TiposMotivacion" ng-model="Ficha.FichaEnfermeria.AnamnesisEnfermeria.Motivacion.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label pull-right" for="AVD">AVD</label>
+                                                            </div>
+                                                            <div class="col-sm-4" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="AVD" ng-disabled="FormEditabe" name="AVD" id="AVD" data-ng-options="tipoAVD.ID as tipoAVD.Nombre for tipoAVD in TiposAVD" ng-model="Ficha.FichaEnfermeria.AnamnesisEnfermeria.AVD.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label pull-right" for="ActividadesRecreativas">Actividades Recreativas</label>
+                                                            </div>
+                                                            <div class="col-sm-4" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="ActividadesRecreativas" ng-disabled="FormEditabe" name="ActividadesRecreativas" id="ActividadesRecreativas" data-ng-options="tipoActividadesRecreativas.ID as tipoActividadesRecreativas.Nombre for tipoActividadesRecreativas in TiposActividadesRecreativas" ng-model="Ficha.FichaEnfermeria.AnamnesisEnfermeria.ActividadesRecreativas.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <span class="clearfix"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb50">
+                                        <div class="col-sm-12 col-xs-12">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                        <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionExamenFisico"><i class="fa fa-heartbeat" aria-hidden="true"></i>Examen Fisico</a>
+                                                    </h4>
+                                                </div>
+                                                <div id="accordionExamenFisico" class="panel-collapse collapse in">
+                                                    <div class="panel-body">
+                                                        <div class="form-group">
+                                                            <div class="col-sm-1">
+                                                                <label class="control-label pull-right" for="Cabeza">Cabeza</label>
+                                                            </div>
+                                                            <div class="col-sm-7">
+                                                                <select class="form-control" required aria-required="true" placeholder="Cabeza" ng-disabled="FormEditabe" name="Cabeza" id="Cabeza" data-ng-options="tipoCabeza.ID as tipoCabeza.Nombre for tipoCabeza in TiposCabeza" ng-model="Ficha.FichaEnfermeria.ExamenFisicoEnfermeria.Cabeza.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-1">
+                                                                <label class="control-label pull-right" for="Cuello">Cuello</label>
+                                                            </div>
+                                                            <div class="col-sm-7" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="Cuello" ng-disabled="FormEditabe" name="Cuello" id="Cuello" data-ng-options="tipoCuello.ID as tipoCuello.Nombre for tipoCuello in TiposCuello" ng-model="Ficha.FichaEnfermeria.ExamenFisicoEnfermeria.Cuello.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-1">
+                                                                <label class="control-label pull-right" for="Torax">Torax</label>
+                                                            </div>
+                                                            <div class="col-sm-2" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="Torax" ng-disabled="FormEditabe" name="Toraxa" id="Toraxa" data-ng-options="tipoToraxa.ID as tipoToraxa.Nombre for tipoToraxa in TiposToraxa" ng-model="Ficha.FichaEnfermeria.ExamenFisicoEnfermeria.Toraxa.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-3" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="Torax" ng-disabled="FormEditabe" name="Toraxb" id="Toraxb" data-ng-options="tipoToraxb.ID as tipoToraxb.Nombre for tipoToraxb in TiposToraxb" ng-model="Ficha.FichaEnfermeria.ExamenFisicoEnfermeria.Toraxb.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-2" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="Torax" ng-disabled="FormEditabe" name="Toraxc" id="Toraxc" data-ng-options="tipoToraxc.ID as tipoToraxc.Nombre for tipoToraxc in TiposToraxc" ng-model="Ficha.FichaEnfermeria.ExamenFisicoEnfermeria.Toraxc.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-3" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="Torax" ng-disabled="FormEditabe" name="Toraxd" id="Toraxd" data-ng-options="tipoToraxd.ID as tipoToraxd.Nombre for tipoToraxd in TiposToraxd" ng-model="Ficha.FichaEnfermeria.ExamenFisicoEnfermeria.Toraxd.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-1">
+                                                                <label class="control-label pull-right" for="Abdomen">Abdomen</label>
+                                                            </div>
+                                                            <div class="col-sm-5" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="Abdomen" ng-disabled="FormEditabe" name="Abdomena" id="Abdomena" data-ng-options="tipoAbdomena.ID as tipoAbdomena.Nombre for tipoAbdomena in TiposAbdomena" ng-model="Ficha.FichaEnfermeria.ExamenFisicoEnfermeria.Abdomena.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-5" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="Abdomen" ng-disabled="FormEditabe" name="Abdomena" id="Abdomenb" data-ng-options="tipoAbdomenb.ID as tipoAbdomenb.Nombre for tipoAbdomenb in TiposAbdomenb" ng-model="Ficha.FichaEnfermeria.ExamenFisicoEnfermeria.Abdomenb.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-1">
+                                                                <label class="control-label pull-right" for="EESS">EESS</label>
+                                                            </div>
+                                                            <div class="col-sm-4" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="EESS" ng-disabled="FormEditabe" name="EESS" id="EESS" data-ng-options="tipoEESS.ID as tipoEESS.Nombre for tipoEESS in TiposEESS" ng-model="Ficha.FichaEnfermeria.ExamenFisicoEnfermeria.EESS.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-1">
+                                                                <label class="control-label pull-right" for="llencap">Llen Cap.</label>
+                                                            </div>
+                                                            <div class="col-sm-4" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="llencap" ng-disabled="FormEditabe" name="llencap" id="llencap" data-ng-options="tipollencap.ID as tipollencap.Nombre for tipollencap in Tiposllencap" ng-model="Ficha.FichaEnfermeria.ExamenFisicoEnfermeria.llencap.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-1">
+                                                                <label class="control-label pull-right" for="EEII">EEII</label>
+                                                            </div>
+                                                            <div class="col-sm-7" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="EEII" ng-disabled="FormEditabe" name="EEII" id="EEII" data-ng-options="tipoEEII.ID as tipoEEII.Nombre for tipoEEII in TiposEEII" ng-model="Ficha.FichaEnfermeria.ExamenFisicoEnfermeria.EEII.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-1">
+                                                                <label class="control-label pull-right" for="PA">PA</label>
+                                                            </div>
+                                                            <div class="col-sm-2" align="center">
+                                                                <input type="number" class="form-control" id="PA" placeholder="PA" ng-model="Ficha.FichaEnfermeria.ExamenFisicoEnfermeria.PA" required aria-required="true" ng-disabled="FormEditabe" min="0">
+                                                            </div>
+                                                            <div class="col-sm-1">
+                                                                <label class="control-label pull-right" for="FC">FC</label>
+                                                            </div>
+                                                            <div class="col-sm-2" align="center">
+                                                                <input type="number" class="form-control" id="FC" placeholder="FC" ng-model="Ficha.FichaEnfermeria.ExamenFisicoEnfermeria.FC" required aria-required="true" ng-disabled="FormEditabe" min="0">
+                                                            </div>
+                                                            <div class="col-sm-1">
+                                                                <label class="control-label pull-right" for="SAT">SAT</label>
+                                                            </div>
+                                                            <div class="col-sm-2" align="center">
+                                                                <input type="number" class="form-control" id="SAT" placeholder="SAT" ng-model="Ficha.FichaEnfermeria.ExamenFisicoEnfermeria.SAT" required aria-required="true" ng-disabled="FormEditabe" min="0">
+                                                            </div>
+                                                            <div class="col-sm-1">
+                                                                <label class="control-label pull-right" for="Glicemia">Glicemia</label>
+                                                            </div>
+                                                            <div class="col-sm-2" align="center">
+                                                                <input type="number" class="form-control" id="Glicemia" placeholder="Glicemia" ng-model="Ficha.FichaEnfermeria.ExamenFisicoEnfermeria.Glicemia" required aria-required="true" ng-disabled="FormEditabe" min="0">
+                                                            </div>
+                                                        </div>
+                                                        <span class="clearfix"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb50">
+                                        <div class="col-sm-12 col-xs-12">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                        <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionIntervencion"><i class="fa fa-heartbeat" aria-hidden="true"></i>Intervención</a>
+                                                    </h4>
+                                                </div>
+                                                <div id="accordionIntervencion" class="panel-collapse collapse in">
+                                                    <div class="panel-body">
+                                                        <div class="form-group">
+                                                            <div class="col-sm-2">
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <textarea class="form-control" id="Intervencion" rows="4" ng-model="Ficha.FichaEnfermeria.Intervencion" required aria-required="true" ng-disabled="FormEditabe" maxlength="500" placeholder="Intervencion"></textarea>
+                                                            </div>
+                                                            <div class="col-sm-2">
                                                             </div>
                                                         </div>
                                                         <span class="clearfix"></span>
@@ -509,11 +733,11 @@
                                                 <div class="panel-heading">
                                                     <h4 class="panel-title">
                                                         <div class="row mb50">
-                                                            <div class="col-sm-5">
+                                                            <div class="col-sm-8">
                                                                 <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionEvolucion"><i class="fa fa-heartbeat" aria-hidden="true"></i>Evolución</a>
                                                             </div>
-                                                            <div class="col-sm-5">
-                                                                <button type="button" class="btn border small pull-left" ng-show="!FormEditabe" ng-click="addNewColumnEvolucion()">+ Evolución</button>
+                                                            <div class="col-sm-3">
+                                                                <button type="button" class="btn border small pull-right" ng-show="!FormEditabe" ng-click="addNewColumnEvolucion()">+ Evolución</button>
                                                             </div>
                                                         </div>
                                                     </h4>
@@ -540,7 +764,7 @@
                                                                     <input moment-picker="FechaEvolucion" today="true" ng-model="Ficha.FichaEnfermeria.EvolucionEnfermeria.Fecha" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Evolución">
                                                                 </div>
                                                                 <div class="col-sm-6">
-                                                                    <textarea class="form-control" id="EvolucionEnfermeria" rows="3" ng-model="Ficha.FichaEnfermeria.EvolucionEnfermeria.Evolucion" required aria-required="true" ng-disabled="FormEditabe" maxlength="500" placeholder="Evolución Enfermeria"></textarea>
+                                                                    <textarea class="form-control" id="EvolucionEnfermeria" rows="4" ng-model="Ficha.FichaEnfermeria.EvolucionEnfermeria.Evolucion" required aria-required="true" ng-disabled="FormEditabe" maxlength="500" placeholder="Evolución Enfermeria"></textarea>
                                                                 </div>
                                                                 <div class="col-sm-1">
                                                                     <button class="remove" ng-hide="columnsEvolucion.length == 1 || FormEditabe" ng-click="removeColumnEvolucion($index)">x</button>
@@ -564,12 +788,168 @@
                             <div role="tabpanel" class="tab-pane fade" id="planTab">
                                 <div class="panel-group" id="accordion">
                                     <div class="row mb50">
+                                        <div class="col-sm-12 col-xs-12">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                        <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionValoracion"><i class="fa fa-heartbeat" aria-hidden="true"></i>Valoración</a>
+                                                    </h4>
+                                                </div>
+                                                <div id="accordionValoracion" class="panel-collapse collapse in">
+                                                    <div class="panel-body">
+                                                        <div class="form-group">
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label pull-right" for="AdeherenciaFarma">Adeherencia Farmacologica</label>
+                                                            </div>
+                                                            <div class="col-sm-8">
+                                                                <select class="form-control" required aria-required="true" placeholder="Adeherencia Farmacologica" ng-disabled="FormEditabe" name="AdeherenciaFarma" id="AdeherenciaFarma" data-ng-options="tipoAdeherenciaFarma.ID as tipoAdeherenciaFarma.Nombre for tipoAdeherenciaFarma in TiposAdeherenciaFarma" ng-model="Ficha.FichaEnfermeria.PlanEnfermeria.AdeherenciaFarma.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label pull-right" for="Respiracion">Respiración</label>
+                                                            </div>
+                                                            <div class="col-sm-5" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="Respiración" ng-disabled="FormEditabe" name="Respiracion" id="Respiracion" data-ng-options="tipoRespiracion.ID as tipoRespiracion.Nombre for tipoRespiracion in TiposRespiracion" ng-model="Ficha.FichaEnfermeria.PlanEnfermeria.Respiracion.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-5" align="center">
+                                                                <input type="text" class="form-control" id="RespiracionObservacion" placeholder="Respiración Observación" ng-model="Ficha.FichaEnfermeria.PlanEnfermeria.RespiracionObservacion" required aria-required="true" ng-disabled="FormEditabe" maxlength="500">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label pull-right" for="Alimentacion">Alimentación</label>
+                                                            </div>
+                                                            <div class="col-sm-5" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="Alimentación" ng-disabled="FormEditabe" name="Alimentacion" id="Alimentacion" data-ng-options="tipoAlimentacion.ID as tipoAlimentacion.Nombre for tipoAlimentacion in TiposAlimentacion" ng-model="Ficha.FichaEnfermeria.PlanEnfermeria.Alimentacion.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-5" align="center">
+                                                                <input type="text" class="form-control" id="AlimentacionObservacion" placeholder="Alimentación Observación" ng-model="Ficha.FichaEnfermeria.PlanEnfermeria.AlimentacionObservacion" required aria-required="true" ng-disabled="FormEditabe" maxlength="500">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label pull-right" for="Alimentacion">Alimentación</label>
+                                                            </div>
+                                                            <div class="col-sm-5" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="Alimentación" ng-disabled="FormEditabe" name="Alimentacion" id="Alimentacion" data-ng-options="tipoAlimentacion.ID as tipoAlimentacion.Nombre for tipoAlimentacion in TiposAlimentacion" ng-model="Ficha.FichaEnfermeria.PlanEnfermeria.Alimentacion.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-5" align="center">
+                                                                <input type="text" class="form-control" id="AlimentacionObservacion" placeholder="Alimentación Observación" ng-model="Ficha.FichaEnfermeria.PlanEnfermeria.AlimentacionObservacion" required aria-required="true" ng-disabled="FormEditabe" maxlength="500">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label pull-right" for="Eliminacion">Eliminación</label>
+                                                            </div>
+                                                            <div class="col-sm-5" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="Eliminacion" ng-disabled="FormEditabe" name="Eliminacion" id="Eliminacion" data-ng-options="tipoEliminacion.ID as tipoEliminacion.Nombre for tipoEliminacion in TiposEliminacion" ng-model="Ficha.FichaEnfermeria.PlanEnfermeria.Eliminacion.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-5" align="center">
+                                                                <input type="text" class="form-control" id="EliminacionObservacion" placeholder="Eliminación Observación" ng-model="Ficha.FichaEnfermeria.PlanEnfermeria.EliminacionObservacion" required aria-required="true" ng-disabled="FormEditabe" maxlength="500">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label pull-right" for="Descanso">Descanso</label>
+                                                            </div>
+                                                            <div class="col-sm-5" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="Descanso" ng-disabled="FormEditabe" name="Descanso" id="Descanso" data-ng-options="tipoDescanso.ID as tipoDescanso.Nombre for tipoDescanso in TiposDescanso" ng-model="Ficha.FichaEnfermeria.PlanEnfermeria.Descanso.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-5" align="center">
+                                                                <input type="text" class="form-control" id="DescansoObservacion" placeholder="Descanso Observación" ng-model="Ficha.FichaEnfermeria.PlanEnfermeria.DescansoObservacion" required aria-required="true" ng-disabled="FormEditabe" maxlength="500">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label pull-right" for="HigienePiel">Higiene/Piel</label>
+                                                            </div>
+                                                            <div class="col-sm-5" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="Higiene/Piel" ng-disabled="FormEditabe" name="HigienePiel" id="HigienePiel" data-ng-options="tipoHigienePiel.ID as tipoHigienePiel.Nombre for tipoHigienePiel in TiposHigienePiel" ng-model="Ficha.FichaEnfermeria.PlanEnfermeria.HigienePiel.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-5" align="center">
+                                                                <input type="text" class="form-control" id="HigienePielObservacion" placeholder="Higiene/Piel Observación" ng-model="Ficha.FichaEnfermeria.PlanEnfermeria.HigienePielObservacion" required aria-required="true" ng-disabled="FormEditabe" maxlength="500">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label pull-right" for="Actividades">Actividades</label>
+                                                            </div>
+                                                            <div class="col-sm-5" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="Actividades" ng-disabled="FormEditabe" name="Actividades" id="Actividades" data-ng-options="tipoActividades.ID as tipoActividades.Nombre for tipoActividades in TiposActividades" ng-model="Ficha.FichaEnfermeria.PlanEnfermeria.Actividades.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-5" align="center">
+                                                                <input type="text" class="form-control" id="ActividadesObservacion" placeholder="Actividades Observación" ng-model="Ficha.FichaEnfermeria.PlanEnfermeria.ActividadesObservacion" required aria-required="true" ng-disabled="FormEditabe" maxlength="500">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label pull-right" for="Vestirse">Vestirse</label>
+                                                            </div>
+                                                            <div class="col-sm-5" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="Vestirse" ng-disabled="FormEditabe" name="Vestirse" id="Vestirse" data-ng-options="tipoVestirse.ID as tipoVestirse.Nombre for tipoVestirse in TiposVestirse" ng-model="Ficha.FichaEnfermeria.PlanEnfermeria.Vestirse.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-5" align="center">
+                                                                <input type="text" class="form-control" id="VestirseObservacion" placeholder="Vestirse Observación" ng-model="Ficha.FichaEnfermeria.PlanEnfermeria.VestirseObservacion" required aria-required="true" ng-disabled="FormEditabe" maxlength="500">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label pull-right" for="Comunicarse">Comunicarse</label>
+                                                            </div>
+                                                            <div class="col-sm-5" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="Comunicarse" ng-disabled="FormEditabe" name="Comunicarse" id="Comunicarse" data-ng-options="tipoComunicarse.ID as tipoComunicarse.Nombre for tipoComunicarse in TiposComunicarse" ng-model="Ficha.FichaEnfermeria.PlanEnfermeria.Comunicarse.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-5" align="center">
+                                                                <input type="text" class="form-control" id="ComunicarseObservacion" placeholder="Comunicarse Observación" ng-model="Ficha.FichaEnfermeria.PlanEnfermeria.ComunicarseObservacion" required aria-required="true" ng-disabled="FormEditabe" maxlength="500">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label pull-right" for="AutoRealizacion">Auto-Realización</label>
+                                                            </div>
+                                                            <div class="col-sm-5" align="center">
+                                                                <select class="form-control" required aria-required="true" placeholder="AutoRealizacion" ng-disabled="FormEditabe" name="AutoRealizacion" id="AutoRealizacion" data-ng-options="tipoAutoRealizacion.ID as tipoAutoRealizacion.Nombre for tipoAutoRealizacion in TiposAutoRealizacion" ng-model="Ficha.FichaEnfermeria.PlanEnfermeria.AutoRealizacion.ID">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-5" align="center">
+                                                                <input type="text" class="form-control" id="AutoRealizacionObservacion" placeholder="Auto-Realización Observación" ng-model="Ficha.FichaEnfermeria.PlanEnfermeria.AutoRealizacionObservacion" required aria-required="true" ng-disabled="FormEditabe" maxlength="500">
+                                                            </div>
+                                                        </div>
+                                                        <span class="clearfix"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb50">
                                         <div class="col-sm-6 col-xs-12">
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">
                                                     <h4 class="panel-title">
                                                         <div class="row mb50">
-                                                            <div class="col-sm-5">
+                                                            <div class="col-sm-7">
                                                                 <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionDiagPlan"><i class="fa fa-heartbeat" aria-hidden="true"></i>Diagnostico</a>
                                                             </div>
                                                             <div class="col-sm-5">
@@ -601,30 +981,16 @@
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">
                                                     <h4 class="panel-title">
-                                                        <div class="row mb50">
-                                                            <div class="col-sm-5">
-                                                                <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionObjPlan"><i class="fa fa-heartbeat" aria-hidden="true"></i>Objetivos</a>
-                                                            </div>
-                                                            <div class="col-sm-5">
-                                                                <button type="button" class="btn border small pull-left" ng-show="!FormEditabe" ng-click="addNewColumnObjetivos()">+ Objetivos</button>
-                                                            </div>
-                                                        </div>
+                                                        <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionObjPlan"><i class="fa fa-heartbeat" aria-hidden="true"></i>Objetivos</a>
                                                     </h4>
                                                 </div>
                                                 <div id="accordionObjPlan" class="panel-collapse collapse in">
                                                     <div class="panel-body">
-                                                        <fieldset ng-repeat="Objetivos in columnsObjetivos" style="padding: 16px; min-width: 100%">
-                                                            <div class="form-group">
-                                                                <div class="col-sm-10">
-                                                                    <select class="form-control" required aria-required="true" placeholder="Objetivo Plan Enfermeria" ng-disabled="FormEditabe" name="objetivo" id="objetivo" data-ng-options="tipoObjetivo.ID as tipoObjetivo.Nombre for tipoObjetivo in TiposObjetivo" ng-model="Objetivos.Tipo.ID">
-                                                                        <option value="">Seleccione</option>
-                                                                    </select>
-                                                                </div>
-                                                                <div class="col-sm-2">
-                                                                    <button class="remove" ng-hide="columnsObjetivos.length == 1 || FormEditabe" ng-click="removeColumnObjetivos($index)">x</button>
-                                                                </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-10">
+                                                                <textarea class="form-control" id="Objetivo" rows="4" placeholder="Objetivo del Plan" required aria-required="true" ng-disabled="FormEditabe" ng-model="Ficha.FichaEnfermeria.PlanEnfermeria.Objetivo" maxlength="500"></textarea>
                                                             </div>
-                                                        </fieldset>
+                                                        </div>
                                                         <span class="clearfix"></span>
                                                     </div>
                                                 </div>
@@ -637,7 +1003,7 @@
                                                 <div class="panel-heading">
                                                     <h4 class="panel-title">
                                                         <div class="row mb50">
-                                                            <div class="col-sm-5">
+                                                            <div class="col-sm-7">
                                                                 <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionPlanNic"><i class="fa fa-heartbeat" aria-hidden="true"></i>Plan de Cuidados - Nic: Intervenciones </a>
                                                             </div>
                                                             <div class="col-sm-5">
@@ -670,8 +1036,8 @@
                                                 <div class="panel-heading">
                                                     <h4 class="panel-title">
                                                         <div class="row mb50">
-                                                            <div class="col-sm-5">
-                                                                <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionObjPlan"><i class="fa fa-heartbeat" aria-hidden="true"></i>Plan de Cuidados - Indicadores</a>
+                                                            <div class="col-sm-7">
+                                                                <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionIndicadores"><i class="fa fa-heartbeat" aria-hidden="true"></i>Plan de Cuidados - Indicadores</a>
                                                             </div>
                                                             <div class="col-sm-5">
                                                                 <button type="button" class="btn border small pull-left" ng-show="!FormEditabe" ng-click="addNewColumnIndicadores()">+ Indicadores</button>
@@ -679,10 +1045,10 @@
                                                         </div>
                                                     </h4>
                                                 </div>
-                                                <div id="accordionObjPlan" class="panel-collapse collapse in">
+                                                <div id="accordionIndicadores" class="panel-collapse collapse in">
                                                     <div class="panel-body">
                                                         <div class="form-group">
-                                                            <div class="col-sm-6">
+                                                            <div class="col-sm-7">
                                                             </div>
                                                             <div class="col-sm-2">
                                                                 <label class="control-label" align="center" for="InicioIndicador">Inicio</label>
@@ -690,12 +1056,12 @@
                                                             <div class="col-sm-2">
                                                                 <label class="control-label" align="center" for="FinalIndicador">Final</label>
                                                             </div>
-                                                            <div class="col-sm-2">
+                                                            <div class="col-sm-1">
                                                             </div>
                                                         </div>
                                                         <fieldset ng-repeat="Indicadores in columnsIndicadores" style="padding: 16px; min-width: 100%">
                                                             <div class="form-group">
-                                                                <div class="col-sm-6">
+                                                                <div class="col-sm-7">
                                                                     <select class="form-control" required aria-required="true" placeholder="Plan de Cuidados - Indicadores" ng-disabled="FormEditabe" name="indicador" id="indicador" data-ng-options="tipoIndicador.ID as tipoIndicador.Nombre for tipoIndicador in TiposIndicador" ng-model="Indicadores.Tipo.ID">
                                                                         <option value="">Seleccione</option>
                                                                     </select>
@@ -706,7 +1072,7 @@
                                                                 <div class="col-sm-2">
                                                                     <input type="number" class="form-control" id="FinalIndicador" placeholder="Final Indicador" ng-model="Indicadores.Final" required aria-required="true" ng-disabled="FormEditabe" min="0">
                                                                 </div>
-                                                                <div class="col-sm-2">
+                                                                <div class="col-sm-1">
                                                                     <button class="remove" ng-hide="columnsIndicadores.length == 1 || FormEditabe" ng-click="removeColumnIndicadores($index)">x</button>
                                                                 </div>
                                                             </div>
