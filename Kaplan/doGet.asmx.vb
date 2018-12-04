@@ -1192,64 +1192,26 @@ Public Class doGet
 #End Region
 #Region "Tipos Nutrición"
     <WebMethod(EnableSession:=True)>
-    Public Function getTipoDiagnosticoEnfermeria() As String
-        Dim vTipos As List(Of TipoDiagnosticoEnfermeria) = TipoDiagnosticoEnfermeria.getTipos
-        Dim js As New JavaScriptSerializer
-        Dim vResult As New httpResult
-        If Not IsNothing(vTipos) Then
-            vResult.result = True
-            vResult.data = vTipos
-        Else
-            vResult.result = False
-            vResult.data = vTipos
-        End If
-
-        Context.Response.Write(js.Serialize(vResult))
-
-        Context.Response.End()
-        Return ""
-    End Function
-    <WebMethod(EnableSession:=True)>
-    Public Function getTipoIndicador() As String
-        Dim vTipos As List(Of TipoIndicador) = TipoIndicador.getTipos
-        Dim js As New JavaScriptSerializer
-        Dim vResult As New httpResult
-        If Not IsNothing(vTipos) Then
-            vResult.result = True
-            vResult.data = vTipos
-        Else
-            vResult.result = False
-            vResult.data = vTipos
-        End If
-
-        Context.Response.Write(js.Serialize(vResult))
-
-        Context.Response.End()
-        Return ""
-    End Function
-    <WebMethod(EnableSession:=True)>
-    Public Function getTipoIntervencion() As String
-        Dim vTipos As List(Of TipoIntervencion) = TipoIntervencion.getTipos
-        Dim js As New JavaScriptSerializer
-        Dim vResult As New httpResult
-        If Not IsNothing(vTipos) Then
-            vResult.result = True
-            vResult.data = vTipos
-        Else
-            vResult.result = False
-            vResult.data = vTipos
-        End If
-
-        Context.Response.Write(js.Serialize(vResult))
-
-        Context.Response.End()
-        Return ""
-    End Function
-#End Region
-#Region "Tipos Nutrición"
-    <WebMethod(EnableSession:=True)>
     Public Function getTipoAlergiaAlimentaria() As String
         Dim vTipos As List(Of TipoAlergiaAlimentaria) = TipoAlergiaAlimentaria.getTipos
+        Dim js As New JavaScriptSerializer
+        Dim vResult As New httpResult
+        If Not IsNothing(vTipos) Then
+            vResult.result = True
+            vResult.data = vTipos
+        Else
+            vResult.result = False
+            vResult.data = vTipos
+        End If
+
+        Context.Response.Write(js.Serialize(vResult))
+
+        Context.Response.End()
+        Return ""
+    End Function
+    <WebMethod(EnableSession:=True)>
+    Public Function getTipoApetito() As String
+        Dim vTipos As List(Of TipoApetito) = TipoApetito.getTipos
         Dim js As New JavaScriptSerializer
         Dim vResult As New httpResult
         If Not IsNothing(vTipos) Then
@@ -1466,6 +1428,24 @@ Public Class doGet
     <WebMethod(EnableSession:=True)>
     Public Function getTipoSodio() As String
         Dim vTipos As List(Of TipoSodio) = TipoSodio.getTipos
+        Dim js As New JavaScriptSerializer
+        Dim vResult As New httpResult
+        If Not IsNothing(vTipos) Then
+            vResult.result = True
+            vResult.data = vTipos
+        Else
+            vResult.result = False
+            vResult.data = vTipos
+        End If
+
+        Context.Response.Write(js.Serialize(vResult))
+
+        Context.Response.End()
+        Return ""
+    End Function
+    <WebMethod(EnableSession:=True)>
+    Public Function getTipoSuplemento() As String
+        Dim vTipos As List(Of TipoSuplemento) = TipoSuplemento.getTipos
         Dim js As New JavaScriptSerializer
         Dim vResult As New httpResult
         If Not IsNothing(vTipos) Then
