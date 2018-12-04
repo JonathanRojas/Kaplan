@@ -996,6 +996,24 @@
         };
         return deferred.promise;
     };
+    tipoServ.getTipoApetito = function () {
+        var deferred = $q.defer();
+        $http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoApetito'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
     tipoServ.getTipoAversionAlimentaria = function () {
         var deferred = $q.defer();
         $http({
@@ -1200,6 +1218,24 @@
             method: "GET",
             async: true,
             url: 'doGet.asmx/getTipoSodio'
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+    };
+    tipoServ.getTipoSuplemento = function () {
+        var deferred = $q.defer();
+        $http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getTipoSuplemento'
         }).then(onSuccess, onFailure);
         function onSuccess(response) {
             if (response.data.result)
