@@ -98,6 +98,7 @@
     <script src="js/controllers/fichaEnfermeriaController.js"></script>
     <script src="js/controllers/fichaKinesiologiaController.js"></script>
     <script src="js/controllers/fichaPsicologiaController.js"></script>
+    <script src="js/controllers/fichaNutricionController.js"></script>
     <script src="js/controllers/loginController.js"></script>
     <script src="js/controllers/inicioController.js"></script>
 
