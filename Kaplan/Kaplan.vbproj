@@ -236,6 +236,8 @@
     <Compile Include="models\enfermeria\TipoDiagnosticoEnfermeria.vb" />
     <Compile Include="models\enfermeria\TipoIndicador.vb" />
     <Compile Include="models\enfermeria\TipoIntervencion.vb" />
+    <Compile Include="models\nutricion\FichaNutricion.vb" />
+    <Compile Include="models\nutricion\MedicionesAntropometricas.vb" />
     <Compile Include="models\nutricion\TipoAlergiaAlimentaria.vb" />
     <Compile Include="models\nutricion\TipoApetito.vb" />
     <Compile Include="models\nutricion\TipoAversionAlimentaria.vb" />

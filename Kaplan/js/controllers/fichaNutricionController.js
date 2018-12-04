@@ -349,7 +349,7 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
         }, function (reason) {
             msg = { title: 'Error Listar Tipo Sedentario' };
             Notification.error(msg);
-        });        
+        });
         tipoService.getTipoSPOB().then(function (result) {
             $scope.TipoSBOBs = result.data;
             $scope.loadingTipoSBOB = false;
