@@ -482,13 +482,17 @@
                                                                 <label class="control-label pull-right" for="fecha">Apetito</label>
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                <input moment-picker="EFechaIngreso" today="true" ng-model="Ficha.FichaPsicologia.Sf36.FechaAIng" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Ingreso">
+                                                                <select ng-model="Ficha.FichaNutricion.Apetito.ID" name="Apetito" id="Apetito" data-ng-options="tipoApetito.ID as tipoApetito.Nombre for tipoApetito in TipoApetitos" class="form-control" required aria-required="true" placeholder="Apetito" ng-disabled="FormEditabe">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
                                                             </div>                                                           
                                                             <div class="col-sm-2">
                                                                 <label class="control-label pull-right" for="fecha">Intolerancia Alimentaria</label>
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                <input moment-picker="EFechaEgreso" today="true" ng-model="Ficha.FichaPsicologia.Sf36.FechaAEgr" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Egreso">
+                                                                <select ng-model="Ficha.FichaNutricion.IntoleranciaAlimentaria.ID" name="IntoleranciaAlimentaria" id="IntoleranciaAlimentaria" data-ng-options="tipoIntoleranciaAlimentaria.ID as tipoIntoleranciaAlimentaria.Nombre for tipoIntoleranciaAlimentaria in TipoIntoleranciaAlimentarias" class="form-control" required aria-required="true" placeholder="AlergiaAlimentaria" ng-disabled="FormEditabe">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
                                                             </div>                                                          
                                                         </div>
                                                         <div class="form-group">
@@ -496,13 +500,17 @@
                                                                 <label class="control-label pull-right" for="fecha">Alergia Alimentaria</label>
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                <input moment-picker="EFechaIngreso" today="true" ng-model="Ficha.FichaPsicologia.Sf36.FechaAIng" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Ingreso">
+                                                                <select ng-model="Ficha.FichaNutricion.AlergiaAlimentaria.ID" name="AlergiaAlimentaria" id="AlergiaAlimentaria" data-ng-options="tipoAlergiaAlimentaria.ID as tipoAlergiaAlimentaria.Nombre for tipoAlergiaAlimentaria in TipoAlergiaAlimentarias" class="form-control" required aria-required="true" placeholder="AlergiaAlimentaria" ng-disabled="FormEditabe">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
                                                             </div>                                                          
                                                             <div class="col-sm-2">
                                                                 <label class="control-label pull-right" for="fecha">Aversiones Alimentarias</label>
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                <input moment-picker="EFechaEgreso" today="true" ng-model="Ficha.FichaPsicologia.Sf36.FechaAEgr" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Egreso">
+                                                                <select ng-model="Ficha.FichaNutricion.AversionAlimentaria.ID" name="AversionAlimentaria" id="AversionAlimentaria" data-ng-options="tipoAversionAlimentaria.ID as tipoAversionAlimentaria.Nombre for tipoAversionAlimentaria in TipoAversionAlimentarias" class="form-control" required aria-required="true" placeholder="AversionAlimentaria" ng-disabled="FormEditabe">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
                                                             </div>                                                           
                                                         </div>
                                                         <div class="form-group">
@@ -510,13 +518,17 @@
                                                                 <label class="control-label pull-right" for="fecha">Preferencias Alimentarias</label>
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                <input moment-picker="EFechaIngreso" today="true" ng-model="Ficha.FichaPsicologia.Sf36.FechaAIng" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Ingreso">
+                                                                <select ng-model="Ficha.FichaNutricion.PreferenciaAlimentaria.ID" name="PreferenciaAlimentaria" id="PreferenciaAlimentaria" data-ng-options="tipoPreferenciaAlimentaria.ID as tipoPreferenciaAlimentaria.Nombre for tipoPreferenciaAlimentaria in TipoPreferenciaAlimentarias" class="form-control" required aria-required="true" placeholder="PreferenciaAlimentaria" ng-disabled="FormEditabe">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
                                                             </div>
                                                             <div class="col-sm-2">
                                                                 <label class="control-label pull-right" for="fecha">Consumo de Suplemento</label>
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                <input moment-picker="EFechaEgreso" today="true" ng-model="Ficha.FichaPsicologia.Sf36.FechaAEgr" required aria-required="true" ng-disabled="FormEditabe" max-view="day" format="DD/MM/YYYY" start-view="month" locale="es" class="form-control" placeholder="Fecha Egreso">
+                                                                <select ng-model="Ficha.FichaNutricion.ConsumoSuplemento.ID" name="ConsumoSuplemento" id="ConsumoSuplemento" data-ng-options="tipoSuplemento.ID as tipoSuplemento.Nombre for tipoSuplemento in TipoSuplementos" class="form-control" required aria-required="true" placeholder="ConsumoSuplemento" ng-disabled="FormEditabe">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                         <span class="clearfix"></span>
