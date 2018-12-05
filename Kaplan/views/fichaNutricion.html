@@ -182,11 +182,9 @@
                                                                 <label class="control-label pull-right" for="METS">CX/Procedimiento</label>
                                                             </div>
                                                             <div class="col-sm-3">
-                                                                <div class="col-sm-3">
-                                                                    <input ng-model="Ficha.FichaNutricion.CxProced" type="text" class="form-control" id="CX/Procedimiento" placeholder="CX/Procedimiento" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
-                                                                </div>
+                                                                <input ng-model="Ficha.FichaNutricion.CxProced" type="text" class="form-control" id="CX/Procedimiento" placeholder="CX/Procedimiento" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
                                                             </div>
-                                                        </div>                                                        
+                                                        </div>
                                                         <span class="clearfix"></span>
                                                     </div>
                                                 </div>
@@ -202,7 +200,7 @@
                                                     </h4>
                                                 </div>
                                                 <div id="accordionFacRie" class="panel-collapse collapse in">
-                                                    <div class="panel-body">                                                        
+                                                    <div class="panel-body">
                                                         <div class="form-group">
                                                             <div class="col-sm-2">
                                                                 <label class="control-label pull-right" for="fecha">Sedentario</label>
@@ -222,7 +220,7 @@
                                                             </div>
                                                             <div class="col-sm-2">
                                                                 <label class="control-label pull-right" for="fecha">SB/OB</label>
-                                                            </div>                                                            
+                                                            </div>
                                                             <div class="col-sm-2">
                                                                 <select ng-model="Ficha.FichaNutricion.SBOB.ID" name="SBOB" id="SBOB" data-ng-options="tipoSBOB.ID as tipoSBOB.Nombre for tipoSBOB in TipoSBOBs" class="form-control" required aria-required="true" placeholder="SBOB" ng-disabled="FormEditabe">
                                                                     <option value="">Seleccione</option>
@@ -315,7 +313,7 @@
                                                             </div>
                                                             <div class="col-sm-2">
                                                                 <label class="control-label pull-right" for="fecha">Adulto Mayor</label>
-                                                            </div>                                                            
+                                                            </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="col-sm-2">
@@ -363,30 +361,30 @@
                                                             </div>
                                                             <div class="col-sm-4">
                                                                 <label class="control-label pull-left" for="fecha" ng-bind="Ficha.FichaNutricion.MedicionesAntropometricas.EstadoIMC"></label>
-                                                            </div>                                                            
+                                                            </div>
                                                             <div class="col-sm-2">
                                                                 <label class="control-label pull-right" for="fecha">Peso Ideal</label>
                                                             </div>
                                                             <div class="col-sm-2">
                                                                 <input ng-model="Ficha.FichaNutricion.MedicionesAntropometricas.PesoIdeal" type="text" class="form-control" id="PesoIdeal" placeholder="PesoIdeal" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
-                                                            </div>                                                            
+                                                            </div>
                                                             <div class="col-sm-2">
                                                                 <input ng-model="Ficha.FichaNutricion.MedicionesAntropometricas.PesoIdealMayor" type="text" class="form-control" id="PesoIdealMayor" placeholder="PesoIdealMayor" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
-                                                            </div>                                                            
+                                                            </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="col-sm-2">
-                                                                
+
                                                             </div>
                                                             <div class="col-sm-4">
-                                                                
+
                                                             </div>
                                                             <div class="col-sm-2">
                                                                 <label class="control-label pull-right" for="fecha">Estado Nut. IMC/AM</label>
                                                             </div>
                                                             <div class="col-sm-4">
                                                                 <label class="control-label pull-left" for="fecha" ng-bind="Ficha.FichaNutricion.MedicionesAntropometricas.EstadoIMCAM"></label>
-                                                            </div>                                                            
+                                                            </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="col-sm-2">
@@ -459,7 +457,7 @@
                                                                 <select ng-model="Ficha.FichaNutricion.MedicionesAntropometricas.Cribaje.ID" name="Cribaje" id="Cribaje" data-ng-options="tipoCribaje.ID as tipoCribaje.Nombre for tipoCribaje in TipoCribajes" class="form-control" required aria-required="true" placeholder="TipoCribaje" ng-disabled="FormEditabe">
                                                                     <option value="">Seleccione</option>
                                                                 </select>
-                                                            </div>                                                            
+                                                            </div>
                                                         </div>
                                                         <span class="clearfix"></span>
                                                     </div>
@@ -485,7 +483,7 @@
                                                                 <select ng-model="Ficha.FichaNutricion.Apetito.ID" name="Apetito" id="Apetito" data-ng-options="tipoApetito.ID as tipoApetito.Nombre for tipoApetito in TipoApetitos" class="form-control" required aria-required="true" placeholder="Apetito" ng-disabled="FormEditabe">
                                                                     <option value="">Seleccione</option>
                                                                 </select>
-                                                            </div>                                                           
+                                                            </div>
                                                             <div class="col-sm-2">
                                                                 <label class="control-label pull-right" for="fecha">Intolerancia Alimentaria</label>
                                                             </div>
@@ -493,7 +491,7 @@
                                                                 <select ng-model="Ficha.FichaNutricion.IntoleranciaAlimentaria.ID" name="IntoleranciaAlimentaria" id="IntoleranciaAlimentaria" data-ng-options="tipoIntoleranciaAlimentaria.ID as tipoIntoleranciaAlimentaria.Nombre for tipoIntoleranciaAlimentaria in TipoIntoleranciaAlimentarias" class="form-control" required aria-required="true" placeholder="AlergiaAlimentaria" ng-disabled="FormEditabe">
                                                                     <option value="">Seleccione</option>
                                                                 </select>
-                                                            </div>                                                          
+                                                            </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="col-sm-2">
@@ -503,7 +501,7 @@
                                                                 <select ng-model="Ficha.FichaNutricion.AlergiaAlimentaria.ID" name="AlergiaAlimentaria" id="AlergiaAlimentaria" data-ng-options="tipoAlergiaAlimentaria.ID as tipoAlergiaAlimentaria.Nombre for tipoAlergiaAlimentaria in TipoAlergiaAlimentarias" class="form-control" required aria-required="true" placeholder="AlergiaAlimentaria" ng-disabled="FormEditabe">
                                                                     <option value="">Seleccione</option>
                                                                 </select>
-                                                            </div>                                                          
+                                                            </div>
                                                             <div class="col-sm-2">
                                                                 <label class="control-label pull-right" for="fecha">Aversiones Alimentarias</label>
                                                             </div>
@@ -511,7 +509,7 @@
                                                                 <select ng-model="Ficha.FichaNutricion.AversionAlimentaria.ID" name="AversionAlimentaria" id="AversionAlimentaria" data-ng-options="tipoAversionAlimentaria.ID as tipoAversionAlimentaria.Nombre for tipoAversionAlimentaria in TipoAversionAlimentarias" class="form-control" required aria-required="true" placeholder="AversionAlimentaria" ng-disabled="FormEditabe">
                                                                     <option value="">Seleccione</option>
                                                                 </select>
-                                                            </div>                                                           
+                                                            </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="col-sm-2">
@@ -557,16 +555,27 @@
                                                             <div class="col-sm-8">
                                                                 <label class="control-label pull-right" for="fecha">Descripción de preparaciones y alimentos con sus respectivos gramajes</label>
                                                             </div>
-                                                        </div>                                                        
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label pull-right" for="fecha">Desayuno</label>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <input ng-model="Ficha.FichaNutricion.IngestaAlimentaria.DesayunoHora" type="text" class="form-control" id="DesayunoHora" placeholder="DesayunoHora" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                            </div>
+                                                            <div class="col-sm-8">
+                                                                <textarea ng-model="Ficha.FichaNutricion.IngestaAlimentaria.DesayunoObs" class="form-control" id="DesayunoObs" rows="4" placeholder="DesayunoObs" required aria-required="true" ng-disabled="FormEditabe" maxlength="250"></textarea>
+                                                            </div>
+                                                        </div>
                                                         <div class="form-group">
                                                             <div class="col-sm-2">
                                                                 <label class="control-label pull-right" for="fecha">Colación o Picoteo</label>
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <label class="control-label pull-right" for="fecha">10:30</label>
+                                                                <input ng-model="Ficha.FichaNutricion.IngestaAlimentaria.ColacionHora" type="text" class="form-control" id="ColacionHora" placeholder="ColacionHora" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
                                                             </div>
                                                             <div class="col-sm-8">
-                                                                <textarea ng-model="Ficha.FichaPsicologia.Antecedentes" class="form-control" id="antecedentes" rows="4" placeholder="Antecedentes" required aria-required="true" ng-disabled="FormEditabe" maxlength="250"></textarea>
+                                                                <textarea ng-model="Ficha.FichaNutricion.IngestaAlimentaria.ColacionObs" class="form-control" id="ColacionObs" rows="4" placeholder="ColacionObs" required aria-required="true" ng-disabled="FormEditabe" maxlength="250"></textarea>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
@@ -574,10 +583,10 @@
                                                                 <label class="control-label pull-right" for="fecha">Almuerzo</label>
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <label class="control-label pull-right" for="fecha">13:30</label>
+                                                                <input ng-model="Ficha.FichaNutricion.IngestaAlimentaria.AlmuerzoHora" type="text" class="form-control" id="AlmuerzoHora" placeholder="AlmuerzoHora" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
                                                             </div>
                                                             <div class="col-sm-8">
-                                                                <textarea ng-model="Ficha.FichaPsicologia.Antecedentes" class="form-control" id="antecedentes" rows="4" placeholder="Antecedentes" required aria-required="true" ng-disabled="FormEditabe" maxlength="250"></textarea>
+                                                                <textarea ng-model="Ficha.FichaNutricion.IngestaAlimentaria.AlmuerzoObs" class="form-control" id="AlmuerzoObs" rows="4" placeholder="AlmuerzoObs" required aria-required="true" ng-disabled="FormEditabe" maxlength="250"></textarea>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
@@ -585,10 +594,10 @@
                                                                 <label class="control-label pull-right" for="fecha">Colación o Picoteo</label>
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <label class="control-label pull-right" for="fecha">15:30</label>
+                                                                <input ng-model="Ficha.FichaNutricion.IngestaAlimentaria.PicoteoHora" type="text" class="form-control" id="Picoteo" placeholder="Picoteo" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
                                                             </div>
                                                             <div class="col-sm-8">
-                                                                <textarea ng-model="Ficha.FichaPsicologia.Antecedentes" class="form-control" id="antecedentes" rows="4" placeholder="Antecedentes" required aria-required="true" ng-disabled="FormEditabe" maxlength="250"></textarea>
+                                                                <textarea ng-model="Ficha.FichaNutricion.IngestaAlimentaria.PicoteoObs" class="form-control" id="PicoteoObs" rows="4" placeholder="PicoteoObs" required aria-required="true" ng-disabled="FormEditabe" maxlength="250"></textarea>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
@@ -596,10 +605,10 @@
                                                                 <label class="control-label pull-right" for="fecha">Once</label>
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <label class="control-label pull-right" for="fecha">17:30</label>
+                                                                <input ng-model="Ficha.FichaNutricion.IngestaAlimentaria.OnceHora" type="text" class="form-control" id="OnceHora" placeholder="OnceHora" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
                                                             </div>
                                                             <div class="col-sm-8">
-                                                                <textarea ng-model="Ficha.FichaPsicologia.Antecedentes" class="form-control" id="antecedentes" rows="4" placeholder="Antecedentes" required aria-required="true" ng-disabled="FormEditabe" maxlength="250"></textarea>
+                                                                <textarea ng-model="Ficha.FichaNutricion.IngestaAlimentaria.OnceObs" class="form-control" id="OnceObs" rows="4" placeholder="OnceObs" required aria-required="true" ng-disabled="FormEditabe" maxlength="250"></textarea>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
@@ -607,10 +616,10 @@
                                                                 <label class="control-label pull-right" for="fecha">Cena</label>
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <label class="control-label pull-right" for="fecha"></label>
+                                                                <input ng-model="Ficha.FichaNutricion.IngestaAlimentaria.CenaHora" type="text" class="form-control" id="CenaHora" placeholder="CenaHora" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
                                                             </div>
                                                             <div class="col-sm-8">
-                                                                <textarea ng-model="Ficha.FichaPsicologia.Antecedentes" class="form-control" id="antecedentes" rows="4" placeholder="Antecedentes" required aria-required="true" ng-disabled="FormEditabe" maxlength="250"></textarea>
+                                                                <textarea ng-model="Ficha.FichaNutricion.IngestaAlimentaria.CenaObs" class="form-control" id="CenaObs" rows="4" placeholder="CenaObs" required aria-required="true" ng-disabled="FormEditabe" maxlength="250"></textarea>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
@@ -618,18 +627,18 @@
                                                                 <label class="control-label pull-right" for="fecha">Colación o Picoteo</label>
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <label class="control-label pull-right" for="fecha">20:30</label>
+                                                                <input ng-model="Ficha.FichaNutricion.IngestaAlimentaria.SnackHora" type="text" class="form-control" id="SnackHora" placeholder="SnackHora" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
                                                             </div>
                                                             <div class="col-sm-8">
-                                                                <textarea ng-model="Ficha.FichaPsicologia.Antecedentes" class="form-control" id="antecedentes" rows="4" placeholder="Antecedentes" required aria-required="true" ng-disabled="FormEditabe" maxlength="250"></textarea>
+                                                                <textarea ng-model="Ficha.FichaNutricion.IngestaAlimentaria.SnackObs" class="form-control" id="SnackObs" rows="4" placeholder="SnackObs" required aria-required="true" ng-disabled="FormEditabe" maxlength="250"></textarea>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="col-sm-2">
                                                                 <label class="control-label pull-right" for="fecha">Observaciones</label>
-                                                            </div>                                                            
+                                                            </div>
                                                             <div class="col-sm-10">
-                                                                <textarea ng-model="Ficha.FichaPsicologia.Antecedentes" class="form-control" id="antecedentes" rows="4" placeholder="Antecedentes" required aria-required="true" ng-disabled="FormEditabe" maxlength="250"></textarea>
+                                                                <textarea ng-model="Ficha.FichaNutricion.IngestaAlimentaria.Observacion" class="form-control" id="Observacion" rows="4" placeholder="Observacion" required aria-required="true" ng-disabled="FormEditabe" maxlength="250"></textarea>
                                                             </div>
                                                         </div>
                                                         <span class="clearfix"></span>
@@ -647,13 +656,13 @@
                                                     </h4>
                                                 </div>
                                                 <div id="accordionDiaNut" class="panel-collapse collapse in">
-                                                    <div class="panel-body">                                                       
+                                                    <div class="panel-body">
                                                         <div class="form-group">
                                                             <div class="col-sm-2">
                                                                 <label class="control-label pull-right" for="fecha">Observaciones</label>
                                                             </div>
                                                             <div class="col-sm-10">
-                                                                <textarea ng-model="Ficha.FichaPsicologia.Antecedentes" class="form-control" id="antecedentes" rows="4" placeholder="Antecedentes" required aria-required="true" ng-disabled="FormEditabe" maxlength="250"></textarea>
+                                                                <textarea ng-model="Ficha.FichaNutricion.DiagNutInt" class="form-control" id="DiagNutInt" rows="4" placeholder="DiagNutInt" required aria-required="true" ng-disabled="FormEditabe" maxlength="250"></textarea>
                                                             </div>
                                                         </div>
                                                         <span class="clearfix"></span>

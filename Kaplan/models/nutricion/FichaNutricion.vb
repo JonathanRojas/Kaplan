@@ -9,6 +9,9 @@ Namespace Clases
         Public Property IdEspecialista As Integer
         Public Property Diagnostico As String
         Public Property CxProced As String
+        Public Property DiagNutInt As String
+        Public Property MedicionesAntropometricas As MedicionesAntropometricas
+        Public Property IngestaAlimentaria As IngestaAlimentaria
         Public Property Sedentario As Tipos.TipoSED
         Public Property Estres As Tipos.TipoEstres
         Public Property Tabaco As Tipos.TipoTB
@@ -17,7 +20,6 @@ Namespace Clases
         Public Property DLP As Tipos.TipoDLP
         Public Property SBOB As Tipos.TipoSPOB
         Public Property OH As Tipos.TipoOH
-        Public Property MedicionesAntropometricas As MedicionesAntropometricas
         Public Property Apetito As Tipos.TipoApetito
         Public Property AlergiaAlimentaria As Tipos.TipoAlergiaAlimentaria
         Public Property PreferenciaAlimentaria As Tipos.TipoPreferenciaAlimentaria
@@ -36,6 +38,7 @@ Namespace Clases
                 vNutricion.IdEspecialista = prmRow("id_especialista")
                 vNutricion.Diagnostico = prmRow("diagnostico").ToString
                 vNutricion.CxProced = prmRow("cx_proced").ToString
+                vNutricion.DiagNutInt = prmRow("dni_obs").ToString
                 vNutricion.Sedentario = Tipos.TipoSED.getTipo(prmRow("Sedentario"))
                 vNutricion.Estres = Tipos.TipoEstres.getTipo(prmRow("Estres"))
                 vNutricion.Tabaco = Tipos.TipoTB.getTipo(prmRow("Tabaco"))
@@ -84,7 +87,6 @@ Namespace Clases
                 Else
                     vMedicionesAntropometricas.EstadoIMCAM = ""
                 End If
-
                 vMedicionesAntropometricas.MasaGrasaCorporal = prmRow("masa_grasa_corp")
                 vMedicionesAntropometricas.MasaMagra = prmRow("masa_magra")
                 vMedicionesAntropometricas.IndiceCinturaCadera = prmRow("indice_cintura")
@@ -94,6 +96,24 @@ Namespace Clases
                 vMedicionesAntropometricas.PCintura = prmRow("cintura")
                 vMedicionesAntropometricas.Cribaje = Tipos.TipoCribaje.getTipo(prmRow("cribaje"))
                 vNutricion.MedicionesAntropometricas = vMedicionesAntropometricas
+
+                Dim vIngestaAlimentaria As New IngestaAlimentaria
+                vIngestaAlimentaria.DesayunoHora = prmRow("ia_desayuno_hora").ToString()
+                vIngestaAlimentaria.DesayunoObs = prmRow("ia_desayuno_obs").ToString()
+                vIngestaAlimentaria.ColacionHora = prmRow("ia_colacion_hora").ToString()
+                vIngestaAlimentaria.ColacionObs = prmRow("ia_colacion_obs").ToString()
+                vIngestaAlimentaria.AlmuerzoHora = prmRow("ia_Almuerzo_hora").ToString()
+                vIngestaAlimentaria.AlmuerzoObs = prmRow("ia_Almuerzo_obs").ToString()
+                vIngestaAlimentaria.PicoteoHora = prmRow("ia_Picoteo_hora").ToString()
+                vIngestaAlimentaria.PicoteoObs = prmRow("ia_Picoteo_obs").ToString()
+                vIngestaAlimentaria.OnceHora = prmRow("ia_Once_hora").ToString()
+                vIngestaAlimentaria.OnceObs = prmRow("ia_Once_obs").ToString()
+                vIngestaAlimentaria.SnackHora = prmRow("ia_Snack_hora").ToString()
+                vIngestaAlimentaria.SnackObs = prmRow("ia_Snack_obs").ToString()
+                vIngestaAlimentaria.CenaHora = prmRow("ia_Cena_hora").ToString()
+                vIngestaAlimentaria.CenaObs = prmRow("ia_Cena_obs").ToString()
+                vIngestaAlimentaria.Observacion = prmRow("ia_obs").ToString()
+                vNutricion.IngestaAlimentaria = vIngestaAlimentaria
                 Return vNutricion
             Catch ex As Exception
                 Return Nothing
