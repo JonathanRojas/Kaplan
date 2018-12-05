@@ -236,6 +236,7 @@
     <Compile Include="models\enfermeria\TipoDiagnosticoEnfermeria.vb" />
     <Compile Include="models\enfermeria\TipoIndicador.vb" />
     <Compile Include="models\enfermeria\TipoIntervencion.vb" />
+    <Compile Include="models\nutricion\Cuestionario.vb" />
     <Compile Include="models\nutricion\FichaNutricion.vb" />
     <Compile Include="models\nutricion\IngestaAlimentaria.vb" />
     <Compile Include="models\nutricion\MedicionesAntropometricas.vb" />

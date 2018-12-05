@@ -883,21 +883,21 @@
                                     </div>
                                 </div>
                             </div>
-                            <!--<div role="tabpanel" class="tab-pane fade" id="planTab">
+                            <div role="tabpanel" class="tab-pane fade" id="planTab">
                                 <div class="panel-group" id="accordion">
                                     <div class="row mb50">
                                         <div class="col-sm-6 col-xs-12">
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">
                                                     <h4 class="panel-title">
-                                                        <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionAnt"><i class="fa fa-heartbeat" aria-hidden="true"></i>Antecedentes</a>
+                                                        <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionAnt"><i class="fa fa-heartbeat" aria-hidden="true"></i>Diagnóstico Nutricional Integrado</a>
                                                     </h4>
                                                 </div>
                                                 <div id="accordionAnt" class="panel-collapse collapse in">
                                                     <div class="panel-body">
                                                         <div class="form-group">
                                                             <div class="col-sm-12">
-                                                                <textarea ng-model="Ficha.FichaPsicologia.Antecedentes" class="form-control" id="antecedentes" rows="4" placeholder="Antecedentes" required aria-required="true" ng-disabled="FormEditabe" maxlength="250"></textarea>
+                                                                <textarea ng-bind="Ficha.FichaNutricion.DiagNutInt" class="form-control" id="DiagNutInt" rows="4" placeholder="DiagNutInt" required aria-required="true" ng-disabled="FormEditabe" maxlength="250"></textarea>
                                                             </div>
                                                         </div>
                                                         <span class="clearfix"></span>
@@ -909,14 +909,14 @@
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">
                                                     <h4 class="panel-title">
-                                                        <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionDia"><i class="fa fa-heartbeat" aria-hidden="true"></i>Diagnóstico</a>
+                                                        <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionDia"><i class="fa fa-heartbeat" aria-hidden="true"></i>Objetivos Alimentarios</a>
                                                     </h4>
                                                 </div>
                                                 <div id="accordionDia" class="panel-collapse collapse in">
                                                     <div class="panel-body">
                                                         <div class="form-group">
                                                             <div class="col-sm-12">
-                                                                <textarea ng-model="Ficha.FichaPsicologia.Diagnostico" class="form-control" id="diagnostico" rows="4" placeholder="Diagnóstico" required aria-required="true" ng-disabled="FormEditabe" maxlength="250"></textarea>
+                                                                <textarea ng-model="Ficha.FichaNutricion.ObjetivosAlimentarios" class="form-control" id="ObjetivosAlimentarios" rows="4" placeholder="ObjetivosAlimentarios" required aria-required="true" ng-disabled="FormEditabe" maxlength="250"></textarea>
                                                             </div>
                                                         </div>
                                                         <span class="clearfix"></span>
@@ -924,39 +924,20 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>                                    
                                     <div class="row mb50">
-                                        <div class="col-sm-6 col-xs-12">
+                                        <div class="col-sm-12 col-xs-12">
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">
                                                     <h4 class="panel-title">
-                                                        <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionObj"><i class="fa fa-heartbeat" aria-hidden="true"></i>Objetivos</a>
+                                                        <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionObj"><i class="fa fa-heartbeat" aria-hidden="true"></i>Intervención Nutricional</a>
                                                     </h4>
                                                 </div>
                                                 <div id="accordionObj" class="panel-collapse collapse in">
                                                     <div class="panel-body">
                                                         <div class="form-group">
                                                             <div class="col-sm-12">
-                                                                <textarea ng-model="Ficha.FichaPsicologia.Objetivo" class="form-control" id="objetivo" rows="4" placeholder="Objetivos" required aria-required="true" ng-disabled="FormEditabe" maxlength="250"></textarea>
-                                                            </div>
-                                                        </div>
-                                                        <span class="clearfix"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-xs-12">
-                                            <div class="panel panel-default">
-                                                <div class="panel-heading">
-                                                    <h4 class="panel-title">
-                                                        <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionInt"><i class="fa fa-heartbeat" aria-hidden="true"></i>Intervención</a>
-                                                    </h4>
-                                                </div>
-                                                <div id="accordionInt" class="panel-collapse collapse in">
-                                                    <div class="panel-body">
-                                                        <div class="form-group">
-                                                            <div class="col-sm-12">
-                                                                <textarea ng-model="Ficha.FichaPsicologia.Intervencion" class="form-control" id="intervencion" rows="4" placeholder="Intervención" required aria-required="true" ng-disabled="FormEditabe" maxlength="250"></textarea>
+                                                                <textarea ng-model="Ficha.FichaNutricion.IntervencionNutricional" class="form-control" id="objetivo" rows="4" placeholder="IntervencionNutricional" required aria-required="true" ng-disabled="FormEditabe" maxlength="250"></textarea>
                                                             </div>
                                                         </div>
                                                         <span class="clearfix"></span>
@@ -966,37 +947,91 @@
                                         </div>
                                     </div>
                                     <div class="row mb50">
-                                        <div class="col-sm-6 col-xs-12">
+                                        <div class="col-sm-12">
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">
                                                     <h4 class="panel-title">
-                                                        <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionEva"><i class="fa fa-heartbeat" aria-hidden="true"></i>Evaluación</a>
+                                                        <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionCueFre"><i class="fa fa-heartbeat" aria-hidden="true"></i>Cuestionario Frecuencia Consumo</a>
                                                     </h4>
                                                 </div>
-                                                <div id="accordionEva" class="panel-collapse collapse in">
+                                                <div id="accordionCueFre" class="panel-collapse collapse in">
                                                     <div class="panel-body">
                                                         <div class="form-group">
-                                                            <div class="col-sm-12">
-                                                                <textarea ng-model="Ficha.FichaPsicologia.Evaluacion" class="form-control" id="evaluacion" rows="4" placeholder="Evaluación" required aria-required="true" ng-disabled="FormEditabe" maxlength="250"></textarea>
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label pull-right" for="fecha">Consumo de Frutas</label>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <select ng-model="Ficha.FichaNutricion.Cuestionario.Fruta.ID" name="Fruta" id="Fruta" data-ng-options="tipoFruta.ID as tipoFruta.Nombre for tipoFruta in TipoFrutas" class="form-control" required aria-required="true" placeholder="Fruta" ng-disabled="FormEditabe">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label pull-right" for="fecha">Consumo de Verduras</label>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <select ng-model="Ficha.FichaNutricion.Cuestionario.Verdura.ID" name="Verdura" id="Verdura" data-ng-options="tipoVerdura.ID as tipoVerdura.Nombre for tipoVerdura in TipoVerduras" class="form-control" required aria-required="true" placeholder="Verdura" ng-disabled="FormEditabe">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label pull-right" for="fecha">Consumo de Lacteos</label>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <select ng-model="Ficha.FichaNutricion.Cuestionario.Fruta.ID" name="Lacteo" id="Lacteo" data-ng-options="tipoLacteo.ID as tipoLacteo.Nombre for tipoLacteo in TipoLacteos" class="form-control" required aria-required="true" placeholder="Lacteo" ng-disabled="FormEditabe">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
                                                             </div>
                                                         </div>
-                                                        <span class="clearfix"></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6 col-xs-12">
-                                            <div class="panel panel-default">
-                                                <div class="panel-heading">
-                                                    <h4 class="panel-title">
-                                                        <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionEvo"><i class="fa fa-heartbeat" aria-hidden="true"></i>Evolución</a>
-                                                    </h4>
-                                                </div>
-                                                <div id="accordionEvo" class="panel-collapse collapse in">
-                                                    <div class="panel-body">
                                                         <div class="form-group">
-                                                            <div class="col-sm-12">
-                                                                <textarea ng-model="Ficha.FichaPsicologia.Evolucion" class="form-control" id="evaluacion" rows="4" placeholder="Evolución" required aria-required="true" ng-disabled="FormEditabe" maxlength="250"></textarea>
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label pull-right" for="fecha">Consumo de Carnes</label>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <select ng-model="Ficha.FichaNutricion.Cuestionario.Fruta.ID" name="Carne" id="Carne" data-ng-options="tipoCarne.ID as tipoCarne.Nombre for tipoCarne in TipoCarnes" class="form-control" required aria-required="true" placeholder="Carne" ng-disabled="FormEditabe">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label pull-right" for="fecha">Consumo de Grasa y Azúcar</label>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <select ng-model="Ficha.FichaNutricion.Cuestionario.Fruta.ID" name="Azucar" id="Azucar" data-ng-options="tipoAzucar.ID as tipoAzucar.Nombre for tipoAzucar in TipoAzucares" class="form-control" required aria-required="true" placeholder="Azucar" ng-disabled="FormEditabe">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label pull-right" for="fecha">Consumo de Legumbres</label>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <select ng-model="Ficha.FichaNutricion.Cuestionario.Fruta.ID" name="Legumbre" id="Legumbre" data-ng-options="tipoLegumbre.ID as tipoLegumbre.Nombre for tipoLegumbre in TipoLegumbres" class="form-control" required aria-required="true" placeholder="Legumbre" ng-disabled="FormEditabe">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label pull-right" for="fecha">Consumo de Pescado</label>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <select ng-model="Ficha.FichaNutricion.Cuestionario.Fruta.ID" name="Pescado" id="Pescado" data-ng-options="tipoPescado.ID as tipoPescado.Nombre for tipoPescado in TipoPescados" class="form-control" required aria-required="true" placeholder="Pescado" ng-disabled="FormEditabe">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label pull-right" for="fecha">Consumo de Sodio</label>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <select ng-model="Ficha.FichaNutricion.Cuestionario.Fruta.ID" name="Sodio" id="Sodio" data-ng-options="tipoSodio.ID as tipoSodio.Nombre for tipoSodio in TipoSodios" class="form-control" required aria-required="true" placeholder="Sodio" ng-disabled="FormEditabe">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label pull-right" for="fecha">Consumo de Líquidos</label>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <select ng-model="Ficha.FichaNutricion.Cuestionario.Fruta.ID" name="Liquido" id="Liquido" data-ng-options="tipoLiquido.ID as tipoLiquido.Nombre for tipoLiquido in TipoLiquidos" class="form-control" required aria-required="true" placeholder="Liquido" ng-disabled="FormEditabe">
+                                                                    <option value="">Seleccione</option>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                         <span class="clearfix"></span>
@@ -1012,7 +1047,7 @@
                                         <button id="btnGuardar" type="button" ng-show="!FormEditabe" class="btn  blue medium" ng-click="SaveFicha()">Guardar</button>
                                     </div>
                                 </div>
-                            </div>-->
+                            </div>
                         </div>
                     </div>
                 </div>

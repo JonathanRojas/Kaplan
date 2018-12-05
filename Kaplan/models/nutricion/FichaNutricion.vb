@@ -12,9 +12,12 @@ Namespace Clases
         Public Property DiagNutInt As String
         Public Property PrescripcionDietetica As String
         Public Property IndicacionesGenerales As String
+        Public Property ObjetivosAlimentarios As String
+        Public Property IntervencionNutricional As String
         Public Property MedicionesAntropometricas As MedicionesAntropometricas
         Public Property IngestaAlimentaria As IngestaAlimentaria
         Public Property RequerimientosNutricionales As RequerimientosNutricionales
+        Public Property Cuestionario As Cuestionario
         Public Property Sedentario As Tipos.TipoSED
         Public Property Estres As Tipos.TipoEstres
         Public Property Tabaco As Tipos.TipoTB
@@ -41,6 +44,8 @@ Namespace Clases
                 vNutricion.Diagnostico = prmRow("diagnostico").ToString
                 vNutricion.CxProced = prmRow("cx_proced").ToString
                 vNutricion.DiagNutInt = prmRow("dni_obs").ToString
+                vNutricion.ObjetivosAlimentarios = prmRow("pn_oan").ToString
+                vNutricion.IntervencionNutricional = prmRow("pn_in").ToString
                 vNutricion.Sedentario = Tipos.TipoSED.getTipo(prmRow("Sedentario"))
                 vNutricion.Estres = Tipos.TipoEstres.getTipo(prmRow("Estres"))
                 vNutricion.Tabaco = Tipos.TipoTB.getTipo(prmRow("Tabaco"))
@@ -153,6 +158,19 @@ Namespace Clases
                 vRequerimientosNutricionales.AdecuacionLip = IIf(vRequerimientosNutricionales.RequerimientoLip > 0, Math.Round((vRequerimientosNutricionales.AporteLip * 100) / vRequerimientosNutricionales.RequerimientoLip), 0)
                 vRequerimientosNutricionales.AdecuacionProt = IIf(vRequerimientosNutricionales.RequerimientoProt > 0, Math.Round((vRequerimientosNutricionales.AporteProt * 100) / vRequerimientosNutricionales.RequerimientoProt), 0)
                 vNutricion.RequerimientosNutricionales = vRequerimientosNutricionales
+#End Region
+#Region "Cuestionario"
+                Dim vCuestionario As New Cuestionario
+                vCuestionario.Fruta = Tipos.TipoFruta.getTipo(prmRow("Frutas"))
+                vCuestionario.Verdura = Tipos.TipoVerdura.getTipo(prmRow("Verduras"))
+                vCuestionario.Lacteo = Tipos.TipoLacteo.getTipo(prmRow("Lacteos"))
+                vCuestionario.Carne = Tipos.TipoCarne.getTipo(prmRow("Carnes"))
+                vCuestionario.Azucar = Tipos.TipoAzucar.getTipo(prmRow("Azucar"))
+                vCuestionario.Legumbre = Tipos.TipoLegumbre.getTipo(prmRow("Legumbres"))
+                vCuestionario.Pescado = Tipos.TipoPescado.getTipo(prmRow("Pescado"))
+                vCuestionario.Sodio = Tipos.TipoSodio.getTipo(prmRow("Sodio"))
+                vCuestionario.Liquido = Tipos.TipoLiquido.getTipo(prmRow("Liquidos"))
+                vNutricion.Cuestionario = vCuestionario
 #End Region
                 Return vNutricion
             Catch ex As Exception
