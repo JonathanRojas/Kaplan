@@ -10,8 +10,11 @@ Namespace Clases
         Public Property Diagnostico As String
         Public Property CxProced As String
         Public Property DiagNutInt As String
+        Public Property PrescripcionDietetica As String
+        Public Property IndicacionesGenerales As String
         Public Property MedicionesAntropometricas As MedicionesAntropometricas
         Public Property IngestaAlimentaria As IngestaAlimentaria
+        Public Property RequerimientosNutricionales As RequerimientosNutricionales
         Public Property Sedentario As Tipos.TipoSED
         Public Property Estres As Tipos.TipoEstres
         Public Property Tabaco As Tipos.TipoTB
@@ -30,9 +33,8 @@ Namespace Clases
         Public Shared Function MapeoFichaNutricion(prmDatos As DataTable) As FichaNutricion
             Try
                 Dim vNutricion As New FichaNutricion
-
                 Dim prmRow As DataRow = prmDatos.Rows(0)
-
+#Region "Ficha Nutrición"
                 vNutricion.Id = prmRow("id_ficha_nutri")
                 vNutricion.IdReserva = prmRow("id_reserva")
                 vNutricion.IdEspecialista = prmRow("id_especialista")
@@ -53,7 +55,10 @@ Namespace Clases
                 vNutricion.IntoleranciaAlimentaria = Tipos.TipoIntolerenciaAlimentaria.getTipo(prmRow("IntoleranciaAlimentaria"))
                 vNutricion.AversionAlimentaria = Tipos.TipoAversionAlimentaria.getTipo(prmRow("AversionAlimentaria"))
                 vNutricion.ConsumoSuplemento = Tipos.TipoSuplemento.getTipo(prmRow("ConsumoSuplemento"))
-
+                vNutricion.PrescripcionDietetica = prmRow("pd_obs")
+                vNutricion.IndicacionesGenerales = prmRow("ig_obs")
+#End Region
+#Region "Mediciones Antropométricas"
                 Dim vMedicionesAntropometricas As New MedicionesAntropometricas
                 vMedicionesAntropometricas.PesoActual = prmRow("Peso_Actual")
                 vMedicionesAntropometricas.Talla = prmRow("Talla")
@@ -96,7 +101,8 @@ Namespace Clases
                 vMedicionesAntropometricas.PCintura = prmRow("cintura")
                 vMedicionesAntropometricas.Cribaje = Tipos.TipoCribaje.getTipo(prmRow("cribaje"))
                 vNutricion.MedicionesAntropometricas = vMedicionesAntropometricas
-
+#End Region
+#Region "Ingesta Alimentaria"
                 Dim vIngestaAlimentaria As New IngestaAlimentaria
                 vIngestaAlimentaria.DesayunoHora = prmRow("ia_desayuno_hora").ToString()
                 vIngestaAlimentaria.DesayunoObs = prmRow("ia_desayuno_obs").ToString()
@@ -114,11 +120,44 @@ Namespace Clases
                 vIngestaAlimentaria.CenaObs = prmRow("ia_Cena_obs").ToString()
                 vIngestaAlimentaria.Observacion = prmRow("ia_obs").ToString()
                 vNutricion.IngestaAlimentaria = vIngestaAlimentaria
+#End Region
+#Region "Requerimientos Nutricionales"
+                Dim vRequerimientosNutricionales As New RequerimientosNutricionales
+                vRequerimientosNutricionales.GEB = prmRow("rn_geb").ToString()
+                vRequerimientosNutricionales.FA = prmRow("rn_fa").ToString()
+                vRequerimientosNutricionales.Energia = prmRow("rn_energia")
+                vRequerimientosNutricionales.KcalDia = Math.Round(prmRow("rn_energia") / vMedicionesAntropometricas.PesoActual)
+                vRequerimientosNutricionales.ProteinaPorc = prmRow("rn_proteina_porc")
+                vRequerimientosNutricionales.ProteinaCal = Math.Round((prmRow("rn_energia") * prmRow("rn_proteina_porc") / 100), 1)
+                vRequerimientosNutricionales.ProteinaGra = Math.Round(vRequerimientosNutricionales.ProteinaCal / 4)
+                vRequerimientosNutricionales.ProteinaDia = Math.Round(vRequerimientosNutricionales.ProteinaGra / vMedicionesAntropometricas.PesoActual)
+                vRequerimientosNutricionales.LipidosPorc = prmRow("rn_lipidos_porc")
+                vRequerimientosNutricionales.LipidosCal = Math.Round((prmRow("rn_energia") * prmRow("rn_lipidos_porc") / 100), 1)
+                vRequerimientosNutricionales.LipidosGra = Math.Round(vRequerimientosNutricionales.LipidosCal / 9)
+                vRequerimientosNutricionales.LipidosDia = Math.Round(vRequerimientosNutricionales.LipidosGra / vMedicionesAntropometricas.PesoActual)
+                vRequerimientosNutricionales.HidratosPorc = Math.Round(100 - vRequerimientosNutricionales.ProteinaPorc - vRequerimientosNutricionales.LipidosPorc)
+                vRequerimientosNutricionales.HidratosCal = Math.Round((prmRow("rn_energia") * vRequerimientosNutricionales.HidratosPorc / 100), 1)
+                vRequerimientosNutricionales.HidratosGra = Math.Round(vRequerimientosNutricionales.HidratosCal / 4)
+                vRequerimientosNutricionales.HidratosDia = Math.Round(vRequerimientosNutricionales.HidratosGra / vMedicionesAntropometricas.PesoActual)
+                vRequerimientosNutricionales.SumaPorc = Math.Round(vRequerimientosNutricionales.ProteinaPorc + vRequerimientosNutricionales.LipidosPorc + vRequerimientosNutricionales.HidratosPorc)
+                vRequerimientosNutricionales.RequerimientoKCal = vRequerimientosNutricionales.Energia
+                vRequerimientosNutricionales.RequerimientoCho = vRequerimientosNutricionales.HidratosGra
+                vRequerimientosNutricionales.RequerimientoLip = vRequerimientosNutricionales.LipidosGra
+                vRequerimientosNutricionales.RequerimientoProt = vRequerimientosNutricionales.ProteinaGra
+                vRequerimientosNutricionales.AporteKCal = prmRow("rn_aporte_alim_kcal")
+                vRequerimientosNutricionales.AporteCho = prmRow("rn_aporte_alim_cho")
+                vRequerimientosNutricionales.AporteLip = prmRow("rn_aporte_alim_lip")
+                vRequerimientosNutricionales.AporteProt = prmRow("rn_aporte_alim_prot")
+                vRequerimientosNutricionales.AdecuacionKCal = Math.Round((vRequerimientosNutricionales.AporteKCal * 100) / vRequerimientosNutricionales.RequerimientoKCal)
+                vRequerimientosNutricionales.AdecuacionCho = IIf(vRequerimientosNutricionales.RequerimientoCho > 0, Math.Round((vRequerimientosNutricionales.AporteCho * 100) / vRequerimientosNutricionales.RequerimientoCho), 0)
+                vRequerimientosNutricionales.AdecuacionLip = IIf(vRequerimientosNutricionales.RequerimientoLip > 0, Math.Round((vRequerimientosNutricionales.AporteLip * 100) / vRequerimientosNutricionales.RequerimientoLip), 0)
+                vRequerimientosNutricionales.AdecuacionProt = IIf(vRequerimientosNutricionales.RequerimientoProt > 0, Math.Round((vRequerimientosNutricionales.AporteProt * 100) / vRequerimientosNutricionales.RequerimientoProt), 0)
+                vNutricion.RequerimientosNutricionales = vRequerimientosNutricionales
+#End Region
                 Return vNutricion
             Catch ex As Exception
                 Return Nothing
             End Try
-
         End Function
     End Class
 End Namespace

@@ -671,6 +671,210 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row mb50">
+                                        <div class="col-sm-12">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                        <a style="cursor:pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordionReqNut"><i class="fa fa-heartbeat" aria-hidden="true"></i>Requerimientos Nutricionales</a>
+                                                    </h4>
+                                                </div>
+                                                <div id="accordionReqNut" class="panel-collapse collapse in">
+                                                    <div class="panel-body">
+                                                        <div class="form-group">
+                                                            <div class="col-sm-3">
+                                                                <label class="control-label pull-right" for="fecha">GEB (Según BIA)</label>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <input ng-model="Ficha.FichaNutricion.RequerimientosNutricionales.GEB" type="text" class="form-control" id="GEB" placeholder="GEB" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <label class="control-label pull-right" for="fecha">FA</label>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <input ng-model="Ficha.FichaNutricion.RequerimientosNutricionales.FA" type="text" class="form-control" id="FA" placeholder="FA" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-3">
+                                                                <label class="control-label pull-right" for="fecha">Energía</label>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <input ng-model="Ficha.FichaNutricion.RequerimientosNutricionales.Energia" type="text" class="form-control" id="Energia" placeholder="Energia" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <label class="control-label pull-right" for="fecha">KCal/Dia</label>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <input ng-model="Ficha.FichaNutricion.RequerimientosNutricionales.KcalDia" type="text" class="form-control" id="KcalDia" placeholder="KcalDia" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-4">
+                                                                <label class="control-label pull-right" for="fecha">Valor Calórico</label>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label pull-right" for="fecha">%</label>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label pull-right" for="fecha">Gramos</label>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label pull-right" for="fecha">Calorías</label>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label pull-right" for="fecha">grs/kg/dia</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-4">
+                                                                <label class="control-label pull-right" for="fecha">Proteínas</label>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <input ng-model="Ficha.FichaNutricion.RequerimientosNutricionales.ProteinaPorc" type="text" class="form-control" id="ProteinaPorc" placeholder="ProteinaPorc" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <input ng-model="Ficha.FichaNutricion.RequerimientosNutricionales.ProteinaGra" type="text" class="form-control" id="ProteinaGra" placeholder="ProteinaGra" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <input ng-model="Ficha.FichaNutricion.RequerimientosNutricionales.ProteinaCal" type="text" class="form-control" id="ProteinaCal" placeholder="ProteinaCal" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <input ng-model="Ficha.FichaNutricion.RequerimientosNutricionales.ProteinaDia" type="text" class="form-control" id="ProteinaDia" placeholder="ProteinaDia" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-4">
+                                                                <label class="control-label pull-right" for="fecha">Lípidos</label>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <input ng-model="Ficha.FichaNutricion.RequerimientosNutricionales.LipidosPorc" type="text" class="form-control" id="LipidosPorc" placeholder="LipidosPorc" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <input ng-model="Ficha.FichaNutricion.RequerimientosNutricionales.LipidosGra" type="text" class="form-control" id="LipidosGra" placeholder="LipidosGra" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <input ng-model="Ficha.FichaNutricion.RequerimientosNutricionales.LipidosCal" type="text" class="form-control" id="LipidosCal" placeholder="LipidosCal" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <input ng-model="Ficha.FichaNutricion.RequerimientosNutricionales.LipidosDia" type="text" class="form-control" id="LipidosDia" placeholder="LipidosDia" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-4">
+                                                                <label class="control-label pull-right" for="fecha">Hidrátos de Carbono</label>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <input ng-model="Ficha.FichaNutricion.RequerimientosNutricionales.HidratosPorc" type="text" class="form-control" id="HidratosPorc" placeholder="HidratosPorc" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <input ng-model="Ficha.FichaNutricion.RequerimientosNutricionales.HidratosGra" type="text" class="form-control" id="HidratosGra" placeholder="HidratosGra" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <input ng-model="Ficha.FichaNutricion.RequerimientosNutricionales.HidratosCal" type="text" class="form-control" id="HidratosCal" placeholder="HidratosCal" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <input ng-model="Ficha.FichaNutricion.RequerimientosNutricionales.HidratosDia" type="text" class="form-control" id="HidratosDia" placeholder="HidratosDia" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-4">
+                                                                <label class="control-label pull-right" for="fecha">Suma %</label>
+                                                            </div>
+                                                            <div class="col-sm-8">
+                                                                <input ng-model="Ficha.FichaNutricion.RequerimientosNutricionales.SumaPorc" type="text" class="form-control" id="SumaPorc" placeholder="SumaPorc" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                            </div>                                                            
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-4">
+                                                                <label class="control-label pull-right" for="fecha"></label>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label pull-right" for="fecha">KCAL</label>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label pull-right" for="fecha">CHO</label>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label pull-right" for="fecha">Lípidos</label>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label pull-right" for="fecha">Proteína</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-4">
+                                                                <label class="control-label pull-right" for="fecha">Requerimientos</label>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <input ng-model="Ficha.FichaNutricion.RequerimientosNutricionales.RequerimientoKCal" type="text" class="form-control" id="RequerimientoKCal" placeholder="RequerimientoKCal" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <input ng-model="Ficha.FichaNutricion.RequerimientosNutricionales.RequerimientoCho" type="text" class="form-control" id="RequerimientoCho" placeholder="RequerimientoCho" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <input ng-model="Ficha.FichaNutricion.RequerimientosNutricionales.RequerimientoLip" type="text" class="form-control" id="RequerimientoLip" placeholder="RequerimientoLip" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <input ng-model="Ficha.FichaNutricion.RequerimientosNutricionales.RequerimientoProt" type="text" class="form-control" id="RequerimientoProt" placeholder="RequerimientoProt" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-4">
+                                                                <label class="control-label pull-right" for="fecha">Aporte Alimentación</label>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <input ng-model="Ficha.FichaNutricion.RequerimientosNutricionales.AporteKCal" type="text" class="form-control" id="AporteKCal" placeholder="AporteKCal" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <input ng-model="Ficha.FichaNutricion.RequerimientosNutricionales.AporteCho" type="text" class="form-control" id="AporteCho" placeholder="AporteCho" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <input ng-model="Ficha.FichaNutricion.RequerimientosNutricionales.AporteLip" type="text" class="form-control" id="AporteLip" placeholder="AporteLip" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <input ng-model="Ficha.FichaNutricion.RequerimientosNutricionales.AporteProt" type="text" class="form-control" id="AporteProt" placeholder="AporteProt" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-4">
+                                                                <label class="control-label pull-right" for="fecha">Adecuación %</label>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <input ng-model="Ficha.FichaNutricion.RequerimientosNutricionales.AdecuacionKCal" type="text" class="form-control" id="AdecuacionKCal" placeholder="AdecuacionKCal" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <input ng-model="Ficha.FichaNutricion.RequerimientosNutricionales.AdecuacionCho" type="text" class="form-control" id="AdecuacionCho" placeholder="AdecuacionCho" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <input ng-model="Ficha.FichaNutricion.RequerimientosNutricionales.AdecuacionLip" type="text" class="form-control" id="AdecuacionLip" placeholder="AdecuacionLip" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <input ng-model="Ficha.FichaNutricion.RequerimientosNutricionales.AdecuacionProt" type="text" class="form-control" id="AdecuacionProt" placeholder="AdecuacionProt" required aria-required="true" ng-disabled="FormEditabe" maxlength="250">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label pull-right" for="fecha">Prescripción Dietética</label>
+                                                            </div>
+                                                            <div class="col-sm-10">
+                                                                <textarea ng-model="Ficha.FichaNutricion.PrescripcionDietetica" class="form-control" id="PrescripcionDietetica" rows="4" placeholder="PrescripcionDietetica" required aria-required="true" ng-disabled="FormEditabe" maxlength="250"></textarea>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-2">
+                                                                <label class="control-label pull-right" for="fecha">Indicaciones Generales</label>
+                                                            </div>
+                                                            <div class="col-sm-10">
+                                                                <textarea ng-model="Ficha.FichaNutricion.IndicacionesGenerales" class="form-control" id="IndicacionesGenerales" rows="4" placeholder="IndicacionesGenerales" required aria-required="true" ng-disabled="FormEditabe" maxlength="250"></textarea>
+                                                            </div>
+                                                        </div>
+                                                        <span class="clearfix"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-12 text-right">
