@@ -120,7 +120,30 @@ Public Class doPost
     End Function
 #End Region
 #Region "Nutrición"
+    <WebMethod(EnableSession:=True)>
+    Public Function SaveFichaNutricion() As String
+        Dim js As New JavaScriptSerializer
 
+        Dim vFicha As Ficha = js.Deserialize(Context.Request.Form("Ficha"), GetType(Ficha))
+        Dim vPaciente As Paciente = js.Deserialize(Context.Request.Form("paciente"), GetType(Paciente))
+        Dim vResult As New httpResult
+        If vPaciente.ModificarPaciente() Then
+            If vFicha.registrarFichaNutricion() Then
+                vResult.result = True
+            Else
+                vResult.result = False
+                vResult.message = "Error guardando registro"
+            End If
+        Else
+            vResult.result = False
+            vResult.message = "Error guardando registro"
+        End If
+
+        Context.Response.Write(js.Serialize(vResult))
+        Context.Response.End()
+
+        Return ""
+    End Function
 #End Region
 #Region "Médico"
 

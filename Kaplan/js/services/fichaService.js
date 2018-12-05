@@ -239,7 +239,7 @@
 
         $http({
             method: 'POST',
-            url: 'doPost.asmx/SaveFichaPsicologia',
+            url: 'doPost.asmx/SaveFichaNutricion',
             data: myFormData,
             transformRequest: angular.identity,
             headers: { 'Content-Type': undefined }

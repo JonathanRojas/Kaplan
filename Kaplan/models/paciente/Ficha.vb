@@ -851,231 +851,250 @@ Namespace Clases
 
             Dim inIdPsico As OleDbParameter = cmd.Parameters.Add("@id_ficha_nutri", OleDbType.Decimal, Nothing)
             inIdPsico.Direction = ParameterDirection.Input
-            inIdPsico.Value = Me.FichaPsicologia.Id
+            inIdPsico.Value = Me.FichaNutricion.Id
 
             Dim inIdEspecialista As OleDbParameter = cmd.Parameters.Add("@id_especialista", OleDbType.Decimal, Nothing)
             inIdEspecialista.Direction = ParameterDirection.Input
-            inIdEspecialista.Value = Me.FichaPsicologia.IdEspecialista
+            inIdEspecialista.Value = Me.FichaNutricion.IdEspecialista
 
             Dim inid_reserva As OleDbParameter = cmd.Parameters.Add("@id_reserva", OleDbType.Decimal, Nothing)
             inid_reserva.Direction = ParameterDirection.Input
-            inid_reserva.Value = Me.FichaPsicologia.IdReserva
-
-            Dim inSintomatologia As OleDbParameter = cmd.Parameters.Add("@sinto_prev", OleDbType.Decimal, Nothing)
-            inSintomatologia.Direction = ParameterDirection.Input
-            inSintomatologia.Value = Me.FichaPsicologia.Sintomatologia.ID
-
-            Dim inDerivacionAPS As OleDbParameter = cmd.Parameters.Add("@deriv_aps", OleDbType.Decimal, Nothing)
-            inDerivacionAPS.Direction = ParameterDirection.Input
-            inDerivacionAPS.Value = Me.FichaPsicologia.DerivacionAPS.ID
-
-            Dim inApoyoSocial As OleDbParameter = cmd.Parameters.Add("@apoyo_soc", OleDbType.Decimal, Nothing)
-            inApoyoSocial.Direction = ParameterDirection.Input
-            inApoyoSocial.Value = Me.FichaPsicologia.ApoyoSocial.ID
-
-            Dim inProblemaPsicosocial As OleDbParameter = cmd.Parameters.Add("@prob_psico", OleDbType.Decimal, Nothing)
-            inProblemaPsicosocial.Direction = ParameterDirection.Input
-            inProblemaPsicosocial.Value = Me.FichaPsicologia.ProblemaPsicosocial.ID
-
-            Dim inRasgoPersonalidad As OleDbParameter = cmd.Parameters.Add("@rasgo_perso", OleDbType.Decimal, Nothing)
-            inRasgoPersonalidad.Direction = ParameterDirection.Input
-            inRasgoPersonalidad.Value = Me.FichaPsicologia.RasgoPersonalidad.ID
-
-            Dim inTrastornoMental As OleDbParameter = cmd.Parameters.Add("@trast_mental", OleDbType.Decimal, Nothing)
-            inTrastornoMental.Direction = ParameterDirection.Input
-            inTrastornoMental.Value = Me.FichaPsicologia.TrastornoMental.ID
-
-            Dim inTraumaPostOp As OleDbParameter = cmd.Parameters.Add("@trauma_post", OleDbType.Decimal, Nothing)
-            inTraumaPostOp.Direction = ParameterDirection.Input
-            inTraumaPostOp.Value = Me.FichaPsicologia.TraumaPostOp.ID
-
-            Dim inConcienciaFactor As OleDbParameter = cmd.Parameters.Add("@conci_factor", OleDbType.Decimal, Nothing)
-            inConcienciaFactor.Direction = ParameterDirection.Input
-            inConcienciaFactor.Value = Me.FichaPsicologia.ConcienciaFactor.ID
-
-            Dim inDificultadResp As OleDbParameter = cmd.Parameters.Add("@dific_resp", OleDbType.Decimal, Nothing)
-            inDificultadResp.Direction = ParameterDirection.Input
-            inDificultadResp.Value = Me.FichaPsicologia.DificultadResp.ID
-
-            Dim inIngresoTaller As OleDbParameter = cmd.Parameters.Add("@ingre_taller", OleDbType.Decimal, Nothing)
-            inIngresoTaller.Direction = ParameterDirection.Input
-            inIngresoTaller.Value = Me.FichaPsicologia.IngresoTaller.ID
-
-            Dim inTratamiento As OleDbParameter = cmd.Parameters.Add("@tratamiento", OleDbType.Decimal, Nothing)
-            inTratamiento.Direction = ParameterDirection.Input
-            inTratamiento.Value = Me.FichaPsicologia.Tratamiento.ID
-
-            Dim inObservacion As OleDbParameter = cmd.Parameters.Add("@observacion", OleDbType.VarChar, 500)
-            inObservacion.Direction = ParameterDirection.Input
-            inObservacion.Value = Me.FichaPsicologia.Observacion
+            inid_reserva.Value = Me.FichaNutricion.IdReserva
 #End Region
-#Region "SF36"
-            Dim inSFFechaAIng As OleDbParameter = cmd.Parameters.Add("@sf_fechaa_ing", OleDbType.Date, Nothing)
-            inSFFechaAIng.Direction = ParameterDirection.Input
-            inSFFechaAIng.Value = Me.FichaPsicologia.Sf36.FechaAIng
+#Region "Mediciones Antropometricas"
+            Dim PesoActual As OleDbParameter = cmd.Parameters.Add("@ma_peso_actual", OleDbType.Decimal, Nothing)
+            PesoActual.Direction = ParameterDirection.Input
+            PesoActual.Value = Me.FichaNutricion.MedicionesAntropometricas.PesoActual
 
-            Dim inSFFechaAEgr As OleDbParameter = cmd.Parameters.Add("@sf_fechaa_egr", OleDbType.Date, Nothing)
-            inSFFechaAEgr.Direction = ParameterDirection.Input
-            inSFFechaAEgr.Value = Me.FichaPsicologia.Sf36.FechaAIng
+            Dim Talla As OleDbParameter = cmd.Parameters.Add("@ma_talla", OleDbType.Decimal, Nothing)
+            Talla.Direction = ParameterDirection.Input
+            Talla.Value = Me.FichaNutricion.MedicionesAntropometricas.Talla
 
-            Dim inFuncionFisicaIng As OleDbParameter = cmd.Parameters.Add("@sf_funcion_ing", OleDbType.Decimal, Nothing)
-            inFuncionFisicaIng.Direction = ParameterDirection.Input
-            inFuncionFisicaIng.Value = Me.FichaPsicologia.Sf36.FuncionFisicaIng
+            Dim MasaGrasaCorporal As OleDbParameter = cmd.Parameters.Add("@ma_masa_grasa_corp", OleDbType.Decimal, Nothing)
+            MasaGrasaCorporal.Direction = ParameterDirection.Input
+            MasaGrasaCorporal.Value = Me.FichaNutricion.MedicionesAntropometricas.MasaGrasaCorporal
 
-            Dim inFuncionFisicaEgr As OleDbParameter = cmd.Parameters.Add("@sf_funcion_egr", OleDbType.Decimal, Nothing)
-            inFuncionFisicaEgr.Direction = ParameterDirection.Input
-            inFuncionFisicaEgr.Value = Me.FichaPsicologia.Sf36.FuncionFisicaEgr
+            Dim MasaMagra As OleDbParameter = cmd.Parameters.Add("@ma_masa_magra", OleDbType.Decimal, Nothing)
+            MasaMagra.Direction = ParameterDirection.Input
+            MasaMagra.Value = Me.FichaNutricion.MedicionesAntropometricas.MasaMagra
 
-            Dim inRolFisicoIng As OleDbParameter = cmd.Parameters.Add("@sf_rol_ing", OleDbType.Decimal, Nothing)
-            inRolFisicoIng.Direction = ParameterDirection.Input
-            inRolFisicoIng.Value = Me.FichaPsicologia.Sf36.RolFisicoIng
+            Dim IndiceCinturaCadera As OleDbParameter = cmd.Parameters.Add("@ma_indice_cint", OleDbType.Decimal, Nothing)
+            IndiceCinturaCadera.Direction = ParameterDirection.Input
+            IndiceCinturaCadera.Value = Me.FichaNutricion.MedicionesAntropometricas.IndiceCinturaCadera
 
-            Dim inRolFisicoEgr As OleDbParameter = cmd.Parameters.Add("@sf_rol_egr", OleDbType.Decimal, Nothing)
-            inRolFisicoEgr.Direction = ParameterDirection.Input
-            inRolFisicoEgr.Value = Me.FichaPsicologia.Sf36.RolFisicoEgr
+            Dim MNA As OleDbParameter = cmd.Parameters.Add("@ma_mna", OleDbType.Decimal, Nothing)
+            MNA.Direction = ParameterDirection.Input
+            MNA.Value = Me.FichaNutricion.MedicionesAntropometricas.MNA
 
-            Dim inDolorIng As OleDbParameter = cmd.Parameters.Add("@sf_dolor_ing", OleDbType.Decimal, Nothing)
-            inDolorIng.Direction = ParameterDirection.Input
-            inDolorIng.Value = Me.FichaPsicologia.Sf36.DolorIng
+            Dim PesoHabitual As OleDbParameter = cmd.Parameters.Add("@ma_peso_hab", OleDbType.Decimal, Nothing)
+            PesoHabitual.Direction = ParameterDirection.Input
+            PesoHabitual.Value = Me.FichaNutricion.MedicionesAntropometricas.MasaGrasaCorporal
 
-            Dim inDolorEgr As OleDbParameter = cmd.Parameters.Add("@sf_dolor_egr", OleDbType.Decimal, Nothing)
-            inDolorEgr.Direction = ParameterDirection.Input
-            inDolorEgr.Value = Me.FichaPsicologia.Sf36.DolorEgr
+            Dim MasaGrasaPorc As OleDbParameter = cmd.Parameters.Add("@ma_grasa_porc", OleDbType.Decimal, Nothing)
+            MasaGrasaPorc.Direction = ParameterDirection.Input
+            MasaGrasaPorc.Value = Me.FichaNutricion.MedicionesAntropometricas.MasaGrasaCorporal
 
-            Dim inSaludIng As OleDbParameter = cmd.Parameters.Add("@sf_salud_ing", OleDbType.Decimal, Nothing)
-            inSaludIng.Direction = ParameterDirection.Input
-            inSaludIng.Value = Me.FichaPsicologia.Sf36.SaludIng
+            Dim GrasaVisceralPorc As OleDbParameter = cmd.Parameters.Add("@ma_grasa_visceral_porc", OleDbType.Decimal, Nothing)
+            GrasaVisceralPorc.Direction = ParameterDirection.Input
+            GrasaVisceralPorc.Value = Me.FichaNutricion.MedicionesAntropometricas.GrasaVisceralPorc
 
-            Dim inSaludEgr As OleDbParameter = cmd.Parameters.Add("@sf_salud_egr", OleDbType.Decimal, Nothing)
-            inSaludEgr.Direction = ParameterDirection.Input
-            inSaludEgr.Value = Me.FichaPsicologia.Sf36.SaludEgr
+            Dim PCintura As OleDbParameter = cmd.Parameters.Add("@ma_cintura", OleDbType.Decimal, Nothing)
+            PCintura.Direction = ParameterDirection.Input
+            PCintura.Value = Me.FichaNutricion.MedicionesAntropometricas.PCintura
 
-            Dim inSFFechaBIng As OleDbParameter = cmd.Parameters.Add("@sf_fechab_ing", OleDbType.Date, Nothing)
-            inSFFechaBIng.Direction = ParameterDirection.Input
-            inSFFechaBIng.Value = Me.FichaPsicologia.Sf36.FechaAIng
-
-            Dim inSFFechaBEgr As OleDbParameter = cmd.Parameters.Add("@sf_fechab_egr", OleDbType.Date, Nothing)
-            inSFFechaBEgr.Direction = ParameterDirection.Input
-            inSFFechaBEgr.Value = Me.FichaPsicologia.Sf36.FechaAIng
-
-            Dim inVitalidadIng As OleDbParameter = cmd.Parameters.Add("@sf_vital_ing", OleDbType.Decimal, Nothing)
-            inVitalidadIng.Direction = ParameterDirection.Input
-            inVitalidadIng.Value = Me.FichaPsicologia.Sf36.VitalidadIng
-
-            Dim inVitalidadEgr As OleDbParameter = cmd.Parameters.Add("@sf_vital_egr", OleDbType.Decimal, Nothing)
-            inVitalidadEgr.Direction = ParameterDirection.Input
-            inVitalidadEgr.Value = Me.FichaPsicologia.Sf36.VitalidadEgr
-
-            Dim inFuncionSocialIng As OleDbParameter = cmd.Parameters.Add("@sf_funcionsoc_ing", OleDbType.Decimal, Nothing)
-            inFuncionSocialIng.Direction = ParameterDirection.Input
-            inFuncionSocialIng.Value = Me.FichaPsicologia.Sf36.FuncionSocialIng
-
-            Dim inFuncionSocialEgr As OleDbParameter = cmd.Parameters.Add("@sf_funcionsoc_egr", OleDbType.Decimal, Nothing)
-            inFuncionSocialEgr.Direction = ParameterDirection.Input
-            inFuncionSocialEgr.Value = Me.FichaPsicologia.Sf36.FuncionSocialEgr
-
-            Dim inRolEmocionalIng As OleDbParameter = cmd.Parameters.Add("@sf_rolemo_ing", OleDbType.Decimal, Nothing)
-            inRolEmocionalIng.Direction = ParameterDirection.Input
-            inRolEmocionalIng.Value = Me.FichaPsicologia.Sf36.RolEmocionalIng
-
-            Dim inRolEmocionalEgr As OleDbParameter = cmd.Parameters.Add("@sf_rolemo_egr", OleDbType.Decimal, Nothing)
-            inRolEmocionalEgr.Direction = ParameterDirection.Input
-            inRolEmocionalEgr.Value = Me.FichaPsicologia.Sf36.RolEmocionalEgr
-
-            Dim inSaludMentalIng As OleDbParameter = cmd.Parameters.Add("@sf_saludmen_ing", OleDbType.Decimal, Nothing)
-            inSaludMentalIng.Direction = ParameterDirection.Input
-            inSaludMentalIng.Value = Me.FichaPsicologia.Sf36.SaludMentalIng
-
-            Dim inSaludMentalEgr As OleDbParameter = cmd.Parameters.Add("@sf_saludmen_egr", OleDbType.Decimal, Nothing)
-            inSaludMentalEgr.Direction = ParameterDirection.Input
-            inSaludMentalEgr.Value = Me.FichaPsicologia.Sf36.SaludMentalEgr
-
-            Dim inSFObservacion As OleDbParameter = cmd.Parameters.Add("@sf_observacion", OleDbType.VarChar, 500)
-            inSFObservacion.Direction = ParameterDirection.Input
-            inSFObservacion.Value = Me.FichaPsicologia.Sf36.Observacion
+            Dim Cribaje As OleDbParameter = cmd.Parameters.Add("@ma_cribaje", OleDbType.Decimal, Nothing)
+            Cribaje.Direction = ParameterDirection.Input
+            Cribaje.Value = Me.FichaNutricion.MedicionesAntropometricas.Cribaje.ID
 #End Region
-#Region "HAD"
-            Dim inHadFechaAIng As OleDbParameter = cmd.Parameters.Add("@had_fechaa_ing", OleDbType.Date, Nothing)
-            inHadFechaAIng.Direction = ParameterDirection.Input
-            inHadFechaAIng.Value = Me.FichaPsicologia.Had.FechaAIng
+#Region "Anamnesis Alimentaria"
+            Dim Apetito As OleDbParameter = cmd.Parameters.Add("@aa_apetito", OleDbType.Decimal, Nothing)
+            Apetito.Direction = ParameterDirection.Input
+            Apetito.Value = Me.FichaNutricion.Apetito.ID
 
-            Dim inHadFechaAEgr As OleDbParameter = cmd.Parameters.Add("@had_fechaa_egr", OleDbType.Date, Nothing)
-            inHadFechaAEgr.Direction = ParameterDirection.Input
-            inHadFechaAEgr.Value = Me.FichaPsicologia.Had.FechaAEgr
+            Dim AlergiaAlimentaria As OleDbParameter = cmd.Parameters.Add("@aa_alergia_alim", OleDbType.Decimal, Nothing)
+            AlergiaAlimentaria.Direction = ParameterDirection.Input
+            AlergiaAlimentaria.Value = Me.FichaNutricion.AlergiaAlimentaria.ID
 
-            Dim inAnsiedadIng As OleDbParameter = cmd.Parameters.Add("@had_ansie_ing", OleDbType.Decimal, Nothing)
-            inAnsiedadIng.Direction = ParameterDirection.Input
-            inAnsiedadIng.Value = Me.FichaPsicologia.Had.AnsiedadIng
+            Dim PreferenciaAlimentaria As OleDbParameter = cmd.Parameters.Add("@aa_prefer_alim", OleDbType.Decimal, Nothing)
+            PreferenciaAlimentaria.Direction = ParameterDirection.Input
+            PreferenciaAlimentaria.Value = Me.FichaNutricion.PreferenciaAlimentaria.ID
 
-            Dim inAnsiedadEgr As OleDbParameter = cmd.Parameters.Add("@had_ansie_egr", OleDbType.Decimal, Nothing)
-            inAnsiedadEgr.Direction = ParameterDirection.Input
-            inAnsiedadEgr.Value = Me.FichaPsicologia.Had.AnsiedadEgr
+            Dim IntoleranciaAlimentaria As OleDbParameter = cmd.Parameters.Add("@aa_intoler_alim", OleDbType.Decimal, Nothing)
+            IntoleranciaAlimentaria.Direction = ParameterDirection.Input
+            IntoleranciaAlimentaria.Value = Me.FichaNutricion.IntoleranciaAlimentaria.ID
 
+            Dim AversionAlimentaria As OleDbParameter = cmd.Parameters.Add("@aa_aversi_alim", OleDbType.Decimal, Nothing)
+            AversionAlimentaria.Direction = ParameterDirection.Input
+            AversionAlimentaria.Value = Me.FichaNutricion.AversionAlimentaria.ID
 
-            Dim inDepresionIng As OleDbParameter = cmd.Parameters.Add("@had_depre_ing", OleDbType.Decimal, Nothing)
-            inDepresionIng.Direction = ParameterDirection.Input
-            inDepresionIng.Value = Me.FichaPsicologia.Had.DepresionIng
-
-            Dim inDepresionEgr As OleDbParameter = cmd.Parameters.Add("@had_depre_egr", OleDbType.Decimal, Nothing)
-            inDepresionEgr.Direction = ParameterDirection.Input
-            inDepresionEgr.Value = Me.FichaPsicologia.Had.DepresionEgr
-
-            Dim inHadFechaBIng As OleDbParameter = cmd.Parameters.Add("@had_fechab_ing", OleDbType.Date, Nothing)
-            inHadFechaBIng.Direction = ParameterDirection.Input
-            inHadFechaBIng.Value = Me.FichaPsicologia.Had.FechaBIng
-
-            Dim inHadFechaBEgr As OleDbParameter = cmd.Parameters.Add("@had_fechab_egr", OleDbType.Date, Nothing)
-            inHadFechaBEgr.Direction = ParameterDirection.Input
-            inHadFechaBEgr.Value = Me.FichaPsicologia.Had.FechaBEgr
-
-            Dim inSubEscalaAnsiedadIng As OleDbParameter = cmd.Parameters.Add("@had_suba_ing", OleDbType.Decimal, Nothing)
-            inSubEscalaAnsiedadIng.Direction = ParameterDirection.Input
-            inSubEscalaAnsiedadIng.Value = Me.FichaPsicologia.Had.SubEscalaAnsiedadIng
-
-            Dim inSubEscalaAnsiedadEgr As OleDbParameter = cmd.Parameters.Add("@had_suba_egr", OleDbType.Decimal, Nothing)
-            inSubEscalaAnsiedadEgr.Direction = ParameterDirection.Input
-            inSubEscalaAnsiedadEgr.Value = Me.FichaPsicologia.Had.SubEscalaAnsiedadEgr
-
-            Dim inSubEscalaDepresionIng As OleDbParameter = cmd.Parameters.Add("@had_subd_ing", OleDbType.Decimal, Nothing)
-            inSubEscalaDepresionIng.Direction = ParameterDirection.Input
-            inSubEscalaDepresionIng.Value = Me.FichaPsicologia.Had.SubEscalaDepresionIng
-
-            Dim inSubEscalaDepresionEgr As OleDbParameter = cmd.Parameters.Add("@had_subd_egr", OleDbType.Decimal, Nothing)
-            inSubEscalaDepresionEgr.Direction = ParameterDirection.Input
-            inSubEscalaDepresionEgr.Value = Me.FichaPsicologia.Had.SubEscalaDepresionEgr
-
-            Dim inHadObservacion As OleDbParameter = cmd.Parameters.Add("@had_observacion", OleDbType.VarChar, 500)
-            inHadObservacion.Direction = ParameterDirection.Input
-            inHadObservacion.Value = Me.FichaPsicologia.Had.Observacion
+            Dim ConsumoSuplemento As OleDbParameter = cmd.Parameters.Add("@aa_aversi_alim", OleDbType.Decimal, Nothing)
+            ConsumoSuplemento.Direction = ParameterDirection.Input
+            ConsumoSuplemento.Value = Me.FichaNutricion.ConsumoSuplemento.ID
 #End Region
-            Dim inAntecedentes As OleDbParameter = cmd.Parameters.Add("@antecedentes", OleDbType.VarChar, 500)
-            inAntecedentes.Direction = ParameterDirection.Input
-            inAntecedentes.Value = Me.FichaPsicologia.Antecedentes
+#Region "Ingesta Alimentaria"
+            Dim DesayunoHora As OleDbParameter = cmd.Parameters.Add("@ia_desayuno_hora", OleDbType.VarChar, 500)
+            DesayunoHora.Direction = ParameterDirection.Input
+            DesayunoHora.Value = Me.FichaNutricion.IngestaAlimentaria.DesayunoHora
 
-            Dim inDiagnostico As OleDbParameter = cmd.Parameters.Add("@diagnostico", OleDbType.VarChar, 500)
-            inDiagnostico.Direction = ParameterDirection.Input
-            inDiagnostico.Value = Me.FichaPsicologia.Diagnostico
+            Dim DesayunoObs As OleDbParameter = cmd.Parameters.Add("@ia_desayuno_obs", OleDbType.VarChar, 500)
+            DesayunoObs.Direction = ParameterDirection.Input
+            DesayunoObs.Value = Me.FichaNutricion.IngestaAlimentaria.DesayunoObs
 
-            Dim inObjetivos As OleDbParameter = cmd.Parameters.Add("@objetivos", OleDbType.VarChar, 500)
-            inObjetivos.Direction = ParameterDirection.Input
-            inObjetivos.Value = Me.FichaPsicologia.Objetivo
+            Dim ColacionHora As OleDbParameter = cmd.Parameters.Add("@ia_colacion_hora", OleDbType.VarChar, 500)
+            ColacionHora.Direction = ParameterDirection.Input
+            ColacionHora.Value = Me.FichaNutricion.IngestaAlimentaria.ColacionHora
 
-            Dim inIntervencion As OleDbParameter = cmd.Parameters.Add("@intervencion", OleDbType.VarChar, 500)
-            inIntervencion.Direction = ParameterDirection.Input
-            inIntervencion.Value = Me.FichaPsicologia.Intervencion
+            Dim ColacionObs As OleDbParameter = cmd.Parameters.Add("@ia_colacion_obs", OleDbType.VarChar, 500)
+            ColacionObs.Direction = ParameterDirection.Input
+            ColacionObs.Value = Me.FichaNutricion.IngestaAlimentaria.ColacionObs
 
-            Dim inEvaluacion As OleDbParameter = cmd.Parameters.Add("@evaluacion", OleDbType.VarChar, 500)
-            inEvaluacion.Direction = ParameterDirection.Input
-            inEvaluacion.Value = Me.FichaPsicologia.Evaluacion
+            Dim AlmuerzoHora As OleDbParameter = cmd.Parameters.Add("@ia_almuerzo_hora", OleDbType.VarChar, 500)
+            AlmuerzoHora.Direction = ParameterDirection.Input
+            AlmuerzoHora.Value = Me.FichaNutricion.IngestaAlimentaria.AlmuerzoHora
 
-            Dim inEvolucion As OleDbParameter = cmd.Parameters.Add("@evolucion", OleDbType.VarChar, 500)
-            inEvolucion.Direction = ParameterDirection.Input
-            inEvolucion.Value = Me.FichaPsicologia.Evolucion
+            Dim AlmuerzoObs As OleDbParameter = cmd.Parameters.Add("@ia_almuerzo_obs", OleDbType.VarChar, 500)
+            AlmuerzoObs.Direction = ParameterDirection.Input
+            AlmuerzoObs.Value = Me.FichaNutricion.IngestaAlimentaria.AlmuerzoObs
 
+            Dim PicoteoHora As OleDbParameter = cmd.Parameters.Add("@ia_picoteo_hora", OleDbType.VarChar, 500)
+            PicoteoHora.Direction = ParameterDirection.Input
+            PicoteoHora.Value = Me.FichaNutricion.IngestaAlimentaria.PicoteoHora
+
+            Dim PicoteoObs As OleDbParameter = cmd.Parameters.Add("@ia_picoteo_obs", OleDbType.VarChar, 500)
+            PicoteoObs.Direction = ParameterDirection.Input
+            PicoteoObs.Value = Me.FichaNutricion.IngestaAlimentaria.PicoteoObs
+
+            Dim OnceHora As OleDbParameter = cmd.Parameters.Add("@ia_once_hora", OleDbType.VarChar, 500)
+            OnceHora.Direction = ParameterDirection.Input
+            OnceHora.Value = Me.FichaNutricion.IngestaAlimentaria.OnceHora
+
+            Dim OnceObs As OleDbParameter = cmd.Parameters.Add("@ia_once_obs", OleDbType.VarChar, 500)
+            OnceObs.Direction = ParameterDirection.Input
+            OnceObs.Value = Me.FichaNutricion.IngestaAlimentaria.OnceObs
+
+            Dim CenaHora As OleDbParameter = cmd.Parameters.Add("@ia_cena_hora", OleDbType.VarChar, 500)
+            CenaHora.Direction = ParameterDirection.Input
+            CenaHora.Value = Me.FichaNutricion.IngestaAlimentaria.CenaHora
+
+            Dim CenaObs As OleDbParameter = cmd.Parameters.Add("@ia_cena_obs", OleDbType.VarChar, 500)
+            CenaObs.Direction = ParameterDirection.Input
+            CenaObs.Value = Me.FichaNutricion.IngestaAlimentaria.CenaObs
+
+            Dim SnackHora As OleDbParameter = cmd.Parameters.Add("@ia_snack_hora", OleDbType.VarChar, 500)
+            SnackHora.Direction = ParameterDirection.Input
+            SnackHora.Value = Me.FichaNutricion.IngestaAlimentaria.SnackHora
+
+            Dim SnackObs As OleDbParameter = cmd.Parameters.Add("@ia_snack_obs", OleDbType.VarChar, 500)
+            SnackObs.Direction = ParameterDirection.Input
+            SnackObs.Value = Me.FichaNutricion.IngestaAlimentaria.SnackObs
+
+            Dim DiagNutInt As OleDbParameter = cmd.Parameters.Add("@dni_obs", OleDbType.VarChar, 500)
+            DiagNutInt.Direction = ParameterDirection.Input
+            DiagNutInt.Value = Me.FichaNutricion.DiagNutInt
+
+            Dim Observacion As OleDbParameter = cmd.Parameters.Add("@ia_obs", OleDbType.VarChar, 500)
+            Observacion.Direction = ParameterDirection.Input
+            Observacion.Value = Me.FichaNutricion.IngestaAlimentaria.Observacion
+#End Region
+#Region "Requerimientos Nutricionales"
+            Dim GEB As OleDbParameter = cmd.Parameters.Add("@rn_geb", OleDbType.Decimal, Nothing)
+            GEB.Direction = ParameterDirection.Input
+            GEB.Value = Me.FichaNutricion.RequerimientosNutricionales.GEB
+
+            Dim Energia As OleDbParameter = cmd.Parameters.Add("@rn_energia", OleDbType.Decimal, Nothing)
+            Energia.Direction = ParameterDirection.Input
+            Energia.Value = Me.FichaNutricion.RequerimientosNutricionales.Energia
+
+            Dim FA As OleDbParameter = cmd.Parameters.Add("@rn_fa", OleDbType.Decimal, Nothing)
+            FA.Direction = ParameterDirection.Input
+            FA.Value = Me.FichaNutricion.RequerimientosNutricionales.FA
+
+            Dim ProteinaPorc As OleDbParameter = cmd.Parameters.Add("@rn_proteina_porc", OleDbType.Decimal, Nothing)
+            ProteinaPorc.Direction = ParameterDirection.Input
+            ProteinaPorc.Value = Me.FichaNutricion.RequerimientosNutricionales.ProteinaPorc
+
+            Dim LipidosPorc As OleDbParameter = cmd.Parameters.Add("@rn_lipidos_porc", OleDbType.Decimal, Nothing)
+            LipidosPorc.Direction = ParameterDirection.Input
+            LipidosPorc.Value = Me.FichaNutricion.RequerimientosNutricionales.LipidosPorc
+
+            Dim AporteKCal As OleDbParameter = cmd.Parameters.Add("@rn_aporte_alim_kcal", OleDbType.Decimal, Nothing)
+            AporteKCal.Direction = ParameterDirection.Input
+            AporteKCal.Value = Me.FichaNutricion.RequerimientosNutricionales.AporteKCal
+
+            Dim AporteCho As OleDbParameter = cmd.Parameters.Add("@rn_aporte_alim_cho", OleDbType.Decimal, Nothing)
+            AporteCho.Direction = ParameterDirection.Input
+            AporteCho.Value = Me.FichaNutricion.RequerimientosNutricionales.AporteCho
+
+            Dim AporteLip As OleDbParameter = cmd.Parameters.Add("@rn_aporte_alim_lip", OleDbType.Decimal, Nothing)
+            AporteLip.Direction = ParameterDirection.Input
+            AporteLip.Value = Me.FichaNutricion.RequerimientosNutricionales.AporteLip
+
+            Dim AporteProt As OleDbParameter = cmd.Parameters.Add("@rn_aporte_alim_prot", OleDbType.Decimal, Nothing)
+            AporteProt.Direction = ParameterDirection.Input
+            AporteProt.Value = Me.FichaNutricion.RequerimientosNutricionales.AporteProt
+#End Region
+#Region "Plan de Nutrición"
+            Dim PrescripcionDietetica As OleDbParameter = cmd.Parameters.Add("@pd_obs", OleDbType.VarChar, 500)
+            PrescripcionDietetica.Direction = ParameterDirection.Input
+            PrescripcionDietetica.Value = Me.FichaNutricion.PrescripcionDietetica
+
+            Dim IndicacionesGenerales As OleDbParameter = cmd.Parameters.Add("@ig_obs", OleDbType.VarChar, 500)
+            IndicacionesGenerales.Direction = ParameterDirection.Input
+            IndicacionesGenerales.Value = Me.FichaNutricion.IndicacionesGenerales
+
+            Dim DiagNutInt2 As OleDbParameter = cmd.Parameters.Add("@pn_dni", OleDbType.VarChar, 500)
+            DiagNutInt2.Direction = ParameterDirection.Input
+            DiagNutInt2.Value = Me.FichaNutricion.DiagNutInt
+
+            Dim ObjetivosAlimentarios As OleDbParameter = cmd.Parameters.Add("@pn_oan", OleDbType.VarChar, 500)
+            ObjetivosAlimentarios.Direction = ParameterDirection.Input
+            ObjetivosAlimentarios.Value = Me.FichaNutricion.ObjetivosAlimentarios
+
+            Dim IntervencionNutricional As OleDbParameter = cmd.Parameters.Add("@pn_in", OleDbType.VarChar, 500)
+            IntervencionNutricional.Direction = ParameterDirection.Input
+            IntervencionNutricional.Value = Me.FichaNutricion.IntervencionNutricional
+#End Region
+#Region "Cuestionario"
+            Dim Fruta As OleDbParameter = cmd.Parameters.Add("@frutas", OleDbType.Decimal, Nothing)
+            Fruta.Direction = ParameterDirection.Input
+            Fruta.Value = Me.FichaNutricion.Cuestionario.Fruta.ID
+
+            Dim Verdura As OleDbParameter = cmd.Parameters.Add("@verduras", OleDbType.Decimal, Nothing)
+            Verdura.Direction = ParameterDirection.Input
+            Verdura.Value = Me.FichaNutricion.Cuestionario.Verdura.ID
+
+            Dim Lacteo As OleDbParameter = cmd.Parameters.Add("@lacteos", OleDbType.Decimal, Nothing)
+            Lacteo.Direction = ParameterDirection.Input
+            Lacteo.Value = Me.FichaNutricion.Cuestionario.Lacteo.ID
+
+            Dim Carne As OleDbParameter = cmd.Parameters.Add("@carnes", OleDbType.Decimal, Nothing)
+            Carne.Direction = ParameterDirection.Input
+            Carne.Value = Me.FichaNutricion.Cuestionario.Carne.ID
+
+            Dim Azucar As OleDbParameter = cmd.Parameters.Add("@azucar", OleDbType.Decimal, Nothing)
+            Azucar.Direction = ParameterDirection.Input
+            Azucar.Value = Me.FichaNutricion.Cuestionario.Azucar.ID
+
+            Dim Legumbre As OleDbParameter = cmd.Parameters.Add("@legumbres", OleDbType.Decimal, Nothing)
+            Legumbre.Direction = ParameterDirection.Input
+            Legumbre.Value = Me.FichaNutricion.Cuestionario.Legumbre.ID
+
+            Dim Pescado As OleDbParameter = cmd.Parameters.Add("@pescado", OleDbType.Decimal, Nothing)
+            Pescado.Direction = ParameterDirection.Input
+            Pescado.Value = Me.FichaNutricion.Cuestionario.Pescado.ID
+
+            Dim Sodio As OleDbParameter = cmd.Parameters.Add("@sodio", OleDbType.Decimal, Nothing)
+            Sodio.Direction = ParameterDirection.Input
+            Sodio.Value = Me.FichaNutricion.Cuestionario.Sodio.ID
+
+            Dim Liquido As OleDbParameter = cmd.Parameters.Add("@liquidos", OleDbType.Decimal, Nothing)
+            Liquido.Direction = ParameterDirection.Input
+            Liquido.Value = Me.FichaNutricion.Cuestionario.Liquido.ID
+#End Region
             Dim outError As OleDbParameter = cmd.Parameters.Add("@outError", OleDbType.Integer)
             outError.Direction = ParameterDirection.Output
 
-            Dim outIdKine As OleDbParameter = cmd.Parameters.Add("@outIdPsico", OleDbType.Integer)
+            Dim outIdKine As OleDbParameter = cmd.Parameters.Add("@outIdNutri", OleDbType.Integer)
             outIdKine.Direction = ParameterDirection.Output
 
             conn.Open()

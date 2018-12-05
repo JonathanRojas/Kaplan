@@ -96,7 +96,7 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
         $scope.ValidarForm = function () {
             var error = 0;
             var msg = 'Los siguientes campos son requeridos :<br>';
-            $(':input[required]', '#frmPsicologia').each(function () {
+            $(':input[required]', '#frmNutricion').each(function () {
                 $(this).css('border', '1px solid #32b8da');
                 if ($(this).val() == '') {
                     msg += '<br><b>' + $(this).attr('placeholder') + '</b>';
@@ -121,9 +121,9 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
             if ($scope.ValidarForm()) {
                 $scope.Ficha.Fecha = moment($scope.Ficha.Fecha);
                 $scope.Paciente.Persona.FechaNac = moment($scope.Paciente.Persona.FechaNac);
-                $scope.Ficha.FichaPsicologia.IdEspecialista = parseInt(LoginService.getIdEspecialista())
+                $scope.Ficha.FichaNutricion.IdEspecialista = parseInt(LoginService.getIdEspecialista())
                 waitingDialog.show('Guardando Ficha...', { dialogSize: 'sm' });
-                fichaService.SaveFichaPsicologia($scope.Ficha, $scope.Paciente)
+                fichaService.SaveFichaNutricion($scope.Ficha, $scope.Paciente)
                    .then(function (result) {
                        msg = { title: 'Ficha creada con éxito', message: "" };
                        Notification.success(msg);
