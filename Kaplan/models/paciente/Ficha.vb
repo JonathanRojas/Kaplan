@@ -580,224 +580,356 @@ Namespace Clases
 #Region "Enfermeria"
         Public Function registrarFichaEnfermeria() As Boolean
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("RegistrarFichaKinesiologia", conn)
+            Dim cmd As OleDbCommand = New OleDbCommand("RegistrarFichaEnfermeria", conn)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim inId As OleDbParameter = cmd.Parameters.Add("@id_ficha", OleDbType.Decimal, Nothing)
             inId.Direction = ParameterDirection.Input
             inId.Value = 1
 
-            Dim inIdKine As OleDbParameter = cmd.Parameters.Add("@id_ficha_kine", OleDbType.Decimal, Nothing)
-            inIdKine.Direction = ParameterDirection.Input
-            inIdKine.Value = Me.FichaEnfermeria.Id
+            Dim inIdEnfer As OleDbParameter = cmd.Parameters.Add("@id_ficha_Enfermeria", OleDbType.Decimal, Nothing)
+            inIdEnfer.Direction = ParameterDirection.Input
+            inIdEnfer.Value = -1 'Me.FichaEnfermeria.Id
 
-            'Dim inid_reserva As OleDbParameter = cmd.Parameters.Add("@id_reserva", OleDbType.Decimal, Nothing)
-            'inid_reserva.Direction = ParameterDirection.Input
-            'inid_reserva.Value = Me.FichaEnfermeria.IdReserva
+            Dim inid_reserva As OleDbParameter = cmd.Parameters.Add("@id_reserva", OleDbType.Decimal, Nothing)
+            inid_reserva.Direction = ParameterDirection.Input
+            inid_reserva.Value = Me.FichaEnfermeria.IdReserva
 
-            'Dim inRiesgo As OleDbParameter = cmd.Parameters.Add("@riesgo", OleDbType.VarChar, 500)
-            'inRiesgo.Direction = ParameterDirection.Input
-            'inRiesgo.Value = Me.FichaEnfermeria.Riesgo
+            Dim inProcedencia As OleDbParameter = cmd.Parameters.Add("@Procedencia", OleDbType.VarChar, 500)
+            inProcedencia.Direction = ParameterDirection.Input
+            inProcedencia.Value = Me.FichaEnfermeria.Procedencia
 
-            'Dim inTipoEvaluacion As OleDbParameter = cmd.Parameters.Add("@TipoEvaluacion", OleDbType.VarChar, 500)
-            'inTipoEvaluacion.Direction = ParameterDirection.Input
-            'inTipoEvaluacion.Value = Me.FichaKinesiologia.TipoEvaluacion
+            Dim inTipoEvaluacion As OleDbParameter = cmd.Parameters.Add("@TipoEvaluacion", OleDbType.VarChar, 500)
+            inTipoEvaluacion.Direction = ParameterDirection.Input
+            inTipoEvaluacion.Value = Me.FichaEnfermeria.TipoEvaluacion
 
-            'Dim inIdEspecialista As OleDbParameter = cmd.Parameters.Add("@id_especialista", OleDbType.Decimal, Nothing)
-            'inIdEspecialista.Direction = ParameterDirection.Input
-            'inIdEspecialista.Value = Me.FichaKinesiologia.IdEspecialista
+            Dim inIdEspecialista As OleDbParameter = cmd.Parameters.Add("@id_especialista", OleDbType.Decimal, Nothing)
+            inIdEspecialista.Direction = ParameterDirection.Input
+            inIdEspecialista.Value = Me.FichaEnfermeria.IdEspecialista
 
-            'Dim inErgo_fecha_ing As OleDbParameter = cmd.Parameters.Add("@ergo_fecha_ing", OleDbType.Date, Nothing)
-            'inErgo_fecha_ing.Direction = ParameterDirection.Input
-            'inErgo_fecha_ing.Value = Me.FichaKinesiologia.ERGOESPIROMETRIA.EFechaIngreso
+            Dim inDiagnostico As OleDbParameter = cmd.Parameters.Add("@Diagnostico", OleDbType.VarChar, 500)
+            inDiagnostico.Direction = ParameterDirection.Input
+            inDiagnostico.Value = Me.FichaEnfermeria.Diagnostico
 
-            'Dim inErgo_fecha_egr As OleDbParameter = cmd.Parameters.Add("@ergo_fecha_egr", OleDbType.Date, Nothing)
-            'inErgo_fecha_egr.Direction = ParameterDirection.Input
-            'inErgo_fecha_egr.Value = Me.FichaKinesiologia.ERGOESPIROMETRIA.EFechaEgreso
+            Dim inFechaDiagnostico As OleDbParameter = cmd.Parameters.Add("@FechaDiagnostico", OleDbType.Date, Nothing)
+            inFechaDiagnostico.Direction = ParameterDirection.Input
+            inFechaDiagnostico.Value = Me.FichaEnfermeria.FechaDiagnostico
 
-            'Dim inergo_vol_ing As OleDbParameter = cmd.Parameters.Add("@ergo_vol_ing", OleDbType.Decimal, Nothing)
-            'inergo_vol_ing.Direction = ParameterDirection.Input
-            'inergo_vol_ing.Value = Me.FichaKinesiologia.ERGOESPIROMETRIA.VO2LIngreso
+            Dim inCxProced As OleDbParameter = cmd.Parameters.Add("@CxProced", OleDbType.VarChar, 500)
+            inCxProced.Direction = ParameterDirection.Input
+            inCxProced.Value = Me.FichaEnfermeria.CxProced
 
-            'Dim inergo_vol_egr As OleDbParameter = cmd.Parameters.Add("@ergo_vol_egr", OleDbType.Decimal, Nothing)
-            'inergo_vol_egr.Direction = ParameterDirection.Input
-            'inergo_vol_egr.Value = Me.FichaKinesiologia.ERGOESPIROMETRIA.VO2LEgreso
+            Dim inFechaCxProced As OleDbParameter = cmd.Parameters.Add("@FechaCxProced", OleDbType.Date, Nothing)
+            inFechaCxProced.Direction = ParameterDirection.Input
+            inFechaCxProced.Value = Me.FichaEnfermeria.FechaCxProced
 
-            'Dim inergo_voml_ing As OleDbParameter = cmd.Parameters.Add("@ergo_voml_ing", OleDbType.Decimal, Nothing)
-            'inergo_voml_ing.Direction = ParameterDirection.Input
-            'inergo_voml_ing.Value = Me.FichaKinesiologia.ERGOESPIROMETRIA.VO2MIngreso
+            Dim inControles As OleDbParameter = cmd.Parameters.Add("@Controles", OleDbType.VarChar, 500)
+            inControles.Direction = ParameterDirection.Input
+            inControles.Value = Me.FichaEnfermeria.Controles
 
-            'Dim inergo_voml_egr As OleDbParameter = cmd.Parameters.Add("@ergo_voml_egr", OleDbType.Decimal, Nothing)
-            'inergo_voml_egr.Direction = ParameterDirection.Input
-            'inergo_voml_egr.Value = Me.FichaKinesiologia.ERGOESPIROMETRIA.VO2MEgreso
+            Dim inFechaAlta As OleDbParameter = cmd.Parameters.Add("@FechaAlta", OleDbType.Date, Nothing)
+            inFechaAlta.Direction = ParameterDirection.Input
+            inFechaAlta.Value = Me.FichaEnfermeria.FechaAlta
 
-            'Dim inergo_fcmax_ing As OleDbParameter = cmd.Parameters.Add("@ergo_fcmax_ing", OleDbType.Decimal, Nothing)
-            'inergo_fcmax_ing.Direction = ParameterDirection.Input
-            'inergo_fcmax_ing.Value = Me.FichaKinesiologia.ERGOESPIROMETRIA.FCIngreso
+            Dim inHeridaCX As OleDbParameter = cmd.Parameters.Add("@HeridaCX", OleDbType.VarChar, 500)
+            inHeridaCX.Direction = ParameterDirection.Input
+            inHeridaCX.Value = Me.FichaEnfermeria.HeridaCX
 
-            'Dim inergo_fcmax_egr As OleDbParameter = cmd.Parameters.Add("@ergo_fcmax_egr", OleDbType.Decimal, Nothing)
-            'inergo_fcmax_egr.Direction = ParameterDirection.Input
-            'inergo_fcmax_egr.Value = Me.FichaKinesiologia.ERGOESPIROMETRIA.FCEgreso
+            Dim inHTA As OleDbParameter = cmd.Parameters.Add("@HTA", OleDbType.Decimal, Nothing)
+            inHTA.Direction = ParameterDirection.Input
+            inHTA.Value = Me.FichaEnfermeria.HTA.ID
 
-            'Dim inergo_pulso_ing As OleDbParameter = cmd.Parameters.Add("@ergo_pulso_ing", OleDbType.Decimal, Nothing)
-            'inergo_pulso_ing.Direction = ParameterDirection.Input
-            'inergo_pulso_ing.Value = Me.FichaKinesiologia.ERGOESPIROMETRIA.PulsoIngreso
+            Dim inDM As OleDbParameter = cmd.Parameters.Add("@DM", OleDbType.Decimal, Nothing)
+            inDM.Direction = ParameterDirection.Input
+            inDM.Value = Me.FichaEnfermeria.DM.ID
 
-            'Dim inergo_pulso_egr As OleDbParameter = cmd.Parameters.Add("@ergo_pulso_egr", OleDbType.Decimal, Nothing)
-            'inergo_pulso_egr.Direction = ParameterDirection.Input
-            'inergo_pulso_egr.Value = Me.FichaKinesiologia.ERGOESPIROMETRIA.PulsoEgreso
+            Dim inDLP As OleDbParameter = cmd.Parameters.Add("@DLP", OleDbType.Decimal, Nothing)
+            inDLP.Direction = ParameterDirection.Input
+            inDLP.Value = Me.FichaEnfermeria.DLP.ID
 
-            'Dim inergo_ve_ing As OleDbParameter = cmd.Parameters.Add("@ergo_ve_ing", OleDbType.Decimal, Nothing)
-            'inergo_ve_ing.Direction = ParameterDirection.Input
-            'inergo_ve_ing.Value = Me.FichaKinesiologia.ERGOESPIROMETRIA.VEIngreso
+            Dim inSED As OleDbParameter = cmd.Parameters.Add("@SED", OleDbType.Decimal, Nothing)
+            inSED.Direction = ParameterDirection.Input
+            inSED.Value = Me.FichaEnfermeria.SED.ID
 
-            'Dim inergo_ve_egr As OleDbParameter = cmd.Parameters.Add("@ergo_ve_egr", OleDbType.Decimal, Nothing)
-            'inergo_ve_egr.Direction = ParameterDirection.Input
-            'inergo_ve_egr.Value = Me.FichaKinesiologia.ERGOESPIROMETRIA.VEEgreso
+            Dim inSPOB As OleDbParameter = cmd.Parameters.Add("@SPOB", OleDbType.Decimal, Nothing)
+            inSPOB.Direction = ParameterDirection.Input
+            inSPOB.Value = Me.FichaEnfermeria.SPOB.ID
 
-            'Dim inergo_mets_ing As OleDbParameter = cmd.Parameters.Add("@ergo_mets_ing", OleDbType.Decimal, Nothing)
-            'inergo_mets_ing.Direction = ParameterDirection.Input
-            'inergo_mets_ing.Value = Me.FichaKinesiologia.ERGOESPIROMETRIA.METSIngreso
+            Dim inTB As OleDbParameter = cmd.Parameters.Add("@TB", OleDbType.Decimal, Nothing)
+            inTB.Direction = ParameterDirection.Input
+            inTB.Value = Me.FichaEnfermeria.TB.ID
 
-            'Dim inergo_mets_egr As OleDbParameter = cmd.Parameters.Add("@ergo_mets_egr", OleDbType.Decimal, Nothing)
-            'inergo_mets_egr.Direction = ParameterDirection.Input
-            'inergo_mets_egr.Value = Me.FichaKinesiologia.ERGOESPIROMETRIA.METSEgreso
+            Dim inOH As OleDbParameter = cmd.Parameters.Add("@OH", OleDbType.Decimal, Nothing)
+            inOH.Direction = ParameterDirection.Input
+            inOH.Value = Me.FichaEnfermeria.OH.ID
 
-            'Dim inshu_fecha_ing As OleDbParameter = cmd.Parameters.Add("@shu_fecha_ing", OleDbType.Date, Nothing)
-            'inshu_fecha_ing.Direction = ParameterDirection.Input
-            'inshu_fecha_ing.Value = Me.FichaKinesiologia.SHUTTLE.EFechaIngreso
+            Dim inAF As OleDbParameter = cmd.Parameters.Add("@AF", OleDbType.Decimal, Nothing)
+            inAF.Direction = ParameterDirection.Input
+            inAF.Value = Me.FichaEnfermeria.AF.ID
 
-            'Dim inshu_fecha_egr As OleDbParameter = cmd.Parameters.Add("@shu_fecha_egr", OleDbType.Date, Nothing)
-            'inshu_fecha_egr.Direction = ParameterDirection.Input
-            'inshu_fecha_egr.Value = Me.FichaKinesiologia.SHUTTLE.EFechaEgreso
+            Dim inEstres As OleDbParameter = cmd.Parameters.Add("@Estres", OleDbType.Decimal, Nothing)
+            inEstres.Direction = ParameterDirection.Input
+            inEstres.Value = Me.FichaEnfermeria.Estres.ID
 
-            'Dim inshu_mts_ing As OleDbParameter = cmd.Parameters.Add("@shu_mts_ing", OleDbType.Decimal, Nothing)
-            'inshu_mts_ing.Direction = ParameterDirection.Input
-            'inshu_mts_ing.Value = Me.FichaKinesiologia.SHUTTLE.METROSIngreso
+            Dim inIntervencion As OleDbParameter = cmd.Parameters.Add("@Intervencion", OleDbType.VarChar, 500)
+            inIntervencion.Direction = ParameterDirection.Input
+            inIntervencion.Value = Me.FichaEnfermeria.Intervencion
 
-            'Dim inshu_mts_egr As OleDbParameter = cmd.Parameters.Add("@shu_mts_egr", OleDbType.Decimal, Nothing)
-            'inshu_mts_egr.Direction = ParameterDirection.Input
-            'inshu_mts_egr.Value = Me.FichaKinesiologia.SHUTTLE.METROSEgreso
+            Dim inMedicamento As OleDbParameter = cmd.Parameters.Add("@Medicamento", OleDbType.VarChar, -1)
+            inMedicamento.Direction = ParameterDirection.Input
+            inMedicamento.Value = Me.FichaEnfermeria.ToJSONMedicamentos(Me.FichaEnfermeria.MedicamentosEnfermeria)
 
-            'Dim inshu_niv_ing As OleDbParameter = cmd.Parameters.Add("@shu_niv_ing", OleDbType.Decimal, Nothing)
-            'inshu_niv_ing.Direction = ParameterDirection.Input
-            'inshu_niv_ing.Value = Me.FichaKinesiologia.SHUTTLE.NIVELIngreso
+            Dim inid_anamnesis As OleDbParameter = cmd.Parameters.Add("@id_anamnesis", OleDbType.Decimal, Nothing)
+            inid_anamnesis.Direction = ParameterDirection.Input
+            inid_anamnesis.Value = Me.FichaEnfermeria.AnamnesisEnfermeria.Id
 
-            'Dim inshu_niv_egr As OleDbParameter = cmd.Parameters.Add("@shu_niv_egr", OleDbType.Decimal, Nothing)
-            'inshu_niv_egr.Direction = ParameterDirection.Input
-            'inshu_niv_egr.Value = Me.FichaKinesiologia.SHUTTLE.NIVELEgreso
+            Dim inAntecedentesRelevantes_anamnesis As OleDbParameter = cmd.Parameters.Add("@AntecedentesRelevantes_anamnesis", OleDbType.VarChar, 500)
+            inAntecedentesRelevantes_anamnesis.Direction = ParameterDirection.Input
+            inAntecedentesRelevantes_anamnesis.Value = Me.FichaEnfermeria.AnamnesisEnfermeria.AntecedentesRelevantes
 
-            'Dim inshu_vol_ing As OleDbParameter = cmd.Parameters.Add("@shu_vol_ing", OleDbType.Decimal, Nothing)
-            'inshu_vol_ing.Direction = ParameterDirection.Input
-            'inshu_vol_ing.Value = Me.FichaKinesiologia.SHUTTLE.VO2MIngreso
+            Dim inPatronRespiratorio_anamnesis As OleDbParameter = cmd.Parameters.Add("@PatronRespiratorio_anamnesis", OleDbType.Decimal, Nothing)
+            inPatronRespiratorio_anamnesis.Direction = ParameterDirection.Input
+            inPatronRespiratorio_anamnesis.Value = Me.FichaEnfermeria.AnamnesisEnfermeria.PatronRespiratorio.ID
 
-            'Dim inshu_vol_egr As OleDbParameter = cmd.Parameters.Add("@shu_vol_egr", OleDbType.Decimal, Nothing)
-            'inshu_vol_egr.Direction = ParameterDirection.Input
-            'inshu_vol_egr.Value = Me.FichaKinesiologia.SHUTTLE.VO2MEgreso
+            Dim inRegimenHiposodico_anamnesis As OleDbParameter = cmd.Parameters.Add("@RegimenHiposodico_anamnesis", OleDbType.Decimal, Nothing)
+            inRegimenHiposodico_anamnesis.Direction = ParameterDirection.Input
+            inRegimenHiposodico_anamnesis.Value = Me.FichaEnfermeria.AnamnesisEnfermeria.RegimenHiposodico.ID
 
-            'Dim inshu_mets_ing As OleDbParameter = cmd.Parameters.Add("@shu_mets_ing", OleDbType.Decimal, Nothing)
-            'inshu_mets_ing.Direction = ParameterDirection.Input
-            'inshu_mets_ing.Value = Me.FichaKinesiologia.SHUTTLE.METSIngreso
+            Dim inFrutayVerdura_anamnesis As OleDbParameter = cmd.Parameters.Add("@FrutayVerdura_anamnesis", OleDbType.Decimal, Nothing)
+            inFrutayVerdura_anamnesis.Direction = ParameterDirection.Input
+            inFrutayVerdura_anamnesis.Value = Me.FichaEnfermeria.AnamnesisEnfermeria.FrutayVerdura.ID
 
-            'Dim inshu_mets_egr As OleDbParameter = cmd.Parameters.Add("@shu_mets_egr", OleDbType.Decimal, Nothing)
-            'inshu_mets_egr.Direction = ParameterDirection.Input
-            'inshu_mets_egr.Value = Me.FichaKinesiologia.SHUTTLE.METSEgreso
+            Dim inAgua_anamnesis As OleDbParameter = cmd.Parameters.Add("@Agua_anamnesis", OleDbType.Decimal, Nothing)
+            inAgua_anamnesis.Direction = ParameterDirection.Input
+            inAgua_anamnesis.Value = Me.FichaEnfermeria.AnamnesisEnfermeria.Agua.ID
 
-            'Dim inshu_fcmax_ing As OleDbParameter = cmd.Parameters.Add("@shu_fcmax_ing", OleDbType.Decimal, Nothing)
-            'inshu_fcmax_ing.Direction = ParameterDirection.Input
-            'inshu_fcmax_ing.Value = Me.FichaKinesiologia.SHUTTLE.FCIngreso
+            Dim inBebidaNec_anamnesis As OleDbParameter = cmd.Parameters.Add("@BebidaNec_anamnesis", OleDbType.Decimal, Nothing)
+            inBebidaNec_anamnesis.Direction = ParameterDirection.Input
+            inBebidaNec_anamnesis.Value = Me.FichaEnfermeria.AnamnesisEnfermeria.BebidaNec.ID
 
-            'Dim inshu_fcmax_egr As OleDbParameter = cmd.Parameters.Add("@shu_fcmax_egr", OleDbType.Decimal, Nothing)
-            'inshu_fcmax_egr.Direction = ParameterDirection.Input
-            'inshu_fcmax_egr.Value = Me.FichaKinesiologia.SHUTTLE.FCEgreso
+            Dim inGrasas_anamnesis As OleDbParameter = cmd.Parameters.Add("@Grasas_anamnesis", OleDbType.Decimal, Nothing)
+            inGrasas_anamnesis.Direction = ParameterDirection.Input
+            inGrasas_anamnesis.Value = Me.FichaEnfermeria.AnamnesisEnfermeria.Grasas.ID
 
-            'Dim inshu_fcmt_ing As OleDbParameter = cmd.Parameters.Add("@shu_fcmt_ing", OleDbType.Decimal, Nothing)
-            'inshu_fcmt_ing.Direction = ParameterDirection.Input
-            'inshu_fcmt_ing.Value = Me.FichaKinesiologia.SHUTTLE.FCMTIngreso
+            Dim inDiuresis_anamnesis As OleDbParameter = cmd.Parameters.Add("@Diuresis_anamnesis", OleDbType.Decimal, Nothing)
+            inDiuresis_anamnesis.Direction = ParameterDirection.Input
+            inDiuresis_anamnesis.Value = Me.FichaEnfermeria.AnamnesisEnfermeria.Diuresis.ID
 
-            'Dim inshu_fcmt_egr As OleDbParameter = cmd.Parameters.Add("@shu_fcmt_egr", OleDbType.Decimal, Nothing)
-            'inshu_fcmt_egr.Direction = ParameterDirection.Input
-            'inshu_fcmt_egr.Value = Me.FichaKinesiologia.SHUTTLE.FCMTEgreso
+            Dim inDeposicion_anamnesis As OleDbParameter = cmd.Parameters.Add("@Deposicion_anamnesis", OleDbType.Decimal, Nothing)
+            inDeposicion_anamnesis.Direction = ParameterDirection.Input
+            inDeposicion_anamnesis.Value = Me.FichaEnfermeria.AnamnesisEnfermeria.Deposicion.ID
 
-            'Dim inshu_metsmax_ing As OleDbParameter = cmd.Parameters.Add("@shu_metsmax_ing", OleDbType.Decimal, Nothing)
-            'inshu_metsmax_ing.Direction = ParameterDirection.Input
-            'inshu_metsmax_ing.Value = Me.FichaKinesiologia.SHUTTLE.METSMAXIngreso
+            Dim inTBa_anamnesis As OleDbParameter = cmd.Parameters.Add("@TBa_anamnesis", OleDbType.Decimal, Nothing)
+            inTBa_anamnesis.Direction = ParameterDirection.Input
+            inTBa_anamnesis.Value = Me.FichaEnfermeria.AnamnesisEnfermeria.TBa.ID
 
-            'Dim inshu_metsmax_egr As OleDbParameter = cmd.Parameters.Add("@shu_metsmax_egr", OleDbType.Decimal, Nothing)
-            'inshu_metsmax_egr.Direction = ParameterDirection.Input
-            'inshu_metsmax_egr.Value = Me.FichaKinesiologia.SHUTTLE.METSMAXEgreso
+            Dim inTBb_anamnesis As OleDbParameter = cmd.Parameters.Add("@TBb_anamnesis", OleDbType.Decimal, Nothing)
+            inTBb_anamnesis.Direction = ParameterDirection.Input
+            inTBb_anamnesis.Value = Me.FichaEnfermeria.AnamnesisEnfermeria.TBb.ID
 
-            'Dim inid_evolucion_1 As OleDbParameter = cmd.Parameters.Add("@Diagnostico", OleDbType.Decimal, Nothing)
-            'inid_evolucion_1.Direction = ParameterDirection.Input
-            'inid_evolucion_1.Value = Me.FichaKinesiologia.EvolucionIngresoKine.Id
+            Dim inEA_anamnesis As OleDbParameter = cmd.Parameters.Add("@EA_anamnesis", OleDbType.Decimal, Nothing)
+            inEA_anamnesis.Direction = ParameterDirection.Input
+            inEA_anamnesis.Value = Me.FichaEnfermeria.AnamnesisEnfermeria.EA.ID
 
-            'Dim inevolucion_fecha_1 As OleDbParameter = cmd.Parameters.Add("@evolucion_fecha_1", OleDbType.Date, Nothing)
-            'inevolucion_fecha_1.Direction = ParameterDirection.Input
-            'inevolucion_fecha_1.Value = Me.FichaKinesiologia.EvolucionIngresoKine.Fecha
+            Dim inSuenoNocturnoa_anamnesis As OleDbParameter = cmd.Parameters.Add("@SuenoNocturnoa_anamnesis", OleDbType.Decimal, Nothing)
+            inSuenoNocturnoa_anamnesis.Direction = ParameterDirection.Input
+            inSuenoNocturnoa_anamnesis.Value = Me.FichaEnfermeria.AnamnesisEnfermeria.SuenoNocturnoa.ID
 
-            'Dim inevolucion_eva_mus_esq_1 As OleDbParameter = cmd.Parameters.Add("@evolucion_eva_mus_esq_1", OleDbType.VarChar, 500)
-            'inevolucion_eva_mus_esq_1.Direction = ParameterDirection.Input
-            'inevolucion_eva_mus_esq_1.Value = Me.FichaKinesiologia.EvolucionIngresoKine.EME
+            Dim inSuenoNocturnob_anamnesis As OleDbParameter = cmd.Parameters.Add("@SuenoNocturnob_anamnesis", OleDbType.Decimal, Nothing)
+            inSuenoNocturnob_anamnesis.Direction = ParameterDirection.Input
+            inSuenoNocturnob_anamnesis.Value = Me.FichaEnfermeria.AnamnesisEnfermeria.SuenoNocturnob.ID
 
-            'Dim inevolcuion_observacion_1 As OleDbParameter = cmd.Parameters.Add("@evolcuion_observacion_1", OleDbType.VarChar, 500)
-            'inevolcuion_observacion_1.Direction = ParameterDirection.Input
-            'inevolcuion_observacion_1.Value = Me.FichaKinesiologia.EvolucionIngresoKine.Observacion
+            Dim inSuenoNocturnoc_anamnesis As OleDbParameter = cmd.Parameters.Add("@SuenoNocturnoc_anamnesis", OleDbType.Decimal, Nothing)
+            inSuenoNocturnoc_anamnesis.Direction = ParameterDirection.Input
+            inSuenoNocturnoc_anamnesis.Value = Me.FichaEnfermeria.AnamnesisEnfermeria.SuenoNocturnoc.ID
 
-            'Dim inid_evolucion_2 As OleDbParameter = cmd.Parameters.Add("@id_evolucion_2", OleDbType.Decimal, Nothing)
-            'inid_evolucion_2.Direction = ParameterDirection.Input
-            'inid_evolucion_2.Value = Me.FichaKinesiologia.EvolucionEgresoKine.Id
+            Dim inMotivacion_anamnesis As OleDbParameter = cmd.Parameters.Add("@Motivacion_anamnesis", OleDbType.Decimal, Nothing)
+            inMotivacion_anamnesis.Direction = ParameterDirection.Input
+            inMotivacion_anamnesis.Value = Me.FichaEnfermeria.AnamnesisEnfermeria.Motivacion.ID
 
-            'Dim inevolucion_fecha_2 As OleDbParameter = cmd.Parameters.Add("@evolucion_fecha_2", OleDbType.Date, Nothing)
-            'inevolucion_fecha_2.Direction = ParameterDirection.Input
-            'inevolucion_fecha_2.Value = Me.FichaKinesiologia.EvolucionEgresoKine.Fecha
+            Dim inAVD_anamnesis As OleDbParameter = cmd.Parameters.Add("@AVD_anamnesis", OleDbType.Decimal, Nothing)
+            inAVD_anamnesis.Direction = ParameterDirection.Input
+            inAVD_anamnesis.Value = Me.FichaEnfermeria.AnamnesisEnfermeria.AVD.ID
 
-            'Dim inevolucion_eva_mus_esq_2 As OleDbParameter = cmd.Parameters.Add("@evolucion_eva_mus_esq_2", OleDbType.VarChar, 500)
-            'inevolucion_eva_mus_esq_2.Direction = ParameterDirection.Input
-            'inevolucion_eva_mus_esq_2.Value = Me.FichaKinesiologia.EvolucionEgresoKine.EME
+            Dim inActividadesRecreativas_anamnesis As OleDbParameter = cmd.Parameters.Add("@ActividadesRecreativas_anamnesis", OleDbType.Decimal, Nothing)
+            inActividadesRecreativas_anamnesis.Direction = ParameterDirection.Input
+            inActividadesRecreativas_anamnesis.Value = Me.FichaEnfermeria.AnamnesisEnfermeria.ActividadesRecreativas.ID
 
-            'Dim inevolcuion_observacion_2 As OleDbParameter = cmd.Parameters.Add("@evolcuion_observacion_2", OleDbType.VarChar, 500)
-            'inevolcuion_observacion_2.Direction = ParameterDirection.Input
-            'inevolcuion_observacion_2.Value = Me.FichaKinesiologia.EvolucionEgresoKine.Observacion
+            Dim inid_ExamenFisico As OleDbParameter = cmd.Parameters.Add("@id_ExamenFisico", OleDbType.Decimal, Nothing)
+            inid_ExamenFisico.Direction = ParameterDirection.Input
+            inid_ExamenFisico.Value = Me.FichaEnfermeria.ExamenFisicoEnfermeria.Id
 
-            'Dim inidPlan_kine As OleDbParameter = cmd.Parameters.Add("@v_idPlan_kine", OleDbType.Decimal, Nothing)
-            'inidPlan_kine.Direction = ParameterDirection.Input
-            'inidPlan_kine.Value = Me.FichaKinesiologia.PlanKinesico.Id
+            Dim inCabeza_ExamenFisico As OleDbParameter = cmd.Parameters.Add("@Cabeza_ExamenFisico", OleDbType.Decimal, Nothing)
+            inCabeza_ExamenFisico.Direction = ParameterDirection.Input
+            inCabeza_ExamenFisico.Value = Me.FichaEnfermeria.ExamenFisicoEnfermeria.Cabeza.ID
 
-            'Dim ineje_aerobico As OleDbParameter = cmd.Parameters.Add("@eje_aerobico", OleDbType.VarChar, 500)
-            'ineje_aerobico.Direction = ParameterDirection.Input
-            'ineje_aerobico.Value = Me.FichaKinesiologia.PlanKinesico.AEROBICO
+            Dim inCuello_ExamenFisico As OleDbParameter = cmd.Parameters.Add("@Cuello_ExamenFisico", OleDbType.Decimal, Nothing)
+            inCuello_ExamenFisico.Direction = ParameterDirection.Input
+            inCuello_ExamenFisico.Value = Me.FichaEnfermeria.ExamenFisicoEnfermeria.Cuello.ID
 
-            'Dim ineje_sobrecarga As OleDbParameter = cmd.Parameters.Add("@eje_sobrecarga", OleDbType.VarChar, 500)
-            'ineje_sobrecarga.Direction = ParameterDirection.Input
-            'ineje_sobrecarga.Value = Me.FichaKinesiologia.PlanKinesico.SOBRECARGA
+            Dim inToraxa_ExamenFisico As OleDbParameter = cmd.Parameters.Add("@Toraxa_ExamenFisico", OleDbType.Decimal, Nothing)
+            inToraxa_ExamenFisico.Direction = ParameterDirection.Input
+            inToraxa_ExamenFisico.Value = Me.FichaEnfermeria.ExamenFisicoEnfermeria.Toraxa.ID
 
-            'Dim inentre_funcional As OleDbParameter = cmd.Parameters.Add("@entre_funcional", OleDbType.VarChar, 500)
-            'inentre_funcional.Direction = ParameterDirection.Input
-            'inentre_funcional.Value = Me.FichaKinesiologia.PlanKinesico.FUNCIONAL
+            Dim inToraxb_ExamenFisico As OleDbParameter = cmd.Parameters.Add("@Toraxb_ExamenFisico", OleDbType.Decimal, Nothing)
+            inToraxb_ExamenFisico.Direction = ParameterDirection.Input
+            inToraxb_ExamenFisico.Value = Me.FichaEnfermeria.ExamenFisicoEnfermeria.Toraxb.ID
 
-            'Dim inedu_habitos_cardio As OleDbParameter = cmd.Parameters.Add("@edu_habitos_cardio", OleDbType.VarChar, 500)
-            'inedu_habitos_cardio.Direction = ParameterDirection.Input
-            'inedu_habitos_cardio.Value = Me.FichaKinesiologia.PlanKinesico.EDUCACION
+            Dim inToraxc_ExamenFisico As OleDbParameter = cmd.Parameters.Add("@Toraxc_ExamenFisico", OleDbType.Decimal, Nothing)
+            inToraxc_ExamenFisico.Direction = ParameterDirection.Input
+            inToraxc_ExamenFisico.Value = Me.FichaEnfermeria.ExamenFisicoEnfermeria.Toraxc.ID
 
-            'Dim indiagnostico As OleDbParameter = cmd.Parameters.Add("@diagnostico", OleDbType.VarChar, -1)
-            'indiagnostico.Direction = ParameterDirection.Input
-            'indiagnostico.Value = Me.FichaKinesiologia.PlanKinesico.ToJSONDiagnostico(Me.FichaKinesiologia.PlanKinesico.Diagnostico)
+            Dim inToraxd_ExamenFisico As OleDbParameter = cmd.Parameters.Add("@Toraxd_ExamenFisico", OleDbType.Decimal, Nothing)
+            inToraxd_ExamenFisico.Direction = ParameterDirection.Input
+            inToraxd_ExamenFisico.Value = Me.FichaEnfermeria.ExamenFisicoEnfermeria.Toraxd.ID
 
-            'Dim inobjetivo As OleDbParameter = cmd.Parameters.Add("@objetivo", OleDbType.VarChar, -1)
-            'inobjetivo.Direction = ParameterDirection.Input
-            'inobjetivo.Value = Me.FichaKinesiologia.PlanKinesico.ToJSONObjetivo(Me.FichaKinesiologia.PlanKinesico.Objetivo)
+            Dim inAbdomena_ExamenFisico As OleDbParameter = cmd.Parameters.Add("@Abdomena_ExamenFisico", OleDbType.Decimal, Nothing)
+            inAbdomena_ExamenFisico.Direction = ParameterDirection.Input
+            inAbdomena_ExamenFisico.Value = Me.FichaEnfermeria.ExamenFisicoEnfermeria.Abdomena.ID
+
+            Dim inAbdomenb_ExamenFisico As OleDbParameter = cmd.Parameters.Add("@Abdomenb_ExamenFisico", OleDbType.Decimal, Nothing)
+            inAbdomenb_ExamenFisico.Direction = ParameterDirection.Input
+            inAbdomenb_ExamenFisico.Value = Me.FichaEnfermeria.ExamenFisicoEnfermeria.Abdomenb.ID
+
+            Dim inEESS_ExamenFisico As OleDbParameter = cmd.Parameters.Add("@EESS_ExamenFisico", OleDbType.Decimal, Nothing)
+            inEESS_ExamenFisico.Direction = ParameterDirection.Input
+            inEESS_ExamenFisico.Value = Me.FichaEnfermeria.ExamenFisicoEnfermeria.EESS.ID
+
+            Dim inllencap_ExamenFisico As OleDbParameter = cmd.Parameters.Add("@llencap_ExamenFisico", OleDbType.Decimal, Nothing)
+            inllencap_ExamenFisico.Direction = ParameterDirection.Input
+            inllencap_ExamenFisico.Value = Me.FichaEnfermeria.ExamenFisicoEnfermeria.llencap.ID
+
+            Dim inEEII_ExamenFisico As OleDbParameter = cmd.Parameters.Add("@EEII_ExamenFisico", OleDbType.Decimal, Nothing)
+            inEEII_ExamenFisico.Direction = ParameterDirection.Input
+            inEEII_ExamenFisico.Value = Me.FichaEnfermeria.ExamenFisicoEnfermeria.EEII.ID
+
+            Dim inPA_ExamenFisico As OleDbParameter = cmd.Parameters.Add("@PA_ExamenFisico", OleDbType.Decimal, Nothing)
+            inPA_ExamenFisico.Direction = ParameterDirection.Input
+            inPA_ExamenFisico.Value = Me.FichaEnfermeria.ExamenFisicoEnfermeria.PA
+
+            Dim inFC_ExamenFisico As OleDbParameter = cmd.Parameters.Add("@FC_ExamenFisico", OleDbType.Decimal, Nothing)
+            inFC_ExamenFisico.Direction = ParameterDirection.Input
+            inFC_ExamenFisico.Value = Me.FichaEnfermeria.ExamenFisicoEnfermeria.FC
+
+            Dim inSAT_ExamenFisico As OleDbParameter = cmd.Parameters.Add("@SAT_ExamenFisico", OleDbType.Decimal, Nothing)
+            inSAT_ExamenFisico.Direction = ParameterDirection.Input
+            inSAT_ExamenFisico.Value = Me.FichaEnfermeria.ExamenFisicoEnfermeria.SAT
+
+            Dim inGlicemia_ExamenFisico As OleDbParameter = cmd.Parameters.Add("@Glicemia_ExamenFisico", OleDbType.Decimal, Nothing)
+            inGlicemia_ExamenFisico.Direction = ParameterDirection.Input
+            inGlicemia_ExamenFisico.Value = Me.FichaEnfermeria.ExamenFisicoEnfermeria.Glicemia
+
+            Dim inEvolucion As OleDbParameter = cmd.Parameters.Add("@Evolucion", OleDbType.VarChar, -1)
+            inEvolucion.Direction = ParameterDirection.Input
+            inEvolucion.Value = Me.FichaEnfermeria.ToJSONEvolucion(Me.FichaEnfermeria.EvolucionEnfermeria)
+
+            Dim inid_PlanEnfermeria As OleDbParameter = cmd.Parameters.Add("@id_PlanEnfermeria", OleDbType.Decimal, Nothing)
+            inid_PlanEnfermeria.Direction = ParameterDirection.Input
+            inid_PlanEnfermeria.Value = Me.FichaEnfermeria.PlanEnfermeria.Id
+
+            Dim inAdeherenciaFarma_PlanEnfermeria As OleDbParameter = cmd.Parameters.Add("@AdeherenciaFarma_PlanEnfermeria", OleDbType.Decimal, Nothing)
+            inAdeherenciaFarma_PlanEnfermeria.Direction = ParameterDirection.Input
+            inAdeherenciaFarma_PlanEnfermeria.Value = Me.FichaEnfermeria.PlanEnfermeria.AdeherenciaFarma.ID
+
+            Dim inRespiracion_PlanEnfermeria As OleDbParameter = cmd.Parameters.Add("@Respiracion_PlanEnfermeria", OleDbType.Decimal, Nothing)
+            inRespiracion_PlanEnfermeria.Direction = ParameterDirection.Input
+            inRespiracion_PlanEnfermeria.Value = Me.FichaEnfermeria.PlanEnfermeria.Respiracion.ID
+
+            Dim inAlimentacion_PlanEnfermeria As OleDbParameter = cmd.Parameters.Add("@Alimentacion_PlanEnfermeria", OleDbType.Decimal, Nothing)
+            inAlimentacion_PlanEnfermeria.Direction = ParameterDirection.Input
+            inAlimentacion_PlanEnfermeria.Value = Me.FichaEnfermeria.PlanEnfermeria.Alimentacion.ID
+
+            Dim inEliminacion_PlanEnfermeria As OleDbParameter = cmd.Parameters.Add("@Eliminacion_PlanEnfermeria", OleDbType.Decimal, Nothing)
+            inEliminacion_PlanEnfermeria.Direction = ParameterDirection.Input
+            inEliminacion_PlanEnfermeria.Value = Me.FichaEnfermeria.PlanEnfermeria.Eliminacion.ID
+
+            Dim inDescanso_PlanEnfermeria As OleDbParameter = cmd.Parameters.Add("@Descanso_PlanEnfermeria", OleDbType.Decimal, Nothing)
+            inDescanso_PlanEnfermeria.Direction = ParameterDirection.Input
+            inDescanso_PlanEnfermeria.Value = Me.FichaEnfermeria.PlanEnfermeria.Descanso.ID
+
+            Dim inHigienePiel_PlanEnfermeria As OleDbParameter = cmd.Parameters.Add("@HigienePiel_PlanEnfermeria", OleDbType.Decimal, Nothing)
+            inHigienePiel_PlanEnfermeria.Direction = ParameterDirection.Input
+            inHigienePiel_PlanEnfermeria.Value = Me.FichaEnfermeria.PlanEnfermeria.HigienePiel.ID
+
+            Dim inActividades_PlanEnfermeria As OleDbParameter = cmd.Parameters.Add("@Actividades_PlanEnfermeria", OleDbType.Decimal, Nothing)
+            inActividades_PlanEnfermeria.Direction = ParameterDirection.Input
+            inActividades_PlanEnfermeria.Value = Me.FichaEnfermeria.PlanEnfermeria.Actividades.ID
+
+            Dim inVestirse_PlanEnfermeria As OleDbParameter = cmd.Parameters.Add("@Vestirse_PlanEnfermeria", OleDbType.Decimal, Nothing)
+            inVestirse_PlanEnfermeria.Direction = ParameterDirection.Input
+            inVestirse_PlanEnfermeria.Value = Me.FichaEnfermeria.PlanEnfermeria.Vestirse.ID
+
+            Dim inComunicarse_PlanEnfermeria As OleDbParameter = cmd.Parameters.Add("@Comunicarse_PlanEnfermeria", OleDbType.Decimal, Nothing)
+            inComunicarse_PlanEnfermeria.Direction = ParameterDirection.Input
+            inComunicarse_PlanEnfermeria.Value = Me.FichaEnfermeria.PlanEnfermeria.Comunicarse.ID
+
+            Dim inAutoRealizacion_PlanEnfermeria As OleDbParameter = cmd.Parameters.Add("@AutoRealizacion_PlanEnfermeria", OleDbType.Decimal, Nothing)
+            inAutoRealizacion_PlanEnfermeria.Direction = ParameterDirection.Input
+            inAutoRealizacion_PlanEnfermeria.Value = Me.FichaEnfermeria.PlanEnfermeria.AutoRealizacion.ID
+
+            Dim inRespiracionObservacion_PlanEnfermeria As OleDbParameter = cmd.Parameters.Add("@RespiracionObservacion_PlanEnfermeria", OleDbType.VarChar, 500)
+            inRespiracionObservacion_PlanEnfermeria.Direction = ParameterDirection.Input
+            inRespiracionObservacion_PlanEnfermeria.Value = Me.FichaEnfermeria.PlanEnfermeria.RespiracionObservacion
+
+            Dim inAlimentacionObservacion_PlanEnfermeria As OleDbParameter = cmd.Parameters.Add("@AlimentacionObservacion_PlanEnfermeria", OleDbType.VarChar, 500)
+            inAlimentacionObservacion_PlanEnfermeria.Direction = ParameterDirection.Input
+            inAlimentacionObservacion_PlanEnfermeria.Value = Me.FichaEnfermeria.PlanEnfermeria.AlimentacionObservacion
+
+            Dim inEliminacionObservacion_PlanEnfermeria As OleDbParameter = cmd.Parameters.Add("@EliminacionObservacion_PlanEnfermeria", OleDbType.VarChar, 500)
+            inEliminacionObservacion_PlanEnfermeria.Direction = ParameterDirection.Input
+            inEliminacionObservacion_PlanEnfermeria.Value = Me.FichaEnfermeria.PlanEnfermeria.EliminacionObservacion
+
+            Dim inDescansoObservacion_PlanEnfermeria As OleDbParameter = cmd.Parameters.Add("@DescansoObservacion_PlanEnfermeria", OleDbType.VarChar, 500)
+            inDescansoObservacion_PlanEnfermeria.Direction = ParameterDirection.Input
+            inDescansoObservacion_PlanEnfermeria.Value = Me.FichaEnfermeria.PlanEnfermeria.DescansoObservacion
+
+            Dim inHigienePielObservacion_PlanEnfermeria As OleDbParameter = cmd.Parameters.Add("@HigienePielObservacion_PlanEnfermeria", OleDbType.VarChar, 500)
+            inHigienePielObservacion_PlanEnfermeria.Direction = ParameterDirection.Input
+            inHigienePielObservacion_PlanEnfermeria.Value = Me.FichaEnfermeria.PlanEnfermeria.HigienePielObservacion
+
+            Dim inActividadesObservacion_PlanEnfermeria As OleDbParameter = cmd.Parameters.Add("@ActividadesObservacion_PlanEnfermeria", OleDbType.VarChar, 500)
+            inActividadesObservacion_PlanEnfermeria.Direction = ParameterDirection.Input
+            inActividadesObservacion_PlanEnfermeria.Value = Me.FichaEnfermeria.PlanEnfermeria.ActividadesObservacion
+
+            Dim inVestirseObservacion_PlanEnfermeria As OleDbParameter = cmd.Parameters.Add("@VestirseObservacion_PlanEnfermeria", OleDbType.VarChar, 500)
+            inVestirseObservacion_PlanEnfermeria.Direction = ParameterDirection.Input
+            inVestirseObservacion_PlanEnfermeria.Value = Me.FichaEnfermeria.PlanEnfermeria.VestirseObservacion
+
+            Dim inComunicarseObservacion_PlanEnfermeria As OleDbParameter = cmd.Parameters.Add("@ComunicarseObservacion_PlanEnfermeria", OleDbType.VarChar, 500)
+            inComunicarseObservacion_PlanEnfermeria.Direction = ParameterDirection.Input
+            inComunicarseObservacion_PlanEnfermeria.Value = Me.FichaEnfermeria.PlanEnfermeria.ComunicarseObservacion
+
+            Dim inAutoRealizacionObservacion_PlanEnfermeria As OleDbParameter = cmd.Parameters.Add("@AutoRealizacionObservacion_PlanEnfermeria", OleDbType.VarChar, 500)
+            inAutoRealizacionObservacion_PlanEnfermeria.Direction = ParameterDirection.Input
+            inAutoRealizacionObservacion_PlanEnfermeria.Value = Me.FichaEnfermeria.PlanEnfermeria.AutoRealizacionObservacion
+
+            Dim inObjetivo_PlanEnfermeria As OleDbParameter = cmd.Parameters.Add("@Objetivo_PlanEnfermeria", OleDbType.VarChar, 500)
+            inObjetivo_PlanEnfermeria.Direction = ParameterDirection.Input
+            inObjetivo_PlanEnfermeria.Value = Me.FichaEnfermeria.PlanEnfermeria.Objetivo
+
+            Dim inDiagnostico_PlanEnfermeria As OleDbParameter = cmd.Parameters.Add("@Diagnostico_PlanEnfermeria", OleDbType.VarChar, -1)
+            inDiagnostico_PlanEnfermeria.Direction = ParameterDirection.Input
+            inDiagnostico_PlanEnfermeria.Value = Me.FichaEnfermeria.PlanEnfermeria.ToJSONDiagnosticos(Me.FichaEnfermeria.PlanEnfermeria.Diagnostico)
+
+            Dim inIntervencion_PlanEnfermeria As OleDbParameter = cmd.Parameters.Add("@Intervencion_PlanEnfermeria", OleDbType.VarChar, -1)
+            inIntervencion_PlanEnfermeria.Direction = ParameterDirection.Input
+            inIntervencion_PlanEnfermeria.Value = Me.FichaEnfermeria.PlanEnfermeria.ToJSONIntervencion(Me.FichaEnfermeria.PlanEnfermeria.Intervencion)
+
+            Dim inIndicadores_PlanEnfermeria As OleDbParameter = cmd.Parameters.Add("@Indicadores_PlanEnfermeria", OleDbType.VarChar, -1)
+            inIndicadores_PlanEnfermeria.Direction = ParameterDirection.Input
+            inIndicadores_PlanEnfermeria.Value = Me.FichaEnfermeria.PlanEnfermeria.ToJSONIndicador(Me.FichaEnfermeria.PlanEnfermeria.Indicadores)
 
             Dim outError As OleDbParameter = cmd.Parameters.Add("@outError", OleDbType.Integer)
             outError.Direction = ParameterDirection.Output
 
-            Dim outIdKine As OleDbParameter = cmd.Parameters.Add("@outIdKine", OleDbType.Integer)
-            outIdKine.Direction = ParameterDirection.Output
+            Dim outIdEnf As OleDbParameter = cmd.Parameters.Add("@outIdEnf", OleDbType.Integer)
+            outIdEnf.Direction = ParameterDirection.Output
 
             conn.Open()
             cmd.ExecuteReader()
             conn.Close()
 
-            Dim idkine = CInt(cmd.Parameters("@outIdKine").Value)
+            Dim idEnfer = CInt(cmd.Parameters("@outIdEnf").Value)
 
             Return CInt(cmd.Parameters("@outError").Value)
         End Function

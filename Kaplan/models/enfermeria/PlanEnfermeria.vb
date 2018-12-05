@@ -1,4 +1,14 @@
-﻿Namespace Clases
+﻿Imports Newtonsoft.Json
+Namespace Clases
+    Public Class CollectionssDiagnosticos
+        Public Property column As PlanEnfermeriaDiagnostico()
+    End Class
+    Public Class CollectionssIntervencion
+        Public Property column As PlanEnfermeriaIntervencion()
+    End Class
+    Public Class CollectionssIndicador
+        Public Property column As PlanEnfermeriaIndicador()
+    End Class
     Public Class PlanEnfermeria
         Public Property Id As Integer
         Public Property AdeherenciaFarma As Tipos.TipoAdherenciaFarma
@@ -24,5 +34,28 @@
         Public Property Diagnostico As List(Of PlanEnfermeriaDiagnostico)
         Public Property Intervencion As List(Of PlanEnfermeriaIntervencion)
         Public Property Indicadores As List(Of PlanEnfermeriaIndicador)
+
+        Public Function ToJSONDiagnosticos(rows As List(Of PlanEnfermeriaDiagnostico)) As String
+            Dim data As New CollectionssDiagnosticos
+
+            data = New CollectionssDiagnosticos With {.column = rows.ToArray}
+            ToJSONDiagnosticos = JsonConvert.SerializeObject(data)
+            Return ToJSONDiagnosticos
+        End Function
+        Public Function ToJSONIntervencion(rows As List(Of PlanEnfermeriaIntervencion)) As String
+            Dim data As New CollectionssIntervencion
+
+            data = New CollectionssIntervencion With {.column = rows.ToArray}
+            ToJSONIntervencion = JsonConvert.SerializeObject(data)
+            Return ToJSONIntervencion
+        End Function
+        Public Function ToJSONIndicador(rows As List(Of PlanEnfermeriaIndicador)) As String
+            Dim data As New CollectionssIndicador
+
+            data = New CollectionssIndicador With {.column = rows.ToArray}
+            ToJSONIndicador = JsonConvert.SerializeObject(data)
+            Return ToJSONIndicador
+        End Function
+
     End Class
 End Namespace

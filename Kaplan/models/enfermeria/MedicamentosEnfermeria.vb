@@ -6,8 +6,6 @@
         Public Property Observacion As String
         Public Property Dosis As Double
         Public Property Horario As String
-
     End Class
-
 End Namespace
 

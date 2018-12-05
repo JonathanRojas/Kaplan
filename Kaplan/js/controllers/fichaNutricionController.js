@@ -66,7 +66,7 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
                             fichaService.getPaciente(parseInt(fichaService.getRutPaciente()), null).then(function (result) {
                                 $scope.Paciente = result.data;
                                 $scope.Paciente.Persona.FechaNac = moment($scope.Paciente.Persona.FechaNac);
-                                $scope.Ficha = { FichaKinesiologia: { Id: -1, IdReserva: sesion } };
+                                $scope.Ficha = { FichaEnfermeria: { Id: -1, IdReserva: sesion } };
                                 $('#collapseDataPaciente').collapse('show');
                                 waitingDialog.hide();
                             }, function (reason) {

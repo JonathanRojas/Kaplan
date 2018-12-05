@@ -1,5 +1,12 @@
-﻿
+﻿Imports Newtonsoft.Json
 Namespace Clases
+    Public Class CollectionssMedicamentos
+        Public Property column As MedicamentosEnfermeria()
+    End Class
+    Public Class CollectionssEvolucion
+        Public Property column As EvolucionEnfermeria()
+    End Class
+
     Public Class FichaEnfermeria
         Public Property Id As Integer
         Public Property IdReserva As Integer
@@ -81,5 +88,20 @@ Namespace Clases
             End Try
 
         End Function
+        Public Function ToJSONMedicamentos(rows As List(Of MedicamentosEnfermeria)) As String
+            Dim data As New CollectionssMedicamentos
+
+            data = New CollectionssMedicamentos With {.column = rows.ToArray}
+            ToJSONMedicamentos = JsonConvert.SerializeObject(data)
+            Return ToJSONMedicamentos
+        End Function
+        Public Function ToJSONEvolucion(rows As List(Of EvolucionEnfermeria)) As String
+            Dim data As New CollectionssEvolucion
+
+            data = New CollectionssEvolucion With {.column = rows.ToArray}
+            ToJSONEvolucion = JsonConvert.SerializeObject(data)
+            Return ToJSONEvolucion
+        End Function
+
     End Class
 End Namespace
