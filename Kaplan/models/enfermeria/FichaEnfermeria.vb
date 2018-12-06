@@ -35,54 +35,36 @@ Namespace Clases
         Public Property ExamenFisicoEnfermeria As ExamenFisicoEnfermeria
         Public Property EvolucionEnfermeria As List(Of EvolucionEnfermeria)
         Public Property PlanEnfermeria As PlanEnfermeria
-        Public Shared Function MapeoFichaKine(prmDatos As DataTable) As FichaKinesiologia
+        Public Shared Function MapeoFichaEnfermeria(prmDatos As DataTable) As FichaEnfermeria
             Try
-                Dim vKinesiologia As New FichaKinesiologia
+                Dim vEnfermeria As New FichaEnfermeria
 
                 Dim prmRow As DataRow = prmDatos.Rows(0)
 
-                vKinesiologia.Id = prmRow("id_ficha_kine").ToString
-                vKinesiologia.IdReserva = prmRow("id_reserva").ToString
-                vKinesiologia.Riesgo = prmRow("riesgo").ToString
-                vKinesiologia.TipoEvaluacion = prmRow("tipo_evaluacion").ToString
+                vEnfermeria.Id = prmRow("id_ficha_enf").ToString
+                vEnfermeria.IdReserva = prmRow("id_reserva").ToString
+                vEnfermeria.Diagnostico = prmRow("diagnostico").ToString
+                vEnfermeria.TipoEvaluacion = prmRow("tipo_evaluacion").ToString
 
-                Dim vERGOESPIROMETRIA As New Ergoespirometria
-                vERGOESPIROMETRIA.EFechaEgreso = prmRow("ergo_fecha_egr").ToString
-                vERGOESPIROMETRIA.EFechaIngreso = prmRow("ergo_fecha_ing").ToString
-                vERGOESPIROMETRIA.VO2LEgreso = Double.Parse(prmRow("ergo_vol_egr"))
-                vERGOESPIROMETRIA.VO2LIngreso = Double.Parse(prmRow("ergo_vol_ing"))
-                vERGOESPIROMETRIA.VO2MEgreso = Double.Parse(prmRow("ergo_voml_egr"))
-                vERGOESPIROMETRIA.VO2MIngreso = Double.Parse(prmRow("ergo_voml_ing"))
-                vERGOESPIROMETRIA.FCEgreso = Double.Parse(prmRow("ergo_fcmax_egr"))
-                vERGOESPIROMETRIA.FCIngreso = Double.Parse(prmRow("ergo_fcmax_ing"))
-                vERGOESPIROMETRIA.PulsoEgreso = Double.Parse(prmRow("ergo_pulso_egr"))
-                vERGOESPIROMETRIA.PulsoIngreso = Double.Parse(prmRow("ergo_pulso_ing"))
-                vERGOESPIROMETRIA.VEEgreso = Double.Parse(prmRow("ergo_ve_egr"))
-                vERGOESPIROMETRIA.VEIngreso = Double.Parse(prmRow("ergo_ve_ing"))
-                vERGOESPIROMETRIA.METSEgreso = Double.Parse(prmRow("ergo_mets_egr"))
-                vERGOESPIROMETRIA.METSIngreso = Double.Parse(prmRow("ergo_mets_ing"))
-                vKinesiologia.ERGOESPIROMETRIA = vERGOESPIROMETRIA
+                vEnfermeria.CxProced = prmRow("cx_proced").ToString
+                vEnfermeria.FechaDiagnostico = prmRow("diag_fecha").ToString
+                vEnfermeria.FechaCxProced = prmRow("cx_pro_fecha").ToString
+                vEnfermeria.FechaAlta = prmRow("fecha_alta").ToString
+                vEnfermeria.Controles = prmRow("controles").ToString
+                vEnfermeria.Procedencia = prmRow("procedencia").ToString
+                vEnfermeria.HeridaCX = prmRow("heridacx").ToString
+                vEnfermeria.HTA = Tipos.TipoHTA.getTipo(prmRow("fr_hta"))
+                vEnfermeria.DM = Tipos.TipoDM.getTipo(prmRow("fr_dm"))
+                vEnfermeria.DLP = Tipos.TipoDLP.getTipo(prmRow("fr_dlp"))
+                vEnfermeria.SED = Tipos.TipoSED.getTipo(prmRow("fr_sed"))
+                vEnfermeria.SPOB = Tipos.TipoSPOB.getTipo(prmRow("fr_spob"))
+                vEnfermeria.TB = Tipos.TipoTB.getTipo(prmRow("fr_tb"))
+                vEnfermeria.OH = Tipos.TipoOH.getTipo(prmRow("fr_oh"))
+                vEnfermeria.AF = Tipos.TipoAF.getTipo(prmRow("fr_af"))
+                vEnfermeria.Estres = Tipos.TipoEstres.getTipo(prmRow("fr_estres"))
+                vEnfermeria.Intervencion = prmRow("intervencion").ToString
 
-                Dim vSHUTTLE As New Shuttle
-                vSHUTTLE.EFechaEgreso = prmRow("shu_fecha_egr").ToString
-                vSHUTTLE.EFechaIngreso = prmRow("shu_fecha_ing").ToString
-                vSHUTTLE.METROSEgreso = Double.Parse(prmRow("shu_mts_egr"))
-                vSHUTTLE.METROSIngreso = Double.Parse(prmRow("shu_mts_ing"))
-                vSHUTTLE.NIVELEgreso = Double.Parse(prmRow("shu_niv_egr"))
-                vSHUTTLE.NIVELIngreso = Double.Parse(prmRow("shu_niv_ing"))
-                vSHUTTLE.VO2MEgreso = Double.Parse(prmRow("shu_vol_egr"))
-                vSHUTTLE.VO2MIngreso = Double.Parse(prmRow("shu_vol_ing"))
-                vSHUTTLE.METSEgreso = Double.Parse(prmRow("shu_mets_egr"))
-                vSHUTTLE.METSIngreso = Double.Parse(prmRow("shu_mets_ing"))
-                vSHUTTLE.FCEgreso = Double.Parse(prmRow("shu_fcmax_egr"))
-                vSHUTTLE.FCIngreso = Double.Parse(prmRow("shu_fcmax_ing"))
-                vSHUTTLE.FCMTEgreso = Double.Parse(prmRow("shu_fcmt_egr"))
-                vSHUTTLE.FCMTIngreso = Double.Parse(prmRow("shu_fcmt_ing"))
-                vSHUTTLE.METSMAXEgreso = Double.Parse(prmRow("shu_metsmax_egr"))
-                vSHUTTLE.METSMAXIngreso = Double.Parse(prmRow("shu_metsmax_ing"))
-                vKinesiologia.SHUTTLE = vSHUTTLE
-
-                Return vKinesiologia
+                Return vEnfermeria
             Catch ex As Exception
                 Return Nothing
             End Try

@@ -569,17 +569,20 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
         $scope.CambiarSesion = function (sesion) {
             if (typeof sesion !== 'undefined') {
                 waitingDialog.show('Cargando Ficha...', { dialogSize: 'sm' });
-                fichaService.getFichaKinesiologiasxReserva(sesion).then(function (result) {
+                fichaService.getFichaEnfermeriaxReserva(sesion).then(function (result) {
                     if (result.data.length !== 0) {
                         $scope.Ficha = result.data;
-                        $scope.Ficha.FichaKinesiologia.ERGOESPIROMETRIA.EFechaIngreso = moment($scope.Ficha.FichaKinesiologia.ERGOESPIROMETRIA.EFechaIngreso);
-                        $scope.Ficha.FichaKinesiologia.ERGOESPIROMETRIA.EFechaEgreso = moment($scope.Ficha.FichaKinesiologia.ERGOESPIROMETRIA.EFechaEgreso);
-                        $scope.Ficha.FichaKinesiologia.SHUTTLE.EFechaIngreso = moment($scope.Ficha.FichaKinesiologia.SHUTTLE.EFechaIngreso);
-                        $scope.Ficha.FichaKinesiologia.SHUTTLE.EFechaEgreso = moment($scope.Ficha.FichaKinesiologia.SHUTTLE.EFechaEgreso);
-                        $scope.Ficha.FichaKinesiologia.EvolucionIngresoKine.Fecha = moment($scope.Ficha.FichaKinesiologia.EvolucionIngresoKine.Fecha);
-                        $scope.Ficha.FichaKinesiologia.EvolucionEgresoKine.Fecha = moment($scope.Ficha.FichaKinesiologia.EvolucionEgresoKine.Fecha);
-                        $scope.columnsO = $scope.Ficha.FichaKinesiologia.PlanKinesico.Objetivo;
-                        $scope.columnsD = $scope.Ficha.FichaKinesiologia.PlanKinesico.Diagnostico;
+                        $scope.columnsMedicamentos = $scope.Ficha.FichaEnfermeria.MedicamentosEnfermeria;
+                        $scope.columnsEvolucion = $scope.Ficha.FichaEnfermeria.EvolucionEnfermeria;
+                        for (i = 0; i < $scope.columnsEvolucion.length; i++) {
+                            $scope.columnsEvolucion[i].Fecha = moment($scope.columnsEvolucion[i].Fecha);
+                        }
+                        $scope.columnsDiagnostico = $scope.Ficha.FichaEnfermeria.PlanEnfermeria.Diagnostico;
+                        $scope.columnsIntervenciones = $scope.Ficha.FichaEnfermeria.PlanEnfermeria.Intervencion;
+                        $scope.columnsIndicadores = $scope.Ficha.FichaEnfermeria.PlanEnfermeria.Indicadores;
+                        $scope.Ficha.FichaEnfermeria.FechaDiagnostico = moment($scope.Ficha.FichaEnfermeria.FechaDiagnostico);
+                        $scope.Ficha.FichaEnfermeria.FechaCxProced = moment($scope.Ficha.FichaEnfermeria.FechaCxProced);
+                        $scope.Ficha.FichaEnfermeria.FechaAlta = moment($scope.Ficha.FichaEnfermeria.FechaAlta);                
                         fichaService.getPaciente(parseInt(fichaService.getRutPaciente()), null).then(function (result) {
                             $scope.Paciente = result.data;
                             $scope.Paciente.Persona.FechaNac = moment($scope.Paciente.Persona.FechaNac);
@@ -603,7 +606,7 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
                             fichaService.getPaciente(parseInt(fichaService.getRutPaciente()), null).then(function (result) {
                                 $scope.Paciente = result.data;
                                 $scope.Paciente.Persona.FechaNac = moment($scope.Paciente.Persona.FechaNac);
-                                $scope.Ficha = { FichaKinesiologia: { Id: -1, IdReserva: sesion } };
+                                $scope.Ficha = { FichaEnfermeria: { Id: -1, IdReserva: sesion } };
                                 $('#collapseDataPaciente').collapse('show');
                                 waitingDialog.hide();
                             }, function (reason) {

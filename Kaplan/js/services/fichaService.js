@@ -172,7 +172,7 @@
         $http({
             method: "GET",
             async: true,
-            url: 'doGet.asmx/getFichaKinesiologiasxReserva?intReserva=' + id
+            url: 'doGet.asmx/getFichaEnfermeriaxReserva?intReserva=' + id
         }).then(onSuccess, onFailure);
         function onSuccess(response) {
             if (response.data.result)

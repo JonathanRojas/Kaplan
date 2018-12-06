@@ -578,6 +578,61 @@ Namespace Clases
         End Function
 #End Region
 #Region "Enfermeria"
+        Public Shared Function getFichaEnfermeria(inId As Integer, ByRef NoData As Boolean) As Ficha
+            Try
+                Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
+                Dim cmd As OleDbCommand = New OleDbCommand("BuscarFichaEnfermeriaxReserva", conn)
+                cmd.CommandType = CommandType.StoredProcedure
+
+                Dim id As OleDbParameter = cmd.Parameters.Add("@inId", OleDbType.Decimal, Nothing)
+                id.Direction = ParameterDirection.Input
+                id.Value = inId
+
+                Dim adapter As OleDbDataAdapter = New OleDbDataAdapter(cmd)
+                Dim vDataSet As New DataSet
+                adapter.Fill(vDataSet)
+                If Not vDataSet.Tables(0).Rows.Count.Equals(0) Then
+                    getFichaEnfermeria = MapeoFichaEnfermeria(vDataSet)
+                End If
+
+                If vDataSet.Tables(0).Rows.Count = 0 Then NoData = True
+
+                Return getFichaEnfermeria
+
+            Catch exc As Exception
+                Return Nothing
+            End Try
+
+        End Function
+        Private Shared Function MapeoFichaEnfermeria(prmDatos As DataSet) As Ficha
+            Try
+                Dim vficha As New Ficha
+                Dim vEnfermeria As New FichaEnfermeria
+                Dim vMedicamentos As New MedicamentosEnfermeria
+                Dim vAnamnesis As New AnamnesisEnfermeria
+                Dim vExamenFisico As New ExamenFisicoEnfermeria
+                Dim vEvolucion As New EvolucionEnfermeria
+                Dim vPlanEnfermeria As New PlanEnfermeria
+                Dim vPlanDiagnostico As New PlanEnfermeriaDiagnostico
+                Dim vPlanIntervencion As New PlanEnfermeriaIntervencion
+                Dim vPlanIndicador As New PlanEnfermeriaIndicador
+
+                vficha.FichaEnfermeria = vEnfermeria.MapeoFichaEnfermeria(prmDatos.Tables(0))
+                vficha.FichaEnfermeria.MedicamentosEnfermeria = vMedicamentos.MapeoMedicamentos(prmDatos.Tables(1))
+                vficha.FichaEnfermeria.AnamnesisEnfermeria = vAnamnesis.MapeoAnamnesis(prmDatos.Tables(2))
+                vficha.FichaEnfermeria.ExamenFisicoEnfermeria = vExamenFisico.MapeoExamenFisico(prmDatos.Tables(3))
+                vficha.FichaEnfermeria.EvolucionEnfermeria = vEvolucion.MapeoEvolucion(prmDatos.Tables(4))
+                vficha.FichaEnfermeria.PlanEnfermeria = vPlanEnfermeria.MapeoPlanEnfermeria(prmDatos.Tables(5))
+                vficha.FichaEnfermeria.PlanEnfermeria.Diagnostico = vPlanDiagnostico.MapeoDiagnostico(prmDatos.Tables(6))
+                vficha.FichaEnfermeria.PlanEnfermeria.Intervencion = vPlanIntervencion.MapeoIntervencion(prmDatos.Tables(7))
+                vficha.FichaEnfermeria.PlanEnfermeria.Indicadores = vPlanIndicador.MapeoIndicador(prmDatos.Tables(8))
+                Return vficha
+            Catch ex As Exception
+                Return Nothing
+            End Try
+
+        End Function
+
         Public Function registrarFichaEnfermeria() As Boolean
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
             Dim cmd As OleDbCommand = New OleDbCommand("RegistrarFichaEnfermeria", conn)
@@ -589,7 +644,7 @@ Namespace Clases
 
             Dim inIdEnfer As OleDbParameter = cmd.Parameters.Add("@id_ficha_Enfermeria", OleDbType.Decimal, Nothing)
             inIdEnfer.Direction = ParameterDirection.Input
-            inIdEnfer.Value = -1 'Me.FichaEnfermeria.Id
+            inIdEnfer.Value = Me.FichaEnfermeria.Id
 
             Dim inid_reserva As OleDbParameter = cmd.Parameters.Add("@id_reserva", OleDbType.Decimal, Nothing)
             inid_reserva.Direction = ParameterDirection.Input
