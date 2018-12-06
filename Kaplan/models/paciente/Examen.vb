@@ -9,42 +9,84 @@ Namespace Clases
         Public Property Paciente As Integer
         Public Property Nombre As String
         Public Property Especialista As Integer
+        Public Property EspecialistaNombre As String
         Public Property Fecha As Date
+        Public Property Formato As String
         Public Property Descripcion As String
         Public ReadOnly Property FechaString As String
             Get
                 Return Fecha.ToString("dd MMM yyyy")
             End Get
         End Property
-        Public Function registrarExamen(archivo As Byte(), formato As String) As Boolean
+        Private Shared Function Mapeo(prmRow As DataRow) As Examen
+            Try
+                Dim vExamen As New Examen
+                vExamen.Id = prmRow("ID")
+                vExamen.Nombre = prmRow("Nombre")
+                vExamen.Descripcion = prmRow("Descripcion")
+                vExamen.Fecha = prmRow("Fecha")
+                vExamen.EspecialistaNombre = prmRow("EspecialistaNombre")
+                vExamen.Formato = prmRow("Formato")
+                Return vExamen
+
+            Catch ex As Exception
+                Return Nothing
+            End Try
+        End Function
+        Public Shared Function getExamenes() As List(Of Examen)
+            Try
+                Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
+                Dim cmd As OleDbCommand = New OleDbCommand("ListadoExamenes", conn)
+                cmd.CommandType = CommandType.StoredProcedure
+
+                conn.Open()
+                Dim adapter As OleDbDataAdapter = New OleDbDataAdapter(cmd)
+                Dim vDataTable As New DataTable
+                adapter.Fill(vDataTable)
+                getExamenes = New List(Of Examen)
+                For Each vRow As DataRow In vDataTable.Rows
+                    getExamenes.Add(Mapeo(vRow))
+                Next
+                conn.Close()
+                Return getExamenes
+            Catch exc As Exception
+                Return Nothing
+            End Try
+
+        End Function
+        Public Function registrarExamen(NombreArchivo As String, archivo As Byte(), formato As String) As Boolean
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
                 Dim cmd As OleDbCommand = New OleDbCommand("RegistrarExamen", conn)
                 cmd.CommandType = CommandType.StoredProcedure
 
-                Dim Id As OleDbParameter = cmd.Parameters.Add("@inId", OleDbType.Decimal, Nothing)
-                Id.Direction = ParameterDirection.Input
-                Id.Value = 1
+                Dim inPaciente As OleDbParameter = cmd.Parameters.Add("@inPaciente", OleDbType.Decimal, Nothing)
+                inPaciente.Direction = ParameterDirection.Input
+                inPaciente.Value = Me.Paciente
 
-                Dim Paciente As OleDbParameter = cmd.Parameters.Add("@inPaciente", OleDbType.Decimal, Nothing)
-                Paciente.Direction = ParameterDirection.Input
-                Paciente.Value = 1
+                Dim inEspecialista As OleDbParameter = cmd.Parameters.Add("@inEspecialista", OleDbType.Decimal, Nothing)
+                inEspecialista.Direction = ParameterDirection.Input
+                inEspecialista.Value = Me.Especialista
 
-                Dim Especialista As OleDbParameter = cmd.Parameters.Add("@inEspecialista", OleDbType.Decimal, Nothing)
-                Especialista.Direction = ParameterDirection.Input
-                Especialista.Value = 1
+                Dim inNombre As OleDbParameter = cmd.Parameters.Add("@inNombre", OleDbType.VarChar, 250)
+                inNombre.Direction = ParameterDirection.Input
+                inNombre.Value = Me.Nombre
 
                 Dim inFecha As OleDbParameter = cmd.Parameters.Add("@inFecha", OleDbType.Date, Nothing)
                 inFecha.Direction = ParameterDirection.Input
-                inFecha.Value = Fecha
+                inFecha.Value = Me.Fecha
 
-                Dim Documento As OleDbParameter = cmd.Parameters.Add("@inArchivo", OleDbType.VarBinary, -1)
-                Documento.Direction = ParameterDirection.Input
-                Documento.Value = archivo
+                Dim inArchivo As OleDbParameter = cmd.Parameters.Add("@inArchivo", OleDbType.LongVarBinary, -1)
+                inArchivo.Direction = ParameterDirection.Input
+                inArchivo.Value = archivo
 
-                Dim Descripcion As OleDbParameter = cmd.Parameters.Add("@inDescripcion", OleDbType.VarChar, 500)
-                Descripcion.Direction = ParameterDirection.Input
-                Descripcion.Value = ""
+                Dim inFormato As OleDbParameter = cmd.Parameters.Add("@inFormato", OleDbType.VarChar, 250)
+                inFormato.Direction = ParameterDirection.Input
+                inFormato.Value = formato
+
+                Dim inDescripcion As OleDbParameter = cmd.Parameters.Add("@inDescripcion", OleDbType.VarChar, 250)
+                inDescripcion.Direction = ParameterDirection.Input
+                inDescripcion.Value = Me.Descripcion
 
                 Dim outError As OleDbParameter = cmd.Parameters.Add("@outError", OleDbType.Integer)
                 outError.Direction = ParameterDirection.Output

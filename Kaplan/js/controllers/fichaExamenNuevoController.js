@@ -1,5 +1,5 @@
-﻿app.controller("fichaExamenNuevoController", ['$scope', 'ModalService','Notification', 'examenService', 'id', "$element", 'close',
-function ($scope, ModalService, Notification, examenService, id, $element, close) {
+﻿app.controller("fichaExamenNuevoController", ['$scope', 'ModalService','Notification', 'examenService', 'id', "$element", 'close', 'fichaService', 'LoginService',
+function ($scope, ModalService, Notification, examenService, id, $element, close, fichaService, LoginService) {
 
     $scope.loading = true;
     $scope.StopLoading = function () {
@@ -12,13 +12,18 @@ function ($scope, ModalService, Notification, examenService, id, $element, close
 
     $scope.registrarExamen = function () {
         $scope.saving = true;
+        waitingDialog.show('Guardando Examen...', { dialogSize: 'sm' });
+        $scope.Examen.Paciente = fichaService.getRutPaciente();
+        $scope.Examen.Especialista = LoginService.getIdEspecialista();
         examenService.registrarExamen($scope.Examen, $scope.examenFile).then(function (result) {
+            waitingDialog.hide();
             $element.modal('hide');
             close(true, 500);
         }, function (reason) {
-            msg = { title: 'Error registrando Examen' };
+            msg = { title: reason.message };
             Notification.error(msg);
             $scope.saving = false;
+            waitingDialog.hide();
         });
     };
     $scope.close = function (result) {

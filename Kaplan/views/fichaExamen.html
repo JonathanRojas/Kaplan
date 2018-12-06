@@ -6,7 +6,7 @@
                 <!-- Tab panes -->
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane fade in active" id="home-tab">
-                        <form class="form-horizontal mb20" name="frmEspecialista" id="contact" ng-submit="registrarEspecialista()" role="form" ng-disabled="true">
+                        <form class="form-horizontal mb20" name="frmExamen" id="contact"  role="form" ng-disabled="true">
                             <div class="section-title text-center">
                                 <h2 class="animated hidden-xs" data-animation="bounceInLeft">Exámenes</h2>
                                 <p class="text-blue animated hidden-xs" data-animation="bounceInLeft">
@@ -16,16 +16,7 @@
                                     Agregar Exámen
                                 </a>
                             </div>
-
                             <span class="clearfix"></span>
-                            <div ng-class="{hidden: !loading}">
-                                <h5>Cargando Especialistas... <i class="fa fa-users hidden-xs" aria-hidden="true"></i></h5>
-                                <div class="progress">
-                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%; background-color: #32b8da;">
-                                        <span class="sr-only">Cargando datos...</span>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="row" ng-class="{hidden: loading}">
                                 <div class="col-xs-12">
                                     <div class="table-responsive">
@@ -33,21 +24,23 @@
                                             <thead>
                                                 <tr>
                                                     <th>Nombre</th>                                                    
-                                                    <th>Especialidad</th>
-                                                    <th>Especialista</th>
                                                     <th>Descripción</th>
+                                                    <th>Fecha Examen</th>
                                                     <th>Formato</th>
-                                                    <th></th>
+                                                    <th>Guardado por</th>
+                                                    <th>Descargar</th>
+                                                    <th>Eliminar</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr dir-paginate="examen in Examenes | itemsPerPage: 6" pagination-id="pag_examen">
-                                                    <td>{{examen.Nombre.Rut}}</td>
-                                                    <td>{{examen.Especialidad}}</td>
-                                                    <td>{{examen.Especialista}}</td>
+                                                <tr dir-paginate="examen in Examenes | itemsPerPage: 20" pagination-id="pag_examen">
+                                                    <td>{{examen.Nombre}}</td>
                                                     <td>{{examen.Descripcion}}</td>
+                                                    <td>{{examen.FechaString}}</td>
                                                     <td>{{examen.Formato}}</td>
-                                                    <td><button type="button" title="Modificar" class="btn small-xs blue" ng-click="Descargar(examen.Id)" aria-label="Left Align"><i class="fa fa-edit"></i></button></td>
+                                                    <td>{{examen.EspecialistaNombre}}</td>
+                                                    <td><button type="button" title="Descargar" class="btn small-xs blue" ng-click="Descargar(examen.Id)" aria-label="Center Align"><i class="fa fa-edit"></i></button></td>
+                                                    <td><button type="button" title="Eliminar" class="btn small-xs red" ng-click="Eliminar(examen.Id)" aria-label="Center Align"><i class="fa fa-remove"></i></button></td>
                                                 </tr>
                                             </tbody>
                                         </table>

@@ -54,14 +54,19 @@ Public Class doPost
             vDocumento.InputStream.Read(contenidoDoc, 0, vDocumento.ContentLength)
         End If
 
-
         Dim vResult As New httpResult
-
-        If vExamen.registrarExamen(contenidoDoc, formato) Then
-            vResult.result = True
+        If vDocumento IsNot Nothing Then
+            If vExamen.registrarExamen(vDocumento.FileName, contenidoDoc, formato) Then
+                vResult.result = True
+            Else
+                vResult.result = False
+                vResult.errorcode = 1
+                vResult.message = "Error guardando Examen"
+            End If
         Else
             vResult.result = False
-            vResult.message = "Error cargando factura"
+            vResult.errorcode = 1
+            vResult.message = "Debe Seleccionar un documento"
         End If
 
         Context.Response.Write(js.Serialize(vResult))
