@@ -98,9 +98,7 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="reports\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
     <Import Include="System" />
@@ -171,6 +169,8 @@
     <Content Include="js\controllers\defaultController.js" />
     <Content Include="js\controllers\fichaController.js" />
     <Content Include="js\controllers\fichaEnfermeriaController.js" />
+    <Content Include="js\controllers\fichaExamenController.js" />
+    <Content Include="js\controllers\fichaExamenNuevoController.js" />
     <Content Include="js\controllers\fichaKinesiologiaController.js" />
     <Content Include="js\controllers\fichaNutricionController.js" />
     <Content Include="js\controllers\fichaPsicologiaController.js" />
@@ -195,13 +195,17 @@
     <Content Include="js\script\md5.js" />
     <Content Include="js\script\moment-with-locales.js" />
     <Content Include="js\script\table2excel.js" />
+    <Content Include="js\services\examenService.js" />
     <Content Include="js\services\fichaService.js" />
     <Content Include="js\services\loginService.js" />
     <Content Include="js\services\tipoService.js" />
     <Content Include="js\services\WindowsService.js" />
     <Content Include="login.html" />
+    <Content Include="reports\verExamen.aspx" />
     <Content Include="views\ficha.html" />
     <Content Include="views\fichaEnfermeria.html" />
+    <Content Include="views\fichaExamen.html" />
+    <Content Include="views\fichaExamenNuevo.html" />
     <Content Include="views\fichaKinesiologia.html" />
     <Content Include="views\fichaNutricion.html" />
     <Content Include="views\fichaPsicologia.html" />
@@ -261,6 +265,7 @@
     <Compile Include="models\kinesiologia\Ergoespirometria.vb" />
     <Compile Include="models\kinesiologia\EvolucionEgresoKine.vb" />
     <Compile Include="models\kinesiologia\EvolucionIngresoKine.vb" />
+    <Compile Include="models\paciente\Examen.vb" />
     <Compile Include="models\paciente\Ficha.vb" />
     <Compile Include="models\kinesiologia\FichaKinesiologia.vb" />
     <Compile Include="models\psicologia\FichaPsicologia.vb" />
@@ -351,6 +356,14 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="models\paciente\Persona.vb" />
+    <Compile Include="reports\Documento.vb" />
+    <Compile Include="reports\verExamen.aspx.designer.vb">
+      <DependentUpon>verExamen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="reports\verExamen.aspx.vb">
+      <DependentUpon>verExamen.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

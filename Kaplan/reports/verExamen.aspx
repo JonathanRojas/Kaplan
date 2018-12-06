@@ -1,0 +1,1 @@
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="verExamen.aspx.vb" Inherits="Kaplan.verExamen" %>

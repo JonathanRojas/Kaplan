@@ -99,10 +99,13 @@
     <script src="js/controllers/fichaKinesiologiaController.js"></script>
     <script src="js/controllers/fichaPsicologiaController.js"></script>
     <script src="js/controllers/fichaNutricionController.js"></script>
+    <script src="js/controllers/fichaExamenController.js"></script>
+    <script src="js/controllers/fichaExamenNuevoController.js"></script>
     <script src="js/controllers/loginController.js"></script>
     <script src="js/controllers/inicioController.js"></script>
 
     <script src="js/services/fichaService.js"></script>
+    <script src="js/services/examenService.js"></script>
     <script src="js/services/tipoService.js"></script>
     <script src="js/services/loginService.js"></script>
     <script src="js/services/WindowsService.js"></script>
