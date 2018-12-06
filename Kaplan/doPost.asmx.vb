@@ -39,6 +39,36 @@ Public Class doPost
 
         Return ""
     End Function
+    <WebMethod(EnableSession:=True)>
+    Public Function registrarExamen() As String
+        Dim js As New JavaScriptSerializer
+        Dim formato As String
+        Dim contenidoDoc() As Byte = Nothing
+
+        Dim vExamen As Examen = js.Deserialize(Context.Request.Form("Examen"), GetType(Examen))
+        Dim vDocumento As HttpPostedFile = Context.Request.Files("documento")
+
+        If vDocumento IsNot Nothing Then
+            formato = vDocumento.ContentType
+            ReDim contenidoDoc(vDocumento.ContentLength)
+            vDocumento.InputStream.Read(contenidoDoc, 0, vDocumento.ContentLength)
+        End If
+
+
+        Dim vResult As New httpResult
+
+        If vExamen.registrarExamen(contenidoDoc, formato) Then
+            vResult.result = True
+        Else
+            vResult.result = False
+            vResult.message = "Error cargando factura"
+        End If
+
+        Context.Response.Write(js.Serialize(vResult))
+        Context.Response.End()
+
+        Return ""
+    End Function
 #End Region
 
 #Region "Kinesiología"

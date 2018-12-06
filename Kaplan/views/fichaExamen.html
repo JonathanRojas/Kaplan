@@ -1,0 +1,66 @@
+﻿<section id="suggestions" class="doted-bg1" ng-controller="fichaExamenController">
+    <div class="container effect8  nopadding">
+        <!-- Row -->
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="home-tab">
+                        <form class="form-horizontal mb20" name="frmEspecialista" id="contact" ng-submit="registrarEspecialista()" role="form" ng-disabled="true">
+                            <div class="section-title text-center">
+                                <h2 class="animated hidden-xs" data-animation="bounceInLeft">Exámenes</h2>
+                                <p class="text-blue animated hidden-xs" data-animation="bounceInLeft">
+                                    Listado Exámenes
+                                </p>
+                                <a class="btn small pull-left mb40" ng-click="NuevoExamen()" role="button">
+                                    Agregar Exámen
+                                </a>
+                            </div>
+
+                            <span class="clearfix"></span>
+                            <div ng-class="{hidden: !loading}">
+                                <h5>Cargando Especialistas... <i class="fa fa-users hidden-xs" aria-hidden="true"></i></h5>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%; background-color: #32b8da;">
+                                        <span class="sr-only">Cargando datos...</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" ng-class="{hidden: loading}">
+                                <div class="col-xs-12">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Nombre</th>                                                    
+                                                    <th>Especialidad</th>
+                                                    <th>Especialista</th>
+                                                    <th>Descripción</th>
+                                                    <th>Formato</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr dir-paginate="examen in Examenes | itemsPerPage: 6" pagination-id="pag_examen">
+                                                    <td>{{examen.Nombre.Rut}}</td>
+                                                    <td>{{examen.Especialidad}}</td>
+                                                    <td>{{examen.Especialista}}</td>
+                                                    <td>{{examen.Descripcion}}</td>
+                                                    <td>{{examen.Formato}}</td>
+                                                    <td><button type="button" title="Modificar" class="btn small-xs blue" ng-click="Descargar(examen.Id)" aria-label="Left Align"><i class="fa fa-edit"></i></button></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <dir-pagination-controls pagination-id="pag_examen" boundary-links="true" direction-links="true">	</dir-pagination-controls>
+                                    </div>
+                                </div>
+                            </div>                            
+                        </form>
+                        <span class="clearfix"></span>
+                    </div>
+                </div>
+            </div>
+            <!-- ./end Tab Content -->
+        </div>
+    </div>
+</section>
