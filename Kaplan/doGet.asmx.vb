@@ -91,6 +91,24 @@ Public Class doGet
         Context.Response.End()
         Return ""
     End Function
+    <WebMethod(EnableSession:=True)>
+    Public Function getPacientesFiltro() As String
+        Dim vTipos As List(Of TipoPacienteFiltro) = TipoPacienteFiltro.getTipos
+        Dim js As New JavaScriptSerializer
+        Dim vResult As New httpResult
+        If Not IsNothing(vTipos) Then
+            vResult.result = True
+            vResult.data = vTipos
+        Else
+            vResult.result = False
+            vResult.data = vTipos
+        End If
+
+        Context.Response.Write(js.Serialize(vResult))
+
+        Context.Response.End()
+        Return ""
+    End Function
 #End Region
 #Region "Kinesiología"
     <WebMethod(EnableSession:=True)>

@@ -163,6 +163,8 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
                             fichaService.getPaciente(parseInt(fichaService.getRutPaciente()), null).then(function (result) {
                                 $scope.Paciente = result.data;
                                 $scope.Paciente.Persona.FechaNac = moment($scope.Paciente.Persona.FechaNac);
+                                $scope.columnsO = [{ colId: 'col1', Tipo: { ID: '' }, Id: -1 }];
+                                $scope.columnsD = [{ colId: 'col1', Tipo: { ID: '' }, Id: -1 }];
                                 $scope.Ficha = {FichaKinesiologia: { Id: -1, IdReserva: sesion }};
                                 $('#collapseDataPaciente').collapse('show');
                                 waitingDialog.hide();
@@ -193,6 +195,7 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
 
         $scope.SaveFicha = function () {
             if ($scope.ValidarForm()) {
+                $scope.Ficha.Id = fichaService.getidFicha();
                 $scope.Ficha.Fecha = moment($scope.Ficha.Fecha);
                 $scope.Paciente.Persona.FechaNac = moment($scope.Paciente.Persona.FechaNac);
                 $scope.Ficha.FichaKinesiologia.PlanKinesico.Diagnostico = $scope.columnsD;

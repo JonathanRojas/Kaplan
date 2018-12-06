@@ -119,6 +119,7 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
         }
         $scope.SaveFicha = function () {
             if ($scope.ValidarForm()) {
+                $scope.Ficha.Id = fichaService.getidFicha();
                 $scope.Ficha.Fecha = moment($scope.Ficha.Fecha);
                 $scope.Paciente.Persona.FechaNac = moment($scope.Paciente.Persona.FechaNac);
                 $scope.Ficha.FichaNutricion.IdEspecialista = parseInt(LoginService.getIdEspecialista())

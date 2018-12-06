@@ -8,6 +8,7 @@ Namespace Clases
         Public Property Id As Integer
         Public Property Estado As Integer
         Public Property Persona As Persona
+        Public Property IdFicha As Integer
 
         Public Shared Function getPaciente(inRut As Integer, strPasaporte As String, ByRef NoData As Boolean) As Paciente
 
@@ -61,6 +62,7 @@ Namespace Clases
                 vPaciente.Persona.Telefono = prmRow("telefono").ToString
                 vPaciente.Persona.Movil = prmRow("movil").ToString
                 vPaciente.Persona.SituacionLaboral = prmRow("situacion_laboral").ToString
+                vPaciente.IdFicha = prmRow("id_ficha").ToString
 
                 Return vPaciente
             Catch ex As Exception

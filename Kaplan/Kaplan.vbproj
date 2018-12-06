@@ -194,6 +194,7 @@
     <Content Include="js\script\main.js" />
     <Content Include="js\script\md5.js" />
     <Content Include="js\script\moment-with-locales.js" />
+    <Content Include="js\script\select2.min.js" />
     <Content Include="js\script\table2excel.js" />
     <Content Include="js\services\fichaService.js" />
     <Content Include="js\services\loginService.js" />
@@ -263,6 +264,7 @@
     <Compile Include="models\kinesiologia\EvolucionIngresoKine.vb" />
     <Compile Include="models\paciente\Ficha.vb" />
     <Compile Include="models\kinesiologia\FichaKinesiologia.vb" />
+    <Compile Include="models\paciente\TipoPacienteFiltro.vb" />
     <Compile Include="models\psicologia\FichaPsicologia.vb" />
     <Compile Include="models\psicologia\Had.vb" />
     <Compile Include="models\otros\httpResult.vb" />

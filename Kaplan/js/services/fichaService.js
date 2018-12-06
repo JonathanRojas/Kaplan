@@ -22,14 +22,26 @@
 
     };
 
-    FichaServ.getPacienteLocal = function (rut) {
+    FichaServ.getPacienteLocal = function (rut, ficha) {
         WindowsService.setVariable('isValid', true);
         WindowsService.setVariable('v_rutpaciente', rut);
+        WindowsService.setVariable('v_ficha', ficha)
+        return true;
+    };
+
+    FichaServ.getLimpiarPacienteLocal = function (rut, ficha) {
+        window.localStorage.removeItem("v_rutpaciente");
+        window.localStorage.removeItem("v_ficha");
+        WindowsService.setVariable('isValid', false);
         return true;
     };
 
     FichaServ.getisRutvalido = function () {
         return WindowsService.getVariable('isValid');
+    };
+
+    FichaServ.getidFicha = function () {
+        return WindowsService.getVariable('v_ficha');
     };
 
     FichaServ.getRutPaciente = function () {

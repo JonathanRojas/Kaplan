@@ -75,7 +75,7 @@ Namespace Clases
 
             Dim inId As OleDbParameter = cmd.Parameters.Add("@id_ficha", OleDbType.Decimal, Nothing)
             inId.Direction = ParameterDirection.Input
-            inId.Value = 1
+            inId.Value = Me.Id
 
             Dim inIdKine As OleDbParameter = cmd.Parameters.Add("@id_ficha_kine", OleDbType.Decimal, Nothing)
             inIdKine.Direction = ParameterDirection.Input
@@ -337,7 +337,7 @@ Namespace Clases
 #Region "Ficha Psicología"
             Dim inId As OleDbParameter = cmd.Parameters.Add("@id_ficha", OleDbType.Decimal, Nothing)
             inId.Direction = ParameterDirection.Input
-            inId.Value = 1
+            inId.Value = Me.Id
 
             Dim inIdPsico As OleDbParameter = cmd.Parameters.Add("@id_ficha_psico", OleDbType.Decimal, Nothing)
             inIdPsico.Direction = ParameterDirection.Input
@@ -640,7 +640,7 @@ Namespace Clases
 
             Dim inId As OleDbParameter = cmd.Parameters.Add("@id_ficha", OleDbType.Decimal, Nothing)
             inId.Direction = ParameterDirection.Input
-            inId.Value = 1
+            inId.Value = Me.Id
 
             Dim inIdEnfer As OleDbParameter = cmd.Parameters.Add("@id_ficha_Enfermeria", OleDbType.Decimal, Nothing)
             inIdEnfer.Direction = ParameterDirection.Input
@@ -1034,7 +1034,7 @@ Namespace Clases
 #Region "Ficha Nutrición"
             Dim inId As OleDbParameter = cmd.Parameters.Add("@id_ficha", OleDbType.Decimal, Nothing)
             inId.Direction = ParameterDirection.Input
-            inId.Value = 1
+            inId.Value = Me.Id
 
             Dim inIdPsico As OleDbParameter = cmd.Parameters.Add("@id_ficha_nutri", OleDbType.Decimal, Nothing)
             inIdPsico.Direction = ParameterDirection.Input

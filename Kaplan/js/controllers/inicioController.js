@@ -1,5 +1,5 @@
-﻿app.controller("inicioController", ['$scope', 'Notification', 'fichaService', 'ServiceObservadorUser', 'LoginService', '$location',
-function ($scope, Notification, fichaService, ServiceObservadorUser, LoginService, $location) {
+﻿app.controller("inicioController", ['$scope', 'Notification', 'fichaService', 'ServiceObservadorUser', 'LoginService', '$location', 'tipoService',
+function ($scope, Notification, fichaService, ServiceObservadorUser, LoginService, $location, tipoService) {
 
     if (!LoginService.getisAuthenticated() == true) {
         LoginService.getCerrarSesion();
@@ -42,8 +42,9 @@ function ($scope, Notification, fichaService, ServiceObservadorUser, LoginServic
                         $scope.Paciente = result.data;
                         if ($scope.Paciente.Estado == 1) {
                             $scope.rutvalido = true;
-                            fichaService.getPacienteLocal($scope.Paciente.Persona.Rut);
+                            fichaService.getPacienteLocal($scope.Paciente.Persona.Rut, $scope.Paciente.IdFicha);
                             ServiceObservadorUser.sendMessage($scope.Paciente);
+                            $scope.Rut = $scope.Paciente.Persona.Rut + $scope.Paciente.Persona.Dv;
                             $("#btnBuscar").button('reset');
                         } else {
                             msg = { title: 'Advertencia', message: 'Persona no registrada como paciente de la Fundación Kaplan' };
@@ -71,6 +72,21 @@ function ($scope, Notification, fichaService, ServiceObservadorUser, LoginServic
             }
         };
 
+        $scope.FiltrarPaciente = function (rutFiltro) {
+            if (rutFiltro !== null) {
+                $scope.Paciente.Persona.Rut = parseInt(rutFiltro.toString().substring(0, rutFiltro.toString().length - 1));
+                $scope.Paciente.Persona.Dv = rutFiltro.toString().charAt(rutFiltro.toString().length - 1);
+                $scope.getRut();
+            }
+        };
+
+        tipoService.getPacientesFiltro().then(function (result) {
+            $scope.PacientesFiltro = result.data;
+        }, function (reason) {
+            msg = { title: 'Error Lista de Pacientes Filtro' };
+            Notification.error(msg);
+        });
+
         $scope.Limpiar = function () {
             $scope.Paciente = {
                 Estado: 0,
@@ -81,6 +97,8 @@ function ($scope, Notification, fichaService, ServiceObservadorUser, LoginServic
             };
             $scope.rutvalido = false;
             ServiceObservadorUser.sendMessage($scope.Paciente);
+            fichaService.getLimpiarPacienteLocal();
+         
         };
     };
 }]);
