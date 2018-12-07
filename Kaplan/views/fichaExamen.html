@@ -28,8 +28,8 @@
                                                     <th>Fecha Examen</th>
                                                     <th>Formato</th>
                                                     <th>Guardado por</th>
-                                                    <th>Descargar</th>
-                                                    <th>Eliminar</th>
+                                                    <th align="center">Descargar</th>
+                                                    <th align="center">Eliminar</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -39,8 +39,8 @@
                                                     <td>{{examen.FechaString}}</td>
                                                     <td>{{examen.Formato}}</td>
                                                     <td>{{examen.EspecialistaNombre}}</td>
-                                                    <td><button type="button" title="Descargar" class="btn small-xs blue" ng-click="Descargar(examen.Id)" aria-label="Center Align"><i class="fa fa-edit"></i></button></td>
-                                                    <td><button type="button" title="Eliminar" class="btn small-xs red" ng-click="Eliminar(examen.Id)" aria-label="Center Align"><i class="fa fa-remove"></i></button></td>
+                                                    <td align="center"><button type="button" title="Descargar" class="btn small-xs blue" ng-click="Descargar(examen.Id)" aria-label="Center Align"><i class="fa fa-download"></i></button></td>
+                                                    <td align="center"><button type="button" title="Eliminar" class="btn small-xs" ng-click="Eliminar(examen.Id)" aria-label="Center Align"><i class="fa fa-remove"></i></button></td>
                                                 </tr>
                                             </tbody>
                                         </table>

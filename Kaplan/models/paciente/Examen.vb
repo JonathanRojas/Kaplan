@@ -54,7 +54,7 @@ Namespace Clases
             End Try
 
         End Function
-        Public Function registrarExamen(NombreArchivo As String, archivo As Byte(), formato As String) As Boolean
+        Public Function registrarExamen(archivo As Byte(), formato As String) As Boolean
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
                 Dim cmd As OleDbCommand = New OleDbCommand("RegistrarExamen", conn)
@@ -76,7 +76,7 @@ Namespace Clases
                 inFecha.Direction = ParameterDirection.Input
                 inFecha.Value = Me.Fecha
 
-                Dim inArchivo As OleDbParameter = cmd.Parameters.Add("@inArchivo", OleDbType.LongVarBinary, -1)
+                Dim inArchivo As OleDbParameter = cmd.Parameters.Add("@inArchivo", OleDbType.VarBinary, -1)
                 inArchivo.Direction = ParameterDirection.Input
                 inArchivo.Value = archivo
 
@@ -87,6 +87,28 @@ Namespace Clases
                 Dim inDescripcion As OleDbParameter = cmd.Parameters.Add("@inDescripcion", OleDbType.VarChar, 250)
                 inDescripcion.Direction = ParameterDirection.Input
                 inDescripcion.Value = Me.Descripcion
+
+                Dim outError As OleDbParameter = cmd.Parameters.Add("@outError", OleDbType.Integer)
+                outError.Direction = ParameterDirection.Output
+
+                conn.Open()
+                cmd.ExecuteReader()
+                conn.Close()
+
+                Return CInt(cmd.Parameters("@outError").Value)
+            Catch exc As Exception
+                Return Nothing
+            End Try
+        End Function
+        Public Function EliminarExamen(Id As Integer) As Boolean
+            Try
+                Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
+                Dim cmd As OleDbCommand = New OleDbCommand("EliminarExamen", conn)
+                cmd.CommandType = CommandType.StoredProcedure
+
+                Dim inId As OleDbParameter = cmd.Parameters.Add("@inId", OleDbType.Decimal, Nothing)
+                inId.Direction = ParameterDirection.Input
+                inId.Value = Id
 
                 Dim outError As OleDbParameter = cmd.Parameters.Add("@outError", OleDbType.Integer)
                 outError.Direction = ParameterDirection.Output

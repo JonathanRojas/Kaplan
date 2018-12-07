@@ -11,5 +11,5 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class verExamen
+Partial Public Class verDocumento
 End Class

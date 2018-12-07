@@ -16,6 +16,8 @@ function ($scope, ModalService, Notification, examenService, id, $element, close
         $scope.Examen.Paciente = fichaService.getRutPaciente();
         $scope.Examen.Especialista = LoginService.getIdEspecialista();
         examenService.registrarExamen($scope.Examen, $scope.examenFile).then(function (result) {
+            msg = { title: 'Guardado Exitosamente' };
+            Notification.success(msg);
             waitingDialog.hide();
             $element.modal('hide');
             close(true, 500);
