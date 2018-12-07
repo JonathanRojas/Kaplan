@@ -202,7 +202,7 @@
     <Content Include="js\services\tipoService.js" />
     <Content Include="js\services\WindowsService.js" />
     <Content Include="login.html" />
-    <Content Include="reports\verExamen.aspx" />
+    <Content Include="reports\verDocumento.aspx" />
     <Content Include="views\ficha.html" />
     <Content Include="views\fichaEnfermeria.html" />
     <Content Include="views\fichaExamen.html" />
@@ -359,11 +359,11 @@
     </Compile>
     <Compile Include="models\paciente\Persona.vb" />
     <Compile Include="reports\Documento.vb" />
-    <Compile Include="reports\verExamen.aspx.designer.vb">
-      <DependentUpon>verExamen.aspx</DependentUpon>
+    <Compile Include="reports\verDocumento.aspx.designer.vb">
+      <DependentUpon>verDocumento.aspx</DependentUpon>
     </Compile>
-    <Compile Include="reports\verExamen.aspx.vb">
-      <DependentUpon>verExamen.aspx</DependentUpon>
+    <Compile Include="reports\verDocumento.aspx.vb">
+      <DependentUpon>verDocumento.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>

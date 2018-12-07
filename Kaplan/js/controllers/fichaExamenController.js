@@ -44,6 +44,32 @@ function ($scope, ModalService, Notification, LoginService, $location, examenSer
                 });
             });
         };
-        /*  Fin Tipos   */
+
+        $scope.Eliminar = function (id) {
+            waitingDialog.show('Eliminando Examen...', { dialogSize: 'sm' });
+            examenService.EliminarExamen(id).then(function (result) {
+                examenService.getExamenes().then(function (result) {
+                    $scope.Examenes = result.data;
+                    msg = { title: 'Eliminado Exitosamente' };
+                    Notification.success(msg);
+                    waitingDialog.hide();
+                }, function (reason) {
+                    msg = { title: 'Error Listar Examenes' };
+                    Notification.error(msg);
+                    waitingDialog.hide();
+                });
+            }, function (reason) {
+                msg = { title: 'Error Eliminar Examen' };
+                Notification.error(msg);
+                waitingDialog.hide();
+            });
+        };
+
+        $scope.Descargar = function (id) {
+            var url;
+            url = "reports/verDocumento.aspx?inId=" + id + '&inTipo=Examen';
+            window.open(url, '_blank');
+        };
+
     };
 }]);

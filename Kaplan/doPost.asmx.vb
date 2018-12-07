@@ -39,6 +39,8 @@ Public Class doPost
 
         Return ""
     End Function
+#End Region
+#Region "Examen"
     <WebMethod(EnableSession:=True)>
     Public Function registrarExamen() As String
         Dim js As New JavaScriptSerializer
@@ -56,7 +58,7 @@ Public Class doPost
 
         Dim vResult As New httpResult
         If vDocumento IsNot Nothing Then
-            If vExamen.registrarExamen(vDocumento.FileName, contenidoDoc, formato) Then
+            If vExamen.registrarExamen(contenidoDoc, formato) Then
                 vResult.result = True
             Else
                 vResult.result = False
@@ -74,8 +76,27 @@ Public Class doPost
 
         Return ""
     End Function
-#End Region
+    <WebMethod(EnableSession:=True)>
+    Public Function EliminarExamen() As String
+        Dim js As New JavaScriptSerializer
 
+        Dim v_Id As Integer = js.Deserialize(Context.Request.Form("ID"), GetType(Integer))
+        Dim vExamen As New Examen
+        Dim vResult As New httpResult
+        If vExamen.EliminarExamen(v_Id) Then
+            vResult.result = True
+        Else
+            vResult.result = False
+            vResult.message = "Error guardando registro"
+        End If
+
+        Context.Response.Write(js.Serialize(vResult))
+        Context.Response.End()
+
+        Return ""
+    End Function
+
+#End Region
 #Region "Kinesiología"
     <WebMethod(EnableSession:=True)>
     Public Function SaveFichaKinesiologia() As String

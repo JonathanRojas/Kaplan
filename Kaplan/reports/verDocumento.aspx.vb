@@ -1,8 +1,5 @@
 ﻿Imports Kaplan.Clases
-Imports System.Globalization
-Imports System.Data.OleDb
-Imports System.Data.SqlClient
-Public Class verExamen
+Public Class verDocumento
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -11,7 +8,7 @@ Public Class verExamen
 
         Select Case Request("inTipo")
             Case "Examen"
-                Dim vDocumento As Documento = Documento.obtenerDocumento(1, Request("inId"))
+                Dim vDocumento As Documento = Documento.obtenerDocumentoExamen(Request("inId"))
                 Response.ContentType = vDocumento.Formato
                 Response.BinaryWrite(vDocumento.Documento)
         End Select
