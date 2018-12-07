@@ -137,6 +137,7 @@
     <Content Include="css\font-awesome-4.7.0\HELP-US-OUT.txt" />
     <Content Include="css\font-awesome.min.css" />
     <Content Include="css\media.css" />
+    <Content Include="css\select2.min.css" />
     <Content Include="css\style.css" />
     <Content Include="default.aspx" />
     <Content Include="doGet.asmx" />

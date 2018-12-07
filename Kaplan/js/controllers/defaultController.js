@@ -16,6 +16,12 @@ app.config(function ($routeProvider) {
             controller: 'fichaController',
             controllerAs: 'ficha'
         })
+        .when('/inicio', {
+            templateUrl: 'views/inicio.html',
+            inputs: { id: -1 },
+            controller: 'inicioController',
+            controllerAs: 'inicio'
+        })
         .otherwise({
             redirectTo: '/'
         });

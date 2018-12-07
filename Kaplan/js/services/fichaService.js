@@ -29,8 +29,14 @@
         return true;
     };
 
+    FichaServ.getPacienteIDLocal = function (rut) {
+        WindowsService.setVariable('v_idrutpaciente', rut);
+        return true;
+    };
+
     FichaServ.getLimpiarPacienteLocal = function (rut, ficha) {
         window.localStorage.removeItem("v_rutpaciente");
+        window.localStorage.removeItem("v_idrutpaciente");
         window.localStorage.removeItem("v_ficha");
         WindowsService.setVariable('isValid', false);
         return true;
@@ -38,6 +44,10 @@
 
     FichaServ.getisRutvalido = function () {
         return WindowsService.getVariable('isValid');
+    };
+
+    FichaServ.getIDPaciente = function () {
+        return WindowsService.getVariable('v_idrutpaciente');
     };
 
     FichaServ.getidFicha = function () {

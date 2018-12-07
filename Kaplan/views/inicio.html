@@ -8,7 +8,7 @@
                 </div>
                 <p>La Ficha Médica fue diseñada para registrar el historial médico de los pacientes en un medio electrónico, con el objetivo de estructurar de manera completa y profesional los antecedentes clínicos del paciente</p>
                 <blockquote>
-                    <p>Ingrese el Rut del paciente ó el Nombre del paciente y presione Buscar, una vez validado podra navegar por las distintas fichas del paciente.</p>
+                    <p>Seleccione el Nombre del paciente, una vez validado, se desplegara todas las opciones necesarias podra navegar las distintas fichas del paciente.</p>
                 </blockquote>
             </div>
             <div class="col-md-6 pull-bottom">
@@ -25,7 +25,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row mb10">
+                <!--<div class="row mb10">
                     <div class="form-group">
                         <div class="col-sm-2">
                             <label class="control-label" for="rut">Rut</label>
@@ -40,13 +40,13 @@
                             <input type="text" class="form-control" id="dv" name="dv" required placeholder="DV" ng-disabled="rutvalido" maxlength="1" ng-model="Paciente.Persona.Dv">
                         </div>
                     </div>
-                </div>
+                </div>-->
                 <div class="row mb10">
                     <div class="form-group">
                         <div class="col-sm-7 pull-right">
-                            <a class="btn small" id="btnBuscar" ng-click="frmPaciente.rut.$invalid || frmPaciente.dv.$invalid || getRut()" role="button" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Buscando ..." ng-if="!rutvalido">
-                                Buscar <!--data-target="#collapseDataPaciente"-->
-                            </a>
+                            <!--<a class="btn small" id="btnBuscar" ng-click="frmPaciente.rut.$invalid || frmPaciente.dv.$invalid || getRut()" role="button" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Buscando ..." ng-if="!rutvalido">
+                                Buscar
+                            </a>-->
                             <a class="btn border small" ng-click="Limpiar()" role="button" ng-if="rutvalido">
                                 Limpiar <!--data-target="#collapseDataPaciente"-->
                             </a>

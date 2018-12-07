@@ -5,13 +5,16 @@ function ($scope, Notification, fichaService, ServiceObservadorUser, LoginServic
         LoginService.getCerrarSesion();
         $location.path('cerrarsesion');
     } else {
-        if (fichaService.getisRutvalido()) {
+        if (fichaService.getisRutvalido() == 'true') {
             fichaService.getPaciente(parseInt(fichaService.getRutPaciente()), null).then(function (result) {
                 $scope.Paciente = result.data;
                 $scope.rutvalido = true;
                 fichaService.getPacienteLocal($scope.Paciente.Persona.Rut);
+                $scope.Rut = fichaService.getIDPaciente();
                 ServiceObservadorUser.sendMessage($scope.Paciente);
             });
+        } else {
+            $location.path('/ficha');
         };
 
         $scope.Paciente = {
@@ -44,7 +47,6 @@ function ($scope, Notification, fichaService, ServiceObservadorUser, LoginServic
                             $scope.rutvalido = true;
                             fichaService.getPacienteLocal($scope.Paciente.Persona.Rut, $scope.Paciente.IdFicha);
                             ServiceObservadorUser.sendMessage($scope.Paciente);
-                            $scope.Rut = $scope.Paciente.Persona.Rut + $scope.Paciente.Persona.Dv;
                             $("#btnBuscar").button('reset');
                         } else {
                             msg = { title: 'Advertencia', message: 'Persona no registrada como paciente de la Fundación Kaplan' };
@@ -76,6 +78,8 @@ function ($scope, Notification, fichaService, ServiceObservadorUser, LoginServic
             if (rutFiltro !== null) {
                 $scope.Paciente.Persona.Rut = parseInt(rutFiltro.toString().substring(0, rutFiltro.toString().length - 1));
                 $scope.Paciente.Persona.Dv = rutFiltro.toString().charAt(rutFiltro.toString().length - 1);
+                $scope.Rut = rutFiltro;
+                fichaService.getPacienteIDLocal(rutFiltro);
                 $scope.getRut();
             }
         };
@@ -96,6 +100,7 @@ function ($scope, Notification, fichaService, ServiceObservadorUser, LoginServic
                 }
             };
             $scope.rutvalido = false;
+
             ServiceObservadorUser.sendMessage($scope.Paciente);
             fichaService.getLimpiarPacienteLocal();
          

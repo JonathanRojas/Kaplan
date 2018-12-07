@@ -42,6 +42,20 @@ function ($scope, Notification, LoginService, $location, ServiceObservadorUser, 
         $location.path('cerrarsesion');
     };
 
+    $scope.LimpiarRut = function () {
+        $scope.Paciente = {
+            Estado: 0,
+            Persona: {
+                Rut: null,
+                Dv: null
+            }
+        };
+        $scope.rutvalido = false;
+        ServiceObservadorUser.sendMessage($scope.Paciente);
+        fichaService.getLimpiarPacienteLocal();
+        $location.path('/inicio');
+    };
+
     $scope.nav = function (path) {
         if (LoginService.getisAuthenticated()) {
             vm.filePath = {
