@@ -87,7 +87,68 @@ Public Class doPost
             vResult.result = True
         Else
             vResult.result = False
-            vResult.message = "Error guardando registro"
+            vResult.message = "Error eliminando registro"
+        End If
+
+        Context.Response.Write(js.Serialize(vResult))
+        Context.Response.End()
+
+        Return ""
+    End Function
+
+#End Region
+#Region "RegistroMedico"
+    <WebMethod(EnableSession:=True)>
+    Public Function registrarRegistroMedico() As String
+        Dim js As New JavaScriptSerializer
+        Dim vRegistro As RegistroMedico = js.Deserialize(Context.Request.Form("Registro"), GetType(RegistroMedico))
+
+        Dim vResult As New httpResult
+        If vRegistro.registrarRegistroMedico() Then
+            vResult.result = True
+        Else
+            vResult.result = False
+            vResult.message = "Error guardando Registro Medico"
+        End If
+
+        Context.Response.Write(js.Serialize(vResult))
+        Context.Response.End()
+
+        Return ""
+    End Function
+    <WebMethod(EnableSession:=True)>
+    Public Function EliminarRegistroMedico() As String
+        Dim js As New JavaScriptSerializer
+
+        Dim v_Id As Integer = js.Deserialize(Context.Request.Form("ID"), GetType(Integer))
+        Dim vRegistro As New RegistroMedico
+        Dim vResult As New httpResult
+        If vRegistro.EliminarRegistroMedico(v_Id) Then
+            vResult.result = True
+        Else
+            vResult.result = False
+            vResult.message = "Error eliminando registro"
+        End If
+
+        Context.Response.Write(js.Serialize(vResult))
+        Context.Response.End()
+
+        Return ""
+    End Function
+
+    <WebMethod(EnableSession:=True)>
+    Public Function MarcarLeidoRegistroMedico() As String
+        Dim js As New JavaScriptSerializer
+
+        Dim v_Id As Integer = js.Deserialize(Context.Request.Form("ID"), GetType(Integer))
+        Dim IdEspecialista As Integer = js.Deserialize(Context.Request.Form("IdEspecialista"), GetType(Integer))
+        Dim vRegistro As New RegistroMedico
+        Dim vResult As New httpResult
+        If vRegistro.MarcarLeidoRegistroMedico(v_Id, IdEspecialista) Then
+            vResult.result = True
+        Else
+            vResult.result = False
+            vResult.message = "Error Cambiando estado a registro"
         End If
 
         Context.Response.Write(js.Serialize(vResult))

@@ -1,10 +1,5 @@
-﻿app.controller("fichaExamenNuevoController", ['$scope', 'ModalService','Notification', 'examenService', 'id', "$element", 'close', 'fichaService', 'LoginService',
+﻿app.controller("modalExamenController", ['$scope', 'ModalService', 'Notification', 'examenService', 'id', "$element", 'close', 'fichaService', 'LoginService',
 function ($scope, ModalService, Notification, examenService, id, $element, close, fichaService, LoginService) {
-
-    $scope.loading = true;
-    $scope.StopLoading = function () {
-        //$scope.loading = !(!$scope.loadingEspecialistas && !$scope.loadingEspecialidad && !$scope.loadingReserva);
-    };
 
     $scope.Examen = {
         Id: -1,

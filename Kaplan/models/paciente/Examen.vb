@@ -33,11 +33,15 @@ Namespace Clases
                 Return Nothing
             End Try
         End Function
-        Public Shared Function getExamenes() As List(Of Examen)
+        Public Shared Function getExamenes(inRut As Integer) As List(Of Examen)
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
                 Dim cmd As OleDbCommand = New OleDbCommand("ListadoExamenes", conn)
                 cmd.CommandType = CommandType.StoredProcedure
+
+                Dim inPaciente As OleDbParameter = cmd.Parameters.Add("@inPaciente", OleDbType.Decimal, Nothing)
+                inPaciente.Direction = ParameterDirection.Input
+                inPaciente.Value = inRut
 
                 conn.Open()
                 Dim adapter As OleDbDataAdapter = New OleDbDataAdapter(cmd)

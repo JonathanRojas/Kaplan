@@ -110,8 +110,8 @@ Public Class doGet
         Return ""
     End Function
     <WebMethod(EnableSession:=True)>
-    Public Function getExamenes() As String
-        Dim vList As List(Of Examen) = Examen.getExamenes
+    Public Function getExamenes(inRut As Integer) As String
+        Dim vList As List(Of Examen) = Examen.getExamenes(inRut)
         Dim js As New JavaScriptSerializer
         Dim vResult As New httpResult
 
@@ -127,6 +127,25 @@ Public Class doGet
         Context.Response.End()
         Return ""
     End Function
+    <WebMethod(EnableSession:=True)>
+    Public Function getRegistrosMedicos(inRut As Integer) As String
+        Dim vList As List(Of RegistroMedico) = RegistroMedico.getRegistrosMedicos(inRut)
+        Dim js As New JavaScriptSerializer
+        Dim vResult As New httpResult
+
+        If Not IsNothing(vList) Then
+            vResult.result = True
+            vResult.data = vList
+        Else
+            vResult.result = False
+            vResult.data = vList
+        End If
+        Context.Response.Write(js.Serialize(vResult))
+
+        Context.Response.End()
+        Return ""
+    End Function
+
 #End Region
 #Region "Kinesiología"
     <WebMethod(EnableSession:=True)>
@@ -262,6 +281,25 @@ Public Class doGet
     <WebMethod(EnableSession:=True)>
     Public Function getTipoComuna() As String
         Dim vTipos As List(Of TipoComuna) = TipoComuna.getTipos
+        Dim js As New JavaScriptSerializer
+        Dim vResult As New httpResult
+        If Not IsNothing(vTipos) Then
+            vResult.result = True
+            vResult.data = vTipos
+        Else
+            vResult.result = False
+            vResult.data = vTipos
+        End If
+
+        Context.Response.Write(js.Serialize(vResult))
+
+        Context.Response.End()
+        Return ""
+    End Function
+
+    <WebMethod(EnableSession:=True)>
+    Public Function getTipoEspecialidad() As String
+        Dim vTipos As List(Of TipoEspecialidad) = TipoEspecialidad.getTipos
         Dim js As New JavaScriptSerializer
         Dim vResult As New httpResult
         If Not IsNothing(vTipos) Then

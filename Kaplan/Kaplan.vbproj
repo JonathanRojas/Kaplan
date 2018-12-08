@@ -171,12 +171,14 @@
     <Content Include="js\controllers\fichaController.js" />
     <Content Include="js\controllers\fichaEnfermeriaController.js" />
     <Content Include="js\controllers\fichaExamenController.js" />
-    <Content Include="js\controllers\fichaExamenNuevoController.js" />
+    <Content Include="js\controllers\fichaRegistroMedicoController.js" />
+    <Content Include="js\controllers\modalExamenController.js" />
     <Content Include="js\controllers\fichaKinesiologiaController.js" />
     <Content Include="js\controllers\fichaNutricionController.js" />
     <Content Include="js\controllers\fichaPsicologiaController.js" />
     <Content Include="js\controllers\inicioController.js" />
     <Content Include="js\controllers\loginController.js" />
+    <Content Include="js\controllers\modalRegistroMedicoController.js" />
     <Content Include="js\script\angular-locale_es-cl.js" />
     <Content Include="js\script\angular-modal-service.js" />
     <Content Include="js\script\angular-moment-picker.min.js" />
@@ -200,6 +202,7 @@
     <Content Include="js\services\examenService.js" />
     <Content Include="js\services\fichaService.js" />
     <Content Include="js\services\loginService.js" />
+    <Content Include="js\services\registromedicoService.js" />
     <Content Include="js\services\tipoService.js" />
     <Content Include="js\services\WindowsService.js" />
     <Content Include="login.html" />
@@ -207,11 +210,13 @@
     <Content Include="views\ficha.html" />
     <Content Include="views\fichaEnfermeria.html" />
     <Content Include="views\fichaExamen.html" />
-    <Content Include="views\fichaExamenNuevo.html" />
+    <Content Include="views\modalExamen.html" />
     <Content Include="views\fichaKinesiologia.html" />
     <Content Include="views\fichaNutricion.html" />
     <Content Include="views\fichaPsicologia.html" />
+    <Content Include="views\fichaRegistroMedico.html" />
     <Content Include="views\inicio.html" />
+    <Content Include="views\modalRegistroMedico.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -270,6 +275,8 @@
     <Compile Include="models\paciente\Examen.vb" />
     <Compile Include="models\paciente\Ficha.vb" />
     <Compile Include="models\kinesiologia\FichaKinesiologia.vb" />
+    <Compile Include="models\paciente\RegistroMedico.vb" />
+    <Compile Include="models\paciente\TipoEspecialidad.vb" />
     <Compile Include="models\paciente\TipoPacienteFiltro.vb" />
     <Compile Include="models\psicologia\FichaPsicologia.vb" />
     <Compile Include="models\psicologia\Had.vb" />
