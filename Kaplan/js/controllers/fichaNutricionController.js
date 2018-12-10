@@ -126,11 +126,22 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
                 waitingDialog.show('Guardando Ficha...', { dialogSize: 'sm' });
                 fichaService.SaveFichaNutricion($scope.Ficha, $scope.Paciente)
                    .then(function (result) {
-                       msg = { title: 'Ficha creada con éxito', message: "" };
-                       Notification.success(msg);
-                       waitingDialog.hide();
-                       window.scrollTo(0, 0);
-                       //$scope.CambiarSesion($scope.Sesion.Id);
+                       fichaService.getFichaNutricionxReserva($scope.Ficha.FichaNutricion.IdReserva).then(function (result) {
+                               $scope.Ficha = result.data;
+                               fichaService.getPaciente(parseInt(fichaService.getRutPaciente()), null).then(function (result) {
+                                   $scope.Paciente = result.data;
+                                   $scope.Paciente.Persona.FechaNac = moment($scope.Paciente.Persona.FechaNac);
+                                   msg = { title: 'Ficha guardada con éxito', message: "" };
+                                   Notification.success(msg);
+                                   waitingDialog.hide();
+                                   window.scrollTo(0, 0);
+                               });
+                       }, function (reason) {
+                           msg = { title: 'Error al Intentar Recargar los datos de la Ficha guardada' };
+                           Notification.error(msg);
+                           $('#collapseDataPaciente').collapse('hide');
+                           waitingDialog.hide();
+                       });
                    }, function (reason) {
                        msg = { title: 'Error guardando Ficha' };
                        Notification.error(msg);

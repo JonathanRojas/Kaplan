@@ -653,11 +653,33 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
                 waitingDialog.show('Guardando Ficha...', { dialogSize: 'sm' });
                 fichaService.SaveFichaEnfermeria($scope.Ficha, $scope.Paciente)
                    .then(function (result) {
-                       msg = { title: 'Ficha creada con éxito', message: "" };
-                       Notification.success(msg);
-                       waitingDialog.hide();
-                       window.scrollTo(0, 0);
-                       //$scope.CambiarSesion($scope.Sesion.Id);
+                       fichaService.getFichaEnfermeriaxReserva($scope.Ficha.FichaEnfermeria.IdReserva).then(function (result) {
+                               $scope.Ficha = result.data;
+                               $scope.columnsMedicamentos = $scope.Ficha.FichaEnfermeria.MedicamentosEnfermeria;
+                               $scope.columnsEvolucion = $scope.Ficha.FichaEnfermeria.EvolucionEnfermeria;
+                               for (i = 0; i < $scope.columnsEvolucion.length; i++) {
+                                   $scope.columnsEvolucion[i].Fecha = moment($scope.columnsEvolucion[i].Fecha);
+                               }
+                               $scope.columnsDiagnostico = $scope.Ficha.FichaEnfermeria.PlanEnfermeria.Diagnostico;
+                               $scope.columnsIntervenciones = $scope.Ficha.FichaEnfermeria.PlanEnfermeria.Intervencion;
+                               $scope.columnsIndicadores = $scope.Ficha.FichaEnfermeria.PlanEnfermeria.Indicadores;
+                               $scope.Ficha.FichaEnfermeria.FechaDiagnostico = moment($scope.Ficha.FichaEnfermeria.FechaDiagnostico);
+                               $scope.Ficha.FichaEnfermeria.FechaCxProced = moment($scope.Ficha.FichaEnfermeria.FechaCxProced);
+                               $scope.Ficha.FichaEnfermeria.FechaAlta = moment($scope.Ficha.FichaEnfermeria.FechaAlta);
+                               fichaService.getPaciente(parseInt(fichaService.getRutPaciente()), null).then(function (result) {
+                                   $scope.Paciente = result.data;
+                                   $scope.Paciente.Persona.FechaNac = moment($scope.Paciente.Persona.FechaNac);
+                                   msg = { title: 'Ficha guardada con éxito', message: "" };
+                                   Notification.success(msg);
+                                   waitingDialog.hide();
+                                   window.scrollTo(0, 0);
+                               });
+                       }, function (reason) {
+                           msg = { title: 'Error al Intentar Recargar los datos de la Ficha guardada' };
+                           Notification.error(msg);
+                           $('#collapseDataPaciente').collapse('hide');
+                           waitingDialog.hide();
+                       });
                    }, function (reason) {
                        msg = { title: 'Error guardando Ficha' };
                        Notification.error(msg);

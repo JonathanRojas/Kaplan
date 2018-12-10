@@ -9,8 +9,7 @@ function ($scope, Notification, fichaService, ServiceObservadorUser, LoginServic
             fichaService.getPaciente(parseInt(fichaService.getRutPaciente()), null).then(function (result) {
                 $scope.Paciente = result.data;
                 $scope.rutvalido = true;
-                fichaService.getPacienteLocal($scope.Paciente.Persona.Rut);
-                $scope.Rut = fichaService.getIDPaciente();
+                fichaService.getPacienteLocal($scope.Paciente.Persona.Rut, $scope.Paciente.IdFicha);
                 ServiceObservadorUser.sendMessage($scope.Paciente);
             });
         } else {
@@ -80,12 +79,15 @@ function ($scope, Notification, fichaService, ServiceObservadorUser, LoginServic
                 $scope.Paciente.Persona.Dv = rutFiltro.toString().charAt(rutFiltro.toString().length - 1);
                 $scope.Rut = rutFiltro;
                 fichaService.getPacienteIDLocal(rutFiltro);
+                console.log($scope.Rut)
                 $scope.getRut();
             }
         };
 
         tipoService.getPacientesFiltro().then(function (result) {
+            $scope.Rut = fichaService.getIDPaciente();
             $scope.PacientesFiltro = result.data;
+            console.log($scope.Rut)
         }, function (reason) {
             msg = { title: 'Error Lista de Pacientes Filtro' };
             Notification.error(msg);

@@ -134,11 +134,30 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
                 waitingDialog.show('Guardando Ficha...', { dialogSize: 'sm' });
                 fichaService.SaveFichaPsicologia($scope.Ficha, $scope.Paciente)
                    .then(function (result) {
-                       msg = { title: 'Ficha creada con éxito', message: "" };
-                       Notification.success(msg);
-                       waitingDialog.hide();
-                       window.scrollTo(0, 0);
-                       //$scope.CambiarSesion($scope.Sesion.Id);
+                       fichaService.getFichaPsicologiaxReserva($scope.Ficha.FichaPsicologia.IdReserva).then(function (result) {
+                               $scope.Ficha = result.data;
+                               $scope.Ficha.FichaPsicologia.Sf36.FechaAIng = moment($scope.Ficha.FichaPsicologia.Sf36.FechaAIng);
+                               $scope.Ficha.FichaPsicologia.Sf36.FechaAEgr = moment($scope.Ficha.FichaPsicologia.Sf36.FechaAEgr);
+                               $scope.Ficha.FichaPsicologia.Sf36.FechaBIng = moment($scope.Ficha.FichaPsicologia.Sf36.FechaBIng);
+                               $scope.Ficha.FichaPsicologia.Sf36.FechaBEgr = moment($scope.Ficha.FichaPsicologia.Sf36.FechaBEgr);
+                               $scope.Ficha.FichaPsicologia.Had.FechaAIng = moment($scope.Ficha.FichaPsicologia.Had.FechaAIng);
+                               $scope.Ficha.FichaPsicologia.Had.FechaAEgr = moment($scope.Ficha.FichaPsicologia.Had.FechaAEgr);
+                               $scope.Ficha.FichaPsicologia.Had.FechaBIng = moment($scope.Ficha.FichaPsicologia.Had.FechaBIng);
+                               $scope.Ficha.FichaPsicologia.Had.FechaBEgr = moment($scope.Ficha.FichaPsicologia.Had.FechaBEgr);
+                               fichaService.getPaciente(parseInt(fichaService.getRutPaciente()), null).then(function (result) {
+                                   $scope.Paciente = result.data;
+                                   $scope.Paciente.Persona.FechaNac = moment($scope.Paciente.Persona.FechaNac);
+                                   msg = { title: 'Ficha guardada con éxito', message: "" };
+                                   Notification.success(msg);
+                                   waitingDialog.hide();
+                                   window.scrollTo(0, 0);
+                               });
+                       }, function (reason) {
+                           msg = { title: 'Error al Intentar Recargar los datos de la Ficha guardada' };
+                           Notification.error(msg);
+                           $('#collapseDataPaciente').collapse('hide');
+                           waitingDialog.hide();
+                       });
                    }, function (reason) {
                        msg = { title: 'Error guardando Ficha' };
                        Notification.error(msg);

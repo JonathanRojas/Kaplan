@@ -4,8 +4,8 @@
         <!-- Container -->
         <div class="container-fluid">
             <!-- Row -->
-            <div class="row mb50" ng-if="rutvalido">              
-                <div class="col-lg-6 pull-left col-sm-6 pull-left col-md-6 col-xs-12">
+            <div class="row mb50">              
+                <div class="col-lg-6 pull-left col-sm-6 pull-left col-md-6 col-xs-12"  ng-if="rutvalido">
                     <div class="dropdown pull-left">
                         <span class="dropdown-toggle" id="dropdownLang" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-user" style="color:#fff"></i><span style="color:#fff">Paciente:</span> {{Titulo}} - Rut: {{RutPaciente}} <a href="" ng-click="LimpiarRut()"><i class="fa fa-window-close" aria-hidden="true"></i></a></span>                     
                     </div>
@@ -59,14 +59,14 @@
                     <li>
                         <a href="" ng-click="nav('views/fichaPsicologia.html')">Ficha Psicólogo <i class="fa fa-comments fa-2x hidden-xs" aria-hidden="true"></i></a>
                     </li>
-                    <li>
+                    <!--<li>
                         <a href="" ng-click="nav('views/fichaMedico.html')">Ficha Médico <i class="fa fa-stethoscope fa-2x hidden-xs" aria-hidden="true"></i></a>
-                    </li>
+                    </li>-->
                     <li>
                         <a href="" ng-click="nav('views/fichaExamen.html')">Exámenes <i class="fa fa-file-text-o fa-2x hidden-xs" aria-hidden="true"></i></a>
                     </li>
                     <li>
-                        <a href="" ng-click="nav('views/fichaRegistroMedico.html')">Reg. Médicos <i class="fa fa-file-text-o fa-2x hidden-xs" aria-hidden="true"></i></a>
+                        <a href="" ng-click="nav('views/fichaRegistroMedico.html')">Reg. Médicos <i class="fa fa-file-text fa-2x hidden-xs" aria-hidden="true"></i></a>
                     </li>
                 </ul> <!-- END / NAVBAR RIGHT -->
             </div>
