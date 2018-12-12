@@ -13,7 +13,7 @@
     <title>Fundación Kaplan</title>
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet"> 
 
     <!-- Notification CSS -->
     <link rel="stylesheet" href="css/angular-ui-notification.min.css" />
