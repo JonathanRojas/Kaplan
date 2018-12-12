@@ -54,7 +54,7 @@
         <div class="footer-slogan">
             Sistema Agenda Electrónica & Ficha Clínica Electrónica &copy; 2019 - Fundación Kaplan
         </div>
-        <!-- ./end Footer Copyright -->
+        <!-- ./end Footer Copyright --> 
     </footer>
     <!-- Scroll to top -->
     <div class="scroll-top">
