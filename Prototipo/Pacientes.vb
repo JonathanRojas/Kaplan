@@ -2,7 +2,7 @@
 
 Public Class Pacientes
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim connectString As String = "Provider=Microsoft.Jet.Oledb.4.0; Data Source=C:\Users\jonathan.rojas\Downloads\Ergosana.mdb"
+        Dim connectString As String = "Provider=Microsoft.Jet.Oledb.4.0; Data Source=C:\Users\jonathan\Downloads\Ergosana.mdb"
         Dim cn As OleDbConnection = New OleDbConnection(connectString)
         cn.Open()
         Dim selectString As String = "SELECT * FROM PATIENT_TABLE"
@@ -18,7 +18,7 @@ Public Class Pacientes
             Dim sqlconn As New OleDb.OleDbConnection
             Dim sqlquery As New OleDb.OleDbCommand
             Dim connString As String
-            connString = "Provider=Microsoft.Jet.Oledb.4.0; Data Source=C:\Users\jonathan.rojas\Downloads\Ergosana.mdb"
+            connString = "Provider=Microsoft.Jet.Oledb.4.0; Data Source=C:\Users\jonathan\Downloads\Ergosana.mdb"
             sqlconn.ConnectionString = connString
             sqlquery.Connection = sqlconn
             sqlconn.Open()

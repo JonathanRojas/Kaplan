@@ -314,7 +314,7 @@ Namespace Clases
                 correo.IsBodyHtml = True
                 correo.Priority = MailPriority.High
 
-                smtp.Credentials = New System.Net.NetworkCredential("no_reply@sistemaskaplan.info", "Kaplan*2018*")
+                smtp.Credentials = New System.Net.NetworkCredential("no_reply@sistemaskaplan.info", "Kaplan*2018")
                 smtp.Port = 25
                 smtp.Host = "mail.sistemaskaplan.info"
                 smtp.EnableSsl = False

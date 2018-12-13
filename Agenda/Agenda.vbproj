@@ -363,7 +363,9 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
-    <None Include="My Project\PublishProfiles\Agenda.pubxml" />
+    <None Include="My Project\PublishProfiles\Agenda Desarrollo.pubxml" />
+    <None Include="My Project\PublishProfiles\Agenda Producción.pubxml" />
+    <None Include="My Project\PublishProfiles\Local.pubxml" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>
