@@ -93,6 +93,7 @@
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
       <Private>True</Private>
@@ -230,6 +231,7 @@
     <Content Include="js\services\tipoService.js" />
     <Content Include="js\services\WindowsService.js" />
     <Content Include="login.html" />
+    <Content Include="reports\reporte.aspx" />
     <Content Include="reports\verDocumento.aspx" />
     <Content Include="SqlServerTypes\Loader.cs" />
     <Content Include="SqlServerTypes\readme.htm" />
@@ -405,6 +407,19 @@
     </Compile>
     <Compile Include="models\paciente\Persona.vb" />
     <Compile Include="reports\Documento.vb" />
+    <Compile Include="reports\dsReporte.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsReporte.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="reports\reporte.aspx.designer.vb">
+      <DependentUpon>reporte.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="reports\reporte.aspx.vb">
+      <DependentUpon>reporte.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="reports\reportes.vb" />
     <Compile Include="reports\verDocumento.aspx.designer.vb">
       <DependentUpon>verDocumento.aspx</DependentUpon>
     </Compile>
@@ -420,6 +435,7 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="reports\nutricion.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ApplicationInsights.config">
@@ -476,6 +492,17 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <Content Include="packages.config" />
+    <Content Include="reports\dsReporte.xsc">
+      <DependentUpon>dsReporte.xsd</DependentUpon>
+    </Content>
+    <None Include="reports\dsReporte.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsReporte.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="reports\dsReporte.xss">
+      <DependentUpon>dsReporte.xsd</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
