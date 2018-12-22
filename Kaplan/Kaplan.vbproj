@@ -435,7 +435,9 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="reports\nutricion.rdlc" />
+    <Content Include="reports\nutricion.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="ApplicationInsights.config">
@@ -484,6 +486,7 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\PublishProfiles\Ficha Desarrollo.pubxml" />
     <None Include="My Project\PublishProfiles\Kaplan.pubxml" />
     <None Include="My Project\PublishProfiles\Kapland.pubxml" />
     <None Include="My Project\Settings.settings">

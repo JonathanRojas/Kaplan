@@ -297,6 +297,106 @@ Partial Public Class dsReporte
         
         Private columnsituacion_laboral As Global.System.Data.DataColumn
         
+        Private columnkinesiologo As Global.System.Data.DataColumn
+        
+        Private columnnro_sesion As Global.System.Data.DataColumn
+        
+        Private columnriesgo As Global.System.Data.DataColumn
+        
+        Private columndiagnosticoMedico As Global.System.Data.DataColumn
+        
+        Private columncxProcedimiento As Global.System.Data.DataColumn
+        
+        Private columnsedentario As Global.System.Data.DataColumn
+        
+        Private columnestres As Global.System.Data.DataColumn
+        
+        Private columntabaco As Global.System.Data.DataColumn
+        
+        Private columnhta As Global.System.Data.DataColumn
+        
+        Private columndm As Global.System.Data.DataColumn
+        
+        Private columndlp As Global.System.Data.DataColumn
+        
+        Private columnspob As Global.System.Data.DataColumn
+        
+        Private columnoh As Global.System.Data.DataColumn
+        
+        Private columnpeso As Global.System.Data.DataColumn
+        
+        Private columntalla As Global.System.Data.DataColumn
+        
+        Private columnimc As Global.System.Data.DataColumn
+        
+        Private columnpesoHabitual As Global.System.Data.DataColumn
+        
+        Private columnpesoMinimoAcep As Global.System.Data.DataColumn
+        
+        Private columnpesoMaximoAcep As Global.System.Data.DataColumn
+        
+        Private columnpesoIdeal As Global.System.Data.DataColumn
+        
+        Private columnestadoNutricional As Global.System.Data.DataColumn
+        
+        Private columnmasaGrasaCorporal As Global.System.Data.DataColumn
+        
+        Private columnmasaMagra As Global.System.Data.DataColumn
+        
+        Private columnindiceCintura As Global.System.Data.DataColumn
+        
+        Private columnmasaGrasaPorc As Global.System.Data.DataColumn
+        
+        Private columngrasaVisceralPorc As Global.System.Data.DataColumn
+        
+        Private columncintura As Global.System.Data.DataColumn
+        
+        Private columncribaje As Global.System.Data.DataColumn
+        
+        Private columnapetito As Global.System.Data.DataColumn
+        
+        Private columnalergia As Global.System.Data.DataColumn
+        
+        Private columnpreferencia As Global.System.Data.DataColumn
+        
+        Private columnintolerancia As Global.System.Data.DataColumn
+        
+        Private columnaversion As Global.System.Data.DataColumn
+        
+        Private columnsuplemento As Global.System.Data.DataColumn
+        
+        Private columndesayunoHora As Global.System.Data.DataColumn
+        
+        Private columndesayunoObs As Global.System.Data.DataColumn
+        
+        Private columncolacionHora As Global.System.Data.DataColumn
+        
+        Private columncolacionObs As Global.System.Data.DataColumn
+        
+        Private columnalmuerzoHora As Global.System.Data.DataColumn
+        
+        Private columnalmuerzoObs As Global.System.Data.DataColumn
+        
+        Private columnpicoteoHora As Global.System.Data.DataColumn
+        
+        Private columnpicoteoObs As Global.System.Data.DataColumn
+        
+        Private columnonceHora As Global.System.Data.DataColumn
+        
+        Private columnonceObs As Global.System.Data.DataColumn
+        
+        Private columncenaHora As Global.System.Data.DataColumn
+        
+        Private columncenaObs As Global.System.Data.DataColumn
+        
+        Private columnsnackHora As Global.System.Data.DataColumn
+        
+        Private columnsnackObs As Global.System.Data.DataColumn
+        
+        Private columnminutaObs As Global.System.Data.DataColumn
+        
+        Private columndniObs As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -389,6 +489,406 @@ Partial Public Class dsReporte
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property kinesiologoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnkinesiologo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property nro_sesionColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnnro_sesion
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property riesgoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnriesgo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property diagnosticoMedicoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columndiagnosticoMedico
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property cxProcedimientoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncxProcedimiento
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property sedentarioColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnsedentario
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property estresColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnestres
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property tabacoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columntabaco
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property htaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnhta
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property dmColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columndm
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property dlpColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columndlp
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property spobColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnspob
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property ohColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnoh
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property pesoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnpeso
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property tallaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columntalla
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property imcColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnimc
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property pesoHabitualColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnpesoHabitual
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property pesoMinimoAcepColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnpesoMinimoAcep
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property pesoMaximoAcepColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnpesoMaximoAcep
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property pesoIdealColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnpesoIdeal
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property estadoNutricionalColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnestadoNutricional
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property masaGrasaCorporalColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnmasaGrasaCorporal
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property masaMagraColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnmasaMagra
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property indiceCinturaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnindiceCintura
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property masaGrasaPorcColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnmasaGrasaPorc
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property grasaVisceralPorcColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columngrasaVisceralPorc
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property cinturaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncintura
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property cribajeColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncribaje
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property apetitoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnapetito
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property alergiaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnalergia
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property preferenciaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnpreferencia
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property intoleranciaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnintolerancia
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property aversionColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnaversion
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property suplementoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnsuplemento
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property desayunoHoraColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columndesayunoHora
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property desayunoObsColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columndesayunoObs
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property colacionHoraColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncolacionHora
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property colacionObsColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncolacionObs
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property almuerzoHoraColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnalmuerzoHora
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property almuerzoObsColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnalmuerzoObs
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property picoteoHoraColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnpicoteoHora
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property picoteoObsColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnpicoteoObs
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property onceHoraColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnonceHora
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property onceObsColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnonceObs
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property cenaHoraColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncenaHora
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property cenaObsColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncenaObs
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property snackHoraColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnsnackHora
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property snackObsColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnsnackObs
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property minutaObsColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnminutaObs
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property dniObsColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columndniObs
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -425,9 +925,66 @@ Partial Public Class dsReporte
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddPACIENTERow(ByVal id As Integer, ByVal nombre As String, ByVal rut As String, ByVal fecha_nacimiento As Date, ByVal edad As Integer, ByVal direccion As String, ByVal situacion_laboral As String) As PACIENTERow
+        Public Overloads Function AddPACIENTERow( _
+                    ByVal id As Integer,  _
+                    ByVal nombre As String,  _
+                    ByVal rut As String,  _
+                    ByVal fecha_nacimiento As Date,  _
+                    ByVal edad As Integer,  _
+                    ByVal direccion As String,  _
+                    ByVal situacion_laboral As String,  _
+                    ByVal kinesiologo As String,  _
+                    ByVal nro_sesion As Integer,  _
+                    ByVal riesgo As String,  _
+                    ByVal diagnosticoMedico As String,  _
+                    ByVal cxProcedimiento As String,  _
+                    ByVal sedentario As String,  _
+                    ByVal estres As String,  _
+                    ByVal tabaco As String,  _
+                    ByVal hta As String,  _
+                    ByVal dm As String,  _
+                    ByVal dlp As String,  _
+                    ByVal spob As String,  _
+                    ByVal oh As String,  _
+                    ByVal peso As Decimal,  _
+                    ByVal talla As Decimal,  _
+                    ByVal imc As Decimal,  _
+                    ByVal pesoHabitual As Decimal,  _
+                    ByVal pesoMinimoAcep As Decimal,  _
+                    ByVal pesoMaximoAcep As Decimal,  _
+                    ByVal pesoIdeal As Decimal,  _
+                    ByVal estadoNutricional As String,  _
+                    ByVal masaGrasaCorporal As Integer,  _
+                    ByVal masaMagra As Integer,  _
+                    ByVal indiceCintura As Integer,  _
+                    ByVal masaGrasaPorc As Integer,  _
+                    ByVal grasaVisceralPorc As Integer,  _
+                    ByVal cintura As Integer,  _
+                    ByVal cribaje As String,  _
+                    ByVal apetito As String,  _
+                    ByVal alergia As String,  _
+                    ByVal preferencia As String,  _
+                    ByVal intolerancia As String,  _
+                    ByVal aversion As String,  _
+                    ByVal suplemento As String,  _
+                    ByVal desayunoHora As String,  _
+                    ByVal desayunoObs As String,  _
+                    ByVal colacionHora As String,  _
+                    ByVal colacionObs As String,  _
+                    ByVal almuerzoHora As String,  _
+                    ByVal almuerzoObs As String,  _
+                    ByVal picoteoHora As String,  _
+                    ByVal picoteoObs As String,  _
+                    ByVal onceHora As String,  _
+                    ByVal onceObs As String,  _
+                    ByVal cenaHora As String,  _
+                    ByVal cenaObs As String,  _
+                    ByVal snackHora As String,  _
+                    ByVal snackObs As String,  _
+                    ByVal minutaObs As String,  _
+                    ByVal dniObs As String) As PACIENTERow
             Dim rowPACIENTERow As PACIENTERow = CType(Me.NewRow,PACIENTERow)
-            Dim columnValuesArray() As Object = New Object() {id, nombre, rut, fecha_nacimiento, edad, direccion, situacion_laboral}
+            Dim columnValuesArray() As Object = New Object() {id, nombre, rut, fecha_nacimiento, edad, direccion, situacion_laboral, kinesiologo, nro_sesion, riesgo, diagnosticoMedico, cxProcedimiento, sedentario, estres, tabaco, hta, dm, dlp, spob, oh, peso, talla, imc, pesoHabitual, pesoMinimoAcep, pesoMaximoAcep, pesoIdeal, estadoNutricional, masaGrasaCorporal, masaMagra, indiceCintura, masaGrasaPorc, grasaVisceralPorc, cintura, cribaje, apetito, alergia, preferencia, intolerancia, aversion, suplemento, desayunoHora, desayunoObs, colacionHora, colacionObs, almuerzoHora, almuerzoObs, picoteoHora, picoteoObs, onceHora, onceObs, cenaHora, cenaObs, snackHora, snackObs, minutaObs, dniObs}
             rowPACIENTERow.ItemArray = columnValuesArray
             Me.Rows.Add(rowPACIENTERow)
             Return rowPACIENTERow
@@ -457,6 +1014,56 @@ Partial Public Class dsReporte
             Me.columnedad = MyBase.Columns("edad")
             Me.columndireccion = MyBase.Columns("direccion")
             Me.columnsituacion_laboral = MyBase.Columns("situacion_laboral")
+            Me.columnkinesiologo = MyBase.Columns("kinesiologo")
+            Me.columnnro_sesion = MyBase.Columns("nro_sesion")
+            Me.columnriesgo = MyBase.Columns("riesgo")
+            Me.columndiagnosticoMedico = MyBase.Columns("diagnosticoMedico")
+            Me.columncxProcedimiento = MyBase.Columns("cxProcedimiento")
+            Me.columnsedentario = MyBase.Columns("sedentario")
+            Me.columnestres = MyBase.Columns("estres")
+            Me.columntabaco = MyBase.Columns("tabaco")
+            Me.columnhta = MyBase.Columns("hta")
+            Me.columndm = MyBase.Columns("dm")
+            Me.columndlp = MyBase.Columns("dlp")
+            Me.columnspob = MyBase.Columns("spob")
+            Me.columnoh = MyBase.Columns("oh")
+            Me.columnpeso = MyBase.Columns("peso")
+            Me.columntalla = MyBase.Columns("talla")
+            Me.columnimc = MyBase.Columns("imc")
+            Me.columnpesoHabitual = MyBase.Columns("pesoHabitual")
+            Me.columnpesoMinimoAcep = MyBase.Columns("pesoMinimoAcep")
+            Me.columnpesoMaximoAcep = MyBase.Columns("pesoMaximoAcep")
+            Me.columnpesoIdeal = MyBase.Columns("pesoIdeal")
+            Me.columnestadoNutricional = MyBase.Columns("estadoNutricional")
+            Me.columnmasaGrasaCorporal = MyBase.Columns("masaGrasaCorporal")
+            Me.columnmasaMagra = MyBase.Columns("masaMagra")
+            Me.columnindiceCintura = MyBase.Columns("indiceCintura")
+            Me.columnmasaGrasaPorc = MyBase.Columns("masaGrasaPorc")
+            Me.columngrasaVisceralPorc = MyBase.Columns("grasaVisceralPorc")
+            Me.columncintura = MyBase.Columns("cintura")
+            Me.columncribaje = MyBase.Columns("cribaje")
+            Me.columnapetito = MyBase.Columns("apetito")
+            Me.columnalergia = MyBase.Columns("alergia")
+            Me.columnpreferencia = MyBase.Columns("preferencia")
+            Me.columnintolerancia = MyBase.Columns("intolerancia")
+            Me.columnaversion = MyBase.Columns("aversion")
+            Me.columnsuplemento = MyBase.Columns("suplemento")
+            Me.columndesayunoHora = MyBase.Columns("desayunoHora")
+            Me.columndesayunoObs = MyBase.Columns("desayunoObs")
+            Me.columncolacionHora = MyBase.Columns("colacionHora")
+            Me.columncolacionObs = MyBase.Columns("colacionObs")
+            Me.columnalmuerzoHora = MyBase.Columns("almuerzoHora")
+            Me.columnalmuerzoObs = MyBase.Columns("almuerzoObs")
+            Me.columnpicoteoHora = MyBase.Columns("picoteoHora")
+            Me.columnpicoteoObs = MyBase.Columns("picoteoObs")
+            Me.columnonceHora = MyBase.Columns("onceHora")
+            Me.columnonceObs = MyBase.Columns("onceObs")
+            Me.columncenaHora = MyBase.Columns("cenaHora")
+            Me.columncenaObs = MyBase.Columns("cenaObs")
+            Me.columnsnackHora = MyBase.Columns("snackHora")
+            Me.columnsnackObs = MyBase.Columns("snackObs")
+            Me.columnminutaObs = MyBase.Columns("minutaObs")
+            Me.columndniObs = MyBase.Columns("dniObs")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -476,6 +1083,106 @@ Partial Public Class dsReporte
             MyBase.Columns.Add(Me.columndireccion)
             Me.columnsituacion_laboral = New Global.System.Data.DataColumn("situacion_laboral", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnsituacion_laboral)
+            Me.columnkinesiologo = New Global.System.Data.DataColumn("kinesiologo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnkinesiologo)
+            Me.columnnro_sesion = New Global.System.Data.DataColumn("nro_sesion", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnnro_sesion)
+            Me.columnriesgo = New Global.System.Data.DataColumn("riesgo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnriesgo)
+            Me.columndiagnosticoMedico = New Global.System.Data.DataColumn("diagnosticoMedico", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columndiagnosticoMedico)
+            Me.columncxProcedimiento = New Global.System.Data.DataColumn("cxProcedimiento", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncxProcedimiento)
+            Me.columnsedentario = New Global.System.Data.DataColumn("sedentario", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnsedentario)
+            Me.columnestres = New Global.System.Data.DataColumn("estres", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnestres)
+            Me.columntabaco = New Global.System.Data.DataColumn("tabaco", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntabaco)
+            Me.columnhta = New Global.System.Data.DataColumn("hta", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnhta)
+            Me.columndm = New Global.System.Data.DataColumn("dm", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columndm)
+            Me.columndlp = New Global.System.Data.DataColumn("dlp", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columndlp)
+            Me.columnspob = New Global.System.Data.DataColumn("spob", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnspob)
+            Me.columnoh = New Global.System.Data.DataColumn("oh", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnoh)
+            Me.columnpeso = New Global.System.Data.DataColumn("peso", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnpeso)
+            Me.columntalla = New Global.System.Data.DataColumn("talla", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntalla)
+            Me.columnimc = New Global.System.Data.DataColumn("imc", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnimc)
+            Me.columnpesoHabitual = New Global.System.Data.DataColumn("pesoHabitual", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnpesoHabitual)
+            Me.columnpesoMinimoAcep = New Global.System.Data.DataColumn("pesoMinimoAcep", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnpesoMinimoAcep)
+            Me.columnpesoMaximoAcep = New Global.System.Data.DataColumn("pesoMaximoAcep", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnpesoMaximoAcep)
+            Me.columnpesoIdeal = New Global.System.Data.DataColumn("pesoIdeal", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnpesoIdeal)
+            Me.columnestadoNutricional = New Global.System.Data.DataColumn("estadoNutricional", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnestadoNutricional)
+            Me.columnmasaGrasaCorporal = New Global.System.Data.DataColumn("masaGrasaCorporal", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnmasaGrasaCorporal)
+            Me.columnmasaMagra = New Global.System.Data.DataColumn("masaMagra", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnmasaMagra)
+            Me.columnindiceCintura = New Global.System.Data.DataColumn("indiceCintura", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnindiceCintura)
+            Me.columnmasaGrasaPorc = New Global.System.Data.DataColumn("masaGrasaPorc", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnmasaGrasaPorc)
+            Me.columngrasaVisceralPorc = New Global.System.Data.DataColumn("grasaVisceralPorc", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columngrasaVisceralPorc)
+            Me.columncintura = New Global.System.Data.DataColumn("cintura", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncintura)
+            Me.columncribaje = New Global.System.Data.DataColumn("cribaje", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncribaje)
+            Me.columnapetito = New Global.System.Data.DataColumn("apetito", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnapetito)
+            Me.columnalergia = New Global.System.Data.DataColumn("alergia", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnalergia)
+            Me.columnpreferencia = New Global.System.Data.DataColumn("preferencia", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnpreferencia)
+            Me.columnintolerancia = New Global.System.Data.DataColumn("intolerancia", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnintolerancia)
+            Me.columnaversion = New Global.System.Data.DataColumn("aversion", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnaversion)
+            Me.columnsuplemento = New Global.System.Data.DataColumn("suplemento", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnsuplemento)
+            Me.columndesayunoHora = New Global.System.Data.DataColumn("desayunoHora", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columndesayunoHora)
+            Me.columndesayunoObs = New Global.System.Data.DataColumn("desayunoObs", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columndesayunoObs)
+            Me.columncolacionHora = New Global.System.Data.DataColumn("colacionHora", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncolacionHora)
+            Me.columncolacionObs = New Global.System.Data.DataColumn("colacionObs", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncolacionObs)
+            Me.columnalmuerzoHora = New Global.System.Data.DataColumn("almuerzoHora", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnalmuerzoHora)
+            Me.columnalmuerzoObs = New Global.System.Data.DataColumn("almuerzoObs", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnalmuerzoObs)
+            Me.columnpicoteoHora = New Global.System.Data.DataColumn("picoteoHora", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnpicoteoHora)
+            Me.columnpicoteoObs = New Global.System.Data.DataColumn("picoteoObs", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnpicoteoObs)
+            Me.columnonceHora = New Global.System.Data.DataColumn("onceHora", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnonceHora)
+            Me.columnonceObs = New Global.System.Data.DataColumn("onceObs", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnonceObs)
+            Me.columncenaHora = New Global.System.Data.DataColumn("cenaHora", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncenaHora)
+            Me.columncenaObs = New Global.System.Data.DataColumn("cenaObs", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncenaObs)
+            Me.columnsnackHora = New Global.System.Data.DataColumn("snackHora", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnsnackHora)
+            Me.columnsnackObs = New Global.System.Data.DataColumn("snackObs", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnsnackObs)
+            Me.columnminutaObs = New Global.System.Data.DataColumn("minutaObs", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnminutaObs)
+            Me.columndniObs = New Global.System.Data.DataColumn("dniObs", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columndniObs)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -727,6 +1434,756 @@ Partial Public Class dsReporte
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property kinesiologo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.kinesiologoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'kinesiologo' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.kinesiologoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property nro_sesion() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.nro_sesionColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'nro_sesion' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.nro_sesionColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property riesgo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.riesgoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'riesgo' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.riesgoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property diagnosticoMedico() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.diagnosticoMedicoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'diagnosticoMedico' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.diagnosticoMedicoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property cxProcedimiento() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.cxProcedimientoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'cxProcedimiento' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.cxProcedimientoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property sedentario() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.sedentarioColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'sedentario' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.sedentarioColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property estres() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.estresColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'estres' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.estresColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property tabaco() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.tabacoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'tabaco' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.tabacoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property hta() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.htaColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'hta' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.htaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property dm() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.dmColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'dm' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.dmColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property dlp() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.dlpColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'dlp' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.dlpColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property spob() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.spobColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'spob' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.spobColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property oh() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.ohColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'oh' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.ohColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property peso() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.pesoColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'peso' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.pesoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property talla() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.tallaColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'talla' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.tallaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property imc() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.imcColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'imc' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.imcColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property pesoHabitual() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.pesoHabitualColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'pesoHabitual' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.pesoHabitualColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property pesoMinimoAcep() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.pesoMinimoAcepColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'pesoMinimoAcep' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.pesoMinimoAcepColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property pesoMaximoAcep() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.pesoMaximoAcepColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'pesoMaximoAcep' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.pesoMaximoAcepColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property pesoIdeal() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.pesoIdealColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'pesoIdeal' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.pesoIdealColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property estadoNutricional() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.estadoNutricionalColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'estadoNutricional' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.estadoNutricionalColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property masaGrasaCorporal() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.masaGrasaCorporalColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'masaGrasaCorporal' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.masaGrasaCorporalColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property masaMagra() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.masaMagraColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'masaMagra' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.masaMagraColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property indiceCintura() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.indiceCinturaColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'indiceCintura' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.indiceCinturaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property masaGrasaPorc() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.masaGrasaPorcColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'masaGrasaPorc' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.masaGrasaPorcColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property grasaVisceralPorc() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.grasaVisceralPorcColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'grasaVisceralPorc' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.grasaVisceralPorcColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property cintura() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.cinturaColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'cintura' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.cinturaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property cribaje() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.cribajeColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'cribaje' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.cribajeColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property apetito() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.apetitoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'apetito' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.apetitoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property alergia() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.alergiaColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'alergia' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.alergiaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property preferencia() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.preferenciaColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'preferencia' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.preferenciaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property intolerancia() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.intoleranciaColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'intolerancia' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.intoleranciaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property aversion() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.aversionColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'aversion' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.aversionColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property suplemento() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.suplementoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'suplemento' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.suplementoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property desayunoHora() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.desayunoHoraColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'desayunoHora' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.desayunoHoraColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property desayunoObs() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.desayunoObsColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'desayunoObs' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.desayunoObsColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property colacionHora() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.colacionHoraColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'colacionHora' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.colacionHoraColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property colacionObs() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.colacionObsColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'colacionObs' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.colacionObsColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property almuerzoHora() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.almuerzoHoraColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'almuerzoHora' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.almuerzoHoraColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property almuerzoObs() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.almuerzoObsColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'almuerzoObs' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.almuerzoObsColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property picoteoHora() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.picoteoHoraColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'picoteoHora' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.picoteoHoraColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property picoteoObs() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.picoteoObsColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'picoteoObs' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.picoteoObsColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property onceHora() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.onceHoraColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'onceHora' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.onceHoraColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property onceObs() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.onceObsColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'onceObs' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.onceObsColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property cenaHora() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.cenaHoraColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'cenaHora' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.cenaHoraColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property cenaObs() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.cenaObsColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'cenaObs' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.cenaObsColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property snackHora() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.snackHoraColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'snackHora' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.snackHoraColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property snackObs() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.snackObsColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'snackObs' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.snackObsColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property minutaObs() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.minutaObsColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'minutaObs' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.minutaObsColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property dniObs() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePACIENTE.dniObsColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'dniObs' de la tabla 'PACIENTE' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePACIENTE.dniObsColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsidNull() As Boolean
             Return Me.IsNull(Me.tablePACIENTE.idColumn)
         End Function
@@ -807,6 +2264,606 @@ Partial Public Class dsReporte
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub Setsituacion_laboralNull()
             Me(Me.tablePACIENTE.situacion_laboralColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IskinesiologoNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.kinesiologoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetkinesiologoNull()
+            Me(Me.tablePACIENTE.kinesiologoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function Isnro_sesionNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.nro_sesionColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub Setnro_sesionNull()
+            Me(Me.tablePACIENTE.nro_sesionColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsriesgoNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.riesgoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetriesgoNull()
+            Me(Me.tablePACIENTE.riesgoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsdiagnosticoMedicoNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.diagnosticoMedicoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetdiagnosticoMedicoNull()
+            Me(Me.tablePACIENTE.diagnosticoMedicoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IscxProcedimientoNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.cxProcedimientoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetcxProcedimientoNull()
+            Me(Me.tablePACIENTE.cxProcedimientoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IssedentarioNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.sedentarioColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetsedentarioNull()
+            Me(Me.tablePACIENTE.sedentarioColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsestresNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.estresColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetestresNull()
+            Me(Me.tablePACIENTE.estresColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IstabacoNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.tabacoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SettabacoNull()
+            Me(Me.tablePACIENTE.tabacoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IshtaNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.htaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SethtaNull()
+            Me(Me.tablePACIENTE.htaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsdmNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.dmColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetdmNull()
+            Me(Me.tablePACIENTE.dmColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsdlpNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.dlpColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetdlpNull()
+            Me(Me.tablePACIENTE.dlpColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsspobNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.spobColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetspobNull()
+            Me(Me.tablePACIENTE.spobColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsohNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.ohColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetohNull()
+            Me(Me.tablePACIENTE.ohColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IspesoNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.pesoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetpesoNull()
+            Me(Me.tablePACIENTE.pesoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IstallaNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.tallaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SettallaNull()
+            Me(Me.tablePACIENTE.tallaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsimcNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.imcColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetimcNull()
+            Me(Me.tablePACIENTE.imcColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IspesoHabitualNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.pesoHabitualColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetpesoHabitualNull()
+            Me(Me.tablePACIENTE.pesoHabitualColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IspesoMinimoAcepNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.pesoMinimoAcepColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetpesoMinimoAcepNull()
+            Me(Me.tablePACIENTE.pesoMinimoAcepColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IspesoMaximoAcepNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.pesoMaximoAcepColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetpesoMaximoAcepNull()
+            Me(Me.tablePACIENTE.pesoMaximoAcepColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IspesoIdealNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.pesoIdealColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetpesoIdealNull()
+            Me(Me.tablePACIENTE.pesoIdealColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsestadoNutricionalNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.estadoNutricionalColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetestadoNutricionalNull()
+            Me(Me.tablePACIENTE.estadoNutricionalColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsmasaGrasaCorporalNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.masaGrasaCorporalColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetmasaGrasaCorporalNull()
+            Me(Me.tablePACIENTE.masaGrasaCorporalColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsmasaMagraNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.masaMagraColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetmasaMagraNull()
+            Me(Me.tablePACIENTE.masaMagraColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsindiceCinturaNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.indiceCinturaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetindiceCinturaNull()
+            Me(Me.tablePACIENTE.indiceCinturaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsmasaGrasaPorcNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.masaGrasaPorcColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetmasaGrasaPorcNull()
+            Me(Me.tablePACIENTE.masaGrasaPorcColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsgrasaVisceralPorcNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.grasaVisceralPorcColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetgrasaVisceralPorcNull()
+            Me(Me.tablePACIENTE.grasaVisceralPorcColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IscinturaNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.cinturaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetcinturaNull()
+            Me(Me.tablePACIENTE.cinturaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IscribajeNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.cribajeColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetcribajeNull()
+            Me(Me.tablePACIENTE.cribajeColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsapetitoNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.apetitoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetapetitoNull()
+            Me(Me.tablePACIENTE.apetitoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsalergiaNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.alergiaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetalergiaNull()
+            Me(Me.tablePACIENTE.alergiaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IspreferenciaNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.preferenciaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetpreferenciaNull()
+            Me(Me.tablePACIENTE.preferenciaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsintoleranciaNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.intoleranciaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetintoleranciaNull()
+            Me(Me.tablePACIENTE.intoleranciaColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsaversionNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.aversionColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetaversionNull()
+            Me(Me.tablePACIENTE.aversionColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IssuplementoNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.suplementoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetsuplementoNull()
+            Me(Me.tablePACIENTE.suplementoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsdesayunoHoraNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.desayunoHoraColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetdesayunoHoraNull()
+            Me(Me.tablePACIENTE.desayunoHoraColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsdesayunoObsNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.desayunoObsColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetdesayunoObsNull()
+            Me(Me.tablePACIENTE.desayunoObsColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IscolacionHoraNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.colacionHoraColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetcolacionHoraNull()
+            Me(Me.tablePACIENTE.colacionHoraColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IscolacionObsNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.colacionObsColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetcolacionObsNull()
+            Me(Me.tablePACIENTE.colacionObsColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsalmuerzoHoraNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.almuerzoHoraColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetalmuerzoHoraNull()
+            Me(Me.tablePACIENTE.almuerzoHoraColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsalmuerzoObsNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.almuerzoObsColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetalmuerzoObsNull()
+            Me(Me.tablePACIENTE.almuerzoObsColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IspicoteoHoraNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.picoteoHoraColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetpicoteoHoraNull()
+            Me(Me.tablePACIENTE.picoteoHoraColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IspicoteoObsNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.picoteoObsColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetpicoteoObsNull()
+            Me(Me.tablePACIENTE.picoteoObsColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsonceHoraNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.onceHoraColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetonceHoraNull()
+            Me(Me.tablePACIENTE.onceHoraColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsonceObsNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.onceObsColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetonceObsNull()
+            Me(Me.tablePACIENTE.onceObsColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IscenaHoraNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.cenaHoraColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetcenaHoraNull()
+            Me(Me.tablePACIENTE.cenaHoraColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IscenaObsNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.cenaObsColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetcenaObsNull()
+            Me(Me.tablePACIENTE.cenaObsColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IssnackHoraNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.snackHoraColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetsnackHoraNull()
+            Me(Me.tablePACIENTE.snackHoraColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IssnackObsNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.snackObsColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetsnackObsNull()
+            Me(Me.tablePACIENTE.snackObsColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsminutaObsNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.minutaObsColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetminutaObsNull()
+            Me(Me.tablePACIENTE.minutaObsColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsdniObsNull() As Boolean
+            Return Me.IsNull(Me.tablePACIENTE.dniObsColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetdniObsNull()
+            Me(Me.tablePACIENTE.dniObsColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
