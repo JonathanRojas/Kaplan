@@ -501,7 +501,6 @@
     <None Include="reports\dsReporte.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dsReporte.Designer.vb</LastGenOutput>
     </None>
     <Content Include="reports\dsReporte.xss">
       <DependentUpon>dsReporte.xsd</DependentUpon>
