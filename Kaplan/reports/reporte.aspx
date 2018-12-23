@@ -14,5 +14,9 @@
             <LocalReport ReportPath="reports\psicologia.rdlc">
             </LocalReport>
         </rsweb:ReportViewer>
+        <rsweb:ReportViewer ID="ReportViewer3" runat="server" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="100%" Height="1500px"  ShowPrintButton="True" SizeToReportContent="True" Visible="False">
+            <LocalReport ReportPath="reports\kinesiologia.rdlc">
+            </LocalReport>
+        </rsweb:ReportViewer>
     </div>
     </form>
