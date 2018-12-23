@@ -441,6 +441,7 @@
     <Content Include="reports\nutricion.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="reports\enfermeria.rdlc" />
     <EmbeddedResource Include="reports\kinesiologia.rdlc" />
     <EmbeddedResource Include="reports\psicologia.rdlc" />
   </ItemGroup>

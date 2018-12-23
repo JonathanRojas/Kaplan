@@ -52,6 +52,32 @@ Public Class reporte
                         ReportViewer3.LocalReport.ReportEmbeddedResource = "kinesiologia.rdlc"
                         ReportViewer3.Visible = True
                         ReportViewer3.LocalReport.Refresh()
+                    Case "FE"
+                        Dim data As New dsReporte
+                        Dim ds As New DataSet
+                        ds = reportes.reporteEnfermeria(Request("paciente"))
+                        ds.Tables(0).TableName = "ENFERMERIA"
+                        ds.Tables(1).TableName = "FEMEDICAMENTO"
+                        ds.Tables(2).TableName = "FEEVOLUCION"
+                        ds.Tables(3).TableName = "FEDIAGNOSTICO"
+                        ds.Tables(4).TableName = "FECUIDADO"
+                        ds.Tables(5).TableName = "FEINDICADOR"
+                        Dim rds = New ReportDataSource("dsReporte", ds.Tables(0))
+                        Dim rds2 = New ReportDataSource("dsReporte", ds.Tables(1))
+                        Dim rds3 = New ReportDataSource("dsReporte", ds.Tables(2))
+                        Dim rds4 = New ReportDataSource("dsReporte", ds.Tables(3))
+                        Dim rds5 = New ReportDataSource("dsReporte", ds.Tables(4))
+                        Dim rds6 = New ReportDataSource("dsReporte", ds.Tables(5))
+                        ReportViewer4.LocalReport.DataSources.Clear()
+                        ReportViewer4.LocalReport.DataSources.Add(New ReportDataSource("dsPacientes", ds.Tables(0).DefaultView))
+                        ReportViewer4.LocalReport.DataSources.Add(New ReportDataSource("dsFEMedicamento", ds.Tables(1).DefaultView))
+                        ReportViewer4.LocalReport.DataSources.Add(New ReportDataSource("dsFEEvolucion", ds.Tables(2).DefaultView))
+                        ReportViewer4.LocalReport.DataSources.Add(New ReportDataSource("dsFEDiagnostico", ds.Tables(3).DefaultView))
+                        ReportViewer4.LocalReport.DataSources.Add(New ReportDataSource("dsFECuidado", ds.Tables(4).DefaultView))
+                        ReportViewer4.LocalReport.DataSources.Add(New ReportDataSource("dsFEIndicador", ds.Tables(5).DefaultView))
+                        ReportViewer4.LocalReport.ReportEmbeddedResource = "enfermeria.rdlc"
+                        ReportViewer4.Visible = True
+                        ReportViewer4.LocalReport.Refresh()
                 End Select
             Catch ex As Exception
 
