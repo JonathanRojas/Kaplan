@@ -41,4 +41,12 @@ function ($scope, Notification, LoginService, $location, consultaService) {
         LoginService.getCerrarSesion();
         $location.path('cerrarsesion');
     };
+
+    $scope.Export = function () {
+        $("#paraReporte").table2excel({
+            filename: "Data.xls"
+        });
+    }
+
+
 }]);

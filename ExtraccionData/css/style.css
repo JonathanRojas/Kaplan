@@ -3157,3 +3157,13 @@ body.boxed {
     width: 100%;
     margin-bottom: 15px;
 }
+
+.input-filtro {
+    height: 20px;
+    padding: 5px 10px;
+    font-size: 10px;
+    line-height: 1.5;
+    border-radius: 7px;
+    width: 70px;
+    padding-left: 10px;
+}

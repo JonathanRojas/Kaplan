@@ -43,6 +43,7 @@
     <script src="js/script/jquery-3.1.1.min.js"></script>
     <script src="js/script/select2.min.js"></script>
     <script src="js/script/md5.js"></script>
+    <script src="js/script/table2excel.js"></script>
 </head>
 <body ng-app="app" class="doted-bg" ng-cloak ng-controller="defaultController" onundo="javascript:window.localStorage.clear()">
 
@@ -51,7 +52,7 @@
             </div>
 
     <!-- Footer -->
-            <footer class="mt30">
+            <footer>
                 <!-- Container -->
                 <div class="container">
                     <!-- Row Begin -->
