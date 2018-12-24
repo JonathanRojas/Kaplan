@@ -1,0 +1,541 @@
+﻿<nav class="navbar navbar-default navbar-dark" role="navigation" style="padding-top:0">
+    <!-- Top Bar -->
+    <div class="top-bar dark">
+        <!-- Container -->
+        <div class="container-fluid">
+            <!-- Row -->
+            <div class="row mb50">
+                <div class="col-lg-6 pull-right col-sm-6 pull-right col-md-6 col-xs-12">
+                    <div class="dropdown pull-right">
+                        <span class="dropdown-toggle" id="dropdownLang" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-user-circle-o" style="color:#fff"></i> {{Nombres}} <span class="caret"></span></span>
+                        <ul class="dropdown-menu pull-right" aria-labelledby="dropdownLang">
+                            <li><a href="">Rol: {{NombreEspecialidad}}</a></li>
+                            <li><a href="" ng-click="CerrarSesion()">Cerrar Sesión</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div> <!-- ./end Row -->
+        </div> <!-- ./end Container -->
+    </div>
+    <!-- End / Top Bar -->
+    <!-- Nav -->
+    <nav class="navbar navbar-default navbar-dark" role="navigation">
+        <div class="container-fluid">
+            <!-- LOGO -->
+            <a class="navbar-brand page-scroll" href="" style="line-height: normal"><i class="fa fa-heartbeat hidden-xs" aria-hidden="true"></i> Fundación <span class="text-light">Kaplan</span></a>
+            <!-- END / LOGO -->
+
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a class="page-scroll" href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a href="" ng-click="nav('views/fichaEnfermeria.html')">Exportar Datos <i class="fa fa-medkit fa-2x hidden-xs" aria-hidden="true"></i></a>
+                    </li>
+                </ul> <!-- END / NAVBAR RIGHT -->
+            </div>
+        </div> <!-- END CONTAINER -->
+    </nav>
+    <!-- ./end Nav -->
+</nav>
+<section id="suggestions" class="doted-bg1">
+    <div class="container-fluid" ng-class="{hidden: loading}">
+        <!-- Row -->
+        <div class="row">
+            <div class="col-md-12">
+                <form class="form-horizontal" name="frmRegistrosMedicos" id="contact" role="form" ng-disabled="true">
+                    <div class="section-title text-center mb20">
+                        <h2 class="animated hidden-xs" data-animation="bounceInLeft">Registros Médicos</h2>
+                        <p class="text-blue animated hidden-xs" data-animation="bounceInLeft">
+                            Listado Registros Médicos
+                        </p>
+                    </div>
+                    <span class="clearfix"></span>
+                    <div class="row" ng-class="{hidden: loading}">
+                        <div class="col-xs-12">
+                            <div class="table-responsive" >
+                                <table class="table table-bordered table-condensed" style="background-color:#fcfdfeb3;">
+                                    <thead>
+                                        <tr>
+                                            <th>id_paciente </th>
+                                            <th>numero_ficha </th>
+                                            <th>sexo </th>
+                                            <th>situacion_laboral </th>
+                                            <th>peso_actual </th>
+                                            <th>talla</th>
+                                            <th>masa_grasa_corporal </th>
+                                            <th>masa_magra </th>
+                                            <th>indice_cintura </th>
+                                            <th>MNA </th>
+                                            <th>peso_habitual </th>
+                                            <th>masa_magra_porc </th>
+                                            <th>grasa_viceral </th>
+                                            <th>porc_cintura </th>
+                                            <th>cribaje </th>
+                                            <th>apetito </th>
+                                            <th>alergia_alimentaria </th>
+                                            <th>preferencia_alimentaria </th>
+                                            <th>intolerancia_alimentaria </th>
+                                            <th>aversaciones_alimentaria</th>
+                                            <th>consumo_suplemento </th>
+                                            <th>hora_desayuno </th>
+                                            <th>gramaje_desayuno </th>
+                                            <th>hora_colacion </th>
+                                            <th>gramaje_colacion </th>
+                                            <th>hora_almuerzo </th>
+                                            <th>gramaje_almuerzo </th>
+                                            <th>hora_picoteo </th>
+                                            <th>gramaje_picoteo</th>
+                                            <th>hora_once </th>
+                                            <th>gramaje_once </th>
+                                            <th>hora_cena </th>
+                                            <th>gramaje_cena </th>
+                                            <th>hora_snack </th>
+                                            <th>gramaje_snack </th>
+                                            <th>ingesta_ali_observacion </th>
+                                            <th>diagnostico_nutricional_observacion </th>
+                                            <th>geb </th>
+                                            <th>energia </th>
+                                            <th>FA </th>
+                                            <th>proteina </th>
+                                            <th>lipidos </th>
+                                            <th>aporte_alimentacion_KCAL </th>
+                                            <th>aporte_alimentacion_cho</th>
+                                            <th>aporte_alimentacion_lip </th>
+                                            <th>aporte_alimentacion_prot</th>
+                                            <th>prescripcion_dietetica </th>
+                                            <th>indicaciones_generales </th>
+                                            <th>diagnostico_nutricional_integrado </th>
+                                            <th>objetivo_alimentario </th>
+                                            <th>intervencion_nutricional </th>
+                                            <th>consumo_fruta </th>
+                                            <th>consumo_verdura </th>
+                                            <th>consumo_lacteos </th>
+                                            <th>consumo_carne </th>
+                                            <th>consumo_grasas_azucar</th>
+                                            <th>consumo_legumbre </th>
+                                            <th>consumo_pescado</th>
+                                            <th>consumo_sodio </th>
+                                            <th>consumo_liquido </th>
+                                            <th>sintomatologia_prevalente </th>
+                                            <th>derivacion_aps </th>
+                                            <th>apoyo_social_significativo </th>
+                                            <th>problemas_sociales </th>
+                                            <th>personalidad_tipo_a</th>
+                                            <th>trastorno_mental_diagnosticado </th>
+                                            <th>trauma_post_operativo</th>
+                                            <th>conciencia_factor_riesgo </th>
+                                            <th>dificultades_respuesta_estres</th>
+                                            <th>ingreso_taller</th>
+                                            <th>tratamiento </th>
+                                            <th>observacion </th>
+                                            <th>funcion_fisica_ingreso </th>
+                                            <th>funcion_fisica_egreso </th>
+                                            <th>rol_fisico_ingreso </th>
+                                            <th>rol_fisico_egreso </th>
+                                            <th>dolor_corporal_ingreso </th>
+                                            <th>dolor_corporal_egreso</th>
+                                            <th>salud_general_ingreso </th>
+                                            <th>salud_general_egreso </th>
+                                            <th>vitalidad_ingreso </th>
+                                            <th>vitalidad_egreso </th>
+                                            <th>funcion_social_ingreso </th>
+                                            <th>funcion_social_egreso</th>
+                                            <th>rol_emocional_ingreso </th>
+                                            <th>rol_emocional_egreso </th>
+                                            <th>salud_mental_ingreso </th>
+                                            <th>salud_mental_egreso </th>
+                                            <th>observacion_sf36 </th>
+                                            <th>ansiedad_ingreso </th>
+                                            <th>ansiedad_egreso</th>
+                                            <th>depresion_ingreso </th>
+                                            <th>depresion_egreso </th>
+                                            <th>subescala_a_ingreso </th>
+                                            <th>subescala_a_egreso </th>
+                                            <th>subescala_b_ingreso </th>
+                                            <th>subescala_b_egreso </th>
+                                            <th>observacion_escala_ansiedad</th>
+                                            <th>antecedentes_plan_psico </th>
+                                            <th>objetivos_plan_psico </th>
+                                            <th>diagnosticos_plan_psico </th>
+                                            <th>intervencion_plan_psico </th>
+                                            <th>evaluacion_plan_psico </th>
+                                            <th>evolucion_plan_psico </th>
+                                            <th>ergo_fecha_ingreso </th>
+                                            <th>ergo_fecha_egreso </th>
+                                            <th>ergo_VO2L_ingreso </th>
+                                            <th>ergo_VO2L_egreso </th>
+                                            <th>ergo_VO2ML_ingreso </th>
+                                            <th>ergo_VO2ML_egreso</th>
+                                            <th>ergo_FCMAX_ingreso </th>
+                                            <th>ergo_FCMAX_egreso </th>
+                                            <th>ergo_pulso_ingreso </th>
+                                            <th>ergo_pulso_egreso</th>
+                                            <th>ergo_VE_ingreso </th>
+                                            <th>ergo_VE_egreso </th>
+                                            <th>ergo_METS_ingreso </th>
+                                            <th>ergo_METS_egreso </th>
+                                            <th>shuttle_fecha_ingreso </th>
+                                            <th>shuttle_fecha_egreso </th>
+                                            <th>shuttle_metros_ingreso</th>
+                                            <th>shuttle_metros_egreso </th>
+                                            <th>shuttle_nivelCOMP_ingreso </th>
+                                            <th>shuttle_nivelCOMP_egreso </th>
+                                            <th>shuttle_VO2ML_ingreso </th>
+                                            <th>shuttle_VO2ML_egreso </th>
+                                            <th>shuttle_METS_ingreso </th>
+                                            <th>shuttle_METS_egreso</th>
+                                            <th>shuttle_FCMAX_ingreso </th>
+                                            <th>shuttle_FCMAX_egreso </th>
+                                            <th>shuttle_FCMT_ingreso </th>
+                                            <th>shuttle_FCMT_egreso </th>
+                                            <th>shuttle_METSMAX_ingreso </th>
+                                            <th>shuttle_METSMAX_egreso</th>
+                                            <th>fecha_evolucion_ingreso  </th>
+                                            <th>musculo_esqueletica_evolucion_ingreso </th>
+                                            <th>observacion_evolucion_ingreso </th>
+                                            <th>fecha_evolucion_egreso </th>
+                                            <th>musculo_esqueletica_evolucion_egreso </th>
+                                            <th>observacion_evolucion_egreso</th>
+                                            <th>ejercicio_aerobico</th>
+                                            <th>ejercicio_sobrecarga </th>
+                                            <th>entrenamiento_funcional </th>
+                                            <th>habitos_cardio</th>
+                                            <th>idDiagnosticoKinesico </th>
+                                            <th>DiagnosticoKinesico </th>
+                                            <th>idObjetivoKinesico </th>
+                                            <th>ObjetivoKinesico</th>
+                                            <th>diagnostico_medico </th>
+                                            <th>CX_PROCED </th>
+                                            <th>diagnostico_medico_fecha </th>
+                                            <th>CX_PROCED_fecha </th>
+                                            <th>fecha_alta </th>
+                                            <th>controles </th>
+                                            <th>procedencia  </th>
+                                            <th>tipo_evaluacion  </th>
+                                            <th>herida_cx</th>
+                                            <th>intervencion </th>
+                                            <th>HTA  </th>
+                                            <th>DM  </th>
+                                            <th>DLP </th>
+                                            <th>SED </th>
+                                            <th>SP_OB </th>
+                                            <th>TB </th>
+                                            <th>OH </th>
+                                            <th>AF </th>
+                                            <th>Estres </th>
+                                            <th>idMedicamento </th>
+                                            <th>Medicamento</th>
+                                            <th>antecedentes_relevantes_anamnesis </th>
+                                            <th>patron_respiratorio_anamnesis </th>
+                                            <th>regimen_hiposodico_anamnesis </th>
+                                            <th>fruta_verdura_anamnesis </th>
+                                            <th>agua_anamnesis </th>
+                                            <th>bebida_nec_anamnesis</th>
+                                            <th>grasas_anamnesis </th>
+                                            <th>diuresis_anamnesis  </th>
+                                            <th>deposicion_anamnesis </th>
+                                            <th>tb_anamnesis </th>
+                                            <th>tb_a_anamnesis </th>
+                                            <th>EA_anamnesis </th>
+                                            <th>sueno_nocturno_anamnesis </th>
+                                            <th>sueno_a_nocturno_anamnesis</th>
+                                            <th>sueno_b_nocturno_anamnesis </th>
+                                            <th>motivacion_anamnesis </th>
+                                            <th>AVD_anamnesis </th>
+                                            <th>actividades_recreativas_anamnesis </th>
+                                            <th>cabeza_examen_fisico </th>
+                                            <th>cuello_examen_fisico </th>
+                                            <th>torax_examen_fisico</th>
+                                            <th>torax_a_examen_fisico </th>
+                                            <th>torax_b_examen_fisico </th>
+                                            <th>torax_c_examen_fisico </th>
+                                            <th>abdomen_examen_fisico </th>
+                                            <th>abdomen_a_examen_fisico </th>
+                                            <th>EESS_examen_fisico </th>
+                                            <th>llen_cap_examen_fisico</th>
+                                            <th>EEII_examen_fisico  </th>
+                                            <th>PA_examen_fisico  </th>
+                                            <th>fc_examen_fisico  </th>
+                                            <th>sat_examen_fisico  </th>
+                                            <th>glicemia_examen_fisico </th>
+                                            <th>adherencia_farma_valoracion </th>
+                                            <th>respiracion_valoracion  </th>
+                                            <th>respiracion_obs_valoracion </th>
+                                            <th>alimentacion_valoracion</th>
+                                            <th>alimentacion_obs_valoracion </th>
+                                            <th>eliminacion_valoracion  </th>
+                                            <th>eliminacion_obs_valoracion </th>
+                                            <th>descanso_valoracion </th>
+                                            <th>descanso_obs_valoracion </th>
+                                            <th>higiene_valoracion </th>
+                                            <th>higiene_obs_valoracion</th>
+                                            <th>actividades_valoracion  </th>
+                                            <th>actividades_obs_valoracion</th>
+                                            <th>vestirse_valoracion  </th>
+                                            <th>vestirse_obs_valoracion  </th>
+                                            <th>comunicarse_valoracion </th>
+                                            <th>comunicarse_obs_valoracion </th>
+                                            <th>auto_realizacion_valoracion</th>
+                                            <th>auto_realizacion_obs_valoracion  </th>
+                                            <th>objetivo_plan_enfermeria </th>
+                                            <th>iddiagnostico_plan_enfermeria </th>
+                                            <th>diagnostico_plan_enfermeria </th>
+                                            <th>idintervencion_plan_enfermeria  </th>
+                                            <th>intervencion_plan_enfermeria</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr dir-paginate="registro in Registros | itemsPerPage: 1000" pagination-id="pag_reg">
+                                            <td>{{ registro.id_paciente}}</td>
+                                            <td>{{ registro.numero_ficha }}</td>
+                                            <td>{{ registro.sexo }}</td>
+                                            <td>{{ registro.situacion_laboral }}</td>
+                                            <td>{{ registro.peso_actual }}</td>
+                                            <td>{{ registro.talla}}</td>
+                                            <td>{{ registro.masa_grasa_corporal }}</td>
+                                            <td>{{ registro.masa_magra }}</td>
+                                            <td>{{ registro.indice_cintura }}</td>
+                                            <td>{{ registro.MNA }}</td>
+                                            <td>{{ registro.peso_habitual }}</td>
+                                            <td>{{ registro.masa_magra_porc }}</td>
+                                            <td>{{ registro.grasa_viceral }}</td>
+                                            <td>{{ registro.porc_cintura }}</td>
+                                            <td>{{ registro.cribaje }}</td>
+                                            <td>{{ registro.apetito }}</td>
+                                            <td>{{ registro.alergia_alimentaria }}</td>
+                                            <td>{{ registro.preferencia_alimentaria }}</td>
+                                            <td>{{ registro.intolerancia_alimentaria }}</td>
+                                            <td>{{ registro.aversaciones_alimentaria}}</td>
+                                            <td>{{ registro.consumo_suplemento }}</td>
+                                            <td>{{ registro.hora_desayuno }}</td>
+                                            <td>{{ registro.gramaje_desayuno }}</td>
+                                            <td>{{ registro.hora_colacion }}</td>
+                                            <td>{{ registro.gramaje_colacion }}</td>
+                                            <td>{{ registro.hora_almuerzo }}</td>
+                                            <td>{{ registro.gramaje_almuerzo }}</td>
+                                            <td>{{ registro.hora_picoteo }}</td>
+                                            <td>{{ registro.gramaje_picoteo}}</td>
+                                            <td>{{ registro.hora_once }}</td>
+                                            <td>{{ registro.gramaje_once }}</td>
+                                            <td>{{ registro.hora_cena }}</td>
+                                            <td>{{ registro.gramaje_cena }}</td>
+                                            <td>{{ registro.hora_snack }}</td>
+                                            <td>{{ registro.gramaje_snack }}</td>
+                                            <td>{{ registro.ingesta_ali_observacion }}</td>
+                                            <td>{{ registro.diagnostico_nutricional_observacion }}</td>
+                                            <td>{{ registro.geb }}</td>
+                                            <td>{{ registro.energia }}</td>
+                                            <td>{{ registro.FA }}</td>
+                                            <td>{{ registro.proteina }}</td>
+                                            <td>{{ registro.lipidos }}</td>
+                                            <td>{{ registro.aporte_alimentacion_KCAL }}</td>
+                                            <td>{{ registro.aporte_alimentacion_cho}}</td>
+                                            <td>{{ registro.aporte_alimentacion_lip }}</td>
+                                            <td>{{ registro.aporte_alimentacion_prot}}</td>
+                                            <td>{{ registro.prescripcion_dietetica }}</td>
+                                            <td>{{ registro.indicaciones_generales }}</td>
+                                            <td>{{ registro.diagnostico_nutricional_integrado }}</td>
+                                            <td>{{ registro.objetivo_alimentario }}</td>
+                                            <td>{{ registro.intervencion_nutricional }}</td>
+                                            <td>{{ registro.consumo_fruta }}</td>
+                                            <td>{{ registro.consumo_verdura }}</td>
+                                            <td>{{ registro.consumo_lacteos }}</td>
+                                            <td>{{ registro.consumo_carne }}</td>
+                                            <td>{{ registro.consumo_grasas_azucar}}</td>
+                                            <td>{{ registro.consumo_legumbre }}</td>
+                                            <td>{{ registro.consumo_pescado}}</td>
+                                            <td>{{ registro.consumo_sodio }}</td>
+                                            <td>{{ registro.consumo_liquido }}</td>
+                                            <td>{{ registro.sintomatologia_prevalente }}</td>
+                                            <td>{{ registro.derivacion_aps }}</td>
+                                            <td>{{ registro.apoyo_social_significativo }}</td>
+                                            <td>{{ registro.problemas_sociales }}</td>
+                                            <td>{{ registro.personalidad_tipo_a}}</td>
+                                            <td>{{ registro.trastorno_mental_diagnosticado }}</td>
+                                            <td>{{ registro.trauma_post_operativo}}</td>
+                                            <td>{{ registro.conciencia_factor_riesgo }}</td>
+                                            <td>{{ registro.dificultades_respuesta_estres}}</td>
+                                            <td>{{ registro.ingreso_taller}}</td>
+                                            <td>{{ registro.tratamiento }}</td>
+                                            <td>{{ registro.observacion }}</td>
+                                            <td>{{ registro.funcion_fisica_ingreso }}</td>
+                                            <td>{{ registro.funcion_fisica_egreso }}</td>
+                                            <td>{{ registro.rol_fisico_ingreso }}</td>
+                                            <td>{{ registro.rol_fisico_egreso }}</td>
+                                            <td>{{ registro.dolor_corporal_ingreso }}</td>
+                                            <td>{{ registro.dolor_corporal_egreso}}</td>
+                                            <td>{{ registro.salud_general_ingreso }}</td>
+                                            <td>{{ registro.salud_general_egreso }}</td>
+                                            <td>{{ registro.vitalidad_ingreso }}</td>
+                                            <td>{{ registro.vitalidad_egreso }}</td>
+                                            <td>{{ registro.funcion_social_ingreso }}</td>
+                                            <td>{{ registro.funcion_social_egreso}}</td>
+                                            <td>{{ registro.rol_emocional_ingreso }}</td>
+                                            <td>{{ registro.rol_emocional_egreso }}</td>
+                                            <td>{{ registro.salud_mental_ingreso }}</td>
+                                            <td>{{ registro.salud_mental_egreso }}</td>
+                                            <td>{{ registro.observacion_sf36 }}</td>
+                                            <td>{{ registro.ansiedad_ingreso }}</td>
+                                            <td>{{ registro.ansiedad_egreso}}</td>
+                                            <td>{{ registro.depresion_ingreso }}</td>
+                                            <td>{{ registro.depresion_egreso }}</td>
+                                            <td>{{ registro.subescala_a_ingreso }}</td>
+                                            <td>{{ registro.subescala_a_egreso }}</td>
+                                            <td>{{ registro.subescala_b_ingreso }}</td>
+                                            <td>{{ registro.subescala_b_egreso }}</td>
+                                            <td>{{ registro.observacion_escala_ansiedad}}</td>
+                                            <td>{{ registro.antecedentes_plan_psico }}</td>
+                                            <td>{{ registro.objetivos_plan_psico }}</td>
+                                            <td>{{ registro.diagnosticos_plan_psico }}</td>
+                                            <td>{{ registro.intervencion_plan_psico }}</td>
+                                            <td>{{ registro.evaluacion_plan_psico }}</td>
+                                            <td>{{ registro.evolucion_plan_psico }}</td>
+                                            <td>{{ registro.ergo_fecha_ingreso }}</td>
+                                            <td>{{ registro.ergo_fecha_egreso }}</td>
+                                            <td>{{ registro.ergo_VO2L_ingreso }}</td>
+                                            <td>{{ registro.ergo_VO2L_egreso }}</td>
+                                            <td>{{ registro.ergo_VO2ML_ingreso }}</td>
+                                            <td>{{ registro.ergo_VO2ML_egreso}}</td>
+                                            <td>{{ registro.ergo_FCMAX_ingreso }}</td>
+                                            <td>{{ registro.ergo_FCMAX_egreso }}</td>
+                                            <td>{{ registro.ergo_pulso_ingreso }}</td>
+                                            <td>{{ registro.ergo_pulso_egreso}}</td>
+                                            <td>{{ registro.ergo_VE_ingreso }}</td>
+                                            <td>{{ registro.ergo_VE_egreso }}</td>
+                                            <td>{{ registro.ergo_METS_ingreso }}</td>
+                                            <td>{{ registro.ergo_METS_egreso }}</td>
+                                            <td>{{ registro.shuttle_fecha_ingreso }}</td>
+                                            <td>{{ registro.shuttle_fecha_egreso }}</td>
+                                            <td>{{ registro.shuttle_metros_ingreso}}</td>
+                                            <td>{{ registro.shuttle_metros_egreso }}</td>
+                                            <td>{{ registro.shuttle_nivelCOMP_ingreso }}</td>
+                                            <td>{{ registro.shuttle_nivelCOMP_egreso }}</td>
+                                            <td>{{ registro.shuttle_VO2ML_ingreso }}</td>
+                                            <td>{{ registro.shuttle_VO2ML_egreso }}</td>
+                                            <td>{{ registro.shuttle_METS_ingreso }}</td>
+                                            <td>{{ registro.shuttle_METS_egreso}}</td>
+                                            <td>{{ registro.shuttle_FCMAX_ingreso }}</td>
+                                            <td>{{ registro.shuttle_FCMAX_egreso }}</td>
+                                            <td>{{ registro.shuttle_FCMT_ingreso }}</td>
+                                            <td>{{ registro.shuttle_FCMT_egreso }}</td>
+                                            <td>{{ registro.shuttle_METSMAX_ingreso }}</td>
+                                            <td>{{ registro.shuttle_METSMAX_egreso}}</td>
+                                            <td>{{ registro.fecha_evolucion_ingreso  }}</td>
+                                            <td>{{ registro.musculo_esqueletica_evolucion_ingreso }}</td>
+                                            <td>{{ registro.observacion_evolucion_ingreso }}</td>
+                                            <td>{{ registro.fecha_evolucion_egreso }}</td>
+                                            <td>{{ registro.musculo_esqueletica_evolucion_egreso }}</td>
+                                            <td>{{ registro.observacion_evolucion_egreso}}</td>
+                                            <td>{{ registro.ejercicio_aerobico}}</td>
+                                            <td>{{ registro.ejercicio_sobrecarga }}</td>
+                                            <td>{{ registro.entrenamiento_funcional }}</td>
+                                            <td>{{ registro.habitos_cardio}}</td>
+                                            <td>{{ registro.idDiagnosticoKinesico }}</td>
+                                            <td>{{ registro.DiagnosticoKinesico }}</td>
+                                            <td>{{ registro.idObjetivoKinesico }}</td>
+                                            <td>{{ registro.ObjetivoKinesico}}</td>
+                                            <td>{{ registro.diagnostico_medico }}</td>
+                                            <td>{{ registro.CX_PROCED }}</td>
+                                            <td>{{ registro.diagnostico_medico_fecha }}</td>
+                                            <td>{{ registro.CX_PROCED_fecha }}</td>
+                                            <td>{{ registro.fecha_alta }}</td>
+                                            <td>{{ registro.controles }}</td>
+                                            <td>{{ registro.procedencia  }}</td>
+                                            <td>{{ registro.tipo_evaluacion  }}</td>
+                                            <td>{{ registro.herida_cx}}</td>
+                                            <td>{{ registro.intervencion }}</td>
+                                            <td>{{ registro.HTA  }}</td>
+                                            <td>{{ registro.DM  }}</td>
+                                            <td>{{ registro.DLP }}</td>
+                                            <td>{{ registro.SED }}</td>
+                                            <td>{{ registro.SP_OB }}</td>
+                                            <td>{{ registro.TB }}</td>
+                                            <td>{{ registro.OH }}</td>
+                                            <td>{{ registro.AF }}</td>
+                                            <td>{{ registro.Estres }}</td>
+                                            <td>{{ registro.idMedicamento }}</td>
+                                            <td>{{ registro.Medicamento}}</td>
+                                            <td>{{ registro.antecedentes_relevantes_anamnesis }}</td>
+                                            <td>{{ registro.patron_respiratorio_anamnesis }}</td>
+                                            <td>{{ registro.regimen_hiposodico_anamnesis }}</td>
+                                            <td>{{ registro.fruta_verdura_anamnesis }}</td>
+                                            <td>{{ registro.agua_anamnesis }}</td>
+                                            <td>{{ registro.bebida_nec_anamnesis}}</td>
+                                            <td>{{ registro.grasas_anamnesis }}</td>
+                                            <td>{{ registro.diuresis_anamnesis  }}</td>
+                                            <td>{{ registro.deposicion_anamnesis }}</td>
+                                            <td>{{ registro.tb_anamnesis }}</td>
+                                            <td>{{ registro.tb_a_anamnesis }}</td>
+                                            <td>{{ registro.EA_anamnesis }}</td>
+                                            <td>{{ registro.sueno_nocturno_anamnesis }}</td>
+                                            <td>{{ registro.sueno_a_nocturno_anamnesis}}</td>
+                                            <td>{{ registro.sueno_b_nocturno_anamnesis }}</td>
+                                            <td>{{ registro.motivacion_anamnesis }}</td>
+                                            <td>{{ registro.AVD_anamnesis }}</td>
+                                            <td>{{ registro.actividades_recreativas_anamnesis }}</td>
+                                            <td>{{ registro.cabeza_examen_fisico }}</td>
+                                            <td>{{ registro.cuello_examen_fisico }}</td>
+                                            <td>{{ registro.torax_examen_fisico}}</td>
+                                            <td>{{ registro.torax_a_examen_fisico }}</td>
+                                            <td>{{ registro.torax_b_examen_fisico }}</td>
+                                            <td>{{ registro.torax_c_examen_fisico }}</td>
+                                            <td>{{ registro.abdomen_examen_fisico }}</td>
+                                            <td>{{ registro.abdomen_a_examen_fisico }}</td>
+                                            <td>{{ registro.EESS_examen_fisico }}</td>
+                                            <td>{{ registro.llen_cap_examen_fisico}}</td>
+                                            <td>{{ registro.EEII_examen_fisico  }}</td>
+                                            <td>{{ registro.PA_examen_fisico  }}</td>
+                                            <td>{{ registro.fc_examen_fisico  }}</td>
+                                            <td>{{ registro.sat_examen_fisico  }}</td>
+                                            <td>{{ registro.glicemia_examen_fisico }}</td>
+                                            <td>{{ registro.adherencia_farma_valoracion }}</td>
+                                            <td>{{ registro.respiracion_valoracion  }}</td>
+                                            <td>{{ registro.respiracion_obs_valoracion }}</td>
+                                            <td>{{ registro.alimentacion_valoracion}}</td>
+                                            <td>{{ registro.alimentacion_obs_valoracion }}</td>
+                                            <td>{{ registro.eliminacion_valoracion  }}</td>
+                                            <td>{{ registro.eliminacion_obs_valoracion }}</td>
+                                            <td>{{ registro.descanso_valoracion }}</td>
+                                            <td>{{ registro.descanso_obs_valoracion }}</td>
+                                            <td>{{ registro.higiene_valoracion }}</td>
+                                            <td>{{ registro.higiene_obs_valoracion}}</td>
+                                            <td>{{ registro.actividades_valoracion  }}</td>
+                                            <td>{{ registro.actividades_obs_valoracion}}</td>
+                                            <td>{{ registro.vestirse_valoracion  }}</td>
+                                            <td>{{ registro.vestirse_obs_valoracion  }}</td>
+                                            <td>{{ registro.comunicarse_valoracion }}</td>
+                                            <td>{{ registro.comunicarse_obs_valoracion }}</td>
+                                            <td>{{ registro.auto_realizacion_valoracion}}</td>
+                                            <td>{{ registro.auto_realizacion_obs_valoracion  }}</td>
+                                            <td>{{ registro.objetivo_plan_enfermeria }}</td>
+                                            <td>{{ registro.iddiagnostico_plan_enfermeria }}</td>
+                                            <td>{{ registro.diagnostico_plan_enfermeria }}</td>
+                                            <td>{{ registro.idintervencion_plan_enfermeria  }}</td>
+                                            <td>{{ registro.intervencion_plan_enfermeria}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <dir-pagination-controls pagination-id="pag_reg" boundary-links="true" direction-links="true">	</dir-pagination-controls>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <span class="clearfix"></span>
+            </div>
+        </div>
+    </div>
+</section>
