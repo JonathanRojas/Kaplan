@@ -4,6 +4,7 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
         LoginService.getCerrarSesion();
         $location.path('cerrarsesion');
     } else {
+        $scope.mostrarReporte = true;
         waitingDialog.show('Cargando Ficha...', { dialogSize: 'sm' });
         $scope.loading = true;
         $scope.TiposSintomatologia = true;
@@ -42,6 +43,7 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
                 waitingDialog.show('Cargando Ficha...', { dialogSize: 'sm' });
                 fichaService.getFichaNutricionxReserva(sesion).then(function (result) {
                     if (result.data.length !== 0) {
+                        $scope.mostrarReporte = false;
                         $scope.Ficha = result.data;
                         fichaService.getPaciente(parseInt(fichaService.getRutPaciente()), null).then(function (result) {
                             $scope.Paciente = result.data;
@@ -379,5 +381,10 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
             Notification.error(msg);
         });
         /*  Fin Tipos   */
+
+        $scope.reporte = function (sesion) {
+            url = "reports/reporte.aspx?tipo=FN&id=" + sesion
+            window.open(url, '_blank');
+        }
     };
 }]);

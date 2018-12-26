@@ -7,11 +7,11 @@ Public Class reporte
         If Not IsPostBack Then
             Try
                 If Request("tipo") Is Nothing Then Response.End()
-                If Request("paciente") Is Nothing Then Response.End()
+                If Request("id") Is Nothing Then Response.End()
                 Select Case Request("tipo")
                     Case "FN"
                         Dim data As New dsReporte
-                        Dim dt As DataTable = reportes.reporteNutricion(Request("paciente"))
+                        Dim dt As DataTable = reportes.reporteNutricion(Request("id"))
                         dt.TableName = "PACIENTE"
                         Dim rds = New ReportDataSource("dsReporte", dt)
                         ReportViewer1.LocalReport.DataSources.Clear()
@@ -21,7 +21,7 @@ Public Class reporte
                         ReportViewer1.LocalReport.Refresh()
                     Case "FP"
                         Dim data As New dsReporte
-                        Dim dt As DataTable = reportes.reportePsicologia(Request("paciente"))
+                        Dim dt As DataTable = reportes.reportePsicologia(Request("id"))
                         dt.TableName = "PSICOLOGIA"
                         Dim rds = New ReportDataSource("dsReporte", dt)
                         ReportViewer2.LocalReport.DataSources.Clear()
@@ -32,7 +32,7 @@ Public Class reporte
                     Case "FK"
                         Dim data As New dsReporte
                         Dim ds As New DataSet
-                        ds = reportes.reporteKinesiologia(Request("paciente"))
+                        ds = reportes.reporteKinesiologia(Request("id"))
                         ds.Tables(0).TableName = "KINESIOLOGIA"
                         ds.Tables(1).TableName = "FKEVOLUCION"
                         ds.Tables(2).TableName = "FKDIAGNOSTICO"
@@ -55,7 +55,7 @@ Public Class reporte
                     Case "FE"
                         Dim data As New dsReporte
                         Dim ds As New DataSet
-                        ds = reportes.reporteEnfermeria(Request("paciente"))
+                        ds = reportes.reporteEnfermeria(Request("id"))
                         ds.Tables(0).TableName = "ENFERMERIA"
                         ds.Tables(1).TableName = "FEMEDICAMENTO"
                         ds.Tables(2).TableName = "FEEVOLUCION"

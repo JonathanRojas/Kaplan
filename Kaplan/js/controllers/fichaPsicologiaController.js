@@ -4,6 +4,7 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
         LoginService.getCerrarSesion();
         $location.path('cerrarsesion');
     } else {
+        $scope.mostrarReporte = true;
         waitingDialog.show('Cargando Ficha...', { dialogSize: 'sm' });
         $scope.loading = true;
         $scope.TiposSintomatologia = true;
@@ -42,6 +43,7 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
                 waitingDialog.show('Cargando Ficha...', { dialogSize: 'sm' });
                 fichaService.getFichaPsicologiaxReserva(sesion).then(function (result) {
                     if (result.data.length !== 0) {
+                        $scope.mostrarReporte = false;
                         $scope.Ficha = result.data;
                         $scope.Ficha.FichaPsicologia.Sf36.FechaAIng = moment($scope.Ficha.FichaPsicologia.Sf36.FechaAIng);
                         $scope.Ficha.FichaPsicologia.Sf36.FechaAEgr = moment($scope.Ficha.FichaPsicologia.Sf36.FechaAEgr);
@@ -135,6 +137,7 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
                 fichaService.SaveFichaPsicologia($scope.Ficha, $scope.Paciente)
                    .then(function (result) {
                        fichaService.getFichaPsicologiaxReserva($scope.Ficha.FichaPsicologia.IdReserva).then(function (result) {
+                               $scope.mostrarReporte = false;
                                $scope.Ficha = result.data;
                                $scope.Ficha.FichaPsicologia.Sf36.FechaAIng = moment($scope.Ficha.FichaPsicologia.Sf36.FechaAIng);
                                $scope.Ficha.FichaPsicologia.Sf36.FechaAEgr = moment($scope.Ficha.FichaPsicologia.Sf36.FechaAEgr);
@@ -282,5 +285,10 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
             Notification.error(msg);
         });
         /*  Fin Tipos   */
+
+        $scope.reporte = function (sesion) {
+            url = "reports/reporte.aspx?tipo=FP&id=" + sesion
+            window.open(url, '_blank');
+        }
     };
 }]);

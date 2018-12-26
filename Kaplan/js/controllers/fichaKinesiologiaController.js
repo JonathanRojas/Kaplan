@@ -14,6 +14,7 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
         $scope.loadingTipoObjetivoKine = true;
         $scope.loadingTipoComuna = true;
         $scope.loadingPlanes = true;
+        $scope.mostrarReporte = true;
         $scope.StopLoading = function () {
             $scope.loading = !(!$scope.loadingTipoRegion && !$scope.loadingTipoDiagnosticoKine && !$scope.loadingTipoObjetivoKine && !$scope.loadingTipoComuna && !$scope.loadingPlanes);
             if (!$scope.loading) { waitingDialog.hide(); }
@@ -131,6 +132,7 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
                 waitingDialog.show('Cargando Ficha...', { dialogSize: 'sm' });
                 fichaService.getFichaKinesiologiasxReserva(sesion).then(function (result) {
                     if (result.data.length !== 0) {
+                        $scope.mostrarReporte = false;
                         $scope.Ficha = result.data;
                         $scope.Ficha.FichaKinesiologia.ERGOESPIROMETRIA.EFechaIngreso = moment($scope.Ficha.FichaKinesiologia.ERGOESPIROMETRIA.EFechaIngreso);
                         $scope.Ficha.FichaKinesiologia.ERGOESPIROMETRIA.EFechaEgreso = moment($scope.Ficha.FichaKinesiologia.ERGOESPIROMETRIA.EFechaEgreso);
@@ -261,7 +263,11 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
                 return true;
             }
         }
-        /*Fin*/
 
+        $scope.reporte = function (sesion) {
+            url = "reports/reporte.aspx?tipo=FK&id=" + sesion
+            window.open(url, '_blank');
+        }
+        /*Fin*/        
     };
 }]);

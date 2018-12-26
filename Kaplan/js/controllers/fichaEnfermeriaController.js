@@ -7,6 +7,7 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
         /*Validacion de Carga inicial*/
         waitingDialog.show('Cargando Ficha...', { dialogSize: 'sm' });
         $scope.loading = true;
+        $scope.mostrarReporte = true;
         $scope.loadingTiposAVD = true;
         $scope.loadingTipoRegion = true;
         $scope.loadingTiposAbdomena = true;
@@ -571,6 +572,7 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
                 waitingDialog.show('Cargando Ficha...', { dialogSize: 'sm' });
                 fichaService.getFichaEnfermeriaxReserva(sesion).then(function (result) {
                     if (result.data.length !== 0) {
+                        $scope.mostrarReporte = false;
                         $scope.Ficha = result.data;
                         $scope.columnsMedicamentos = $scope.Ficha.FichaEnfermeria.MedicamentosEnfermeria;
                         $scope.columnsEvolucion = $scope.Ficha.FichaEnfermeria.EvolucionEnfermeria;
@@ -715,5 +717,9 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
         }
         /*Fin*/
 
+        $scope.reporte = function (sesion) {
+            url = "reports/reporte.aspx?tipo=FE&id=" + sesion
+            window.open(url, '_blank');
+        }
     };
 }]);

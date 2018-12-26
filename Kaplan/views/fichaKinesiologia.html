@@ -14,7 +14,7 @@
                 </label>
             </h3>
             <div class="row mb10" ng-class="{hidden: loading}">
-                <div class="col-sm-3">
+                <div class="col-sm-2">
 
                 </div>
                 <div class="col-sm-3">
@@ -29,8 +29,9 @@
                         <option value="">Seleccione</option>
                     </select>
                 </div>
-                <div class="col-sm-3">
-
+                <div class="col-sm-2">
+                    <h2 class="animated" data-animation="bounceInLeft">&nbsp;</h2>
+                    <button type="button" class="btn border small" ng-disabled="mostrarReporte" ng-click="reporte(Sesion.Id)">Ver Reporte</button>
                 </div>
             </div>
         </div>
