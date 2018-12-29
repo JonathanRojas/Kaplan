@@ -1,5 +1,5 @@
-﻿app.controller("fichaController", ['$scope', 'Notification', 'LoginService', '$location', 'ServiceObservadorUser', 'fichaService',
-function ($scope, Notification, LoginService, $location, ServiceObservadorUser, fichaService) {
+﻿app.controller("fichaController", ['$scope', 'Notification', 'LoginService', '$location', 'ServiceObservadorUser', 'fichaService', 'ModalService',
+function ($scope, Notification, LoginService, $location, ServiceObservadorUser, fichaService, ModalService) {
 
     if (!LoginService.getisAuthenticated() == true) {
         LoginService.getCerrarSesion();
@@ -40,6 +40,26 @@ function ($scope, Notification, LoginService, $location, ServiceObservadorUser, 
     $scope.CerrarSesion = function () {
         LoginService.getCerrarSesion();
         $location.path('cerrarsesion');
+    };
+
+    $scope.ModalEvolucion = function () {
+        ModalService.showModal({
+            templateUrl: "views/modalEvolucion.html",
+            inputs: { id: -1 },
+            controller: "modalEvolucionController"
+        }).then(function (modal) {
+            modal.element.modal();
+            modal.close.then(function (result) {
+                if (result) {
+                    /*registromedicoService.getRegistrosMedicos(fichaService.getRutPaciente()).then(function (result) {
+                        $scope.RegistrosMedicos = result.data;
+                    }, function (reason) {
+                        msg = { title: 'Error Listar Registros Médicos' };
+                        Notification.error(msg);
+                    });*/
+                };
+            });
+        });
     };
 
     $scope.LimpiarRut = function () {
