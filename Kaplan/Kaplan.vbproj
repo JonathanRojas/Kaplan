@@ -452,6 +452,14 @@
     </Compile>
     <Compile Include="models\paciente\Persona.vb" />
     <Compile Include="reports\Documento.vb" />
+    <Compile Include="reports\dsReporte.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsReporte.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="reports\dsReporte.vb">
+      <DependentUpon>dsReporte.xsd</DependentUpon>
+    </Compile>
     <Compile Include="reports\reporte.aspx.designer.vb">
       <DependentUpon>reporte.aspx</DependentUpon>
     </Compile>
@@ -539,6 +547,17 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <Content Include="packages.config" />
+    <Content Include="reports\dsReporte.xsc">
+      <DependentUpon>dsReporte.xsd</DependentUpon>
+    </Content>
+    <None Include="reports\dsReporte.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsReporte.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="reports\dsReporte.xss">
+      <DependentUpon>dsReporte.xsd</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
