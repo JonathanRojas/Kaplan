@@ -46,13 +46,13 @@
 </head>
 <body ng-app="app" class="doted-bg" ng-cloak ng-controller="defaultController" onundo="javascript:window.localStorage.clear()">
 
-    <div class="row">
-        <div class="col-sm-12">
+<%--    <div class="row">
+        <div class="col-sm-12">--%>
             <div id="main">
                 <div ng-view></div>
             </div>
-        </div>     
-    </div>
+<%--        </div>     
+    </div>--%>
     <!-- Footer -->
             <footer>
                 <!-- Container -->
@@ -107,6 +107,7 @@
     <script src="js/controllers/modalArchivoController.js"></script>
     <script src="js/controllers/loginController.js"></script>
     <script src="js/controllers/inicioController.js"></script>
+    <script src="js/controllers/modalEvolucionController.js"></script>
 
     <script src="js/services/fichaService.js"></script>
     <script src="js/services/archivoService.js"></script>

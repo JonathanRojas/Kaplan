@@ -48,6 +48,29 @@ Public Class reportes
             Return Nothing
         End Try
     End Function
+    Public Shared Function ReporteEvolucion(inId As Integer) As DataTable
+        Try
+            Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
+            Dim cmd As OleDbCommand = New OleDbCommand("ReporteEvolucion", conn)
+            cmd.CommandType = CommandType.StoredProcedure
+
+            Dim Id As OleDbParameter = cmd.Parameters.Add("@inPlan", OleDbType.Decimal, Nothing)
+            Id.Direction = ParameterDirection.Input
+            Id.Value = inId
+
+            Dim adapter As OleDbDataAdapter = New OleDbDataAdapter(cmd)
+            Dim vDataTable As New DataTable
+            adapter.Fill(vDataTable)
+            If Not vDataTable.Rows.Count.Equals(0) Then
+                Return vDataTable
+            Else
+                Return Nothing
+            End If
+        Catch exc As Exception
+            Return Nothing
+        End Try
+    End Function
+
     Public Shared Function reporteKinesiologia(inId As Integer) As DataSet
         Try
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)

@@ -236,6 +236,7 @@
     <Content Include="js\controllers\fichaExamenController.js" />
     <Content Include="js\controllers\fichaRegistroMedicoController.js" />
     <Content Include="js\controllers\modalArchivoController.js" />
+    <Content Include="js\controllers\modalEvolucionController.js" />
     <Content Include="js\controllers\modalExamenController.js" />
     <Content Include="js\controllers\fichaKinesiologiaController.js" />
     <Content Include="js\controllers\fichaNutricionController.js" />
@@ -292,6 +293,7 @@
     <Content Include="views\fichaEnfermeria.html" />
     <Content Include="views\fichaExamen.html" />
     <Content Include="views\modalArchivo.html" />
+    <Content Include="views\modalEvolucion.html" />
     <Content Include="views\modalExamen.html" />
     <Content Include="views\fichaKinesiologia.html" />
     <Content Include="views\fichaNutricion.html" />
@@ -450,14 +452,6 @@
     </Compile>
     <Compile Include="models\paciente\Persona.vb" />
     <Compile Include="reports\Documento.vb" />
-    <Compile Include="reports\dsReporte.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dsReporte.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="reports\dsReporte.vb">
-      <DependentUpon>dsReporte.xsd</DependentUpon>
-    </Compile>
     <Compile Include="reports\reporte.aspx.designer.vb">
       <DependentUpon>reporte.aspx</DependentUpon>
     </Compile>
@@ -485,6 +479,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <EmbeddedResource Include="reports\enfermeria.rdlc" />
+    <EmbeddedResource Include="reports\evolucion.rdlc" />
     <EmbeddedResource Include="reports\kinesiologia.rdlc" />
     <EmbeddedResource Include="reports\psicologia.rdlc" />
   </ItemGroup>
@@ -544,17 +539,6 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <Content Include="packages.config" />
-    <Content Include="reports\dsReporte.xsc">
-      <DependentUpon>dsReporte.xsd</DependentUpon>
-    </Content>
-    <None Include="reports\dsReporte.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dsReporte2.Designer.vb</LastGenOutput>
-    </None>
-    <Content Include="reports\dsReporte.xss">
-      <DependentUpon>dsReporte.xsd</DependentUpon>
-    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
