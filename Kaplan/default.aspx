@@ -103,10 +103,13 @@
     <script src="js/controllers/modalExamenController.js"></script>
     <script src="js/controllers/fichaRegistroMedicoController.js"></script>
     <script src="js/controllers/modalRegistroMedicoController.js"></script>
+    <script src="js/controllers/fichaCargaArchivoController.js"></script>
+    <script src="js/controllers/modalArchivoController.js"></script>
     <script src="js/controllers/loginController.js"></script>
     <script src="js/controllers/inicioController.js"></script>
 
     <script src="js/services/fichaService.js"></script>
+    <script src="js/services/archivoService.js"></script>
     <script src="js/services/examenService.js"></script>
     <script src="js/services/registromedicoService.js"></script>
     <script src="js/services/tipoService.js"></script>

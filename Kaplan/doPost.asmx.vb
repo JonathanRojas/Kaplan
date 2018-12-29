@@ -97,6 +97,34 @@ Public Class doPost
     End Function
 
 #End Region
+#Region "Cargar Archivo Ergo"
+    <WebMethod(EnableSession:=True)>
+    Public Function registrarArchivo() As String
+        Dim js As New JavaScriptSerializer
+        Dim formato As String
+        Dim Random As New Random()
+        Dim numero As Integer = Random.Next(1, 10000)
+        Dim vArchivo As Archivo = js.Deserialize(Context.Request.Form("carga"), GetType(Archivo))
+        Dim vErgo As HttpPostedFile = Context.Request.Files("archivo")
+        Dim contenido() As Byte = Nothing
+        ReDim contenido(vErgo.ContentLength)
+        vErgo.InputStream.Read(contenido, 0, vErgo.ContentLength)
+        Dim ruta As String = HttpContext.Current.Server.MapPath("~/archivo/archivo" + numero.ToString + ".xls")
+        vErgo.SaveAs(ruta)
+        Dim vResult As New httpResult
+
+        Try
+            vResult.result = vArchivo.registrarArchivo(ruta, contenido)
+        Catch ex As Exception
+            vResult.message = "Error cargando archivo"
+        End Try
+
+        Context.Response.Write(js.Serialize(vResult))
+        Context.Response.End()
+
+        Return ""
+    End Function
+#End Region
 #Region "RegistroMedico"
     <WebMethod(EnableSession:=True)>
     Public Function registrarRegistroMedico() As String

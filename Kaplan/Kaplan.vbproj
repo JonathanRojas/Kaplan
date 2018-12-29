@@ -123,7 +123,17 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
     <Import Include="System" />
@@ -193,10 +203,12 @@
     <Content Include="img\news\image-04.jpg" />
     <Content Include="js\app.js" />
     <Content Include="js\controllers\defaultController.js" />
+    <Content Include="js\controllers\fichaCargaArchivoController.js" />
     <Content Include="js\controllers\fichaController.js" />
     <Content Include="js\controllers\fichaEnfermeriaController.js" />
     <Content Include="js\controllers\fichaExamenController.js" />
     <Content Include="js\controllers\fichaRegistroMedicoController.js" />
+    <Content Include="js\controllers\modalArchivoController.js" />
     <Content Include="js\controllers\modalExamenController.js" />
     <Content Include="js\controllers\fichaKinesiologiaController.js" />
     <Content Include="js\controllers\fichaNutricionController.js" />
@@ -224,6 +236,7 @@
     <Content Include="js\script\moment-with-locales.js" />
     <Content Include="js\script\select2.min.js" />
     <Content Include="js\script\table2excel.js" />
+    <Content Include="js\services\archivoService.js" />
     <Content Include="js\services\examenService.js" />
     <Content Include="js\services\fichaService.js" />
     <Content Include="js\services\loginService.js" />
@@ -248,8 +261,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="views\ficha.html" />
+    <Content Include="views\fichaCargaArchivo.html" />
     <Content Include="views\fichaEnfermeria.html" />
     <Content Include="views\fichaExamen.html" />
+    <Content Include="views\modalArchivo.html" />
     <Content Include="views\modalExamen.html" />
     <Content Include="views\fichaKinesiologia.html" />
     <Content Include="views\fichaNutricion.html" />
@@ -312,6 +327,7 @@
     <Compile Include="models\kinesiologia\Ergoespirometria.vb" />
     <Compile Include="models\kinesiologia\EvolucionEgresoKine.vb" />
     <Compile Include="models\kinesiologia\EvolucionIngresoKine.vb" />
+    <Compile Include="models\paciente\Archivo.vb" />
     <Compile Include="models\paciente\Examen.vb" />
     <Compile Include="models\paciente\Ficha.vb" />
     <Compile Include="models\kinesiologia\FichaKinesiologia.vb" />

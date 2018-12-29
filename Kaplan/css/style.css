@@ -442,6 +442,7 @@ ul.dropdown-menu > li:last-child > a {
     color: #07a7e3;
     font-size: 12px;
     padding: 10px;
+    font-weight: bold;
 }
 
     .dropdown-menu > li > a:hover, .dropdown-submenu:hover > a {
