@@ -5,46 +5,61 @@ Imports System.Data.SqlClient
 Namespace Clases
     Public Class Archivo
         Public Property Id As Integer
-        'Private Shared Function Mapeo(prmRow As DataRow) As Examen
-        '    Try
-        '        Dim vExamen As New Examen
-        '        vExamen.Id = prmRow("ID")
-        '        vExamen.Nombre = prmRow("Nombre")
-        '        vExamen.Descripcion = prmRow("Descripcion")
-        '        vExamen.Fecha = prmRow("Fecha")
-        '        vExamen.EspecialistaNombre = prmRow("EspecialistaNombre")
-        '        vExamen.Formato = prmRow("Formato")
-        '        Return vExamen
+        Public Property FechaRegistro As Date
+        Public Property FechaReserva As Date
+        Public Property Plan As String
+        Public Property Especialista As String
+        Public Property Formato As String
+        Public ReadOnly Property FechaRegistroString As String
+            Get
+                Return FechaRegistro.ToString("dd MMM yyyy")
+            End Get
+        End Property
+        Public ReadOnly Property FechaReservaString As String
+            Get
+                Return FechaReserva.ToString("dd MMM yyyy")
+            End Get
+        End Property
+        Public Shared Function getArchivos(inRut As Integer) As List(Of Archivo)
+            Try
+                Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
+                Dim cmd As OleDbCommand = New OleDbCommand("ListadoArchivos", conn)
+                cmd.CommandType = CommandType.StoredProcedure
 
-        '    Catch ex As Exception
-        '        Return Nothing
-        '    End Try
-        'End Function
-        'Public Shared Function getExamenes(inRut As Integer) As List(Of Examen)
-        '    Try
-        '        Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-        '        Dim cmd As OleDbCommand = New OleDbCommand("ListadoExamenes", conn)
-        '        cmd.CommandType = CommandType.StoredProcedure
+                Dim inPaciente As OleDbParameter = cmd.Parameters.Add("@inPaciente", OleDbType.Decimal, Nothing)
+                inPaciente.Direction = ParameterDirection.Input
+                inPaciente.Value = inRut
 
-        '        Dim inPaciente As OleDbParameter = cmd.Parameters.Add("@inPaciente", OleDbType.Decimal, Nothing)
-        '        inPaciente.Direction = ParameterDirection.Input
-        '        inPaciente.Value = inRut
+                conn.Open()
+                Dim adapter As OleDbDataAdapter = New OleDbDataAdapter(cmd)
+                Dim vDataTable As New DataTable
+                adapter.Fill(vDataTable)
+                getArchivos = New List(Of Archivo)
+                For Each vRow As DataRow In vDataTable.Rows
+                    getArchivos.Add(Mapeo(vRow))
+                Next
+                conn.Close()
+                Return getArchivos
+            Catch exc As Exception
+                Return Nothing
+            End Try
 
-        '        conn.Open()
-        '        Dim adapter As OleDbDataAdapter = New OleDbDataAdapter(cmd)
-        '        Dim vDataTable As New DataTable
-        '        adapter.Fill(vDataTable)
-        '        getExamenes = New List(Of Examen)
-        '        For Each vRow As DataRow In vDataTable.Rows
-        '            getExamenes.Add(Mapeo(vRow))
-        '        Next
-        '        conn.Close()
-        '        Return getExamenes
-        '    Catch exc As Exception
-        '        Return Nothing
-        '    End Try
+        End Function
+        Private Shared Function Mapeo(prmRow As DataRow) As Archivo
+            Try
+                Dim vArchivo As New Archivo
+                vArchivo.Id = prmRow("ID")
+                vArchivo.FechaRegistro = prmRow("FechaRegistro")
+                vArchivo.FechaReserva = prmRow("FechaReserva")
+                vArchivo.Plan = prmRow("nombrePlan").ToString
+                vArchivo.Especialista = prmRow("Especialista").ToString
+                vArchivo.Formato = prmRow("Formato").ToString
+                Return vArchivo
 
-        'End Function
+            Catch ex As Exception
+                Return Nothing
+            End Try
+        End Function
         Public Function registrarArchivo(ruta As String, contenido As Byte()) As Boolean
             Try
                 Dim olecon As OleDbConnection
@@ -56,7 +71,7 @@ Namespace Clases
                 olecon.ConnectionString = connstring
                 olecomm = New OleDbCommand
                 'olecomm.CommandText = "Select * from [Ergo$A8:L8] "
-                olecomm.CommandText = "Select * from [Ergo$A60:Z] "
+                olecomm.CommandText = "Select * from [Ergo$A60:AT] "
                 olecomm.Connection = olecon
                 oleadpt = New OleDbDataAdapter(olecomm)
                 ds = New DataSet
@@ -65,25 +80,29 @@ Namespace Clases
                 oleadpt.Fill(ds, "Fijo")
                 Dim jsonDemo As String = GetJson(ds.Tables("fijo"))
 
-                cargarArchivo(jsonDemo)
+                cargarArchivo(jsonDemo.ToString.Replace("[", "{" + """column""" + ":[").Replace("]", "]}"), contenido)
 
                 registrarArchivo = True
             Catch exc As Exception
                 registrarArchivo = False
             End Try
         End Function
-        Public Function cargarArchivo(archivo As String) As Boolean
+        Public Function cargarArchivo(datos As String, contenido As Byte()) As Boolean
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("CargarArchivo", conn)
+            Dim cmd As OleDbCommand = New OleDbCommand("registrarArchivo", conn)
             cmd.CommandType = CommandType.StoredProcedure
 
-            'Dim inId As OleDbParameter = cmd.Parameters.Add("@id_ficha", OleDbType.Decimal, Nothing)
-            'inId.Direction = ParameterDirection.Input
-            'inId.Value = Me.Id
+            Dim inId As OleDbParameter = cmd.Parameters.Add("@id", OleDbType.Decimal, Nothing)
+            inId.Direction = ParameterDirection.Input
+            inId.Value = Me.Id
 
-            Dim indiagnostico As OleDbParameter = cmd.Parameters.Add("@archivo", OleDbType.VarChar, -1)
+            Dim indiagnostico As OleDbParameter = cmd.Parameters.Add("@datos", OleDbType.VarChar, -1)
             indiagnostico.Direction = ParameterDirection.Input
-            indiagnostico.Value = archivo
+            indiagnostico.Value = datos
+
+            Dim inArchivo As OleDbParameter = cmd.Parameters.Add("@archivo", OleDbType.VarBinary, -1)
+            inArchivo.Direction = ParameterDirection.Input
+            inArchivo.Value = contenido
 
             Dim outError As OleDbParameter = cmd.Parameters.Add("@outError", OleDbType.Integer)
             outError.Direction = ParameterDirection.Output
@@ -92,7 +111,7 @@ Namespace Clases
             cmd.ExecuteReader()
             conn.Close()
 
-            Dim idkine = CInt(cmd.Parameters("@outIdKine").Value)
+            Dim idkine = CInt(cmd.Parameters("@outError").Value)
 
             Return CInt(cmd.Parameters("@outError").Value)
         End Function
@@ -107,79 +126,139 @@ Namespace Clases
                         row.Add(dc.ColumnName.Trim(), dr(dc))
                     End If
                     If dc.ColumnName.Trim() = "F2" Then
-                        row.Add(dc.ColumnName.Trim(), dr(dc))
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
                     End If
                     If dc.ColumnName.Trim() = "F3" Then
-                        row.Add(dc.ColumnName.Trim(), dr(dc))
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
                     End If
                     If dc.ColumnName.Trim() = "F4" Then
-                        row.Add(dc.ColumnName.Trim(), dr(dc))
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
                     End If
                     If dc.ColumnName.Trim() = "F5" Then
-                        row.Add(dc.ColumnName.Trim(), dr(dc))
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
                     End If
                     If dc.ColumnName.Trim() = "F6" Then
-                        row.Add(dc.ColumnName.Trim(), dr(dc))
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
                     End If
                     If dc.ColumnName.Trim() = "F7" Then
-                        row.Add(dc.ColumnName.Trim(), dr(dc))
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
                     End If
                     If dc.ColumnName.Trim() = "F8" Then
-                        row.Add(dc.ColumnName.Trim(), dr(dc))
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
                     End If
                     If dc.ColumnName.Trim() = "F9" Then
-                        row.Add(dc.ColumnName.Trim(), dr(dc))
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
                     End If
                     If dc.ColumnName.Trim() = "F10" Then
-                        row.Add(dc.ColumnName.Trim(), dr(dc))
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
                     End If
                     If dc.ColumnName.Trim() = "F11" Then
-                        row.Add(dc.ColumnName.Trim(), dr(dc))
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
                     End If
                     If dc.ColumnName.Trim() = "F12" Then
-                        row.Add(dc.ColumnName.Trim(), dr(dc))
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
                     End If
                     If dc.ColumnName.Trim() = "F13" Then
-                        row.Add(dc.ColumnName.Trim(), dr(dc))
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
                     End If
                     If dc.ColumnName.Trim() = "F14" Then
-                        row.Add(dc.ColumnName.Trim(), dr(dc))
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
                     End If
                     If dc.ColumnName.Trim() = "F15" Then
-                        row.Add(dc.ColumnName.Trim(), dr(dc))
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
                     End If
                     If dc.ColumnName.Trim() = "F16" Then
-                        row.Add(dc.ColumnName.Trim(), dr(dc))
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
                     End If
                     If dc.ColumnName.Trim() = "F17" Then
-                        row.Add(dc.ColumnName.Trim(), dr(dc))
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
                     End If
                     If dc.ColumnName.Trim() = "F18" Then
-                        row.Add(dc.ColumnName.Trim(), dr(dc))
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
                     End If
                     If dc.ColumnName.Trim() = "F19" Then
-                        row.Add(dc.ColumnName.Trim(), dr(dc))
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
                     End If
                     If dc.ColumnName.Trim() = "F20" Then
-                        row.Add(dc.ColumnName.Trim(), dr(dc))
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
                     End If
                     If dc.ColumnName.Trim() = "F21" Then
-                        row.Add(dc.ColumnName.Trim(), dr(dc))
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
                     End If
                     If dc.ColumnName.Trim() = "F22" Then
-                        row.Add(dc.ColumnName.Trim(), dr(dc))
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
                     End If
                     If dc.ColumnName.Trim() = "F23" Then
-                        row.Add(dc.ColumnName.Trim(), dr(dc))
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
                     End If
                     If dc.ColumnName.Trim() = "F24" Then
-                        row.Add(dc.ColumnName.Trim(), dr(dc))
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
                     End If
                     If dc.ColumnName.Trim() = "F25" Then
-                        row.Add(dc.ColumnName.Trim(), dr(dc))
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
                     End If
                     If dc.ColumnName.Trim() = "F26" Then
-                        row.Add(dc.ColumnName.Trim(), dr(dc))
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    End If
+                    If dc.ColumnName.Trim() = "F27" Then
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    End If
+                    If dc.ColumnName.Trim() = "F28" Then
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    End If
+                    If dc.ColumnName.Trim() = "F29" Then
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    End If
+                    If dc.ColumnName.Trim() = "F30" Then
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    End If
+                    If dc.ColumnName.Trim() = "F31" Then
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    End If
+                    If dc.ColumnName.Trim() = "F32" Then
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    End If
+                    If dc.ColumnName.Trim() = "F33" Then
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    End If
+                    If dc.ColumnName.Trim() = "F34" Then
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    End If
+                    If dc.ColumnName.Trim() = "F35" Then
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    End If
+                    If dc.ColumnName.Trim() = "F36" Then
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    End If
+                    If dc.ColumnName.Trim() = "F37" Then
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    End If
+                    If dc.ColumnName.Trim() = "F38" Then
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    End If
+                    If dc.ColumnName.Trim() = "F39" Then
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    End If
+                    If dc.ColumnName.Trim() = "F40" Then
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    End If
+                    If dc.ColumnName.Trim() = "F41" Then
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    End If
+                    If dc.ColumnName.Trim() = "F42" Then
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    End If
+                    If dc.ColumnName.Trim() = "F43" Then
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    End If
+                    If dc.ColumnName.Trim() = "F44" Then
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    End If
+                    If dc.ColumnName.Trim() = "F45" Then
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    End If
+                    If dc.ColumnName.Trim() = "F46" Then
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
                     End If
                 Next
                 rows.Add(row)

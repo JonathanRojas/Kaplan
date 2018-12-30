@@ -29,6 +29,27 @@ Namespace Clases
                 Return Nothing
             End Try
         End Function
+        Public Shared Function obtenerDocumentoArchivo(inId As Integer) As Documento
+            Try
+                Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
+                Dim cmd As OleDbCommand = New OleDbCommand("BuscarDocumentoArchivo", conn)
+                cmd.CommandType = CommandType.StoredProcedure
+
+                Dim Id As OleDbParameter = cmd.Parameters.Add("@inId", OleDbType.Decimal, Nothing)
+                Id.Direction = ParameterDirection.Input
+                Id.Value = inId
+
+                Dim adapter As OleDbDataAdapter = New OleDbDataAdapter(cmd)
+                Dim vDataSet As New DataSet
+                adapter.Fill(vDataSet)
+                If Not vDataSet.Tables(0).Rows.Count.Equals(0) Then
+                    obtenerDocumentoArchivo = Mapeo(vDataSet)
+                End If
+                Return obtenerDocumentoArchivo
+            Catch exc As Exception
+                Return Nothing
+            End Try
+        End Function
         Private Shared Function Mapeo(prmDatos As DataSet) As Documento
             Dim vDocumento As New Documento
             Dim vDatos As DataRow = prmDatos.Tables(0).Rows(0)

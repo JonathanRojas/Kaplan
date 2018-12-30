@@ -1,29 +1,28 @@
-﻿app.controller("fichaCargaArchivoController", ['$scope', 'ModalService', 'Notification', 'LoginService', '$location', 'examenService', 'fichaService',
-function ($scope, ModalService, Notification, LoginService, $location, examenService, fichaService) {
+﻿app.controller("fichaCargaArchivoController", ['$scope', 'ModalService', 'Notification', 'LoginService', '$location', 'archivoService', 'fichaService',
+function ($scope, ModalService, Notification, LoginService, $location, archivoService, fichaService) {
     if (!LoginService.getisAuthenticated() == true) {
         LoginService.getCerrarSesion();
         $location.path('cerrarsesion');
     } else {
 
         /*Validacion de Carga inicial*/
-        //waitingDialog.show('Cargando Exámenes...', { dialogSize: 'sm' });
-        //$scope.loading = true;
-        //$scope.loadingData = true;
-        //$scope.StopLoading = function () {
-        //    $scope.loading = !(!$scope.loadingData);
-        //    if (!$scope.loading) { waitingDialog.hide(); }
-        //};
+        waitingDialog.show('Cargando Archivos...', { dialogSize: 'sm' });
+        $scope.loading = true;
+        $scope.loadingData = true;
+        $scope.StopLoading = function () {
+            $scope.loading = !(!$scope.loadingData);
+            if (!$scope.loading) { waitingDialog.hide(); }
+        };
         /*Fin*/
 
-        //examenService.getExamenes(fichaService.getRutPaciente()).then(function (result) {
-        //    $scope.Examenes = result.data;
-        //    $scope.loadingData = false;
-        //    $scope.StopLoading();
-        //}, function (reason) {
-        //    msg = { title: 'Error Listar Exámenes' };
-        //    Notification.error(msg);
-        //});
-
+        archivoService.getArchivos(fichaService.getRutPaciente()).then(function (result) {
+            $scope.Archivos = result.data;
+            $scope.loadingData = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Exámenes' };
+            Notification.error(msg);
+        });        
 
         $scope.NuevoArchivo = function () {
             ModalService.showModal({
@@ -43,6 +42,12 @@ function ($scope, ModalService, Notification, LoginService, $location, examenSer
                     };
                 });
             });
+        };
+
+        $scope.Descargar = function (id) {
+            var url;
+            url = "reports/verDocumento.aspx?inId=" + id + '&inTipo=Archivo';
+            window.open(url, '_blank');
         };
 
         //$scope.Eliminar = function (id) {

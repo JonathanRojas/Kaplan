@@ -11,6 +11,10 @@ Public Class verDocumento
                 Dim vDocumento As Documento = Documento.obtenerDocumentoExamen(Request("inId"))
                 Response.ContentType = vDocumento.Formato
                 Response.BinaryWrite(vDocumento.Documento)
+            Case "Archivo"
+                Dim vDocumento As Documento = Documento.obtenerDocumentoArchivo(Request("inId"))
+                Response.ContentType = vDocumento.Formato
+                Response.BinaryWrite(vDocumento.Documento)
         End Select
         Response.End()
     End Sub

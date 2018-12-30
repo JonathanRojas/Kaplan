@@ -1,12 +1,12 @@
 ﻿app.factory('archivoService', ['$http', '$q', function ($http, $q) {
     var ArchivoServ = [];
 
-    ArchivoServ.getExamenes = function (rut) {
+    ArchivoServ.getArchivos = function (rut) {
         var deferred = $q.defer();
         $http({
             method: "GET",
             async: true,
-            url: 'doGet.asmx/getExamenes?inRut=' + rut
+            url: 'doGet.asmx/getArchivos?inRut=' + rut
         }).then(onSuccess, onFailure);
         function onSuccess(response) {
             if (response.data.result)
