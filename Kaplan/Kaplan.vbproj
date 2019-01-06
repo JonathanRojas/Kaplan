@@ -234,6 +234,7 @@
     <Content Include="js\controllers\fichaController.js" />
     <Content Include="js\controllers\fichaEnfermeriaController.js" />
     <Content Include="js\controllers\fichaExamenController.js" />
+    <Content Include="js\controllers\fichaMedicoController.js" />
     <Content Include="js\controllers\fichaRegistroMedicoController.js" />
     <Content Include="js\controllers\modalArchivoController.js" />
     <Content Include="js\controllers\modalEvolucionController.js" />
@@ -292,6 +293,7 @@
     <Content Include="views\fichaCargaArchivo.html" />
     <Content Include="views\fichaEnfermeria.html" />
     <Content Include="views\fichaExamen.html" />
+    <Content Include="views\fichaMedico.html" />
     <Content Include="views\modalArchivo.html" />
     <Content Include="views\modalEvolucion.html" />
     <Content Include="views\modalExamen.html" />
@@ -331,6 +333,29 @@
     <Compile Include="models\enfermeria\TipoDiagnosticoEnfermeria.vb" />
     <Compile Include="models\enfermeria\TipoIndicador.vb" />
     <Compile Include="models\enfermeria\TipoIntervencion.vb" />
+    <Compile Include="models\medico\Alopurinol.vb" />
+    <Compile Include="models\medico\Antiarritmicos.vb" />
+    <Compile Include="models\medico\AnticoagulanteOral.vb" />
+    <Compile Include="models\medico\Antiplaquetario.vb" />
+    <Compile Include="models\medico\ARA2.vb" />
+    <Compile Include="models\medico\Betabloqueador.vb" />
+    <Compile Include="models\medico\BloqueadorCorrientes.vb" />
+    <Compile Include="models\medico\Digitalicos.vb" />
+    <Compile Include="models\medico\Diuretico.vb" />
+    <Compile Include="models\medico\Estatina.vb" />
+    <Compile Include="models\medico\Esteroides.vb" />
+    <Compile Include="models\medico\ExamenFisico.vb" />
+    <Compile Include="models\medico\ExamenMedico.vb" />
+    <Compile Include="models\medico\Farmacologia.vb" />
+    <Compile Include="models\medico\FichaMedico.vb" />
+    <Compile Include="models\medico\Hipoglicemiante.vb" />
+    <Compile Include="models\medico\HistoriaCardiopatia.vb" />
+    <Compile Include="models\medico\HistoriaCronica.vb" />
+    <Compile Include="models\medico\IECA.vb" />
+    <Compile Include="models\medico\Nitratos.vb" />
+    <Compile Include="models\medico\OtraCirugia.vb" />
+    <Compile Include="models\medico\Otros.vb" />
+    <Compile Include="models\medico\TipoRespuestaMedico.vb" />
     <Compile Include="models\nutricion\Cuestionario.vb" />
     <Compile Include="models\nutricion\FichaNutricion.vb" />
     <Compile Include="models\nutricion\IngestaAlimentaria.vb" />
@@ -565,6 +590,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

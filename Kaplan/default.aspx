@@ -99,6 +99,7 @@
     <script src="js/controllers/fichaKinesiologiaController.js"></script>
     <script src="js/controllers/fichaPsicologiaController.js"></script>
     <script src="js/controllers/fichaNutricionController.js"></script>
+    <script src="js/controllers/fichaMedicoController.js"></script>
     <script src="js/controllers/fichaExamenController.js"></script>
     <script src="js/controllers/modalExamenController.js"></script>
     <script src="js/controllers/fichaRegistroMedicoController.js"></script>
