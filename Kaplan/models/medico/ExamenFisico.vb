@@ -1,5 +1,6 @@
 ﻿Namespace Clases
     Public Class ExamenFisico
+        Public Property Id As Integer
         Public Property Signos As String
         Public Property Cuello As String
         Public Property Cardiaco As String

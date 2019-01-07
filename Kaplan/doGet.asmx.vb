@@ -1621,6 +1621,100 @@ Public Class doGet
     End Function
 #End Region
 #Region "Tipos Médico"
+    <WebMethod(EnableSession:=True)>
+    Public Function getTipoRespuestaMedico() As String
+        Dim vTipos As List(Of TipoRespuestaMedico) = TipoRespuestaMedico.getTipos
+        Dim js As New JavaScriptSerializer
+        Dim vResult As New httpResult
+        If Not IsNothing(vTipos) Then
+            vResult.result = True
+            vResult.data = vTipos
+        Else
+            vResult.result = False
+            vResult.data = vTipos
+        End If
+
+        Context.Response.Write(js.Serialize(vResult))
+
+        Context.Response.End()
+        Return ""
+    End Function
+
+    <WebMethod(EnableSession:=True)>
+    Public Function getTipoAneurismaMedico() As String
+        Dim vTipos As List(Of TipoAneurismaMedico) = TipoAneurismaMedico.getTipos
+        Dim js As New JavaScriptSerializer
+        Dim vResult As New httpResult
+        If Not IsNothing(vTipos) Then
+            vResult.result = True
+            vResult.data = vTipos
+        Else
+            vResult.result = False
+            vResult.data = vTipos
+        End If
+
+        Context.Response.Write(js.Serialize(vResult))
+
+        Context.Response.End()
+        Return ""
+    End Function
+
+    <WebMethod(EnableSession:=True)>
+    Public Function getTipoDiseccionMedico() As String
+        Dim vTipos As List(Of TipoDiseccionMedico) = TipoDiseccionMedico.getTipos
+        Dim js As New JavaScriptSerializer
+        Dim vResult As New httpResult
+        If Not IsNothing(vTipos) Then
+            vResult.result = True
+            vResult.data = vTipos
+        Else
+            vResult.result = False
+            vResult.data = vTipos
+        End If
+
+        Context.Response.Write(js.Serialize(vResult))
+
+        Context.Response.End()
+        Return ""
+    End Function
+
+    <WebMethod(EnableSession:=True)>
+    Public Function getTipoEcocardiogramaMedico() As String
+        Dim vTipos As List(Of TipoEcocardiogramaMedico) = TipoEcocardiogramaMedico.getTipos
+        Dim js As New JavaScriptSerializer
+        Dim vResult As New httpResult
+        If Not IsNothing(vTipos) Then
+            vResult.result = True
+            vResult.data = vTipos
+        Else
+            vResult.result = False
+            vResult.data = vTipos
+        End If
+
+        Context.Response.Write(js.Serialize(vResult))
+
+        Context.Response.End()
+        Return ""
+    End Function
+
+    <WebMethod(EnableSession:=True)>
+    Public Function getTipoTumorMedico() As String
+        Dim vTipos As List(Of TipoTumorMedico) = TipoTumorMedico.getTipos
+        Dim js As New JavaScriptSerializer
+        Dim vResult As New httpResult
+        If Not IsNothing(vTipos) Then
+            vResult.result = True
+            vResult.data = vTipos
+        Else
+            vResult.result = False
+            vResult.data = vTipos
+        End If
+
+        Context.Response.Write(js.Serialize(vResult))
+
+        Context.Response.End()
+        Return ""
+    End Function
 #End Region
 #End Region
 End Class

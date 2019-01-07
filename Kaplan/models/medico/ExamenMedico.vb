@@ -1,5 +1,6 @@
 ﻿Namespace Clases
     Public Class ExamenMedico
+        Public Property Id As Integer
         Public Property LesionAda As Tipos.TipoRespuestaMedico
         Public Property LesionAdaObs As String
         Public Property LesionACD As Tipos.TipoRespuestaMedico
@@ -18,21 +19,21 @@
         Public Property DiametroSistole As String
         Public Property DiametroDiastole As String
         Public Property DilatacionAuricular As Tipos.TipoRespuestaMedico
-        Public Property DilatacionAuricularTipo As Tipos.TipoRespuestaMedico 'cambiar tipo
+        Public Property DilatacionAuricularTipo As Tipos.TipoEcocardiogramaMedico
         Public Property HipertensionPulmonar As Tipos.TipoRespuestaMedico
-        Public Property HipertensionPulmonarTipo As Tipos.TipoRespuestaMedico 'cambiar tipo
+        Public Property HipertensionPulmonarTipo As Tipos.TipoEcocardiogramaMedico
         Public Property DisfuncionVentriculo As Tipos.TipoRespuestaMedico
-        Public Property DisfuncionVentriculoTipo As Tipos.TipoRespuestaMedico 'cambiar tipo
+        Public Property DisfuncionVentriculoTipo As Tipos.TipoEcocardiogramaMedico
         Public Property EstenosisAortica As Tipos.TipoRespuestaMedico
-        Public Property EstenosisAorticaTipo As Tipos.TipoRespuestaMedico 'cambiar tipo
+        Public Property EstenosisAorticaTipo As Tipos.TipoEcocardiogramaMedico
         Public Property EstenosisMitral As Tipos.TipoRespuestaMedico
-        Public Property EstenosisMitralTipo As Tipos.TipoRespuestaMedico 'cambiar tipo
+        Public Property EstenosisMitralTipo As Tipos.TipoEcocardiogramaMedico
         Public Property InsuficienciaAortica As Tipos.TipoRespuestaMedico
-        Public Property InsuficienciaAorticaTipo As Tipos.TipoRespuestaMedico 'cambiar tipo
+        Public Property InsuficienciaAorticaTipo As Tipos.TipoEcocardiogramaMedico
         Public Property InsuficienciaMitral As Tipos.TipoRespuestaMedico
-        Public Property InsuficienciaMitralTipo As Tipos.TipoRespuestaMedico 'cambiar tipo
+        Public Property InsuficienciaMitralTipo As Tipos.TipoEcocardiogramaMedico
         Public Property Aquinesia As Tipos.TipoRespuestaMedico
-        Public Property AquinesiaTipo As Tipos.TipoRespuestaMedico 'cambiar tipo
+        Public Property AquinesiaTipo As Tipos.TipoEcocardiogramaMedico
         Public Property Arrtimias As Tipos.TipoRespuestaMedico
         Public Property ArrtimiasObs As String
         Public Property BloqueosAV As Tipos.TipoRespuestaMedico

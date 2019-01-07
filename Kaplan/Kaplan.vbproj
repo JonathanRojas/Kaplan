@@ -355,7 +355,11 @@
     <Compile Include="models\medico\Nitratos.vb" />
     <Compile Include="models\medico\OtraCirugia.vb" />
     <Compile Include="models\medico\Otros.vb" />
+    <Compile Include="models\medico\TipoAneurismaMedico.vb" />
+    <Compile Include="models\medico\TipoDiseccionMedico.vb" />
+    <Compile Include="models\medico\TipoEcocardiogramaMedico.vb" />
     <Compile Include="models\medico\TipoRespuestaMedico.vb" />
+    <Compile Include="models\medico\TipoTumorMedico.vb" />
     <Compile Include="models\nutricion\Cuestionario.vb" />
     <Compile Include="models\nutricion\FichaNutricion.vb" />
     <Compile Include="models\nutricion\IngestaAlimentaria.vb" />

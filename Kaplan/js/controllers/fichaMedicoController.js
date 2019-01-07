@@ -11,9 +11,13 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
         $scope.loadingTipoRegion = true;
         $scope.loadingTipoComuna = true;
         $scope.loadingPlanes = true;
-        $scope.loadingTiposValoracion = true;
+        $scope.loadingTiposRespuesta = true;
+        $scope.loadingTipoDiseccionAortica = true;
+        $scope.loadingTipoAneurismaMedico = true;
+        $scope.loadingTipoTumorMedico = true;
+        $scope.loadingTipoEcocardiogramaMedico = true;
         $scope.StopLoading = function () {
-            $scope.loading = !(!$scope.loadingTipoRegion && !$scope.loadingTipoComuna && !$scope.loadingPlanes && !$scope.loadingTiposValoracion);
+            $scope.loading = !(!$scope.loadingTipoRegion && !$scope.loadingTipoComuna && !$scope.loadingPlanes && !$scope.loadingTiposRespuesta && !$scope.loadingTipoDiseccionAortica && !$scope.loadingTipoAneurismaMedico && !$scope.loadingTipoTumorMedico && !$scope.loadingTipoEcocardiogramaMedico);
             if (!$scope.loading) { waitingDialog.hide(); }
         };
         /*Fin*/
@@ -258,21 +262,147 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
             Notification.error(msg);
         });
 
-        tipoService.getTipoValoracion().then(function (result) {
-            $scope.TiposRespiracion = result.data;
-            $scope.TiposAlimentacion = result.data;
-            $scope.TiposEliminacion = result.data;
-            $scope.TiposDescanso = result.data;
-            $scope.TiposHigienePiel = result.data;
-            $scope.TiposActividades = result.data;
-            $scope.TiposVestirse = result.data;
-            $scope.TiposComunicarse = result.data;
-            $scope.TiposAutoRealizacion = result.data;
-            $scope.loadingTiposValoracion = false;
+        tipoService.getTipoRespuestaMedico().then(function (result) {
+            $scope.TiposHistoriaCardiopatia = result.data;
+            $scope.TiposHistoriaCronica = result.data;
+            $scope.TiposTabaquismoActivo = result.data;
+            $scope.TiposAlcohol = result.data;
+            $scope.TiposAbusoDrogas = result.data;
+            $scope.TiposDislipidemias = result.data;
+            $scope.TiposHipertensionArterial = result.data;
+            $scope.TiposDiabetesMellitus = result.data;
+            $scope.TiposInsulinoterapia = result.data;
+            $scope.TiposAlergias = result.data;
+            $scope.TiposEnfermedadRenalCronica = result.data;
+            $scope.TiposProteinurea = result.data;
+            $scope.TiposHemodialisis = result.data;
+            $scope.TiposAnemia = result.data;
+            $scope.TiposEnfermedadPulmonar = result.data;
+            $scope.TiposEnfermedadHepatica = result.data;
+            $scope.TiposEnfermedadArterialPeriferica = result.data;
+            $scope.TiposCirugiaPeriferica = result.data;
+            $scope.TiposEnfermedadCerebroVascular = result.data;
+            $scope.TiposCirugiaCarotidea = result.data;
+            $scope.TiposInmunosupresion = result.data;
+            $scope.TiposHistoriaOncologica = result.data;
+            $scope.TiposQuimioterapia = result.data;
+            $scope.TiposRadioterapia = result.data;
+            $scope.TiposApneaSueno = result.data;
+            $scope.TiposCardiopatiaCongenita = result.data;
+            $scope.TiposInfartoAgudoMiocardio = result.data;
+            $scope.TiposInsuficienciaCardiaca = result.data;
+            $scope.TiposSincopeCardiogenico = result.data;
+            $scope.TiposShockCardiogenico = result.data;
+            $scope.TiposParoCardiorRespiratorio = result.data;
+            $scope.TiposSupraventricular = result.data;
+            $scope.TiposVentricular = result.data;
+            $scope.TiposEndocarditis = result.data;
+            $scope.TiposDiseccionAortica = result.data;
+            $scope.TiposAneurismaAortico = result.data;
+            $scope.TiposTumorCardiaco = result.data;
+            $scope.TiposPuenteCoronario = result.data;
+            $scope.TiposADA = result.data;
+            $scope.TiposACX = result.data;
+            $scope.TiposACD = result.data;
+            $scope.TiposCirugiaValvular = result.data;
+            $scope.TiposAortica = result.data;
+            $scope.TiposMitral = result.data;
+            $scope.TiposTricuspide = result.data;
+            $scope.TiposCierreComInteraricular = result.data;
+            $scope.TiposCierreComInterVetricular = result.data;
+            $scope.TiposCirugiaAorta = result.data;
+            $scope.TiposCirugiaCardiopatiaCon = result.data;
+            $scope.TiposReoperacion = result.data;
+            $scope.TiposTrasplanteCardiaco = result.data;
+            $scope.TiposImplantacionLVAD = result.data;
+            $scope.TiposOtraCirugia = result.data;
+            $scope.TiposTerapiaAblativa = result.data;
+            $scope.TiposMarcapaso = result.data;
+            $scope.TiposCDITRC = result.data;
+            $scope.TiposAngioplastia = result.data;
+            $scope.TiposBalon = result.data;
+            $scope.TiposBetabloqueador = result.data;
+            $scope.TiposBloqueadorCorrientes = result.data;
+            $scope.TiposIECA = result.data;
+            $scope.TiposARA2 = result.data;
+            $scope.TiposNitratos = result.data;
+            $scope.TiposAnticoagulanteOral = result.data;
+            $scope.TiposEstatina = result.data;
+            $scope.TiposAntiplaquetario = result.data;
+            $scope.TiposHipoglicemiante = result.data;
+            $scope.TiposEsteroides = result.data;
+            $scope.TiposDiuretico = result.data;
+            $scope.TiposAlopurinol = result.data;
+            $scope.TiposDigitalicos = result.data;
+            $scope.TiposAntiarritmicos = result.data;
+            $scope.TiposOtros = result.data;
+            $scope.TiposLesionAda = result.data;
+            $scope.TiposLesionACD = result.data;
+            $scope.TiposLesionACX = result.data;
+            $scope.TiposTroncoCoronario = result.data;
+            $scope.TiposPapMedia = result.data;
+            $scope.TiposUwood = result.data;
+            $scope.TiposTestReversibilidad = result.data;
+            $scope.TiposDilatacionAuricular = result.data;
+            $scope.TiposHipertensionPulmonar = result.data;
+            $scope.TiposDisfuncionVentriculo = result.data;
+            $scope.TiposEstenosisAortica = result.data;
+            $scope.TiposEstenosisMitral = result.data;
+            $scope.TiposInsuficienciaAortica = result.data;
+            $scope.TiposInsuficienciaMitral = result.data;
+            $scope.TiposAquinesia = result.data;
+            $scope.TiposArrtimias = result.data;
+            $scope.TiposBloqueosAV = result.data;
+            $scope.TiposEjeCardiaco = result.data;
+            $scope.loadingTiposRespuesta = false;
 
             $scope.StopLoading();
         }, function (reason) {
-            msg = { title: 'Error Listar Tipo Valoraciones' };
+            msg = { title: 'Error Listar Tipo Respuesta' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoEcocardiogramaMedico().then(function (result) {
+            $scope.TiposDilatacionAuricularTipo = result.data;
+            $scope.TiposHipertensionPulmonarTipo = result.data;
+            $scope.TiposDisfuncionVentriculoTipo = result.data;
+            $scope.TiposEstenosisAorticaTipo = result.data;
+            $scope.TiposEstenosisMitralTipo = result.data;
+            $scope.TiposInsuficienciaAorticaTipo = result.data;
+            $scope.TiposInsuficienciaMitralTipo = result.data;
+            $scope.TiposAquinesiaTipo = result.data;
+
+            $scope.loadingTipoEcocardiogramaMedico = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo Diseccion' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoDiseccionMedico().then(function (result) {
+            $scope.TiposDiseccionAorticaTipo = result.data;
+            $scope.loadingTipoDiseccionAortica = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo Diseccion' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoAneurismaMedico().then(function (result) {
+            $scope.TiposAneurismaAorticoTipo = result.data;
+            $scope.loadingTipoAneurismaMedico = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo Aneurisma' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoTumorMedico().then(function (result) {
+            $scope.TiposTumorCardiacoTipo = result.data;
+            $scope.loadingTipoTumorMedico = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo Tumor' };
             Notification.error(msg);
         });
         /*Fin*/

@@ -36,10 +36,10 @@
                         <div class="tabs-menu">
                             <ul class="nav nav-tabs nav-justified" role="tablist">
                                 <li role="presentation" class="active"><a data-target="#antecedentesTab" aria-controls="home" role="tab" data-toggle="tab">Antecedentes Personales</a></li>
-                                <li role="presentation"><a data-target="#fichaTab" aria-controls="profile" role="tab" data-toggle="tab">Antecedentes Médicos</a></li>
-                                <li role="presentation"><a data-target="#quirurjicosTab" aria-controls="profile" role="tab" data-toggle="tab">Antecedentes Quirúrjicos</a></li>
-                                <li role="presentation"><a data-target="#farmaTab" aria-controls="profile" role="tab" data-toggle="tab">Farmacologia</a></li>
-                                <li role="presentation"><a data-target="#examenTab" aria-controls="profile" role="tab" data-toggle="tab">Examanes</a></li>
+                                <li role="presentation"><a data-target="#fichaTab" aria-controls="profile" role="tab" data-toggle="tab">Ant. Médicos</a></li>
+                                <li role="presentation"><a data-target="#quirurjicosTab" aria-controls="profile" role="tab" data-toggle="tab">Ant. Quirúrjicos</a></li>
+                                <li role="presentation"><a data-target="#farmaTab" aria-controls="profile" role="tab" data-toggle="tab">Farmacología</a></li>
+                                <li role="presentation"><a data-target="#examenTab" aria-controls="profile" role="tab" data-toggle="tab">Exámenes</a></li>
                             </ul>
                         </div>
                         <div class="tab-content">
@@ -237,13 +237,13 @@
                                                                 </select>
                                                             </div>
                                                             <div class="col-sm-2" align="center">
-                                                                <button type="button" class="btn border small pull-right" ng-show="!FormEditabe" ng-click="addNewColumnHistoriaCardiopatia()">+ Historia</button>
+                                                                <button type="button" class="btn border small pull-right" ng-show="!FormEditabe && Ficha.FichaMedico.HistoriaCardiopatia.ID == 1" ng-click="addNewColumnHistoriaCardiopatia()">+ Historia</button>
                                                             </div>
                                                             <div class="col-sm-6">
                                                                 <fieldset ng-repeat="HistoriaCardiopatia in columnsHistoriaCardiopatia">
                                                                     <div class="form-group">
                                                                         <div class="col-sm-10">
-                                                                            <input type="text" class="form-control" id="historia_cardiopatia_detalle" placeholder="Historia familiar cardiopatía Detalle" ng-model="HistoriaCardiopatia.Historia" required aria-required="true" ng-disabled="FormEditabe" maxlength="100">
+                                                                            <input type="text" class="form-control" id="historia_cardiopatia_detalle" ng-show="Ficha.FichaMedico.HistoriaCardiopatia.ID == 1" placeholder="Historia familiar cardiopatía Detalle" ng-model="HistoriaCardiopatia.Historia" ng-required="Ficha.FichaMedico.HistoriaCardiopatia.ID == 1" aria-required="true" ng-disabled="FormEditabe" maxlength="100">
                                                                         </div>
                                                                         <div class="col-sm-2">
                                                                             <button class="remove" ng-hide="columnsHistoriaCardiopatia.length == 1 || FormEditabe" ng-click="removeColumnHistoriaCardiopatia($index)">x</button>
@@ -262,13 +262,13 @@
                                                                 </select>
                                                             </div>
                                                             <div class="col-sm-2" align="center">
-                                                                <button type="button" class="btn border small pull-right" ng-show="!FormEditabe" ng-click="addNewColumnHistoriaCronica()">+ Historia</button>
+                                                                <button type="button" class="btn border small pull-right" ng-show="!FormEditabe && Ficha.FichaMedico.HistoriaCronica.ID == 1" ng-click="addNewColumnHistoriaCronica()">+ Historia</button>
                                                             </div>
                                                             <div class="col-sm-6">
                                                                 <fieldset ng-repeat="HistoriaCronica in columnsHistoriaCronica">
                                                                     <div class="form-group">
                                                                         <div class="col-sm-10">
-                                                                            <input type="text" class="form-control" id="historia_cronica_detalle" placeholder="Historia familiar de enfermedad crónica no transmisible Detalle" ng-model="HistoriaCronica.Historia" required aria-required="true" ng-disabled="FormEditabe" maxlength="100">
+                                                                            <input type="text" class="form-control" id="historia_cronica_detalle" ng-show="Ficha.FichaMedico.HistoriaCronica.ID == 1" placeholder="Historia familiar de enfermedad crónica no transmisible Detalle" ng-model="HistoriaCronica.Historia" ng-required="Ficha.FichaMedico.HistoriaCronica.ID == 1" aria-required="true" ng-disabled="FormEditabe" maxlength="100">
                                                                         </div>
                                                                         <div class="col-sm-2">
                                                                             <button class="remove" ng-hide="columnsHistoriaCronica.length == 1 || FormEditabe" ng-click="removeColumnHistoriaCronica($index)">x</button>
@@ -385,7 +385,7 @@
                                                                 </select>
                                                             </div>
                                                             <div class="col-sm-3" align="center">
-                                                                <input type="text" class="form-control" id="abuso_drogas_detalle" placeholder="Abuso Drogas Detalle" ng-model="Ficha.FichaMedico.AbusoDrogasDetalle" required aria-required="true" ng-disabled="FormEditabe" maxlength="100">
+                                                                <input type="text" class="form-control" id="abuso_drogas_detalle" ng-show="Ficha.FichaMedico.AbusoDrogas.ID == 1" placeholder="Abuso Drogas Detalle" ng-model="Ficha.FichaMedico.AbusoDrogasDetalle" ng-required="Ficha.FichaMedico.AbusoDrogas.ID == 1" aria-required="true" ng-disabled="FormEditabe" maxlength="100">
                                                             </div>
                                                         </div>
                                                         <span class="clearfix"></span>
@@ -414,7 +414,7 @@
                                                                 </select>
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <input type="text" class="form-control" id="dislipidemias_observacion" placeholder="Dislipidemias Observacion" ng-model="Ficha.FichaMedico.DislipidemiasObs" required aria-required="true" ng-disabled="FormEditabe" maxlength="100">
+                                                                <input type="text" class="form-control" id="dislipidemias_observacion" ng-show="Ficha.FichaMedico.Dislipidemias.ID == 1" placeholder="Dislipidemias Observacion" ng-model="Ficha.FichaMedico.DislipidemiasObs" ng-required="Ficha.FichaMedico.Dislipidemias.ID == 1" aria-required="true" ng-disabled="FormEditabe" maxlength="100">
                                                             </div>
                                                             <div class="col-sm-2">
                                                                 <label class="control-label pull-right" for="hipertension_arterial">Hipertensión arterial</label>

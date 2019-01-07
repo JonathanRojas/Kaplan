@@ -1,9 +1,14 @@
-﻿Imports Kaplan.Clases
-Imports System.Globalization
-Imports System.Data.OleDb
-Imports System.Data.SqlClient
-
+﻿Imports Newtonsoft.Json
 Namespace Clases
+    Public Class CollectionssHistoriaCardiopatia
+        Public Property column As HistoriaCardiopatia()
+    End Class
+    Public Class CollectionssHistoriaCronica
+        Public Property column As HistoriaCronica()
+    End Class
+    Public Class CollectionssOtraCirugia
+        Public Property column As OtraCirugia()
+    End Class
     Public Class FichaMedico
         Public Property Id As Integer
         Public Property IdReserva As Integer
@@ -47,6 +52,7 @@ Namespace Clases
         Public Property Albumina As String
         Public Property Linfocitos As String
         Public Property EnfermedadPulmonar As Tipos.TipoRespuestaMedico
+        Public Property EnfermedadPulmonarObs As String
         Public Property SeveridadFuncionPulmonar As Tipos.TipoRespuestaMedico 'cambiar tipo
         Public Property EnfermedadHepatica As Tipos.TipoRespuestaMedico
         Public Property EnfermedadHepaticaObs As String
@@ -94,11 +100,11 @@ Namespace Clases
         Public Property Endocarditis As Tipos.TipoRespuestaMedico
         Public Property EndocarditisObs As String
         Public Property DiseccionAortica As Tipos.TipoRespuestaMedico
-        Public Property DiseccionAorticaTipo As Tipos.TipoRespuestaMedico ' cambiar tipo
+        Public Property DiseccionAorticaTipo As Tipos.TipoDiseccionMedico
         Public Property AneurismaAortico As Tipos.TipoRespuestaMedico
-        Public Property AneurismaAorticoTipo As Tipos.TipoRespuestaMedico ' cambiar tipo
+        Public Property AneurismaAorticoTipo As Tipos.TipoAneurismaMedico
         Public Property TumorCardiaco As Tipos.TipoRespuestaMedico
-        Public Property TumorCardiacoTipo As Tipos.TipoRespuestaMedico ' cambiar tipo
+        Public Property TumorCardiacoTipo As Tipos.TipoTumorMedico
         Public Property Tiempo_ECMO As String
         Public Property PuenteCoronario As Tipos.TipoRespuestaMedico
         Public Property PuenteCoronarioObs As String
@@ -205,6 +211,29 @@ Namespace Clases
             End Try
 
         End Function
+
+        Public Function ToJSONHistoriaCardiopatia(rows As List(Of HistoriaCardiopatia)) As String
+            Dim data As New CollectionssHistoriaCardiopatia
+
+            data = New CollectionssHistoriaCardiopatia With {.column = rows.ToArray}
+            ToJSONHistoriaCardiopatia = JsonConvert.SerializeObject(data)
+            Return ToJSONHistoriaCardiopatia
+        End Function
+        Public Function ToJSONHistoriaCronica(rows As List(Of HistoriaCronica)) As String
+            Dim data As New CollectionssHistoriaCronica
+
+            data = New CollectionssHistoriaCronica With {.column = rows.ToArray}
+            ToJSONHistoriaCronica = JsonConvert.SerializeObject(data)
+            Return ToJSONHistoriaCronica
+        End Function
+        Public Function ToJSONOtraCirugia(rows As List(Of OtraCirugia)) As String
+            Dim data As New CollectionssOtraCirugia
+
+            data = New CollectionssOtraCirugia With {.column = rows.ToArray}
+            ToJSONOtraCirugia = JsonConvert.SerializeObject(data)
+            Return ToJSONOtraCirugia
+        End Function
+
     End Class
 
 End Namespace
