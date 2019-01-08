@@ -53,7 +53,7 @@ Namespace Clases
         Public Property Linfocitos As String
         Public Property EnfermedadPulmonar As Tipos.TipoRespuestaMedico
         Public Property EnfermedadPulmonarObs As String
-        Public Property SeveridadFuncionPulmonar As Tipos.TipoRespuestaMedico 'cambiar tipo
+        Public Property SeveridadFuncionPulmonar As Tipos.TipoSeveridadMedico
         Public Property EnfermedadHepatica As Tipos.TipoRespuestaMedico
         Public Property EnfermedadHepaticaObs As String
         Public Property EnfermedadArterialPeriferica As Tipos.TipoRespuestaMedico

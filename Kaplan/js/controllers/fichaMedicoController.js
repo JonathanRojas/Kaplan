@@ -16,8 +16,10 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
         $scope.loadingTipoAneurismaMedico = true;
         $scope.loadingTipoTumorMedico = true;
         $scope.loadingTipoEcocardiogramaMedico = true;
+        $scope.loadingTipoSeveridad = true;
+        $scope.loadingTipoFEVI = true;
         $scope.StopLoading = function () {
-            $scope.loading = !(!$scope.loadingTipoRegion && !$scope.loadingTipoComuna && !$scope.loadingPlanes && !$scope.loadingTiposRespuesta && !$scope.loadingTipoDiseccionAortica && !$scope.loadingTipoAneurismaMedico && !$scope.loadingTipoTumorMedico && !$scope.loadingTipoEcocardiogramaMedico);
+            $scope.loading = !(!$scope.loadingTipoRegion && !$scope.loadingTipoComuna && !$scope.loadingPlanes && !$scope.loadingTiposRespuesta && !$scope.loadingTipoDiseccionAortica && !$scope.loadingTipoAneurismaMedico && !$scope.loadingTipoTumorMedico && !$scope.loadingTipoEcocardiogramaMedico && !$scope.loadingTipoSeveridad && !$scope.loadingTipoFEVI);
             if (!$scope.loading) { waitingDialog.hide(); }
         };
         /*Fin*/
@@ -397,12 +399,30 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
             Notification.error(msg);
         });
 
+        tipoService.getTipoSeveridadMedico().then(function (result) {
+            $scope.TiposSeveridadFuncionPulmonar = result.data;
+            $scope.loadingTipoSeveridad = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo Severidad' };
+            Notification.error(msg);
+        });
+
         tipoService.getTipoTumorMedico().then(function (result) {
             $scope.TiposTumorCardiacoTipo = result.data;
             $scope.loadingTipoTumorMedico = false;
             $scope.StopLoading();
         }, function (reason) {
             msg = { title: 'Error Listar Tipo Tumor' };
+            Notification.error(msg);
+        });
+
+        tipoService.getTipoFeviMedico().then(function (result) {
+            $scope.TiposFEVI = result.data;
+            $scope.loadingTipoFEVI = false;
+            $scope.StopLoading();
+        }, function (reason) {
+            msg = { title: 'Error Listar Tipo FEVI' };
             Notification.error(msg);
         });
         /*Fin*/
@@ -471,12 +491,25 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
                             fichaService.getPaciente(parseInt(fichaService.getRutPaciente()), null).then(function (result) {
                                 $scope.Paciente = result.data;
                                 $scope.Paciente.Persona.FechaNac = moment($scope.Paciente.Persona.FechaNac);
-                                $scope.columnsEvolucion = [{ colId: 'col1', Fecha: '', Evolucion: '', Id: -1 }];
-                                $scope.columnsMedicamentos = [{ colId: 'col1', Nombre: '', Observacion: '', Dosis: '', Horario: '', Id: -1 }];
-                                $scope.columnsDiagnostico = [{ colId: 'col1', Tipo: { ID: '' }, Id: -1 }];
-                                $scope.columnsIntervenciones = [{ colId: 'col1', Tipo: { ID: '' }, Id: -1 }];
-                                $scope.columnsIndicadores = [{ colId: 'col1', Tipo: { ID: '' }, Id: -1, Inicio: '', Final: '' }];
-                                $scope.Ficha = { FichaEnfermeria: { Id: -1, IdReserva: sesion } };
+                                $scope.columnsHistoriaCardiopatia = [{ colId: 'col1', Historia: '', Id: -1 }];
+                                $scope.columnsHistoriaCronica = [{ colId: 'col1', Historia: '', Id: -1 }];
+                                $scope.columnsOtraCirugia = [{ colId: 'col1', Cirugia: '', Id: -1, Fecha: '' }];
+                                $scope.columnsBetabloqueador = [{ colId: 'col1', Descripcion: '', Id: -1, Dosis: '' }];
+                                $scope.columnsBloqueadorCorrientes = [{ colId: 'col1', Descripcion: '', Id: -1, Dosis: '' }];
+                                $scope.columnsIECA = [{ colId: 'col1', Descripcion: '', Id: -1, Dosis: '' }];
+                                $scope.columnsARA2 = [{ colId: 'col1', Descripcion: '', Id: -1, Dosis: '' }];
+                                $scope.columnsNitratos = [{ colId: 'col1', Descripcion: '', Id: -1, Dosis: '' }];
+                                $scope.columnsAnticoagulanteOral = [{ colId: 'col1', Descripcion: '', Id: -1, Dosis: '' }];
+                                $scope.columnsEstatina = [{ colId: 'col1', Descripcion: '', Id: -1, Dosis: '' }];
+                                $scope.columnsAntiplaquetario = [{ colId: 'col1', Descripcion: '', Id: -1, Dosis: '' }];
+                                $scope.columnsHipoglicemiante = [{ colId: 'col1', Descripcion: '', Id: -1, Dosis: '' }];
+                                $scope.columnsEsteroides = [{ colId: 'col1', Descripcion: '', Id: -1, Dosis: '' }];
+                                $scope.columnsDiuretico = [{ colId: 'col1', Descripcion: '', Id: -1, Dosis: '' }];
+                                $scope.columnsAlopurinol = [{ colId: 'col1', Descripcion: '', Id: -1, Dosis: '' }];
+                                $scope.columnsDigitalicos = [{ colId: 'col1', Descripcion: '', Id: -1, Dosis: '' }];
+                                $scope.columnsAntiarritmicos = [{ colId: 'col1', Descripcion: '', Id: -1, Dosis: '' }];
+                                $scope.columnsOtros = [{ colId: 'col1', Descripcion: '', Id: -1, Dosis: '' }];
+                                $scope.Ficha = { FichaMedico: { Id: -1, IdReserva: sesion } };
                                 $('#collapseDataPaciente').collapse('show');
                                 waitingDialog.hide();
                             }, function (reason) {
@@ -509,14 +542,27 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
                 $scope.Ficha.Id = fichaService.getidFicha();
                 $scope.Ficha.Fecha = moment($scope.Ficha.Fecha);
                 $scope.Paciente.Persona.FechaNac = moment($scope.Paciente.Persona.FechaNac);
-                $scope.Ficha.FichaEnfermeria.MedicamentosEnfermeria = $scope.columnsMedicamentos;
-                $scope.Ficha.FichaEnfermeria.EvolucionEnfermeria = $scope.columnsEvolucion;
-                $scope.Ficha.FichaEnfermeria.PlanEnfermeria.Diagnostico = $scope.columnsDiagnostico;
-                $scope.Ficha.FichaEnfermeria.PlanEnfermeria.Intervencion = $scope.columnsIntervenciones;
-                $scope.Ficha.FichaEnfermeria.PlanEnfermeria.Indicadores = $scope.columnsIndicadores;
-                $scope.Ficha.FichaEnfermeria.IdEspecialista = parseInt(LoginService.getIdEspecialista())
+                $scope.Ficha.FichaMedico.ListHistoriaCardiopatia = $scope.columnsHistoriaCardiopatia;
+                $scope.Ficha.FichaMedico.ListHistoriaCronica = $scope.columnsHistoriaCronica;
+                $scope.Ficha.FichaMedico.ListOtraCirugia = $scope.columnsOtraCirugia;
+                $scope.Ficha.FichaMedico.Farmacologia.ListBetabloqueador = $scope.columnsBetabloqueador;
+                $scope.Ficha.FichaMedico.Farmacologia.ListBloqueadorCorrientes = $scope.columnsBloqueadorCorrientes;
+                $scope.Ficha.FichaMedico.Farmacologia.ListIECA = $scope.columnsIECA;
+                $scope.Ficha.FichaMedico.Farmacologia.ListARA2 = $scope.columnsARA2;
+                $scope.Ficha.FichaMedico.Farmacologia.ListNitratos = $scope.columnsNitratos;
+                $scope.Ficha.FichaMedico.Farmacologia.ListAnticoagulanteOral = $scope.columnsAnticoagulanteOral;
+                $scope.Ficha.FichaMedico.Farmacologia.ListEstatina = $scope.columnsEstatina;
+                $scope.Ficha.FichaMedico.Farmacologia.ListAntiplaquetario = $scope.columnsAntiplaquetario;
+                $scope.Ficha.FichaMedico.Farmacologia.ListHipoglicemiante = $scope.columnsHipoglicemiante;
+                $scope.Ficha.FichaMedico.Farmacologia.ListEsteroides = $scope.columnsEsteroides;
+                $scope.Ficha.FichaMedico.Farmacologia.ListDiuretico = $scope.columnsDiuretico;
+                $scope.Ficha.FichaMedico.Farmacologia.ListAlopurinol = $scope.columnsAlopurinol;
+                $scope.Ficha.FichaMedico.Farmacologia.ListDigitalicos = $scope.columnsDigitalicos;
+                $scope.Ficha.FichaMedico.Farmacologia.ListAntiarritmicos = $scope.columnsAntiarritmicos;
+                $scope.Ficha.FichaMedico.Farmacologia.ListOtros = $scope.columnsOtros;
+                $scope.Ficha.FichaMedico.IdEspecialista = parseInt(LoginService.getIdEspecialista())
                 waitingDialog.show('Guardando Ficha...', { dialogSize: 'sm' });
-                fichaService.SaveFichaEnfermeria($scope.Ficha, $scope.Paciente)
+                fichaService.SaveFichaMedico($scope.Ficha, $scope.Paciente)
                    .then(function (result) {
                        fichaService.getFichaEnfermeriaxReserva($scope.Ficha.FichaEnfermeria.IdReserva).then(function (result) {
                            $scope.Ficha = result.data;

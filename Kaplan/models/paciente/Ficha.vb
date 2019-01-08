@@ -1352,7 +1352,7 @@ Namespace Clases
 
         Public Function registrarFichaMedico() As Boolean
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("RegistrarFichaEnfermeria", conn)
+            Dim cmd As OleDbCommand = New OleDbCommand("RegistrarFichaMedico", conn)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim inId As OleDbParameter = cmd.Parameters.Add("@id_ficha", OleDbType.Decimal, Nothing)

@@ -15,7 +15,7 @@
         Public Property UwoodObs As String
         Public Property TestReversibilidad As Tipos.TipoRespuestaMedico
         Public Property TestReversibilidadObs As String
-        Public Property FEVI As Tipos.TipoRespuestaMedico 'cambiar tipo
+        Public Property FEVI As Tipos.TipoFeviMedico
         Public Property DiametroSistole As String
         Public Property DiametroDiastole As String
         Public Property DilatacionAuricular As Tipos.TipoRespuestaMedico

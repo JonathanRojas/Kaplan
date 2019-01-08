@@ -1715,6 +1715,44 @@ Public Class doGet
         Context.Response.End()
         Return ""
     End Function
+
+    <WebMethod(EnableSession:=True)>
+    Public Function getTipoSeveridadMedico() As String
+        Dim vTipos As List(Of TipoSeveridadMedico) = TipoSeveridadMedico.getTipos
+        Dim js As New JavaScriptSerializer
+        Dim vResult As New httpResult
+        If Not IsNothing(vTipos) Then
+            vResult.result = True
+            vResult.data = vTipos
+        Else
+            vResult.result = False
+            vResult.data = vTipos
+        End If
+
+        Context.Response.Write(js.Serialize(vResult))
+
+        Context.Response.End()
+        Return ""
+    End Function
+
+    <WebMethod(EnableSession:=True)>
+    Public Function getTipoFeviMedico() As String
+        Dim vTipos As List(Of TipoFeviMedico) = TipoFeviMedico.getTipos
+        Dim js As New JavaScriptSerializer
+        Dim vResult As New httpResult
+        If Not IsNothing(vTipos) Then
+            vResult.result = True
+            vResult.data = vTipos
+        Else
+            vResult.result = False
+            vResult.data = vTipos
+        End If
+
+        Context.Response.Write(js.Serialize(vResult))
+
+        Context.Response.End()
+        Return ""
+    End Function
 #End Region
 #End Region
 End Class
