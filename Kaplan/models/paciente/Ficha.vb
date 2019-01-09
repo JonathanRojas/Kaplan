@@ -2353,7 +2353,7 @@ Namespace Clases
             cmd.ExecuteReader()
             conn.Close()
 
-            Dim idEnfer = CInt(cmd.Parameters("@outIdEnf").Value)
+            Dim idEnfer = CInt(cmd.Parameters("@outIdMed").Value)
 
             Return CInt(cmd.Parameters("@outError").Value)
         End Function
