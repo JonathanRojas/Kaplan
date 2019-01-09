@@ -1359,10 +1359,6 @@ Namespace Clases
             inId.Direction = ParameterDirection.Input
             inId.Value = Me.Id
 
-            Dim inIdMedico As OleDbParameter = cmd.Parameters.Add("@id_ficha_med", OleDbType.Decimal, Nothing)
-            inIdMedico.Direction = ParameterDirection.Input
-            inIdMedico.Value = Me.FichaMedico.Id
-
             Dim inid_reserva As OleDbParameter = cmd.Parameters.Add("@id_reserva", OleDbType.Decimal, Nothing)
             inid_reserva.Direction = ParameterDirection.Input
             inid_reserva.Value = Me.FichaMedico.IdReserva
@@ -1370,6 +1366,10 @@ Namespace Clases
             Dim inIdEspecialista As OleDbParameter = cmd.Parameters.Add("@id_especialista", OleDbType.Decimal, Nothing)
             inIdEspecialista.Direction = ParameterDirection.Input
             inIdEspecialista.Value = Me.FichaMedico.IdEspecialista
+
+            Dim inIdMedico As OleDbParameter = cmd.Parameters.Add("@id_ficha_med", OleDbType.Decimal, Nothing)
+            inIdMedico.Direction = ParameterDirection.Input
+            inIdMedico.Value = Me.FichaMedico.Id
 
             Dim inho_centrov As OleDbParameter = cmd.Parameters.Add("@ho_centrov", OleDbType.VarChar, 100)
             inho_centrov.Direction = ParameterDirection.Input
@@ -2231,43 +2231,43 @@ Namespace Clases
             inid_examen_fisico.Direction = ParameterDirection.Input
             inid_examen_fisico.Value = Me.FichaMedico.ExamenFisico.Id
 
-            Dim insignos As OleDbParameter = cmd.Parameters.Add("@signos", OleDbType.VarChar, 200)
+            Dim insignos As OleDbParameter = cmd.Parameters.Add("@signos", OleDbType.VarChar, 500)
             insignos.Direction = ParameterDirection.Input
             insignos.Value = Me.FichaMedico.ExamenFisico.Signos
 
-            Dim incuello As OleDbParameter = cmd.Parameters.Add("@cuello", OleDbType.VarChar, 200)
+            Dim incuello As OleDbParameter = cmd.Parameters.Add("@cuello", OleDbType.VarChar, 500)
             incuello.Direction = ParameterDirection.Input
             incuello.Value = Me.FichaMedico.ExamenFisico.Cuello
 
-            Dim incardiaco As OleDbParameter = cmd.Parameters.Add("@cardiaco", OleDbType.VarChar, 200)
+            Dim incardiaco As OleDbParameter = cmd.Parameters.Add("@cardiaco", OleDbType.VarChar, 500)
             incardiaco.Direction = ParameterDirection.Input
             incardiaco.Value = Me.FichaMedico.ExamenFisico.Cardiaco
 
-            Dim inpulmon As OleDbParameter = cmd.Parameters.Add("@pulmon", OleDbType.VarChar, 200)
+            Dim inpulmon As OleDbParameter = cmd.Parameters.Add("@pulmon", OleDbType.VarChar, 500)
             inpulmon.Direction = ParameterDirection.Input
             inpulmon.Value = Me.FichaMedico.ExamenFisico.Pulmon
 
-            Dim intorax As OleDbParameter = cmd.Parameters.Add("@torax", OleDbType.VarChar, 200)
+            Dim intorax As OleDbParameter = cmd.Parameters.Add("@torax", OleDbType.VarChar, 500)
             intorax.Direction = ParameterDirection.Input
             intorax.Value = Me.FichaMedico.ExamenFisico.Torax
 
-            Dim inabdomen As OleDbParameter = cmd.Parameters.Add("@abdomen", OleDbType.VarChar, 200)
+            Dim inabdomen As OleDbParameter = cmd.Parameters.Add("@abdomen", OleDbType.VarChar, 500)
             inabdomen.Direction = ParameterDirection.Input
             inabdomen.Value = Me.FichaMedico.ExamenFisico.Abdomen
 
-            Dim ineeii As OleDbParameter = cmd.Parameters.Add("@eeii", OleDbType.VarChar, 200)
+            Dim ineeii As OleDbParameter = cmd.Parameters.Add("@eeii", OleDbType.VarChar, 500)
             ineeii.Direction = ParameterDirection.Input
             ineeii.Value = Me.FichaMedico.ExamenFisico.EEII
 
-            Dim ineess As OleDbParameter = cmd.Parameters.Add("@eess", OleDbType.VarChar, 200)
+            Dim ineess As OleDbParameter = cmd.Parameters.Add("@eess", OleDbType.VarChar, 500)
             ineess.Direction = ParameterDirection.Input
             ineess.Value = Me.FichaMedico.ExamenFisico.EESS
 
-            Dim indiagnostico As OleDbParameter = cmd.Parameters.Add("@diagnostico", OleDbType.VarChar, 250)
+            Dim indiagnostico As OleDbParameter = cmd.Parameters.Add("@diagnostico", OleDbType.VarChar, 500)
             indiagnostico.Direction = ParameterDirection.Input
             indiagnostico.Value = Me.FichaMedico.ExamenFisico.Diagnostico
 
-            Dim inplanMedico As OleDbParameter = cmd.Parameters.Add("@planMedico", OleDbType.VarChar, 250)
+            Dim inplanMedico As OleDbParameter = cmd.Parameters.Add("@planMedico", OleDbType.VarChar, 500)
             inplanMedico.Direction = ParameterDirection.Input
             inplanMedico.Value = Me.FichaMedico.ExamenFisico.Plan
 
