@@ -75,4 +75,13 @@ Partial Public Class reporte
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents ReportViewer5 As Global.Microsoft.Reporting.WebForms.ReportViewer
+    
+    '''<summary>
+    '''Control ReportViewer6.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents ReportViewer6 As Global.Microsoft.Reporting.WebForms.ReportViewer
 End Class

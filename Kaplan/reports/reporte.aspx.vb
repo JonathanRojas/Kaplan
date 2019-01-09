@@ -52,6 +52,77 @@ Public Class reporte
                         ReportViewer3.LocalReport.ReportEmbeddedResource = "kinesiologia.rdlc"
                         ReportViewer3.Visible = True
                         ReportViewer3.LocalReport.Refresh()
+                    Case "FM"
+                        Dim data As New dsReporte
+                        Dim ds As New DataSet
+                        ds = reportes.reporteMedico(Request("id"))
+                        ds.Tables(0).TableName = "MEDICO"
+                        ds.Tables(1).TableName = "FMEXAMENFISICO"
+                        ds.Tables(2).TableName = "FMEXAMEN"
+                        ds.Tables(3).TableName = "FMBETABLOQUEADOR"
+                        ds.Tables(4).TableName = "FMBLOQUEADORCORR"
+                        ds.Tables(5).TableName = "FMIECA"
+                        ds.Tables(6).TableName = "FMANTAGONISTA"
+                        ds.Tables(7).TableName = "FMNITRATO"
+                        ds.Tables(8).TableName = "FMANTICOAGULANTEORAL"
+                        ds.Tables(9).TableName = "FMESTATINA"
+                        ds.Tables(10).TableName = "FMANTIPLAQUETARIO"
+                        ds.Tables(11).TableName = "FMHIPOGLICEMIANTE"
+                        ds.Tables(12).TableName = "FMESTEROIDES"
+                        ds.Tables(13).TableName = "FMDIURETICO"
+                        ds.Tables(14).TableName = "FMALOPURINOL"
+                        ds.Tables(15).TableName = "FMDIGITALICOS"
+                        ds.Tables(16).TableName = "FMANTIARRITMICOS"
+                        ds.Tables(17).TableName = "FMOTROS"
+                        ds.Tables(18).TableName = "FMHISTORIACARDIO"
+                        ds.Tables(19).TableName = "FMHISTORIACRONICA"
+                        ds.Tables(20).TableName = "FMOTRASCIRUGIAS"
+                        Dim rds = New ReportDataSource("dsReporte", ds.Tables(0))
+                        Dim rds2 = New ReportDataSource("dsReporte", ds.Tables(1))
+                        Dim rds3 = New ReportDataSource("dsReporte", ds.Tables(2))
+                        Dim rds4 = New ReportDataSource("dsReporte", ds.Tables(3))
+                        Dim rds5 = New ReportDataSource("dsReporte", ds.Tables(4))
+                        Dim rds6 = New ReportDataSource("dsReporte", ds.Tables(5))
+                        Dim rds7 = New ReportDataSource("dsReporte", ds.Tables(6))
+                        Dim rds8 = New ReportDataSource("dsReporte", ds.Tables(7))
+                        Dim rds9 = New ReportDataSource("dsReporte", ds.Tables(8))
+                        Dim rds10 = New ReportDataSource("dsReporte", ds.Tables(9))
+                        Dim rds11 = New ReportDataSource("dsReporte", ds.Tables(10))
+                        Dim rds12 = New ReportDataSource("dsReporte", ds.Tables(11))
+                        Dim rds13 = New ReportDataSource("dsReporte", ds.Tables(12))
+                        Dim rds14 = New ReportDataSource("dsReporte", ds.Tables(13))
+                        Dim rds15 = New ReportDataSource("dsReporte", ds.Tables(14))
+                        Dim rds16 = New ReportDataSource("dsReporte", ds.Tables(15))
+                        Dim rds17 = New ReportDataSource("dsReporte", ds.Tables(16))
+                        Dim rds18 = New ReportDataSource("dsReporte", ds.Tables(17))
+                        Dim rds19 = New ReportDataSource("dsReporte", ds.Tables(18))
+                        Dim rds20 = New ReportDataSource("dsReporte", ds.Tables(19))
+                        Dim rds21 = New ReportDataSource("dsReporte", ds.Tables(20))
+                        ReportViewer6.LocalReport.DataSources.Clear()
+                        ReportViewer6.LocalReport.DataSources.Add(New ReportDataSource("dsReporte", ds.Tables(0).DefaultView))
+                        ReportViewer6.LocalReport.DataSources.Add(New ReportDataSource("dsFMExamenFisico", ds.Tables(1).DefaultView))
+                        ReportViewer6.LocalReport.DataSources.Add(New ReportDataSource("dsFMExamen", ds.Tables(2).DefaultView))
+                        ReportViewer6.LocalReport.DataSources.Add(New ReportDataSource("dsFMBetabloqueador", ds.Tables(3).DefaultView))
+                        ReportViewer6.LocalReport.DataSources.Add(New ReportDataSource("dsFMBloqueadorCorr", ds.Tables(4).DefaultView))
+                        ReportViewer6.LocalReport.DataSources.Add(New ReportDataSource("dsFMIECA", ds.Tables(5).DefaultView))
+                        ReportViewer6.LocalReport.DataSources.Add(New ReportDataSource("dsFMAntagonista", ds.Tables(6).DefaultView))
+                        ReportViewer6.LocalReport.DataSources.Add(New ReportDataSource("dsFMNitrato", ds.Tables(7).DefaultView))
+                        ReportViewer6.LocalReport.DataSources.Add(New ReportDataSource("dsFMAnticoagulanteoral", ds.Tables(8).DefaultView))
+                        ReportViewer6.LocalReport.DataSources.Add(New ReportDataSource("dsFMEstatina", ds.Tables(9).DefaultView))
+                        ReportViewer6.LocalReport.DataSources.Add(New ReportDataSource("dsFMAntiplaquetario", ds.Tables(10).DefaultView))
+                        ReportViewer6.LocalReport.DataSources.Add(New ReportDataSource("dsFMHipoglicemiante", ds.Tables(11).DefaultView))
+                        ReportViewer6.LocalReport.DataSources.Add(New ReportDataSource("dsFMEsteroides", ds.Tables(12).DefaultView))
+                        ReportViewer6.LocalReport.DataSources.Add(New ReportDataSource("dsFMDiuretico", ds.Tables(13).DefaultView))
+                        ReportViewer6.LocalReport.DataSources.Add(New ReportDataSource("dsFMAlopurinol", ds.Tables(14).DefaultView))
+                        ReportViewer6.LocalReport.DataSources.Add(New ReportDataSource("dsFMDigitalicos", ds.Tables(15).DefaultView))
+                        ReportViewer6.LocalReport.DataSources.Add(New ReportDataSource("dsFMAntiarritmicos", ds.Tables(16).DefaultView))
+                        ReportViewer6.LocalReport.DataSources.Add(New ReportDataSource("dsFMOtros", ds.Tables(17).DefaultView))
+                        ReportViewer6.LocalReport.DataSources.Add(New ReportDataSource("dsFMHisFamCardiopatia", ds.Tables(18).DefaultView))
+                        ReportViewer6.LocalReport.DataSources.Add(New ReportDataSource("dsFMHistFamCronica", ds.Tables(19).DefaultView))
+                        ReportViewer6.LocalReport.DataSources.Add(New ReportDataSource("dsFMOtrasCirugias", ds.Tables(20).DefaultView))
+                        ReportViewer6.LocalReport.ReportEmbeddedResource = "MEDICO.rdlc"
+                        ReportViewer6.Visible = True
+                        ReportViewer6.LocalReport.Refresh()
                     Case "FE"
                         Dim data As New dsReporte
                         Dim ds As New DataSet
