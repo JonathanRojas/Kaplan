@@ -136,6 +136,13 @@ function ($scope, $http, ModalService, pacienteService, TipoService, Notificatio
                     msg = { title: 'Registro modificado con éxito' };
                     Notification.success(msg);
                 }
+                TipoService.getPacientesFiltro().then(function (result) {
+                    $scope.PacientesFiltro = result.data;
+                }, function (reason) {
+                    msg = { title: 'Error Lista de Pacientes Filtro' };
+                    Notification.error(msg);
+                });
+                $scope.getRut();
                 $scope.Limpiar();
             }, function (reason) {
                 msg = { title: 'Error', message: 'Error guardando registro' };

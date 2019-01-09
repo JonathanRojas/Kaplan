@@ -9,11 +9,11 @@ Namespace Tipos
 
         Private Shared CachedCollection As New Dictionary(Of String, TipoPacienteFiltro)
         Shared Function getTipos() As List(Of TipoPacienteFiltro)
-            If Not IsNothing(CachedCollection) AndAlso CachedCollection.Count = 0 Then getListado()
+            getListado()
             Return CachedCollection.Values.ToList
         End Function
         Shared Function getTipo(prmID As Integer) As TipoPacienteFiltro
-            If Not IsNothing(CachedCollection) AndAlso CachedCollection.Count = 0 Then getListado()
+            getListado()
             Return CachedCollection(prmID)
         End Function
         Private Shared Sub getListado()
