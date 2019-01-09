@@ -520,6 +520,7 @@
     <EmbeddedResource Include="reports\enfermeria.rdlc" />
     <EmbeddedResource Include="reports\evolucion.rdlc" />
     <EmbeddedResource Include="reports\kinesiologia.rdlc" />
+    <EmbeddedResource Include="reports\medico.rdlc" />
     <EmbeddedResource Include="reports\psicologia.rdlc" />
   </ItemGroup>
   <ItemGroup>

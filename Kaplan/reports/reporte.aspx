@@ -26,5 +26,9 @@
             <LocalReport ReportPath="reports\evolucion.rdlc">
             </LocalReport>
         </rsweb:ReportViewer>
+        <rsweb:ReportViewer ID="ReportViewer6" runat="server" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="100%" Height="1500px" ShowPrintButton="True" SizeToReportContent="True" Visible="False">
+            <LocalReport ReportPath="reports\medico.rdlc">
+            </LocalReport>
+        </rsweb:ReportViewer>
     </div>
 </form>
