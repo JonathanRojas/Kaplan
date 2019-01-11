@@ -468,7 +468,7 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
                         $scope.columnsBloqueadorCorrientes = $scope.Ficha.FichaMedico.Farmacologia.ListBloqueadorCorrientes
                         $scope.columnsIECA = $scope.Ficha.FichaMedico.Farmacologia.ListIECA
                         $scope.columnsARA2 = $scope.Ficha.FichaMedico.Farmacologia.ListARA2
-                        $scope.columnsNitratos = $scope.Ficha$scope.Ficha.FichaMedico.Farmacologia.ListNitratos
+                        $scope.columnsNitratos = $scope.Ficha.FichaMedico.Farmacologia.ListNitratos
                         $scope.columnsAnticoagulanteOral = $scope.Ficha.FichaMedico.Farmacologia.ListAnticoagulanteOral
                         $scope.columnsEstatina = $scope.Ficha.FichaMedico.Farmacologia.ListEstatina
                         $scope.columnsAntiplaquetario = $scope.Ficha.FichaMedico.Farmacologia.ListAntiplaquetario
