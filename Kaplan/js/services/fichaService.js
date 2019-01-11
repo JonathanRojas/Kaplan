@@ -278,6 +278,26 @@
 
         return deferred.promise;
     };
+    /*  Medico  */
+    FichaServ.getFichaMedicoxReserva = function (id) {
+        var deferred = $q.defer();
+        $http({
+            method: "GET",
+            async: true,
+            url: 'doGet.asmx/getFichaMedicoxReserva?intReserva=' + id
+        }).then(onSuccess, onFailure);
+        function onSuccess(response) {
+            if (response.data.result)
+            { deferred.resolve(response.data); }
+            else
+            { deferred.reject(response.data) }
+        }
+        function onFailure(response) {
+            deferred.reject(response);
+        };
+        return deferred.promise;
+
+    };
     FichaServ.SaveFichaMedico = function (ficha, paciente) {
         var deferred = $q.defer();
         var myFormData = new FormData();

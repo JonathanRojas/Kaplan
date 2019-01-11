@@ -1298,7 +1298,7 @@ Namespace Clases
         Public Shared Function getFichaMedico(inId As Integer, ByRef NoData As Boolean) As Ficha
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-                Dim cmd As OleDbCommand = New OleDbCommand("BuscarFichaEnfermeriaxReserva", conn)
+                Dim cmd As OleDbCommand = New OleDbCommand("BuscarFichaMedicoxReserva", conn)
                 cmd.CommandType = CommandType.StoredProcedure
 
                 Dim id As OleDbParameter = cmd.Parameters.Add("@inId", OleDbType.Decimal, Nothing)
@@ -1324,25 +1324,16 @@ Namespace Clases
         Private Shared Function MapeoFichaMedico(prmDatos As DataSet) As Ficha
             Try
                 Dim vficha As New Ficha
-                Dim vEnfermeria As New FichaEnfermeria
-                Dim vMedicamentos As New MedicamentosEnfermeria
-                Dim vAnamnesis As New AnamnesisEnfermeria
-                Dim vExamenFisico As New ExamenFisicoEnfermeria
-                Dim vEvolucion As New EvolucionEnfermeria
-                Dim vPlanEnfermeria As New PlanEnfermeria
-                Dim vPlanDiagnostico As New PlanEnfermeriaDiagnostico
-                Dim vPlanIntervencion As New PlanEnfermeriaIntervencion
-                Dim vPlanIndicador As New PlanEnfermeriaIndicador
+                Dim vMedico As New FichaMedico
+                Dim vExamenMedico As New ExamenMedico
+                Dim vExamenFisico As New ExamenFisico
+                Dim vFarmacologia As New Farmacologia
 
-                vficha.FichaEnfermeria = vEnfermeria.MapeoFichaEnfermeria(prmDatos.Tables(0))
-                vficha.FichaEnfermeria.MedicamentosEnfermeria = vMedicamentos.MapeoMedicamentos(prmDatos.Tables(1))
-                vficha.FichaEnfermeria.AnamnesisEnfermeria = vAnamnesis.MapeoAnamnesis(prmDatos.Tables(2))
-                vficha.FichaEnfermeria.ExamenFisicoEnfermeria = vExamenFisico.MapeoExamenFisico(prmDatos.Tables(3))
-                vficha.FichaEnfermeria.EvolucionEnfermeria = vEvolucion.MapeoEvolucion(prmDatos.Tables(4))
-                vficha.FichaEnfermeria.PlanEnfermeria = vPlanEnfermeria.MapeoPlanEnfermeria(prmDatos.Tables(5))
-                vficha.FichaEnfermeria.PlanEnfermeria.Diagnostico = vPlanDiagnostico.MapeoDiagnostico(prmDatos.Tables(6))
-                vficha.FichaEnfermeria.PlanEnfermeria.Intervencion = vPlanIntervencion.MapeoIntervencion(prmDatos.Tables(7))
-                vficha.FichaEnfermeria.PlanEnfermeria.Indicadores = vPlanIndicador.MapeoIndicador(prmDatos.Tables(8))
+                vficha.FichaMedico = vMedico.MapeoFichaMedico(prmDatos.Tables(0))
+                vficha.FichaMedico.Farmacologia = vFarmacologia.MapeoFarmacologia(prmDatos.Tables(1))
+                vficha.FichaMedico.ExamenMedico = vExamenMedico.MapeoExamenMedico(prmDatos.Tables(2))
+                vficha.FichaMedico.ExamenFisico = vExamenFisico.MapeoExamenFisico(prmDatos.Tables(3))
+
                 Return vficha
             Catch ex As Exception
                 Return Nothing

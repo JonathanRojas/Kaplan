@@ -453,21 +453,46 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
         $scope.CambiarSesion = function (sesion) {
             if (typeof sesion !== 'undefined') {
                 waitingDialog.show('Cargando Ficha...', { dialogSize: 'sm' });
-                fichaService.getFichaEnfermeriaxReserva(sesion).then(function (result) {
+                fichaService.getFichaMedicoxReserva(sesion).then(function (result) {
                     if (result.data.length !== 0) {
                         $scope.mostrarReporte = false;
                         $scope.Ficha = result.data;
-                        $scope.columnsMedicamentos = $scope.Ficha.FichaEnfermeria.MedicamentosEnfermeria;
+                        /*$scope.columnsMedicamentos = $scope.Ficha.FichaEnfermeria.MedicamentosEnfermeria;
                         $scope.columnsEvolucion = $scope.Ficha.FichaEnfermeria.EvolucionEnfermeria;
                         for (i = 0; i < $scope.columnsEvolucion.length; i++) {
                             $scope.columnsEvolucion[i].Fecha = moment($scope.columnsEvolucion[i].Fecha);
                         }
                         $scope.columnsDiagnostico = $scope.Ficha.FichaEnfermeria.PlanEnfermeria.Diagnostico;
                         $scope.columnsIntervenciones = $scope.Ficha.FichaEnfermeria.PlanEnfermeria.Intervencion;
-                        $scope.columnsIndicadores = $scope.Ficha.FichaEnfermeria.PlanEnfermeria.Indicadores;
-                        $scope.Ficha.FichaEnfermeria.FechaDiagnostico = moment($scope.Ficha.FichaEnfermeria.FechaDiagnostico);
-                        $scope.Ficha.FichaEnfermeria.FechaCxProced = moment($scope.Ficha.FichaEnfermeria.FechaCxProced);
-                        $scope.Ficha.FichaEnfermeria.FechaAlta = moment($scope.Ficha.FichaEnfermeria.FechaAlta);
+                        $scope.columnsIndicadores = $scope.Ficha.FichaEnfermeria.PlanEnfermeria.Indicadores;*/
+                        $scope.Ficha.FichaMedico.InfartoAgudoMiocardioFecha = moment($scope.Ficha.FichaMedico.InfartoAgudoMiocardioFecha);
+                        $scope.Ficha.FichaMedico.InsuficienciaCardiacaFecha = moment($scope.Ficha.FichaMedico.InsuficienciaCardiacaFecha);
+                        $scope.Ficha.FichaMedico.ShockCardiogenicoFecha = moment($scope.Ficha.FichaMedico.ShockCardiogenicoFecha);
+                        $scope.Ficha.FichaMedico.ParoCardiorRespiratorioFecha = moment($scope.Ficha.FichaMedico.ParoCardiorRespiratorioFecha);
+                        $scope.Ficha.FichaMedico.PuenteCoronarioFecha = moment($scope.Ficha.FichaMedico.PuenteCoronarioFecha);
+                        $scope.Ficha.FichaMedico.CirugiaValvularFecha = moment($scope.Ficha.FichaMedico.CirugiaValvularFecha);
+                        $scope.Ficha.FichaMedico.CierreComInteraricularFecha = moment($scope.Ficha.FichaMedico.CierreComInteraricularFecha);
+                        $scope.Ficha.FichaMedico.CierreComInterVetricularFecha = moment($scope.Ficha.FichaMedico.CierreComInterVetricularFecha);
+                        $scope.Ficha.FichaMedico.CirugiaAortaFecha = moment($scope.Ficha.FichaMedico.CirugiaAortaFecha);
+                        $scope.Ficha.FichaMedico.CirugiaCardiopatiaConFecha = moment($scope.Ficha.FichaMedico.CirugiaCardiopatiaConFecha);
+                        $scope.Ficha.FichaMedico.ReoperacionFecha = moment($scope.Ficha.FichaMedico.ReoperacionFecha);
+                        $scope.Ficha.FichaMedico.TrasplanteCardiacoFecha = moment($scope.Ficha.FichaMedico.TrasplanteCardiacoFecha);
+                        $scope.Ficha.FichaMedico.ImplantacionLVADFecha = moment($scope.Ficha.FichaMedico.ImplantacionLVADFecha);
+                        $scope.Ficha.FichaMedico.TerapiaAblativaFecha = moment($scope.Ficha.FichaMedico.TerapiaAblativaFecha);
+                        $scope.Ficha.FichaMedico.MarcapasoFecha = moment($scope.Ficha.FichaMedico.MarcapasoFecha);
+                        $scope.Ficha.FichaMedico.CDITRCFecha = moment($scope.Ficha.FichaMedico.CDITRCFecha);
+                        $scope.Ficha.FichaMedico.AngioplastiaFecha = moment($scope.Ficha.FichaMedico.AngioplastiaFecha);
+                        $scope.Ficha.FichaMedico.BalonFecha = moment($scope.Ficha.FichaMedico.BalonFecha);
+                        $scope.Ficha.FichaMedico.ExamenMedico.ProBNPFecha = moment($scope.Ficha.FichaMedico.ExamenMedico.ProBNPFecha);
+                        $scope.Ficha.FichaMedico.ExamenMedico.TroponinaFecha = moment($scope.Ficha.FichaMedico.ExamenMedico.TroponinaFecha);
+                        $scope.Ficha.FichaMedico.ExamenMedico.PCRFecha = moment($scope.Ficha.FichaMedico.ExamenMedico.PCRFecha);
+                        $scope.Ficha.FichaMedico.ExamenMedico.DimeroDFecha = moment($scope.Ficha.FichaMedico.ExamenMedico.DimeroDFecha);
+                        $scope.Ficha.FichaMedico.ExamenMedico.SodioFecha = moment($scope.Ficha.FichaMedico.ExamenMedico.SodioFecha);
+                        $scope.Ficha.FichaMedico.ExamenMedico.PotasioFecha = moment($scope.Ficha.FichaMedico.ExamenMedico.PotasioFecha);
+                        $scope.Ficha.FichaMedico.ExamenMedico.CreatinaKinasaFecha = moment($scope.Ficha.FichaMedico.ExamenMedico.CreatinaKinasaFecha);
+                        $scope.Ficha.FichaMedico.ExamenMedico.CKMBFecha = moment($scope.Ficha.FichaMedico.ExamenMedico.CKMBFecha);
+                        $scope.Ficha.FichaMedico.ExamenMedico.AcidoUricoFecha = moment($scope.Ficha.FichaMedico.ExamenMedico.AcidoUricoFecha);
+
                         fichaService.getPaciente(parseInt(fichaService.getRutPaciente()), null).then(function (result) {
                             $scope.Paciente = result.data;
                             $scope.Paciente.Persona.FechaNac = moment($scope.Paciente.Persona.FechaNac);
@@ -564,19 +589,44 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
                 waitingDialog.show('Guardando Ficha...', { dialogSize: 'sm' });
                 fichaService.SaveFichaMedico($scope.Ficha, $scope.Paciente)
                    .then(function (result) {
-                       fichaService.getFichaEnfermeriaxReserva($scope.Ficha.FichaEnfermeria.IdReserva).then(function (result) {
+                       fichaService.getFichaMedicoxReserva($scope.Ficha.FichaMedico.IdReserva).then(function (result) {
                            $scope.Ficha = result.data;
-                           $scope.columnsMedicamentos = $scope.Ficha.FichaEnfermeria.MedicamentosEnfermeria;
+                           /*$scope.columnsMedicamentos = $scope.Ficha.FichaEnfermeria.MedicamentosEnfermeria;
                            $scope.columnsEvolucion = $scope.Ficha.FichaEnfermeria.EvolucionEnfermeria;
                            for (i = 0; i < $scope.columnsEvolucion.length; i++) {
                                $scope.columnsEvolucion[i].Fecha = moment($scope.columnsEvolucion[i].Fecha);
                            }
                            $scope.columnsDiagnostico = $scope.Ficha.FichaEnfermeria.PlanEnfermeria.Diagnostico;
                            $scope.columnsIntervenciones = $scope.Ficha.FichaEnfermeria.PlanEnfermeria.Intervencion;
-                           $scope.columnsIndicadores = $scope.Ficha.FichaEnfermeria.PlanEnfermeria.Indicadores;
-                           $scope.Ficha.FichaEnfermeria.FechaDiagnostico = moment($scope.Ficha.FichaEnfermeria.FechaDiagnostico);
-                           $scope.Ficha.FichaEnfermeria.FechaCxProced = moment($scope.Ficha.FichaEnfermeria.FechaCxProced);
-                           $scope.Ficha.FichaEnfermeria.FechaAlta = moment($scope.Ficha.FichaEnfermeria.FechaAlta);
+                           $scope.columnsIndicadores = $scope.Ficha.FichaEnfermeria.PlanEnfermeria.Indicadores;*/
+                           $scope.Ficha.FichaMedico.InfartoAgudoMiocardioFecha = moment($scope.Ficha.FichaMedico.InfartoAgudoMiocardioFecha);
+                           $scope.Ficha.FichaMedico.InsuficienciaCardiacaFecha = moment($scope.Ficha.FichaMedico.InsuficienciaCardiacaFecha);
+                           $scope.Ficha.FichaMedico.ShockCardiogenicoFecha = moment($scope.Ficha.FichaMedico.ShockCardiogenicoFecha);
+                           $scope.Ficha.FichaMedico.ParoCardiorRespiratorioFecha = moment($scope.Ficha.FichaMedico.ParoCardiorRespiratorioFecha);
+                           $scope.Ficha.FichaMedico.PuenteCoronarioFecha = moment($scope.Ficha.FichaMedico.PuenteCoronarioFecha);
+                           $scope.Ficha.FichaMedico.CirugiaValvularFecha = moment($scope.Ficha.FichaMedico.CirugiaValvularFecha);
+                           $scope.Ficha.FichaMedico.CierreComInteraricularFecha = moment($scope.Ficha.FichaMedico.CierreComInteraricularFecha);
+                           $scope.Ficha.FichaMedico.CierreComInterVetricularFecha = moment($scope.Ficha.FichaMedico.CierreComInterVetricularFecha);
+                           $scope.Ficha.FichaMedico.CirugiaAortaFecha = moment($scope.Ficha.FichaMedico.CirugiaAortaFecha);
+                           $scope.Ficha.FichaMedico.CirugiaCardiopatiaConFecha = moment($scope.Ficha.FichaMedico.CirugiaCardiopatiaConFecha);
+                           $scope.Ficha.FichaMedico.ReoperacionFecha = moment($scope.Ficha.FichaMedico.ReoperacionFecha);
+                           $scope.Ficha.FichaMedico.TrasplanteCardiacoFecha = moment($scope.Ficha.FichaMedico.TrasplanteCardiacoFecha);
+                           $scope.Ficha.FichaMedico.ImplantacionLVADFecha = moment($scope.Ficha.FichaMedico.ImplantacionLVADFecha);
+                           $scope.Ficha.FichaMedico.TerapiaAblativaFecha = moment($scope.Ficha.FichaMedico.TerapiaAblativaFecha);
+                           $scope.Ficha.FichaMedico.MarcapasoFecha = moment($scope.Ficha.FichaMedico.MarcapasoFecha);
+                           $scope.Ficha.FichaMedico.CDITRCFecha = moment($scope.Ficha.FichaMedico.CDITRCFecha);
+                           $scope.Ficha.FichaMedico.AngioplastiaFecha = moment($scope.Ficha.FichaMedico.AngioplastiaFecha);
+                           $scope.Ficha.FichaMedico.BalonFecha = moment($scope.Ficha.FichaMedico.BalonFecha);
+                           $scope.Ficha.FichaMedico.ExamenMedico.ProBNPFecha = moment($scope.Ficha.FichaMedico.ExamenMedico.ProBNPFecha);
+                           $scope.Ficha.FichaMedico.ExamenMedico.TroponinaFecha = moment($scope.Ficha.FichaMedico.ExamenMedico.TroponinaFecha);
+                           $scope.Ficha.FichaMedico.ExamenMedico.PCRFecha = moment($scope.Ficha.FichaMedico.ExamenMedico.PCRFecha);
+                           $scope.Ficha.FichaMedico.ExamenMedico.DimeroDFecha = moment($scope.Ficha.FichaMedico.ExamenMedico.DimeroDFecha);
+                           $scope.Ficha.FichaMedico.ExamenMedico.SodioFecha = moment($scope.Ficha.FichaMedico.ExamenMedico.SodioFecha);
+                           $scope.Ficha.FichaMedico.ExamenMedico.PotasioFecha = moment($scope.Ficha.FichaMedico.ExamenMedico.PotasioFecha);
+                           $scope.Ficha.FichaMedico.ExamenMedico.CreatinaKinasaFecha = moment($scope.Ficha.FichaMedico.ExamenMedico.CreatinaKinasaFecha);
+                           $scope.Ficha.FichaMedico.ExamenMedico.CKMBFecha = moment($scope.Ficha.FichaMedico.ExamenMedico.CKMBFecha);
+                           $scope.Ficha.FichaMedico.ExamenMedico.AcidoUricoFecha = moment($scope.Ficha.FichaMedico.ExamenMedico.AcidoUricoFecha);
+
                            fichaService.getPaciente(parseInt(fichaService.getRutPaciente()), null).then(function (result) {
                                $scope.Paciente = result.data;
                                $scope.Paciente.Persona.FechaNac = moment($scope.Paciente.Persona.FechaNac);
