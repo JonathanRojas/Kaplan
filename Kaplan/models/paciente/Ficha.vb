@@ -1328,11 +1328,47 @@ Namespace Clases
                 Dim vExamenMedico As New ExamenMedico
                 Dim vExamenFisico As New ExamenFisico
                 Dim vFarmacologia As New Farmacologia
+                Dim vHistoriaCardiopatia As New HistoriaCardiopatia
+                Dim vHistoriaCronica As New HistoriaCronica
+                Dim vOtraCirugia As New OtraCirugia
+                Dim vAlopurinol As New Alopurinol
+                Dim vARA2 As New ARA2
+                Dim vAntirritmicos As New Antiarritmicos
+                Dim vAnticoagulanteOral As New AnticoagulanteOral
+                Dim vAntiplaquetario As New Antiplaquetario
+                Dim vBetabloqueador As New Betabloqueador
+                Dim vBloqueadorCorrientes As New BloqueadorCorrientes
+                Dim vDigitalicos As New Digitalicos
+                Dim vDiuretico As New Diuretico
+                Dim vEstatina As New Estatina
+                Dim vEsteroides As New Esteroides
+                Dim vHipoglicemiante As New Hipoglicemiante
+                Dim vIECA As New IECA
+                Dim vNitratos As New Nitratos
+                Dim vOtros As New Otros
 
                 vficha.FichaMedico = vMedico.MapeoFichaMedico(prmDatos.Tables(0))
                 vficha.FichaMedico.Farmacologia = vFarmacologia.MapeoFarmacologia(prmDatos.Tables(1))
                 vficha.FichaMedico.ExamenMedico = vExamenMedico.MapeoExamenMedico(prmDatos.Tables(2))
                 vficha.FichaMedico.ExamenFisico = vExamenFisico.MapeoExamenFisico(prmDatos.Tables(3))
+                vficha.FichaMedico.ListHistoriaCardiopatia = vHistoriaCardiopatia.MapeoHistoriaCardiopatia(prmDatos.Tables(4))
+                vficha.FichaMedico.ListHistoriaCronica = vHistoriaCronica.MapeoHistoriaCronica(prmDatos.Tables(5))
+                vficha.FichaMedico.ListOtraCirugia = vOtraCirugia.MapeoOtraCirugia(prmDatos.Tables(6))
+                vficha.FichaMedico.Farmacologia.ListAlopurinol = vAlopurinol.MapeoAlopurinol(prmDatos.Tables(7))
+                vficha.FichaMedico.Farmacologia.ListARA2 = vARA2.MapeoARA2(prmDatos.Tables(8))
+                vficha.FichaMedico.Farmacologia.ListAntiarritmicos = vAntirritmicos.MapeoAntiarritmicos(prmDatos.Tables(9))
+                vficha.FichaMedico.Farmacologia.ListAnticoagulanteOral = vAnticoagulanteOral.MapeoAnticoagulanteOral(prmDatos.Tables(10))
+                vficha.FichaMedico.Farmacologia.ListAntiplaquetario = vAntiplaquetario.MapeoAntiplaquetario(prmDatos.Tables(11))
+                vficha.FichaMedico.Farmacologia.ListBetabloqueador = vBetabloqueador.MapeoBetabloqueador(prmDatos.Tables(12))
+                vficha.FichaMedico.Farmacologia.ListBloqueadorCorrientes = vBloqueadorCorrientes.MapeoBloqueadorCorrientes(prmDatos.Tables(13))
+                vficha.FichaMedico.Farmacologia.ListDigitalicos = vDigitalicos.MapeoDigitalicos(prmDatos.Tables(14))
+                vficha.FichaMedico.Farmacologia.ListDiuretico = vDiuretico.MapeoDiuretico(prmDatos.Tables(15))
+                vficha.FichaMedico.Farmacologia.ListEstatina = vEstatina.MapeoEstatina(prmDatos.Tables(16))
+                vficha.FichaMedico.Farmacologia.ListEsteroides = vEsteroides.MapeoEsteroides(prmDatos.Tables(17))
+                vficha.FichaMedico.Farmacologia.ListHipoglicemiante = vHipoglicemiante.MapeoHipoglicemiante(prmDatos.Tables(18))
+                vficha.FichaMedico.Farmacologia.ListIECA = vIECA.MapeoIECA(prmDatos.Tables(19))
+                vficha.FichaMedico.Farmacologia.ListNitratos = vNitratos.MapeoNitratos(prmDatos.Tables(20))
+                vficha.FichaMedico.Farmacologia.ListOtros = vOtros.MapeoOtros(prmDatos.Tables(21))
 
                 Return vficha
             Catch ex As Exception

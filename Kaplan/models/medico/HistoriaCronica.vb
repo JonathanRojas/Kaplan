@@ -9,9 +9,9 @@
                 MapeoHistoriaCronica = New List(Of HistoriaCronica)
                 For Each vRow As DataRow In prmDatos.Rows
                     Dim vClass As New HistoriaCronica
-                    vClass.Id = vRow("id_medicamento").ToString
-                    vClass.colId = "colId" & vRow("id_medicamento").ToString
-                    vClass.Historia = vRow("nombre").ToString
+                    vClass.Id = vRow("id_hist").ToString
+                    vClass.colId = "colId" & vRow("id_hist").ToString
+                    vClass.Historia = vRow("historia").ToString
                     MapeoHistoriaCronica.Add(vClass)
                 Next
                 Return MapeoHistoriaCronica

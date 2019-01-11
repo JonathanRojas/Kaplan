@@ -10,10 +10,10 @@
                 MapeoOtraCirugia = New List(Of OtraCirugia)
                 For Each vRow As DataRow In prmDatos.Rows
                     Dim vClass As New OtraCirugia
-                    vClass.Id = vRow("id_medicamento").ToString
-                    vClass.colId = "colId" & vRow("id_medicamento").ToString
-                    vClass.Cirugia = vRow("nombre").ToString
-                    vClass.Fecha = vRow("glosa").ToString
+                    vClass.Id = vRow("id").ToString
+                    vClass.colId = "colId" & vRow("id").ToString
+                    vClass.Cirugia = vRow("descripcion").ToString
+                    vClass.Fecha = vRow("fecha").ToString
                     MapeoOtraCirugia.Add(vClass)
                 Next
                 Return MapeoOtraCirugia

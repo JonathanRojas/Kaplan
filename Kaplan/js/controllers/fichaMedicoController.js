@@ -457,14 +457,30 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
                     if (result.data.length !== 0) {
                         $scope.mostrarReporte = false;
                         $scope.Ficha = result.data;
-                        /*$scope.columnsMedicamentos = $scope.Ficha.FichaEnfermeria.MedicamentosEnfermeria;
-                        $scope.columnsEvolucion = $scope.Ficha.FichaEnfermeria.EvolucionEnfermeria;
-                        for (i = 0; i < $scope.columnsEvolucion.length; i++) {
-                            $scope.columnsEvolucion[i].Fecha = moment($scope.columnsEvolucion[i].Fecha);
+                        /*Mapeos list*/
+                        $scope.columnsHistoriaCardiopatia = $scope.Ficha.FichaMedico.ListHistoriaCardiopatia
+                        $scope.columnsHistoriaCronica = $scope.Ficha.FichaMedico.ListHistoriaCronica
+                        $scope.columnsOtraCirugia = $scope.Ficha.FichaMedico.ListOtraCirugia
+                        for (i = 0; i < $scope.columnsOtraCirugia.length; i++) {
+                            $scope.columnsOtraCirugia[i].Fecha = moment($scope.columnsOtraCirugia[i].Fecha);
                         }
-                        $scope.columnsDiagnostico = $scope.Ficha.FichaEnfermeria.PlanEnfermeria.Diagnostico;
-                        $scope.columnsIntervenciones = $scope.Ficha.FichaEnfermeria.PlanEnfermeria.Intervencion;
-                        $scope.columnsIndicadores = $scope.Ficha.FichaEnfermeria.PlanEnfermeria.Indicadores;*/
+                        $scope.columnsBetabloqueador = $scope.Ficha.FichaMedico.Farmacologia.ListBetabloqueador
+                        $scope.columnsBloqueadorCorrientes = $scope.Ficha.FichaMedico.Farmacologia.ListBloqueadorCorrientes
+                        $scope.columnsIECA = $scope.Ficha.FichaMedico.Farmacologia.ListIECA
+                        $scope.columnsARA2 = $scope.Ficha.FichaMedico.Farmacologia.ListARA2
+                        $scope.columnsNitratos = $scope.Ficha$scope.Ficha.FichaMedico.Farmacologia.ListNitratos
+                        $scope.columnsAnticoagulanteOral = $scope.Ficha.FichaMedico.Farmacologia.ListAnticoagulanteOral
+                        $scope.columnsEstatina = $scope.Ficha.FichaMedico.Farmacologia.ListEstatina
+                        $scope.columnsAntiplaquetario = $scope.Ficha.FichaMedico.Farmacologia.ListAntiplaquetario
+                        $scope.columnsHipoglicemiante = $scope.Ficha.FichaMedico.Farmacologia.ListHipoglicemiante
+                        $scope.columnsEsteroides = $scope.Ficha.FichaMedico.Farmacologia.ListEsteroides
+                        $scope.columnsDiuretico = $scope.Ficha.FichaMedico.Farmacologia.ListDiuretico
+                        $scope.columnsAlopurinol = $scope.Ficha.FichaMedico.Farmacologia.ListAlopurinol
+                        $scope.columnsDigitalicos = $scope.Ficha.FichaMedico.Farmacologia.ListDigitalicos
+                        $scope.columnsAntiarritmicos = $scope.Ficha.FichaMedico.Farmacologia.ListAntiarritmicos
+                        $scope.columnsOtros = $scope.Ficha.FichaMedico.Farmacologia.ListOtros
+
+                        /*Mapeo Fechas*/
                         $scope.Ficha.FichaMedico.InfartoAgudoMiocardioFecha = moment($scope.Ficha.FichaMedico.InfartoAgudoMiocardioFecha);
                         $scope.Ficha.FichaMedico.InsuficienciaCardiacaFecha = moment($scope.Ficha.FichaMedico.InsuficienciaCardiacaFecha);
                         $scope.Ficha.FichaMedico.ShockCardiogenicoFecha = moment($scope.Ficha.FichaMedico.ShockCardiogenicoFecha);
@@ -591,14 +607,30 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
                    .then(function (result) {
                        fichaService.getFichaMedicoxReserva($scope.Ficha.FichaMedico.IdReserva).then(function (result) {
                            $scope.Ficha = result.data;
-                           /*$scope.columnsMedicamentos = $scope.Ficha.FichaEnfermeria.MedicamentosEnfermeria;
-                           $scope.columnsEvolucion = $scope.Ficha.FichaEnfermeria.EvolucionEnfermeria;
-                           for (i = 0; i < $scope.columnsEvolucion.length; i++) {
-                               $scope.columnsEvolucion[i].Fecha = moment($scope.columnsEvolucion[i].Fecha);
+                           /*Mapeos list*/
+                           $scope.columnsHistoriaCardiopatia = $scope.Ficha.FichaMedico.ListHistoriaCardiopatia
+                           $scope.columnsHistoriaCronica = $scope.Ficha.FichaMedico.ListHistoriaCronica
+                           $scope.columnsOtraCirugia = $scope.Ficha.FichaMedico.ListOtraCirugia
+                           for (i = 0; i < $scope.columnsOtraCirugia.length; i++) {
+                               $scope.columnsOtraCirugia[i].Fecha = moment($scope.columnsOtraCirugia[i].Fecha);
                            }
-                           $scope.columnsDiagnostico = $scope.Ficha.FichaEnfermeria.PlanEnfermeria.Diagnostico;
-                           $scope.columnsIntervenciones = $scope.Ficha.FichaEnfermeria.PlanEnfermeria.Intervencion;
-                           $scope.columnsIndicadores = $scope.Ficha.FichaEnfermeria.PlanEnfermeria.Indicadores;*/
+                           $scope.columnsBetabloqueador = $scope.Ficha.FichaMedico.Farmacologia.ListBetabloqueador
+                           $scope.columnsBloqueadorCorrientes = $scope.Ficha.FichaMedico.Farmacologia.ListBloqueadorCorrientes
+                           $scope.columnsIECA = $scope.Ficha.FichaMedico.Farmacologia.ListIECA
+                           $scope.columnsARA2 = $scope.Ficha.FichaMedico.Farmacologia.ListARA2
+                           $scope.columnsNitratos = $scope.Ficha$scope.Ficha.FichaMedico.Farmacologia.ListNitratos
+                           $scope.columnsAnticoagulanteOral = $scope.Ficha.FichaMedico.Farmacologia.ListAnticoagulanteOral
+                           $scope.columnsEstatina = $scope.Ficha.FichaMedico.Farmacologia.ListEstatina
+                           $scope.columnsAntiplaquetario = $scope.Ficha.FichaMedico.Farmacologia.ListAntiplaquetario
+                           $scope.columnsHipoglicemiante = $scope.Ficha.FichaMedico.Farmacologia.ListHipoglicemiante
+                           $scope.columnsEsteroides = $scope.Ficha.FichaMedico.Farmacologia.ListEsteroides
+                           $scope.columnsDiuretico = $scope.Ficha.FichaMedico.Farmacologia.ListDiuretico
+                           $scope.columnsAlopurinol = $scope.Ficha.FichaMedico.Farmacologia.ListAlopurinol
+                           $scope.columnsDigitalicos = $scope.Ficha.FichaMedico.Farmacologia.ListDigitalicos
+                           $scope.columnsAntiarritmicos = $scope.Ficha.FichaMedico.Farmacologia.ListAntiarritmicos
+                           $scope.columnsOtros = $scope.Ficha.FichaMedico.Farmacologia.ListOtros
+
+                           /*Mapeo Fechas*/
                            $scope.Ficha.FichaMedico.InfartoAgudoMiocardioFecha = moment($scope.Ficha.FichaMedico.InfartoAgudoMiocardioFecha);
                            $scope.Ficha.FichaMedico.InsuficienciaCardiacaFecha = moment($scope.Ficha.FichaMedico.InsuficienciaCardiacaFecha);
                            $scope.Ficha.FichaMedico.ShockCardiogenicoFecha = moment($scope.Ficha.FichaMedico.ShockCardiogenicoFecha);
