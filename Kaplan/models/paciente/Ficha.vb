@@ -2383,6 +2383,7 @@ Namespace Clases
             Dim idEnfer = CInt(cmd.Parameters("@outIdMed").Value)
 
             Return CInt(cmd.Parameters("@outError").Value)
+
         End Function
 #End Region
     End Class
