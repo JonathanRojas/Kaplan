@@ -59,6 +59,80 @@
         Public Property CKMBFecha As Date
         Public Property AcidoUrico As String
         Public Property AcidoUricoFecha As Date
+
+        Public Shared Function MapeoExamenMedico(prmDatos As DataTable) As ExamenMedico
+            Try
+                Dim vExamenMedico As New ExamenMedico
+
+                Dim prmRow As DataRow = prmDatos.Rows(0)
+
+                vExamenMedico.Id = prmRow("ex_id_examenes").ToString
+                vExamenMedico.LesionAda = Tipos.TipoRespuestaMedico.getTipo(prmRow("ex_ada"))
+                vExamenMedico.LesionAdaObs = prmRow("ex_adaObs").ToString
+                vExamenMedico.LesionACD = Tipos.TipoRespuestaMedico.getTipo(prmRow("ex_acd"))
+                vExamenMedico.LesionACDObs = prmRow("ex_acdObs").ToString
+                vExamenMedico.LesionACX = Tipos.TipoRespuestaMedico.getTipo(prmRow("ex_acx"))
+                vExamenMedico.LesionACXObs = prmRow("ex_acxObs").ToString
+                vExamenMedico.TroncoCoronario = Tipos.TipoRespuestaMedico.getTipo(prmRow("ex_troCoronario"))
+                vExamenMedico.TroncoCoronarioObs = prmRow("ex_troCoronarioObs").ToString
+                vExamenMedico.PapMedia = Tipos.TipoRespuestaMedico.getTipo(prmRow("ex_pap"))
+                vExamenMedico.PapMediaObs = prmRow("ex_papObs").ToString
+                vExamenMedico.Uwood = Tipos.TipoRespuestaMedico.getTipo(prmRow("ex_wood"))
+                vExamenMedico.UwoodObs = prmRow("ex_wood").ToString
+                vExamenMedico.TestReversibilidad = Tipos.TipoRespuestaMedico.getTipo(prmRow("ex_testReversibilidad"))
+                vExamenMedico.TestReversibilidadObs = prmRow("ex_testReversibilidadObs").ToString
+                vExamenMedico.FEVI = Tipos.TipoFeviMedico.getTipo(prmRow("ex_fevi"))
+                vExamenMedico.DiametroSistole = prmRow("ex_diaSistole").ToString
+                vExamenMedico.DiametroDiastole = prmRow("ex_diaDiastole").ToString
+                vExamenMedico.DilatacionAuricular = Tipos.TipoRespuestaMedico.getTipo(prmRow("ex_dilAurIzq"))
+                vExamenMedico.DilatacionAuricularTipo = Tipos.TipoEcocardiogramaMedico.getTipo(prmRow("ex_dilAurIzqTipo"))
+                vExamenMedico.HipertensionPulmonar = Tipos.TipoRespuestaMedico.getTipo(prmRow("ex_hipPulmonar"))
+                vExamenMedico.HipertensionPulmonarTipo = Tipos.TipoEcocardiogramaMedico.getTipo(prmRow("ex_hipPulmonarTipo"))
+                vExamenMedico.DisfuncionVentriculo = Tipos.TipoRespuestaMedico.getTipo(prmRow("ex_disVenDer"))
+                vExamenMedico.DisfuncionVentriculoTipo = Tipos.TipoEcocardiogramaMedico.getTipo(prmRow("ex_disVenDerTipo"))
+                vExamenMedico.EstenosisAortica = Tipos.TipoRespuestaMedico.getTipo(prmRow("ex_estAortica"))
+                vExamenMedico.EstenosisAorticaTipo = Tipos.TipoEcocardiogramaMedico.getTipo(prmRow("ex_estAorticaTipo"))
+                vExamenMedico.EstenosisMitral = Tipos.TipoRespuestaMedico.getTipo(prmRow("ex_estMitral"))
+                vExamenMedico.EstenosisMitralTipo = Tipos.TipoEcocardiogramaMedico.getTipo(prmRow("ex_estMitralTipo"))
+                vExamenMedico.InsuficienciaAortica = Tipos.TipoRespuestaMedico.getTipo(prmRow("ex_insAortica"))
+                vExamenMedico.InsuficienciaAorticaTipo = Tipos.TipoEcocardiogramaMedico.getTipo(prmRow("ex_insAorticaTipo"))
+                vExamenMedico.InsuficienciaMitral = Tipos.TipoRespuestaMedico.getTipo(prmRow("ex_insMitral"))
+                vExamenMedico.InsuficienciaMitralTipo = Tipos.TipoEcocardiogramaMedico.getTipo(prmRow("ex_insMitralTipo"))
+                vExamenMedico.Aquinesia = Tipos.TipoRespuestaMedico.getTipo(prmRow("ex_aquinesia"))
+                vExamenMedico.AquinesiaTipo = Tipos.TipoEcocardiogramaMedico.getTipo(prmRow("ex_aquinesiaTipo"))
+                vExamenMedico.Arrtimias = Tipos.TipoRespuestaMedico.getTipo(prmRow("ex_arritmia"))
+                vExamenMedico.ArrtimiasObs = prmRow("ex_arritmiaObs").ToString
+                vExamenMedico.BloqueosAV = Tipos.TipoRespuestaMedico.getTipo(prmRow("ex_bloqueoAv"))
+                vExamenMedico.BloqueosAVObs = prmRow("ex_bloqueoAvObs").ToString
+                vExamenMedico.EjeCardiaco = Tipos.TipoRespuestaMedico.getTipo(prmRow("ex_ejeCardiaco"))
+                vExamenMedico.EjeCardiacoObs = prmRow("ex_ejeCardiacoObs").ToString
+                vExamenMedico.Otro = prmRow("ex_otros").ToString
+                vExamenMedico.ProBNP = prmRow("ex_proBnp").ToString
+                vExamenMedico.ProBNPFecha = prmRow("ex_proBnpFecha").ToString
+                vExamenMedico.Troponina = prmRow("ex_troponina").ToString
+                vExamenMedico.TroponinaFecha = prmRow("ex_troponinaFecha").ToString
+                vExamenMedico.PCR = prmRow("ex_pcr").ToString
+                vExamenMedico.PCRFecha = prmRow("ex_pcrFecha").ToString
+                vExamenMedico.DimeroD = prmRow("ex_dimeroD").ToString
+                vExamenMedico.DimeroDFecha = prmRow("ex_dimeroDFecha").ToString
+                vExamenMedico.Sodio = prmRow("ex_sodio").ToString
+                vExamenMedico.SodioFecha = prmRow("ex_sodioFecha").ToString
+                vExamenMedico.Potasio = prmRow("ex_potasio").ToString
+                vExamenMedico.PotasioFecha = prmRow("ex_potasioFecha").ToString
+                vExamenMedico.CreatinaKinasa = prmRow("ex_creaKinasa").ToString
+                vExamenMedico.CreatinaKinasaFecha = prmRow("ex_creaKinasaFecha").ToString
+                vExamenMedico.CKMB = prmRow("ex_ckmb").ToString
+                vExamenMedico.CKMBFecha = prmRow("ex_ckmbFecha").ToString
+                vExamenMedico.AcidoUrico = prmRow("ex_aciUrico").ToString
+                vExamenMedico.AcidoUricoFecha = prmRow("ex_aciUricoFecha").ToString
+
+                Return vExamenMedico
+            Catch ex As Exception
+                Return Nothing
+            End Try
+
+        End Function
+
     End Class
 End Namespace
 

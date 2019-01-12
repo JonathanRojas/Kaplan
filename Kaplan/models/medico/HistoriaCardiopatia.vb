@@ -9,9 +9,9 @@
                 MapeoHistoriaCardiopatia = New List(Of HistoriaCardiopatia)
                 For Each vRow As DataRow In prmDatos.Rows
                     Dim vClass As New HistoriaCardiopatia
-                    vClass.Id = vRow("id_medicamento").ToString
-                    vClass.colId = "colId" & vRow("id_medicamento").ToString
-                    vClass.Historia = vRow("nombre").ToString
+                    vClass.Id = vRow("id_his").ToString
+                    vClass.colId = "colId" & vRow("id_his").ToString
+                    vClass.Historia = vRow("observacion").ToString
                     MapeoHistoriaCardiopatia.Add(vClass)
                 Next
                 Return MapeoHistoriaCardiopatia

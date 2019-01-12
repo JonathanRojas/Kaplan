@@ -77,6 +77,35 @@ Namespace Clases
         Public Property ListAntiarritmicos As List(Of Antiarritmicos)
         Public Property Otros As Tipos.TipoRespuestaMedico
         Public Property ListOtros As List(Of Otros)
+        Public Shared Function MapeoFarmacologia(prmDatos As DataTable) As Farmacologia
+            Try
+                Dim vFarmacologia As New Farmacologia
+
+                Dim prmRow As DataRow = prmDatos.Rows(0)
+
+                vFarmacologia.Id = prmRow("id_farmacologia").ToString
+                vFarmacologia.Alopurinol = Tipos.TipoRespuestaMedico.getTipo(prmRow("Alopurinol"))
+                vFarmacologia.ARA2 = Tipos.TipoRespuestaMedico.getTipo(prmRow("Antagonista"))
+                vFarmacologia.Antiarritmicos = Tipos.TipoRespuestaMedico.getTipo(prmRow("Antiarritmicos"))
+                vFarmacologia.Antiplaquetario = Tipos.TipoRespuestaMedico.getTipo(prmRow("Antiplaquetario"))
+                vFarmacologia.Betabloqueador = Tipos.TipoRespuestaMedico.getTipo(prmRow("Betabloqueador"))
+                vFarmacologia.BloqueadorCorrientes = Tipos.TipoRespuestaMedico.getTipo(prmRow("bloqueadorCorr"))
+                vFarmacologia.Digitalicos = Tipos.TipoRespuestaMedico.getTipo(prmRow("Digitalicos"))
+                vFarmacologia.Diuretico = Tipos.TipoRespuestaMedico.getTipo(prmRow("Diuretico"))
+                vFarmacologia.Estatina = Tipos.TipoRespuestaMedico.getTipo(prmRow("Estatina"))
+                vFarmacologia.Esteroides = Tipos.TipoRespuestaMedico.getTipo(prmRow("Esteroides"))
+                vFarmacologia.Hipoglicemiante = Tipos.TipoRespuestaMedico.getTipo(prmRow("Hipoglicemiante"))
+                vFarmacologia.IECA = Tipos.TipoRespuestaMedico.getTipo(prmRow("IECA"))
+                vFarmacologia.Nitratos = Tipos.TipoRespuestaMedico.getTipo(prmRow("Nitrato"))
+                vFarmacologia.Otros = Tipos.TipoRespuestaMedico.getTipo(prmRow("Otros"))
+                vFarmacologia.AnticoagulanteOral = Tipos.TipoRespuestaMedico.getTipo(prmRow("AnticoagulanteOral"))
+
+                Return vFarmacologia
+            Catch ex As Exception
+                Return Nothing
+            End Try
+
+        End Function
 
         Public Function ToJSONBetabloqueador(rows As List(Of Betabloqueador)) As String
             Dim data As New CollectionssBetabloqueador

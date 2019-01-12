@@ -1298,7 +1298,7 @@ Namespace Clases
         Public Shared Function getFichaMedico(inId As Integer, ByRef NoData As Boolean) As Ficha
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-                Dim cmd As OleDbCommand = New OleDbCommand("BuscarFichaEnfermeriaxReserva", conn)
+                Dim cmd As OleDbCommand = New OleDbCommand("BuscarFichaMedicoxReserva", conn)
                 cmd.CommandType = CommandType.StoredProcedure
 
                 Dim id As OleDbParameter = cmd.Parameters.Add("@inId", OleDbType.Decimal, Nothing)
@@ -1324,25 +1324,52 @@ Namespace Clases
         Private Shared Function MapeoFichaMedico(prmDatos As DataSet) As Ficha
             Try
                 Dim vficha As New Ficha
-                Dim vEnfermeria As New FichaEnfermeria
-                Dim vMedicamentos As New MedicamentosEnfermeria
-                Dim vAnamnesis As New AnamnesisEnfermeria
-                Dim vExamenFisico As New ExamenFisicoEnfermeria
-                Dim vEvolucion As New EvolucionEnfermeria
-                Dim vPlanEnfermeria As New PlanEnfermeria
-                Dim vPlanDiagnostico As New PlanEnfermeriaDiagnostico
-                Dim vPlanIntervencion As New PlanEnfermeriaIntervencion
-                Dim vPlanIndicador As New PlanEnfermeriaIndicador
+                Dim vMedico As New FichaMedico
+                Dim vExamenMedico As New ExamenMedico
+                Dim vExamenFisico As New ExamenFisico
+                Dim vFarmacologia As New Farmacologia
+                Dim vHistoriaCardiopatia As New HistoriaCardiopatia
+                Dim vHistoriaCronica As New HistoriaCronica
+                Dim vOtraCirugia As New OtraCirugia
+                Dim vAlopurinol As New Alopurinol
+                Dim vARA2 As New ARA2
+                Dim vAntirritmicos As New Antiarritmicos
+                Dim vAnticoagulanteOral As New AnticoagulanteOral
+                Dim vAntiplaquetario As New Antiplaquetario
+                Dim vBetabloqueador As New Betabloqueador
+                Dim vBloqueadorCorrientes As New BloqueadorCorrientes
+                Dim vDigitalicos As New Digitalicos
+                Dim vDiuretico As New Diuretico
+                Dim vEstatina As New Estatina
+                Dim vEsteroides As New Esteroides
+                Dim vHipoglicemiante As New Hipoglicemiante
+                Dim vIECA As New IECA
+                Dim vNitratos As New Nitratos
+                Dim vOtros As New Otros
 
-                vficha.FichaEnfermeria = vEnfermeria.MapeoFichaEnfermeria(prmDatos.Tables(0))
-                vficha.FichaEnfermeria.MedicamentosEnfermeria = vMedicamentos.MapeoMedicamentos(prmDatos.Tables(1))
-                vficha.FichaEnfermeria.AnamnesisEnfermeria = vAnamnesis.MapeoAnamnesis(prmDatos.Tables(2))
-                vficha.FichaEnfermeria.ExamenFisicoEnfermeria = vExamenFisico.MapeoExamenFisico(prmDatos.Tables(3))
-                vficha.FichaEnfermeria.EvolucionEnfermeria = vEvolucion.MapeoEvolucion(prmDatos.Tables(4))
-                vficha.FichaEnfermeria.PlanEnfermeria = vPlanEnfermeria.MapeoPlanEnfermeria(prmDatos.Tables(5))
-                vficha.FichaEnfermeria.PlanEnfermeria.Diagnostico = vPlanDiagnostico.MapeoDiagnostico(prmDatos.Tables(6))
-                vficha.FichaEnfermeria.PlanEnfermeria.Intervencion = vPlanIntervencion.MapeoIntervencion(prmDatos.Tables(7))
-                vficha.FichaEnfermeria.PlanEnfermeria.Indicadores = vPlanIndicador.MapeoIndicador(prmDatos.Tables(8))
+                vficha.FichaMedico = vMedico.MapeoFichaMedico(prmDatos.Tables(0))
+                vficha.FichaMedico.Farmacologia = vFarmacologia.MapeoFarmacologia(prmDatos.Tables(1))
+                vficha.FichaMedico.ExamenMedico = vExamenMedico.MapeoExamenMedico(prmDatos.Tables(2))
+                vficha.FichaMedico.ExamenFisico = vExamenFisico.MapeoExamenFisico(prmDatos.Tables(3))
+                vficha.FichaMedico.ListHistoriaCardiopatia = vHistoriaCardiopatia.MapeoHistoriaCardiopatia(prmDatos.Tables(4))
+                vficha.FichaMedico.ListHistoriaCronica = vHistoriaCronica.MapeoHistoriaCronica(prmDatos.Tables(5))
+                vficha.FichaMedico.ListOtraCirugia = vOtraCirugia.MapeoOtraCirugia(prmDatos.Tables(6))
+                vficha.FichaMedico.Farmacologia.ListAlopurinol = vAlopurinol.MapeoAlopurinol(prmDatos.Tables(7))
+                vficha.FichaMedico.Farmacologia.ListARA2 = vARA2.MapeoARA2(prmDatos.Tables(8))
+                vficha.FichaMedico.Farmacologia.ListAntiarritmicos = vAntirritmicos.MapeoAntiarritmicos(prmDatos.Tables(9))
+                vficha.FichaMedico.Farmacologia.ListAnticoagulanteOral = vAnticoagulanteOral.MapeoAnticoagulanteOral(prmDatos.Tables(10))
+                vficha.FichaMedico.Farmacologia.ListAntiplaquetario = vAntiplaquetario.MapeoAntiplaquetario(prmDatos.Tables(11))
+                vficha.FichaMedico.Farmacologia.ListBetabloqueador = vBetabloqueador.MapeoBetabloqueador(prmDatos.Tables(12))
+                vficha.FichaMedico.Farmacologia.ListBloqueadorCorrientes = vBloqueadorCorrientes.MapeoBloqueadorCorrientes(prmDatos.Tables(13))
+                vficha.FichaMedico.Farmacologia.ListDigitalicos = vDigitalicos.MapeoDigitalicos(prmDatos.Tables(14))
+                vficha.FichaMedico.Farmacologia.ListDiuretico = vDiuretico.MapeoDiuretico(prmDatos.Tables(15))
+                vficha.FichaMedico.Farmacologia.ListEstatina = vEstatina.MapeoEstatina(prmDatos.Tables(16))
+                vficha.FichaMedico.Farmacologia.ListEsteroides = vEsteroides.MapeoEsteroides(prmDatos.Tables(17))
+                vficha.FichaMedico.Farmacologia.ListHipoglicemiante = vHipoglicemiante.MapeoHipoglicemiante(prmDatos.Tables(18))
+                vficha.FichaMedico.Farmacologia.ListIECA = vIECA.MapeoIECA(prmDatos.Tables(19))
+                vficha.FichaMedico.Farmacologia.ListNitratos = vNitratos.MapeoNitratos(prmDatos.Tables(20))
+                vficha.FichaMedico.Farmacologia.ListOtros = vOtros.MapeoOtros(prmDatos.Tables(21))
+
                 Return vficha
             Catch ex As Exception
                 Return Nothing
@@ -2356,6 +2383,7 @@ Namespace Clases
             Dim idEnfer = CInt(cmd.Parameters("@outIdMed").Value)
 
             Return CInt(cmd.Parameters("@outError").Value)
+
         End Function
 #End Region
     End Class

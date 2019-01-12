@@ -158,54 +158,156 @@ Namespace Clases
         Public Property Farmacologia As Farmacologia
         Public Property ExamenMedico As ExamenMedico
         Public Property ExamenFisico As ExamenFisico
-        Public Shared Function MapeoFichaKine(prmDatos As DataTable) As FichaKinesiologia
+        Public Shared Function MapeoFichaMedico(prmDatos As DataTable) As FichaMedico
             Try
-                Dim vKinesiologia As New FichaKinesiologia
+                Dim vMedico As New FichaMedico
 
                 Dim prmRow As DataRow = prmDatos.Rows(0)
 
-                vKinesiologia.Id = prmRow("id_ficha_kine").ToString
-                vKinesiologia.IdReserva = prmRow("id_reserva").ToString
-                vKinesiologia.Riesgo = prmRow("riesgo").ToString
-                vKinesiologia.TipoEvaluacion = prmRow("tipo_evaluacion").ToString
+                vMedico.Id = prmRow("id_ficha_med").ToString
+                vMedico.IdReserva = prmRow("id_reserva").ToString
+                vMedico.CentroDerivacion = prmRow("ho_centrov").ToString
+                vMedico.MedicoDerivador = prmRow("ho_medico").ToString
+                vMedico.MotivoDerivacion = prmRow("ho_motivo").ToString
+                vMedico.FechaAlta = prmRow("ho_fechaAlta").ToString
+                vMedico.NumeroHospitalizaciones = prmRow("ho_nroHosp").ToString
+                vMedico.HistoriaCardiopatia = Tipos.TipoRespuestaMedico.getTipo(prmRow("ame_HistFamCardiopatia"))
+                vMedico.HistoriaCronica = Tipos.TipoRespuestaMedico.getTipo(prmRow("ame_HistFamCronica"))
+                vMedico.IndiceMasaCoporal = Double.Parse(prmRow("ame_imc"))
+                vMedico.PerimetroCintura = Double.Parse(prmRow("ame_perCint"))
+                vMedico.RelacionCinturaCadera = Double.Parse(prmRow("ame_relCint"))
+                vMedico.PorcentajeGrasa = Double.Parse(prmRow("ame_porGra"))
+                vMedico.Tabaquismo = Double.Parse(prmRow("ame_tab"))
+                vMedico.IPA = prmRow("ame_tabObs").ToString
+                vMedico.TabaquismoActivo = Tipos.TipoRespuestaMedico.getTipo(prmRow("ame_tabAct"))
+                vMedico.Alcohol = Tipos.TipoRespuestaMedico.getTipo(prmRow("ame_alc"))
+                vMedico.ActividadFisica = Double.Parse(prmRow("ame_actFis"))
+                vMedico.AbusoDrogas = Tipos.TipoRespuestaMedico.getTipo(prmRow("ame_dro"))
+                vMedico.AbusoDrogasDetalle = prmRow("ame_droObs").ToString
+                vMedico.Dislipidemias = Tipos.TipoRespuestaMedico.getTipo(prmRow("amo_dislipidemias"))
+                vMedico.DislipidemiasObs = prmRow("amo_dislipidemiasObs").ToString
+                vMedico.HipertensionArterial = Tipos.TipoRespuestaMedico.getTipo(prmRow("amo_hipertension"))
+                vMedico.HipertensionArterialObs = prmRow("amo_hipertensionObs").ToString
+                vMedico.DiabetesMellitus = Tipos.TipoRespuestaMedico.getTipo(prmRow("amo_diabetes"))
+                vMedico.Insulinoterapia = Tipos.TipoRespuestaMedico.getTipo(prmRow("amo_insulinoterapia"))
+                vMedico.InsulinoterapiaDosis = prmRow("amo_insulinoterapiaObs").ToString
+                vMedico.Alergias = Tipos.TipoRespuestaMedico.getTipo(prmRow("amo_alergias"))
+                vMedico.AlergiasObs = prmRow("amo_alergiasObs").ToString
+                vMedico.EnfermedadRenalCronica = Tipos.TipoRespuestaMedico.getTipo(prmRow("amo_enfRenalCronica"))
+                vMedico.Etapa = prmRow("amo_etapa").ToString
+                vMedico.Proteinurea = Tipos.TipoRespuestaMedico.getTipo(prmRow("amo_proteinurea"))
+                vMedico.Hemodialisis = Tipos.TipoRespuestaMedico.getTipo(prmRow("amo_hemodialisis"))
+                vMedico.Anemia = Tipos.TipoRespuestaMedico.getTipo(prmRow("amo_anemia"))
+                vMedico.Hemoglobina = prmRow("amo_aneHemoglobian").ToString
+                vMedico.Ferritina = prmRow("amo_aneFerritina").ToString
+                vMedico.Albumina = prmRow("amo_desAlbumina").ToString
+                vMedico.Linfocitos = prmRow("amo_desLinfocitos").ToString
+                vMedico.EnfermedadPulmonar = Tipos.TipoRespuestaMedico.getTipo(prmRow("amo_enfPulmonar"))
+                vMedico.EnfermedadPulmonarObs = prmRow("amo_enfPulmonarObs").ToString
+                vMedico.SeveridadFuncionPulmonar = Tipos.TipoSeveridadMedico.getTipo(prmRow("amo_enfSevFunPul"))
+                vMedico.EnfermedadHepatica = Tipos.TipoRespuestaMedico.getTipo(prmRow("amo_enfHepatica"))
+                vMedico.EnfermedadHepaticaObs = prmRow("amo_enfHepaticaObs").ToString
+                vMedico.EnfermedadArterialPeriferica = Tipos.TipoRespuestaMedico.getTipo(prmRow("amo_enfArtPeriferica"))
+                vMedico.EnfermedadArterialPerifericaObs = prmRow("amo_enfArtPerifericaObs").ToString
+                vMedico.CirugiaPeriferica = Tipos.TipoRespuestaMedico.getTipo(prmRow("amo_cirRevPeriferica"))
+                vMedico.CirugiaPerifericaObs = prmRow("amo_cirRevPerifericaObs").ToString
+                vMedico.EnfermedadCerebroVascular = Tipos.TipoRespuestaMedico.getTipo(prmRow("amo_enfCerVascular"))
+                vMedico.EnfermedadCerebroVascularObs = prmRow("amo_enfCerVascularObs").ToString
+                vMedico.Secuelas = prmRow("amo_secuelas").ToString
+                vMedico.CirugiaCarotidea = Tipos.TipoRespuestaMedico.getTipo(prmRow("amo_cirRevCarotidea"))
+                vMedico.CirugiaCarotideaObs = prmRow("amo_cirRevCarotideaObs").ToString
+                vMedico.Inmunosupresion = Tipos.TipoRespuestaMedico.getTipo(prmRow("amo_inmunosupresion"))
+                vMedico.InmunosupresionObs = prmRow("amo_inmunosupresionObs").ToString
+                vMedico.HistoriaOncologica = Tipos.TipoRespuestaMedico.getTipo(prmRow("amo_hisOncologica"))
+                vMedico.HistoriaOncologicaObs = prmRow("amo_hisOncologicaObs").ToString
+                vMedico.Localizacion = prmRow("amo_localizacion").ToString
+                vMedico.Quimioterapia = Tipos.TipoRespuestaMedico.getTipo(prmRow("amo_quimioterapia"))
+                vMedico.QuimioterapiaObs = prmRow("amo_quimioterapiaObs").ToString
+                vMedico.Radioterapia = Tipos.TipoRespuestaMedico.getTipo(prmRow("amo_radioterapia"))
+                vMedico.RadioterapiaObs = prmRow("amo_radioterapiaObs").ToString
+                vMedico.ApneaSueno = Tipos.TipoRespuestaMedico.getTipo(prmRow("amo_apnea"))
+                vMedico.ApneaSuenoObs = prmRow("amo_apneaObs").ToString
+                vMedico.EnfermedadCardiaca = prmRow("amo_enfCardiaca").ToString
+                vMedico.CardiopatiaCongenita = Tipos.TipoRespuestaMedico.getTipo(prmRow("amo_carCongenita"))
+                vMedico.CardiopatiaCongenitaObs = prmRow("amo_carCongenitaObs").ToString
+                vMedico.InfartoAgudoMiocardio = Tipos.TipoRespuestaMedico.getTipo(prmRow("amo_infAguMiocardio"))
+                vMedico.InfartoAgudoMiocardioObs = prmRow("amo_infAguMiocardioObs").ToString
+                vMedico.InfartoAgudoMiocardioFecha = prmRow("amo_infAguMiocardioFecha").ToString
+                vMedico.InsuficienciaCardiaca = Tipos.TipoRespuestaMedico.getTipo(prmRow("amo_insCardiacaNYHA"))
+                vMedico.InsuficienciaCardiacaFecha = prmRow("amo_insCardiacaFecha").ToString
+                vMedico.InsuficienciaCardiacaNYHA = prmRow("amo_insCardiacaNYHAObs").ToString
+                vMedico.SincopeCardiogenico = Tipos.TipoRespuestaMedico.getTipo(prmRow("amo_sinCardiogenico"))
+                vMedico.SincopeCardiogenicoObs = prmRow("amo_sinCardiogenicoObs").ToString
+                vMedico.ShockCardiogenico = Tipos.TipoRespuestaMedico.getTipo(prmRow("amo_shoCardiogenico"))
+                vMedico.ShockCardiogenicoObs = prmRow("amo_shoCardiogenicoObs").ToString
+                vMedico.ShockCardiogenicoFecha = prmRow("amo_shoCardiogenicoFecha").ToString
+                vMedico.ParoCardiorRespiratorio = Tipos.TipoRespuestaMedico.getTipo(prmRow("amo_parCardiorresp"))
+                vMedico.ParoCardiorRespiratorioObs = prmRow("amo_parCardiorrespObs").ToString
+                vMedico.ParoCardiorRespiratorioFecha = prmRow("amo_parCardiorrespFecha").ToString
+                vMedico.Supraventricular = Tipos.TipoRespuestaMedico.getTipo(prmRow("amo_supraventicular"))
+                vMedico.SupraventricularObs = prmRow("amo_supraventicularObs").ToString
+                vMedico.Ventricular = Tipos.TipoRespuestaMedico.getTipo(prmRow("amo_ventricular"))
+                vMedico.VentricularObs = prmRow("amo_ventricularObs").ToString
+                vMedico.Endocarditis = Tipos.TipoRespuestaMedico.getTipo(prmRow("amo_endocarditis"))
+                vMedico.EndocarditisObs = prmRow("amo_endocarditisObs").ToString
+                vMedico.DiseccionAortica = Tipos.TipoRespuestaMedico.getTipo(prmRow("amo_disAortica"))
+                vMedico.DiseccionAorticaTipo = Tipos.TipoDiseccionMedico.getTipo(prmRow("amo_disAorticaTipo"))
+                vMedico.AneurismaAortico = Tipos.TipoRespuestaMedico.getTipo(prmRow("amo_aneAortico"))
+                vMedico.AneurismaAorticoTipo = Tipos.TipoAneurismaMedico.getTipo(prmRow("amo_aneAorticoTipo"))
+                vMedico.TumorCardiaco = Tipos.TipoRespuestaMedico.getTipo(prmRow("amo_tumCardiaco"))
+                vMedico.TumorCardiacoTipo = Tipos.TipoTumorMedico.getTipo(prmRow("amo_tumCardiacoTipo"))
+                vMedico.Tiempo_ECMO = prmRow("aqc_tiempo").ToString
+                vMedico.PuenteCoronario = Tipos.TipoRespuestaMedico.getTipo(prmRow("aqc_pueCoronario"))
+                vMedico.PuenteCoronarioObs = prmRow("aqc_pueCoronarioObs").ToString
+                vMedico.ADA = Tipos.TipoRespuestaMedico.getTipo(prmRow("aqc_ada"))
+                vMedico.ADAObs = prmRow("aqc_adaObs").ToString
+                vMedico.ACX = Tipos.TipoRespuestaMedico.getTipo(prmRow("aqc_acx"))
+                vMedico.ACXObs = prmRow("aqc_acxObs").ToString
+                vMedico.ACD = Tipos.TipoRespuestaMedico.getTipo(prmRow("aqc_acd"))
+                vMedico.ACDObs = prmRow("aqc_acdObs").ToString
+                vMedico.PuenteCoronarioFecha = prmRow("aqc_pcFecha").ToString
+                vMedico.CirugiaValvular = Tipos.TipoRespuestaMedico.getTipo(prmRow("aqc_cirValvular"))
+                vMedico.CirugiaValvularObs = prmRow("aqc_cirValvularObs").ToString
+                vMedico.Aortica = Tipos.TipoRespuestaMedico.getTipo(prmRow("aqc_aortica"))
+                vMedico.AorticaObs = prmRow("aqc_aorticaObs").ToString
+                vMedico.Mitral = Tipos.TipoRespuestaMedico.getTipo(prmRow("aqc_mitral"))
+                vMedico.MitralObs = prmRow("aqc_mitralObs").ToString
+                vMedico.Tricuspide = Tipos.TipoRespuestaMedico.getTipo(prmRow("aqc_tricuspide"))
+                vMedico.TricuspideObs = prmRow("aqc_tricuspideObs").ToString
+                vMedico.CirugiaValvularFecha = prmRow("aqc_cvFecha").ToString
+                vMedico.CierreComInteraricular = Tipos.TipoRespuestaMedico.getTipo(prmRow("aqc_cieComInteraur"))
+                vMedico.CierreComInteraricularFecha = prmRow("aqc_cieComInteraurFecha").ToString
+                vMedico.CierreComInterVetricular = Tipos.TipoRespuestaMedico.getTipo(prmRow("aqc_cieComInterven"))
+                vMedico.CierreComInterVetricularFecha = prmRow("aqc_cieComIntervenFecha").ToString
+                vMedico.CirugiaAorta = Tipos.TipoRespuestaMedico.getTipo(prmRow("aqc_cirAorta"))
+                vMedico.CirugiaAortaFecha = prmRow("aqc_cirAortaFecha").ToString
+                vMedico.CirugiaCardiopatiaCon = Tipos.TipoRespuestaMedico.getTipo(prmRow("aqc_cirCarCongenita"))
+                vMedico.CirugiaCardiopatiaConFecha = prmRow("aqc_cirCarCongenitaFecha").ToString
+                vMedico.Reoperacion = Tipos.TipoRespuestaMedico.getTipo(prmRow("aqc_reoperacion"))
+                vMedico.ReoperacionFecha = prmRow("aqc_reoperacionFecha").ToString
+                vMedico.TrasplanteCardiaco = Tipos.TipoRespuestaMedico.getTipo(prmRow("aqc_traCardiaco"))
+                vMedico.TrasplanteCardiacoFecha = prmRow("aqc_traCardiacoFecha").ToString
+                vMedico.ImplantacionLVAD = Tipos.TipoRespuestaMedico.getTipo(prmRow("aqc_impLvad"))
+                vMedico.ImplantacionLVADFecha = prmRow("aqc_impLvadFecha").ToString
+                vMedico.OtraCirugia = Tipos.TipoRespuestaMedico.getTipo(prmRow("aqc_otraCirugia"))
+                vMedico.TerapiaAblativa = Tipos.TipoRespuestaMedico.getTipo(prmRow("pc_terAblativa"))
+                vMedico.TerapiaAblativaObs = prmRow("pc_terAblativaObs").ToString
+                vMedico.TerapiaAblativaFecha = prmRow("pc_terAblativaFecha").ToString
+                vMedico.Marcapaso = Tipos.TipoRespuestaMedico.getTipo(prmRow("pc_marcapaso"))
+                vMedico.MarcapasoObs = prmRow("pc_marcapasoObs").ToString
+                vMedico.MarcapasoFecha = prmRow("pc_marcapasoFecha").ToString
+                vMedico.CDITRC = Tipos.TipoRespuestaMedico.getTipo(prmRow("pc_cdiTrc"))
+                vMedico.CDITRCObs = prmRow("pc_cdiTrcObs").ToString
+                vMedico.CDITRCFecha = prmRow("pc_cdiTrcFecha").ToString
+                vMedico.Angioplastia = Tipos.TipoRespuestaMedico.getTipo(prmRow("pc_angioplastia"))
+                vMedico.AngioplastiaObs = prmRow("pc_angioplastiaObs").ToString
+                vMedico.AngioplastiaFecha = prmRow("pc_angioplastiaFecha").ToString
+                vMedico.Balon = Tipos.TipoRespuestaMedico.getTipo(prmRow("pc_balon"))
+                vMedico.BalonObs = prmRow("pc_balonObs").ToString
+                vMedico.BalonFecha = prmRow("pc_balonFecha").ToString
 
-                Dim vERGOESPIROMETRIA As New Ergoespirometria
-                vERGOESPIROMETRIA.EFechaEgreso = prmRow("ergo_fecha_egr").ToString
-                vERGOESPIROMETRIA.EFechaIngreso = prmRow("ergo_fecha_ing").ToString
-                vERGOESPIROMETRIA.VO2LEgreso = Double.Parse(prmRow("ergo_vol_egr"))
-                vERGOESPIROMETRIA.VO2LIngreso = Double.Parse(prmRow("ergo_vol_ing"))
-                vERGOESPIROMETRIA.VO2MEgreso = Double.Parse(prmRow("ergo_voml_egr"))
-                vERGOESPIROMETRIA.VO2MIngreso = Double.Parse(prmRow("ergo_voml_ing"))
-                vERGOESPIROMETRIA.FCEgreso = Double.Parse(prmRow("ergo_fcmax_egr"))
-                vERGOESPIROMETRIA.FCIngreso = Double.Parse(prmRow("ergo_fcmax_ing"))
-                vERGOESPIROMETRIA.PulsoEgreso = Double.Parse(prmRow("ergo_pulso_egr"))
-                vERGOESPIROMETRIA.PulsoIngreso = Double.Parse(prmRow("ergo_pulso_ing"))
-                vERGOESPIROMETRIA.VEEgreso = Double.Parse(prmRow("ergo_ve_egr"))
-                vERGOESPIROMETRIA.VEIngreso = Double.Parse(prmRow("ergo_ve_ing"))
-                vERGOESPIROMETRIA.METSEgreso = Double.Parse(prmRow("ergo_mets_egr"))
-                vERGOESPIROMETRIA.METSIngreso = Double.Parse(prmRow("ergo_mets_ing"))
-                vKinesiologia.ERGOESPIROMETRIA = vERGOESPIROMETRIA
 
-                Dim vSHUTTLE As New Shuttle
-                vSHUTTLE.EFechaEgreso = prmRow("shu_fecha_egr").ToString
-                vSHUTTLE.EFechaIngreso = prmRow("shu_fecha_ing").ToString
-                vSHUTTLE.METROSEgreso = Double.Parse(prmRow("shu_mts_egr"))
-                vSHUTTLE.METROSIngreso = Double.Parse(prmRow("shu_mts_ing"))
-                vSHUTTLE.NIVELEgreso = Double.Parse(prmRow("shu_niv_egr"))
-                vSHUTTLE.NIVELIngreso = Double.Parse(prmRow("shu_niv_ing"))
-                vSHUTTLE.VO2MEgreso = Double.Parse(prmRow("shu_vol_egr"))
-                vSHUTTLE.VO2MIngreso = Double.Parse(prmRow("shu_vol_ing"))
-                vSHUTTLE.METSEgreso = Double.Parse(prmRow("shu_mets_egr"))
-                vSHUTTLE.METSIngreso = Double.Parse(prmRow("shu_mets_ing"))
-                vSHUTTLE.FCEgreso = Double.Parse(prmRow("shu_fcmax_egr"))
-                vSHUTTLE.FCIngreso = Double.Parse(prmRow("shu_fcmax_ing"))
-                vSHUTTLE.FCMTEgreso = Double.Parse(prmRow("shu_fcmt_egr"))
-                vSHUTTLE.FCMTIngreso = Double.Parse(prmRow("shu_fcmt_ing"))
-                vSHUTTLE.METSMAXEgreso = Double.Parse(prmRow("shu_metsmax_egr"))
-                vSHUTTLE.METSMAXIngreso = Double.Parse(prmRow("shu_metsmax_ing"))
-                vKinesiologia.SHUTTLE = vSHUTTLE
-
-                Return vKinesiologia
+                Return vMedico
             Catch ex As Exception
                 Return Nothing
             End Try
