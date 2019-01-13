@@ -11,6 +11,11 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Prototipo", "Prototipo\Prot
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ExtraccionData", "ExtraccionData\ExtraccionData.vbproj", "{D450DBEF-4CC3-45F8-A84E-17D6D299B098}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Script BD", "Script BD", "{9E5DCD70-C062-435E-822A-9A17F3816D6E}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\kaplan Produccion Definitivo.sql = ..\..\kaplan Produccion Definitivo.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

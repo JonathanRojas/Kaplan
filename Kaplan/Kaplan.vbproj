@@ -517,11 +517,21 @@
     <Content Include="reports\nutricion.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <EmbeddedResource Include="reports\enfermeria.rdlc" />
-    <EmbeddedResource Include="reports\evolucion.rdlc" />
-    <EmbeddedResource Include="reports\kinesiologia.rdlc" />
-    <EmbeddedResource Include="reports\medico.rdlc" />
-    <EmbeddedResource Include="reports\psicologia.rdlc" />
+    <Content Include="reports\enfermeria.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="reports\evolucion.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="reports\kinesiologia.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="reports\medico.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="reports\psicologia.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="ApplicationInsights.config">
