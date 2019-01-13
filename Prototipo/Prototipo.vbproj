@@ -76,6 +76,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Archivo.vb" />
     <Compile Include="Pacientes.vb">
       <SubType>Form</SubType>
     </Compile>
