@@ -481,6 +481,7 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
                         $scope.columnsOtros = $scope.Ficha.FichaMedico.Farmacologia.ListOtros
 
                         /*Mapeo Fechas*/
+                        $scope.Ficha.FichaMedico.FechaAlta = moment($scope.Ficha.FichaMedico.FechaAlta);
                         $scope.Ficha.FichaMedico.InfartoAgudoMiocardioFecha = moment($scope.Ficha.FichaMedico.InfartoAgudoMiocardioFecha);
                         $scope.Ficha.FichaMedico.InsuficienciaCardiacaFecha = moment($scope.Ficha.FichaMedico.InsuficienciaCardiacaFecha);
                         $scope.Ficha.FichaMedico.ShockCardiogenicoFecha = moment($scope.Ficha.FichaMedico.ShockCardiogenicoFecha);
@@ -551,6 +552,27 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
                                 $scope.columnsAntiarritmicos = [{ colId: 'col1', Descripcion: '', Id: -1, Dosis: '' }];
                                 $scope.columnsOtros = [{ colId: 'col1', Descripcion: '', Id: -1, Dosis: '' }];
                                 $scope.Ficha = { FichaMedico: { Id: -1, IdReserva: sesion } };
+                                $scope.Ficha.FichaMedico.HistoriaCardiopatia = { ID: 2 };
+                                $scope.Ficha.FichaMedico.HistoriaCronica = { ID: 2 };
+                                $scope.Ficha.FichaMedico.TabaquismoActivo = { ID: 2 };
+                                $scope.Ficha.FichaMedico.Alcohol = { ID: 2 };
+                                $scope.Ficha.FichaMedico.AbusoDrogas = { ID: 2 };
+                                $scope.Ficha.FichaMedico.Dislipidemias = { ID: 2 };
+                                $scope.Ficha.FichaMedico.HipertensionArterial = { ID: 2 };
+                                $scope.Ficha.FichaMedico.DiabetesMellitus = { ID: 2 };
+                                $scope.Ficha.FichaMedico.Insulinoterapia = { ID: 2 };
+                                $scope.Ficha.FichaMedico.Alergias = { ID: 2 };
+                                $scope.Ficha.FichaMedico.EnfermedadRenalCronica = { ID: 2 };
+                                $scope.Ficha.FichaMedico.Proteinurea = { ID: 2 };
+                                $scope.Ficha.FichaMedico.Hemodialisis = { ID: 2 };
+                                $scope.Ficha.FichaMedico.Anemia = { ID: 2 };
+                                $scope.Ficha.FichaMedico.EnfermedadPulmonar = { ID: 2 };
+                                $scope.Ficha.FichaMedico.EnfermedadHepatica = { ID: 2 };
+                                $scope.Ficha.FichaMedico.EnfermedadArterialPeriferica = { ID: 2 };
+
+                                /*Init de Select*/
+
+
                                 $('#collapseDataPaciente').collapse('show');
                                 waitingDialog.hide();
                             }, function (reason) {
@@ -618,7 +640,7 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
                            $scope.columnsBloqueadorCorrientes = $scope.Ficha.FichaMedico.Farmacologia.ListBloqueadorCorrientes
                            $scope.columnsIECA = $scope.Ficha.FichaMedico.Farmacologia.ListIECA
                            $scope.columnsARA2 = $scope.Ficha.FichaMedico.Farmacologia.ListARA2
-                           $scope.columnsNitratos = $scope.Ficha$scope.Ficha.FichaMedico.Farmacologia.ListNitratos
+                           $scope.columnsNitratos = $scope.Ficha.FichaMedico.Farmacologia.ListNitratos
                            $scope.columnsAnticoagulanteOral = $scope.Ficha.FichaMedico.Farmacologia.ListAnticoagulanteOral
                            $scope.columnsEstatina = $scope.Ficha.FichaMedico.Farmacologia.ListEstatina
                            $scope.columnsAntiplaquetario = $scope.Ficha.FichaMedico.Farmacologia.ListAntiplaquetario
@@ -631,6 +653,7 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
                            $scope.columnsOtros = $scope.Ficha.FichaMedico.Farmacologia.ListOtros
 
                            /*Mapeo Fechas*/
+                           $scope.Ficha.FichaMedico.FechaAlta = moment($scope.Ficha.FichaMedico.FechaAlta);
                            $scope.Ficha.FichaMedico.InfartoAgudoMiocardioFecha = moment($scope.Ficha.FichaMedico.InfartoAgudoMiocardioFecha);
                            $scope.Ficha.FichaMedico.InsuficienciaCardiacaFecha = moment($scope.Ficha.FichaMedico.InsuficienciaCardiacaFecha);
                            $scope.Ficha.FichaMedico.ShockCardiogenicoFecha = moment($scope.Ficha.FichaMedico.ShockCardiogenicoFecha);

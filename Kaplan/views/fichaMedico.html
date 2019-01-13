@@ -425,7 +425,7 @@
                                                                 </select>
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <input type="text" class="form-control" id="hipertension_arterial_observacion" placeholder="Hipertensión arterial Observacion" ng-model="Ficha.FichaMedico.HipertensionArterialObs" required aria-required="true" ng-disabled="FormEditabe" maxlength="100">
+                                                                <input type="text" class="form-control" id="hipertension_arterial_observacion" ng-show="Ficha.FichaMedico.HipertensionArterial.ID == 1" placeholder="Hipertensión arterial Observacion" ng-model="Ficha.FichaMedico.HipertensionArterialObs" ng-required="Ficha.FichaMedico.HipertensionArterial.ID == 1" aria-required="true" ng-disabled="FormEditabe" maxlength="100">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
@@ -448,7 +448,7 @@
                                                                 </select>
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <input type="text" class="form-control" id="insulinoterapia_dosis" placeholder="Insulinoterapia Dosis" ng-model="Ficha.FichaMedico.InsulinoterapiaDosis" required aria-required="true" ng-disabled="FormEditabe" maxlength="100">
+                                                                <input type="text" class="form-control" id="insulinoterapia_dosis" ng-show="Ficha.FichaMedico.Insulinoterapia.ID == 1" placeholder="Insulinoterapia Dosis" ng-model="Ficha.FichaMedico.InsulinoterapiaDosis" ng-required="Ficha.FichaMedico.Insulinoterapia.ID == 1" aria-required="true" ng-disabled="FormEditabe" maxlength="100">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
@@ -461,7 +461,7 @@
                                                                 </select>
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <input type="text" class="form-control" id="alergias_observacion" placeholder="Alergias Observacion" ng-model="Ficha.FichaMedico.AlergiasObs" required aria-required="true" ng-disabled="FormEditabe" maxlength="100">
+                                                                <input type="text" class="form-control" id="alergias_observacion" ng-show="Ficha.FichaMedico.Alergias.ID == 1" placeholder="Alergias Observacion" ng-model="Ficha.FichaMedico.AlergiasObs" ng-required="Ficha.FichaMedico.Alergias.ID == 1" aria-required="true" ng-disabled="FormEditabe" maxlength="100">
                                                             </div>
                                                             <div class="col-sm-2">
                                                                 <label class="control-label pull-right" for="enfermedad_renal_cronica">Enfermedad renal crónica</label>
@@ -552,7 +552,7 @@
                                                                 </select>
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <input type="text" class="form-control" id="enfermedad_pulmonar_observacion" placeholder="Enfermedad Pulmonar Observacion" ng-model="Ficha.FichaMedico.EnfermedadPulmonarObs" required aria-required="true" ng-disabled="FormEditabe" maxlength="100">
+                                                                <input type="text" class="form-control" id="enfermedad_pulmonar_observacion" ng-show="Ficha.FichaMedico.EnfermedadPulmonar.ID == 1" placeholder="Enfermedad Pulmonar Observacion" ng-model="Ficha.FichaMedico.EnfermedadPulmonarObs" ng-required="Ficha.FichaMedico.EnfermedadPulmonar.ID == 1"  aria-required="true" ng-disabled="FormEditabe" maxlength="100">
                                                             </div>
                                                             <div class="col-sm-2">
                                                                 <label class="control-label pull-right" for="severidad_funcion_pulmonar">Severidad función pulmonar</label>
@@ -575,7 +575,7 @@
                                                                 </select>
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <input type="text" class="form-control" id="enfermedad_hepatica_observacion" placeholder="Enfermeda Hepática Observacion" ng-model="Ficha.FichaMedico.EnfermedadHepaticaObs" required aria-required="true" ng-disabled="FormEditabe" maxlength="100">
+                                                                <input type="text" class="form-control" id="enfermedad_hepatica_observacion" ng-show="Ficha.FichaMedico.EnfermedadHepatica.ID == 1" placeholder="Enfermeda Hepática Observacion" ng-model="Ficha.FichaMedico.EnfermedadHepaticaObs" ng-required="Ficha.FichaMedico.EnfermedadHepatica.ID == 1" aria-required="true" ng-disabled="FormEditabe" maxlength="100">
                                                             </div>
                                                             <div class="col-sm-2">
                                                                 <label class="control-label pull-right" for="enfermedad_arterial_periferica">Enfermedad arterial periférica</label>
@@ -586,7 +586,7 @@
                                                                 </select>
                                                             </div>
                                                             <div class="col-sm-2">
-                                                                <input type="text" class="form-control" id="enfermedad_arterial_periferica_obs" placeholder="Enfermedad arterial periférica Observacion" ng-model="Ficha.FichaMedico.EnfermedadArterialPerifericaObs" required aria-required="true" ng-disabled="FormEditabe" maxlength="100">
+                                                                <input type="text" class="form-control" id="enfermedad_arterial_periferica_obs" ng-show="Ficha.FichaMedico.EnfermedadArterialPeriferica.ID == 1" placeholder="Enfermedad arterial periférica Observacion" ng-model="Ficha.FichaMedico.EnfermedadArterialPerifericaObs" required aria-required="true" ng-disabled="FormEditabe" maxlength="100">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
