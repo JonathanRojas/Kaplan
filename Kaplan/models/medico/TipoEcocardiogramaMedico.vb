@@ -6,7 +6,7 @@ Namespace Tipos
         Private Shared CachedTipo As New CachedType(Of TipoEcocardiogramaMedico)
         Private Shared CachedCollection As New Dictionary(Of Integer, TipoEcocardiogramaMedico)
         Shared Sub New()
-            CachedTipo.DataPackage = "ListarTipoEcocardiograma"
+            CachedTipo.DataPackage = "Kaplan.ListarTipoEcocardiograma"
         End Sub
         Shared Function getTipos() As List(Of TipoEcocardiogramaMedico)
             CachedTipo.CachedCollection = CachedCollection

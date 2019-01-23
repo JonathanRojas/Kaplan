@@ -127,7 +127,6 @@
     <Content Include="bin\Microsoft.AI.WindowsServer.dll" />
     <Content Include="bin\Microsoft.ApplicationInsights.dll" />
     <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
-    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
     <Content Include="css\angular-moment-picker.min.css" />
     <Content Include="css\angular-ui-notification.min.css" />
     <Content Include="css\animate.css" />
@@ -201,7 +200,9 @@
     <Content Include="js\services\WindowsService.js" />
     <Content Include="login.html" />
     <Content Include="views\menuConsulta.html" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="default.aspx.designer.vb">
@@ -298,6 +299,7 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\PublishProfiles\Data Producción.pubxml" />
     <None Include="My Project\PublishProfiles\Datad.pubxml" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -2,6 +2,7 @@
 Imports System.Globalization
 Imports System.Data.OleDb
 Imports System.Data.SqlClient
+Imports System.IO
 Namespace Clases
     Public Class Archivo
         Public Property Id As Integer
@@ -23,7 +24,7 @@ Namespace Clases
         Public Shared Function getArchivos(inRut As Integer) As List(Of Archivo)
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-                Dim cmd As OleDbCommand = New OleDbCommand("ListadoArchivos", conn)
+                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.ListadoArchivos", conn)
                 cmd.CommandType = CommandType.StoredProcedure
 
                 Dim inPaciente As OleDbParameter = cmd.Parameters.Add("@inPaciente", OleDbType.Decimal, Nothing)
@@ -87,9 +88,43 @@ Namespace Clases
                 registrarArchivo = False
             End Try
         End Function
+        Public Function registrarArchivoTxt(ruta As String, contenido As Byte()) As Boolean
+            Try
+                Dim reader As New StreamReader(ruta, Encoding.Default)
+                Dim a As String
+                Dim linea As String()
+                Dim datoA As String
+                Dim datoB As String
+                Dim datoC As String
+                Dim datoD As String
+                Dim datoE As String
+                Dim datoF As String
+                Do
+                    a = reader.ReadLine
+                    If Not a Is Nothing Then
+                        linea = a.Split(",")
+                        If linea(0) <> "------End of Test------" Then
+                            datoA = linea(0)
+                            datoB = linea(1)
+                            datoC = linea(2)
+                            datoD = linea(3)
+                            datoE = linea(4)
+                            datoF = linea(5)
+                        Else
+                            Dim hola As String = ""
+                            Exit Do
+                        End If
+                    End If
+                Loop Until a Is Nothing
+                a = reader.ReadLine
+                registrarArchivoTxt = True
+            Catch exc As Exception
+                registrarArchivoTxt = False
+            End Try
+        End Function
         Public Function cargarArchivo(datos As String, contenido As Byte()) As Boolean
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("registrarArchivo", conn)
+            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.registrarArchivo", conn)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim inId As OleDbParameter = cmd.Parameters.Add("@id", OleDbType.Decimal, Nothing)
@@ -268,7 +303,7 @@ Namespace Clases
         'Public Function EliminarExamen(Id As Integer) As Boolean
         '    Try
         '        Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-        '        Dim cmd As OleDbCommand = New OleDbCommand("EliminarExamen", conn)
+        '        Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.EliminarExamen", conn)
         '        cmd.CommandType = CommandType.StoredProcedure
 
         '        Dim inId As OleDbParameter = cmd.Parameters.Add("@inId", OleDbType.Decimal, Nothing)

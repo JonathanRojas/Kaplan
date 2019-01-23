@@ -6,7 +6,7 @@ Namespace Tipos
         Private Shared CachedTipo As New CachedType(Of TipoConcienciaFactor)
         Private Shared CachedCollection As New Dictionary(Of Integer, TipoConcienciaFactor)
         Shared Sub New()
-            CachedTipo.DataPackage = "ListarTipoFPConciencia"
+            CachedTipo.DataPackage = "Kaplan.ListarTipoFPConciencia"
         End Sub
         Shared Function getTipos() As List(Of TipoConcienciaFactor)
             CachedTipo.CachedCollection = CachedCollection
