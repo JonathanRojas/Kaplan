@@ -2,6 +2,7 @@
 Imports System.Globalization
 Imports System.Data.OleDb
 Imports System.Data.SqlClient
+Imports System.IO
 Namespace Clases
     Public Class Archivo
         Public Property Id As Integer
@@ -23,7 +24,7 @@ Namespace Clases
         Public Shared Function getArchivos(inRut As Integer) As List(Of Archivo)
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-                Dim cmd As OleDbCommand = New OleDbCommand("ListadoArchivos", conn)
+                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.ListadoArchivos", conn)
                 cmd.CommandType = CommandType.StoredProcedure
 
                 Dim inPaciente As OleDbParameter = cmd.Parameters.Add("@inPaciente", OleDbType.Decimal, Nothing)
@@ -70,7 +71,6 @@ Namespace Clases
                 olecon = New OleDbConnection
                 olecon.ConnectionString = connstring
                 olecomm = New OleDbCommand
-                'olecomm.CommandText = "Select * from [Ergo$A8:L8] "
                 olecomm.CommandText = "Select * from [Ergo$A60:AT] "
                 olecomm.Connection = olecon
                 oleadpt = New OleDbDataAdapter(olecomm)
@@ -87,9 +87,118 @@ Namespace Clases
                 registrarArchivo = False
             End Try
         End Function
+        Public Function registrarArchivoTxt(ruta As String, contenido As Byte()) As Boolean
+            Try
+                Dim reader As New StreamReader(ruta, Encoding.Default)
+                Dim a As String
+                Dim linea As String()
+                Dim dtCardio As New DataTable
+                dtCardio.Columns.Add("datoA")
+                dtCardio.Columns.Add("datoB")
+                dtCardio.Columns.Add("datoC")
+                dtCardio.Columns.Add("datoD")
+                dtCardio.Columns.Add("datoE")
+                dtCardio.Columns.Add("datoF")
+                Do
+                    a = reader.ReadLine
+                    If Not a Is Nothing Then
+                        linea = a.Split(",")
+                        If linea(0) <> "------End of Test------" Then
+                            Dim row As DataRow = dtCardio.NewRow
+                            row("datoA") = linea(0)
+                            row("datoB") = linea(1)
+                            row("datoC") = linea(2)
+                            row("datoD") = linea(3)
+                            row("datoE") = linea(4)
+                            row("datoF") = linea(5)
+                            dtCardio.Rows.Add(row)
+                        Else
+                            Exit Do
+                        End If
+                    End If
+                Loop Until a Is Nothing
+                Dim dato As String
+                Dim valor As String
+                Dim dtDatos As New DataTable
+                dtDatos.Columns.Add("Starttest", GetType(String))
+                dtDatos.Columns.Add("EndTest", GetType(String))
+                dtDatos.Columns.Add("TestType", GetType(String))
+                dtDatos.Columns.Add("TotalTesttime", GetType(String))
+                dtDatos.Columns.Add("WarmupLoad", GetType(String))
+                dtDatos.Columns.Add("WarmupLoadIncrease", GetType(String))
+                dtDatos.Columns.Add("TrainingDuration", GetType(String))
+                dtDatos.Columns.Add("TrainingLoad", GetType(String))
+                dtDatos.Columns.Add("RelativeDecrease", GetType(String))
+                dtDatos.Columns.Add("AlarmLimit", GetType(String))
+                dtDatos.Columns.Add("LoadLimit", GetType(String))
+                dtDatos.Columns.Add("NIBPDuration", GetType(String))
+                dtDatos.Columns.Add("Warmup1Time", GetType(String))
+                dtDatos.Columns.Add("RestingPulse", GetType(String))
+                dtDatos.Columns.Add("RestingBloodPressure", GetType(String))
+                dtDatos.Columns.Add("Warmup2Time", GetType(String))
+                dtDatos.Columns.Add("TrainingTime", GetType(String))
+                dtDatos.Columns.Add("StressPulse", GetType(String))
+                dtDatos.Columns.Add("StressAvgPulse", GetType(String))
+                dtDatos.Columns.Add("StressBloodPressure", GetType(String))
+                dtDatos.Columns.Add("Recovery1Time", GetType(String))
+                dtDatos.Columns.Add("RecoveryPulse", GetType(String))
+                dtDatos.Columns.Add("RecoveryBloodPressure", GetType(String))
+                dtDatos.Columns.Add("Recovery2Time", GetType(String))
+                dtDatos.Columns.Add("LoadValues", GetType(String))
+                dtDatos.Columns.Add("Begin", GetType(String))
+                dtDatos.Columns.Add("End", GetType(String))
+                dtDatos.Columns.Add("Maximum", GetType(String))
+                dtDatos.Columns.Add("Minimum", GetType(String))
+                dtDatos.Columns.Add("Joule", GetType(String))
+                dtDatos.Columns.Add("AverageLoad", GetType(String))
+                dtDatos.Columns.Add("JouleBeats", GetType(String))
+                dtDatos.Columns.Add("VO2Max", GetType(String))
+                dtDatos.Columns.Add("Borgscale", GetType(String))
+                Dim inicio As String
+                Dim termino As String
+                Dim tipo As String
+
+                a = reader.ReadLine
+                linea = a.Split("=")
+                inicio = linea(1)
+                a = reader.ReadLine
+                linea = a.Split("=")
+                termino = linea(1)
+                a = reader.ReadLine
+                linea = a.Split("=")
+                tipo = linea(1)
+
+                Dim rowDatos As DataRow = dtDatos.NewRow
+                rowDatos(0) = inicio
+                rowDatos(1) = termino
+                rowDatos(2) = tipo
+                'dtCardio.Rows.Add(row)
+                Dim cont As Integer = 3
+                Do
+                    If cont < 34 Then
+                        a = reader.ReadLine
+                        If Not a Is Nothing Then
+                            linea = a.Split("=")
+                            If linea(0).Substring(0, 1) <> "-" Then
+                                rowDatos(cont) = linea(1)
+                            Else
+                                cont = cont - 1
+                            End If
+                        End If
+                        cont = cont + 1
+                    Else
+                        Exit Do
+                    End If
+                Loop Until a Is Nothing
+                dtDatos.Rows.Add(rowDatos)
+                registrarArchivoTxt = True
+            Catch exc As Exception
+                registrarArchivoTxt = False
+            End Try
+        End Function
         Public Function cargarArchivo(datos As String, contenido As Byte()) As Boolean
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("registrarArchivo", conn)
+            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.registrarArchivo", conn)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim inId As OleDbParameter = cmd.Parameters.Add("@id", OleDbType.Decimal, Nothing)
@@ -268,7 +377,7 @@ Namespace Clases
         'Public Function EliminarExamen(Id As Integer) As Boolean
         '    Try
         '        Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-        '        Dim cmd As OleDbCommand = New OleDbCommand("EliminarExamen", conn)
+        '        Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.EliminarExamen", conn)
         '        cmd.CommandType = CommandType.StoredProcedure
 
         '        Dim inId As OleDbParameter = cmd.Parameters.Add("@inId", OleDbType.Decimal, Nothing)

@@ -2,27 +2,7 @@
 Public Class Exportacion
     Dim dt As New DataTable
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim connectString As String = "Provider=Microsoft.Jet.Oledb.4.0; Data Source=C:\Users\jonathan\Downloads\Ergosana.mdb"
-        Dim cn As OleDbConnection = New OleDbConnection(connectString)
-        cn.Open()
-        Dim selectString As String = "SELECT External_id,
-        Patient_id, Test_type, pp_Load, pp_Increase_of_Load, pp_Training_Duration, pp_Training_HR, pp_Relative_Decrease_of_Load, pp_Alarm_Limit, pp_Load_limit, pp_NIBP, pi_Load, pi_Increase_of_Load, 
-        pi_Training_Duration, pi_Training_HR, pi_Relative_Decrease_of_Load, pi_Min_Time, pi_Time_Lower_Level, pi_Alarm_Limit, pi_Load_limit, pi_NIBP, pr_Load, pr_Increase_of_Load, pr_Training_Duration, 
-        pr_Training_HR, pr_Relative_Decrease_of_Load, pr_Time_for_Decrease, pr_Increase, pr_Alarm_Limit, pr_Load_limit, pr_NIBP, lc_Load, lc_Increase_of_Load, lc_Training_Duration, lc_Training_Load, 
-        lc_Relative_Decrease_of_Load, lc_Alarm_Limit, lc_Load_limit, lc_NIBP, li_Load, li_Increase_of_Load, li_Training_Duration, li_Upper_Level, li_Relative_Decrease_of_Load, li_Min_Time_Upper, 
-        li_Min_Time_Lower, li_Alarm_Limit, li_Load_limit, li_NIBP, lr_Load, lr_Increase_of_Load, lr_Training_Duration, lr_Upper_Level, lr_Relative_Decrease_of_Load, lr_Time_for_Decrease, lr_Increase, 
-        lr_Alarm_Limit, lr_Load_limit, lr_NIBP, lf_Alarm_Limit, lf_NIBP, tt_w1_speed_m, tt_w1_speed_km, tt_w_slope, tt_w2_speed_m, tt_w2_speed_km, tt_Increase_of_slope, tt_Training_Duration, tt_tr_speed_m, 
-        tt_tr_speed_km, tt_Distance, tt_tr_slope, tt_Alarm_Limit, tt_NIBP, tp_w1_speed_m, tp_w1_speed_km, tp_w_slope, tp_w2_speed_m, tp_w2_speed_km, tp_Increase_of_slope, tp_Training_Duration, tp_tr_speed_m, 
-        tp_tr_speed_km, tp_HR_Min, tp_HR_Max, tp_Alarm_Limit, tp_NIBP, IPN_gender, IPN_Wt, IPN_Age, IPN_Resting_HR, IPN_Option, IPN_Target_HR, IPN_Protocol, Free_def, Fecg_Training_Duration, Fecg_Alarm_Limit, 
-        Fecg_NIBP, Alarm_NIBP, Alarm_SPO2
-        FROM TRAINING_PARAMETERS, VISIT_TABLE, PATIENT_TABLE
-        WHERE TRAINING_PARAMETERS.PATIENT_ID = CINT(VISIT_TABLE.INTERNAL_ID) AND TRAINING_PARAMETERS.PATIENT_ID = PATIENT_TABLE.INTERNAL_ID AND
-        Format(visitdatetime, ""Short Date"")=Format(@fecha, ""Short Date"")"
-        Dim cmd As OleDbCommand = New OleDbCommand(selectString, cn)
-        cmd.Parameters.AddWithValue("@fecha", DateTime.Parse("23/11/2018"))
-        Dim reader As OleDbDataReader = cmd.ExecuteReader()
-        dt.Load(reader)
-        dg_pacientes.DataSource = dt
+
     End Sub
     Public Function exportarData(External_id As Decimal, Patient_id As Decimal, Test_type As String, pp_Load As Decimal, pp_Increase_of_Load As Decimal, pp_Training_Duration As Decimal, pp_Training_HR As Decimal,
                                  pp_Relative_Decrease_of_Load As Decimal, pp_Alarm_Limit As Decimal, pp_Load_limit As Decimal, pp_NIBP As Decimal, pi_Load As Decimal, pi_Increase_of_Load As Decimal,
@@ -42,8 +22,9 @@ Public Class Exportacion
                                  IPN_Resting_HR As String, IPN_Option As Decimal, IPN_Target_HR As String, IPN_Protocol As Decimal, Free_def As String, Fecg_Training_Duration As Decimal, Fecg_Alarm_Limit As Decimal,
                                  Fecg_NIBP As Decimal, Alarm_NIBP As String, Alarm_SPO2 As String) As Boolean
         Dim conn As OleDbConnection = New OleDbConnection("Provider=SQLOLEDB;Server=173.248.151.67,1533;Database=Kapland;User Id=kapland;Password=Kaplan*2018;")
-        Dim cmd As OleDbCommand = New OleDbCommand("RegistrarDataAccess", conn)
+        Dim cmd As OleDbCommand = New OleDbCommand("kaplan.RegistrarDataAccess", conn)
         cmd.CommandType = CommandType.StoredProcedure
+#Region "Parámetros"
         Dim inExternal_id As OleDbParameter = cmd.Parameters.Add("@External_id", OleDbType.Decimal, Nothing)
         inExternal_id.Direction = ParameterDirection.Input
         inExternal_id.Value = External_id
@@ -344,8 +325,7 @@ Public Class Exportacion
         Dim inAlarm_SPO2 As OleDbParameter = cmd.Parameters.Add("@Alarm_SPO2", OleDbType.VarChar, 100)
         inAlarm_SPO2.Direction = ParameterDirection.Input
         inAlarm_SPO2.Value = Alarm_SPO2
-
-
+#End Region
         Dim outError As OleDbParameter = cmd.Parameters.Add("@outError", OleDbType.Integer)
         outError.Direction = ParameterDirection.Output
 
@@ -359,29 +339,65 @@ Public Class Exportacion
     End Function
     Private Sub btn_exportar_Click(sender As Object, e As EventArgs) Handles btn_exportar.Click
         Try
+            lbl_total.Visible = True
             Me.Cursor = Cursors.WaitCursor
-            bar_progreso.Maximum = dt.Rows.Count
+            bar_progreso.Maximum = dg_data.Rows.Count - 1
             bar_progreso.Value = 0
-            For Each row As DataRow In dt.Rows
-                Dim hola As Decimal = IIf(row(0) = "", 0, row(0))
-                exportarData(IIf(row(0) = "", 0, row(0)), row(1), row(2), row(3), row(4), row(5), row(6), row(7), row(8), row(9), row(10),
-                             row(11), row(12), row(13), row(14), row(15), row(16), row(17), row(18), row(19), row(20),
-                             row(21), row(22), row(23), row(24), row(25), row(26), row(27), row(28), row(29), row(30),
-                             row(31), row(32), row(33), row(34), row(35), row(36), row(37), row(38), row(39), row(40),
-                             row(41), row(42), row(43), row(44), row(45), row(46), row(47), row(48), row(49), row(50),
-                             row(51), row(52), row(53), row(54), row(55), row(56), row(57), row(58), row(59), row(60),
-                             row(61), row(62), row(63), row(64), row(65), row(66), row(67), row(68), row(69), row(70),
-                             row(71), row(72), row(73), row(74), row(75), row(76), row(77), row(78), row(79), row(80),
-                             row(81), row(82), row(83), row(84), row(85), row(86), row(87), row(88), row(89), row(90),
-                             row(91), row(92), row(93), row(94), row(95), row(96), row(97), row(98), row(99))
-                bar_progreso.Value = bar_progreso.Value + 1
-                lbl_total.Text = bar_progreso.Value.ToString + "/" + bar_progreso.Maximum.ToString + " datos exportados"
-                lbl_total.Refresh()
+            For Each row As DataGridViewRow In dg_data.Rows
+                If bar_progreso.Value < dg_data.Rows.Count - 1 Then
+                    exportarData(IIf(row.Cells(0).Value.ToString = "", 0,
+                             row.Cells(0).Value), row.Cells(1).Value, row.Cells(2).Value, row.Cells(3).Value, row.Cells(4).Value, row.Cells(5).Value, row.Cells(6).Value, row.Cells(7).Value, row.Cells(8).Value, row.Cells(9).Value, row.Cells(10).Value,
+                             row.Cells(11).Value, row.Cells(12).Value, row.Cells(13).Value, row.Cells(14).Value, row.Cells(15).Value, row.Cells(16).Value, row.Cells(17).Value, row.Cells(18).Value, row.Cells(19).Value, row.Cells(20).Value,
+                             row.Cells(21).Value, row.Cells(22).Value, row.Cells(23).Value, row.Cells(24).Value, row.Cells(25).Value, row.Cells(26).Value, row.Cells(27).Value, row.Cells(28).Value, row.Cells(29).Value, row.Cells(30).Value,
+                             row.Cells(31).Value, row.Cells(32).Value, row.Cells(33).Value, row.Cells(34).Value, row.Cells(35).Value, row.Cells(36).Value, row.Cells(37).Value, row.Cells(38).Value, row.Cells(39).Value, row.Cells(40).Value,
+                             row.Cells(41).Value, row.Cells(42).Value, row.Cells(43).Value, row.Cells(44).Value, row.Cells(45).Value, row.Cells(46).Value, row.Cells(47).Value, row.Cells(48).Value, row.Cells(49).Value, row.Cells(50).Value,
+                             row.Cells(51).Value, row.Cells(52).Value, row.Cells(53).Value, row.Cells(54).Value, row.Cells(55).Value, row.Cells(56).Value, row.Cells(57).Value, row.Cells(58).Value, row.Cells(59).Value, row.Cells(60).Value,
+                             row.Cells(61).Value, row.Cells(62).Value, row.Cells(63).Value, row.Cells(64).Value, row.Cells(65).Value, row.Cells(66).Value, row.Cells(67).Value, row.Cells(68).Value, row.Cells(69).Value, row.Cells(70).Value,
+                             row.Cells(71).Value, row.Cells(72).Value, row.Cells(73).Value, row.Cells(74).Value, row.Cells(75).Value, row.Cells(76).Value, row.Cells(77).Value, row.Cells(78).Value, row.Cells(79).Value, row.Cells(80).Value,
+                             row.Cells(81).Value, row.Cells(82).Value, row.Cells(83).Value, row.Cells(84).Value, row.Cells(85).Value, row.Cells(86).Value, row.Cells(87).Value, row.Cells(88).Value, row.Cells(89).Value, row.Cells(90).Value,
+                             row.Cells(91).Value, row.Cells(92).Value, row.Cells(93).Value, row.Cells(94).Value, row.Cells(95).Value, row.Cells(96).Value, row.Cells(97).Value, row.Cells(98).Value, row.Cells(99).Value)
+                    bar_progreso.Value = bar_progreso.Value + 1
+                    lbl_total.Text = bar_progreso.Value.ToString + "/" + bar_progreso.Maximum.ToString + " datos exportados"
+                    lbl_total.Refresh()
+                End If
             Next row
-            MessageBox.Show("Datos exportados correctamente")
+            MessageBox.Show("Datos exportados correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Me.Cursor = Cursors.Default
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
+    End Sub
+    Private Sub btn_ruta_Click(sender As Object, e As EventArgs) Handles btn_ruta.Click
+        Dim result As DialogResult = OpenFileDialog1.ShowDialog()
+        If result = DialogResult.OK Then
+            lbl_ruta.Text = OpenFileDialog1.FileName
+            cargarData()
+            GroupBox1.Visible = True
+        End If
+    End Sub
+    Private Sub cargarData()
+        dg_data.DataSource = Nothing
+        Dim connectString As String = "Provider=Microsoft.Jet.Oledb.4.0; Data Source=" + lbl_ruta.Text
+        Dim cn As OleDbConnection = New OleDbConnection(connectString)
+        cn.Open()
+        Dim selectString As String = "SELECT External_id,
+        Patient_id, Test_type, pp_Load, pp_Increase_of_Load, pp_Training_Duration, pp_Training_HR, pp_Relative_Decrease_of_Load, pp_Alarm_Limit, pp_Load_limit, pp_NIBP, pi_Load, pi_Increase_of_Load, 
+        pi_Training_Duration, pi_Training_HR, pi_Relative_Decrease_of_Load, pi_Min_Time, pi_Time_Lower_Level, pi_Alarm_Limit, pi_Load_limit, pi_NIBP, pr_Load, pr_Increase_of_Load, pr_Training_Duration, 
+        pr_Training_HR, pr_Relative_Decrease_of_Load, pr_Time_for_Decrease, pr_Increase, pr_Alarm_Limit, pr_Load_limit, pr_NIBP, lc_Load, lc_Increase_of_Load, lc_Training_Duration, lc_Training_Load, 
+        lc_Relative_Decrease_of_Load, lc_Alarm_Limit, lc_Load_limit, lc_NIBP, li_Load, li_Increase_of_Load, li_Training_Duration, li_Upper_Level, li_Relative_Decrease_of_Load, li_Min_Time_Upper, 
+        li_Min_Time_Lower, li_Alarm_Limit, li_Load_limit, li_NIBP, lr_Load, lr_Increase_of_Load, lr_Training_Duration, lr_Upper_Level, lr_Relative_Decrease_of_Load, lr_Time_for_Decrease, lr_Increase, 
+        lr_Alarm_Limit, lr_Load_limit, lr_NIBP, lf_Alarm_Limit, lf_NIBP, tt_w1_speed_m, tt_w1_speed_km, tt_w_slope, tt_w2_speed_m, tt_w2_speed_km, tt_Increase_of_slope, tt_Training_Duration, tt_tr_speed_m, 
+        tt_tr_speed_km, tt_Distance, tt_tr_slope, tt_Alarm_Limit, tt_NIBP, tp_w1_speed_m, tp_w1_speed_km, tp_w_slope, tp_w2_speed_m, tp_w2_speed_km, tp_Increase_of_slope, tp_Training_Duration, tp_tr_speed_m, 
+        tp_tr_speed_km, tp_HR_Min, tp_HR_Max, tp_Alarm_Limit, tp_NIBP, IPN_gender, IPN_Wt, IPN_Age, IPN_Resting_HR, IPN_Option, IPN_Target_HR, IPN_Protocol, Free_def, Fecg_Training_Duration, Fecg_Alarm_Limit, 
+        Fecg_NIBP, Alarm_NIBP, Alarm_SPO2
+        FROM TRAINING_PARAMETERS, VISIT_TABLE, PATIENT_TABLE
+        WHERE TRAINING_PARAMETERS.PATIENT_ID = CINT(VISIT_TABLE.INTERNAL_ID) AND TRAINING_PARAMETERS.PATIENT_ID = PATIENT_TABLE.INTERNAL_ID AND
+        Format(visitdatetime, ""Short Date"")=Format(@fecha, ""Short Date"")"
+        Dim cmd As OleDbCommand = New OleDbCommand(selectString, cn)
+        cmd.Parameters.AddWithValue("@fecha", DateTime.Parse("23/11/2018"))
+        Dim reader As OleDbDataReader = cmd.ExecuteReader()
+        dt.Load(reader)
+        dg_data.DataSource = dt
+        dg_data.Columns(1).ReadOnly = True
     End Sub
 End Class

@@ -14,7 +14,7 @@ Namespace Clases
 
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-                Dim cmd As OleDbCommand = New OleDbCommand("BuscarPersona", conn)
+                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.BuscarPersona", conn)
                 cmd.CommandType = CommandType.StoredProcedure
 
                 Dim Rut As OleDbParameter = cmd.Parameters.Add("@inRut", OleDbType.Decimal, Nothing)
@@ -72,7 +72,7 @@ Namespace Clases
         End Function
         Public Function ModificarPaciente() As Boolean
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("ModificarPacienteFicha", conn)
+            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.ModificarPacienteFicha", conn)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim inId As OleDbParameter = cmd.Parameters.Add("@inIdPersona", OleDbType.Decimal, Nothing)

@@ -107,14 +107,24 @@ Public Class doPost
         Dim vArchivo As Archivo = js.Deserialize(Context.Request.Form("carga"), GetType(Archivo))
         Dim vErgo As HttpPostedFile = Context.Request.Files("archivo")
         Dim contenido() As Byte = Nothing
+        Dim extension As String = String.Empty
+        If (InStr(vErgo.FileName.ToLower, ".xls") > 0) Then
+            extension = ".xls"
+        ElseIf (InStr(vErgo.FileName.ToLower, ".obj") > 0) Then
+            extension = ".txt"
+        End If
         ReDim contenido(vErgo.ContentLength)
         vErgo.InputStream.Read(contenido, 0, vErgo.ContentLength)
-        Dim ruta As String = HttpContext.Current.Server.MapPath("~/archivo/archivo" + numero.ToString + ".xls")
+        Dim ruta As String = HttpContext.Current.Server.MapPath("~/archivo/archivo" + numero.ToString + extension)
         vErgo.SaveAs(ruta)
         Dim vResult As New httpResult
 
         Try
-            vResult.result = vArchivo.registrarArchivo(ruta, contenido)
+            If extension = ".xls" Then
+                vResult.result = vArchivo.registrarArchivo(ruta, contenido)
+            Else
+                vResult.result = vArchivo.registrarArchivoTxt(ruta, contenido)
+            End If
         Catch ex As Exception
             vResult.message = "Error cargando archivo"
         End Try
