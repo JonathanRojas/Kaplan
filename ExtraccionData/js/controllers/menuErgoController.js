@@ -1,4 +1,4 @@
-﻿app.controller("menuConsultaController", ['$scope', 'Notification', 'LoginService', '$location', 'consultaService',
+﻿app.controller("menuErgoController", ['$scope', 'Notification', 'LoginService', '$location', 'consultaService',
 function ($scope, Notification, LoginService, $location, consultaService) {
 
     if (!LoginService.getisAuthenticated() == true) {
@@ -29,7 +29,7 @@ function ($scope, Notification, LoginService, $location, consultaService) {
         };
         /*Fin*/
 
-        consultaService.getConsulta().then(function (result) {
+        consultaService.getConsultaERGO().then(function (result) {
             $scope.Registros = result.data;
             $scope.loadingData = false;
             $scope.StopLoading();

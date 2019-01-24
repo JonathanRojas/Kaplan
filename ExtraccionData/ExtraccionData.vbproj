@@ -147,6 +147,7 @@
     <Content Include="default.aspx" />
     <Content Include="doGet.asmx" />
     <Content Include="doPost.asmx" />
+    <Content Include="header.html" />
     <Content Include="img\after.jpg" />
     <Content Include="img\before.jpg" />
     <Content Include="img\bg-2-xl.png" />
@@ -173,8 +174,11 @@
     <Content Include="img\news\image-04.jpg" />
     <Content Include="js\app.js" />
     <Content Include="js\controllers\defaultController.js" />
+    <Content Include="js\controllers\headerController.js" />
     <Content Include="js\controllers\loginController.js" />
     <Content Include="js\controllers\menuConsultaController.js" />
+    <Content Include="js\controllers\menuErgoController.js" />
+    <Content Include="js\controllers\menuMaquinasKineController.js" />
     <Content Include="js\script\angular-locale_es-cl.js" />
     <Content Include="js\script\angular-modal-service.js" />
     <Content Include="js\script\angular-moment-picker.min.js" />
@@ -201,6 +205,8 @@
     <Content Include="js\services\WindowsService.js" />
     <Content Include="login.html" />
     <Content Include="views\menuConsulta.html" />
+    <Content Include="views\menuErgo.html" />
+    <Content Include="views\menuMaquinasKine.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -221,6 +227,8 @@
     </Compile>
     <Compile Include="models\CachedType.vb" />
     <Compile Include="models\Consulta.vb" />
+    <Compile Include="models\ConsultaErgo.vb" />
+    <Compile Include="models\ConsultaMaquinasKine.vb" />
     <Compile Include="models\httpResult.vb" />
     <Compile Include="models\Usuario.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />

@@ -92,8 +92,11 @@
 
     <script src="js/app.js"></script>
     <script src="js/controllers/defaultController.js"></script>
+     <script src="js/controllers/headerController.js"></script>
     <script src="js/controllers/menuConsultaController.js"></script>
     <script src="js/controllers/loginController.js"></script>
+    <script src="js/controllers/menuErgoController.js"></script>
+    <script src="js/controllers/menuMaquinasKineController.js"></script>
 
     <script src="js/services/consultaService.js"></script>
     <script src="js/services/tipoService.js"></script>

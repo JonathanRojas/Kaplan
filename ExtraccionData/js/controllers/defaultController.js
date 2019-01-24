@@ -16,6 +16,18 @@ app.config(function ($routeProvider) {
             controller: 'menuConsultaController',
             controllerAs: 'menu'
         })
+         .when('/menuErgo', {
+             templateUrl: 'views/menuErgo.html',
+             inputs: { id: -1 },
+             controller: 'menuErgoController',
+             controllerAs: 'menuErgo'
+         })
+         .when('/menuMaquina', {
+             templateUrl: 'views/menuMaquinasKine.html',
+             inputs: { id: -1 },
+             controller: 'menuMaquinasKineController',
+             controllerAs: 'menuMaquina'
+         })
         .otherwise({
             redirectTo: '/'
         });

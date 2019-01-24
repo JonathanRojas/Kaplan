@@ -49,4 +49,42 @@ Public Class doGet
         Context.Response.End()
         Return ""
     End Function
+
+    <WebMethod(EnableSession:=True)>
+    Public Function getConsultaErgo() As String
+        Dim vList As List(Of ConsultaErgo) = ConsultaErgo.getListado()
+        Dim js As New JavaScriptSerializer
+        Dim vResult As New httpResult
+
+        If Not IsNothing(vList) Then
+            vResult.result = True
+            vResult.data = vList
+        Else
+            vResult.result = False
+            vResult.data = vList
+        End If
+        Context.Response.Write(js.Serialize(vResult))
+
+        Context.Response.End()
+        Return ""
+    End Function
+
+    <WebMethod(EnableSession:=True)>
+    Public Function getConsultaMaquinaKine() As String
+        Dim vList As List(Of ConsultaMaquinasKine) = ConsultaMaquinasKine.getListado()
+        Dim js As New JavaScriptSerializer
+        Dim vResult As New httpResult
+
+        If Not IsNothing(vList) Then
+            vResult.result = True
+            vResult.data = vList
+        Else
+            vResult.result = False
+            vResult.data = vList
+        End If
+        Context.Response.Write(js.Serialize(vResult))
+
+        Context.Response.End()
+        Return ""
+    End Function
 End Class

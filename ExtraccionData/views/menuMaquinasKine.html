@@ -1,4 +1,4 @@
-﻿<div ng-include="menu.header.url"></div>
+﻿<div ng-include="menuMaquina.header.url"></div>
 <section id="suggestions" class="doted-bg1">
     <div class="container-fluid" ng-class="{hidden: loading}">
         <!-- Row -->
@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <form class="form-horizontal" name="frmRegistrosMedicos" id="contact" role="form" ng-disabled="true">
                     <div class="section-title text-center mb20">
-                        <h2 class="animated hidden-xs" data-animation="bounceInLeft">Listado Fichas Medicas</h2>
+                        <h2 class="animated hidden-xs" data-animation="bounceInLeft">Listado Registros Maquina Kinesiologia</h2>
                         <p class="text-blue animated hidden-xs" data-animation="bounceInLeft">
                             <a href="" ng-click="Export()">Exportar Datos <i class="fa fa-download fa-2x hidden-xs" aria-hidden="true"></i></a>
                         </p>
@@ -14,7 +14,7 @@
                     <span class="clearfix"></span>
                     <div class="row" ng-class="{hidden: loading}">
                         <div class="col-xs-12">
-                            <div class="table-responsive" >
+                            <div class="table-responsive">
                                 <table class="table table-bordered table-condensed" style="background-color:#fcfdfee6; font-size:12px">
                                     <thead>
                                         <tr>
@@ -468,7 +468,7 @@
                                     </tbody>
                                 </table>
                                 <dir-pagination-controls pagination-id="pag_reg" boundary-links="true" direction-links="true">	</dir-pagination-controls>
-                                <table id="paraReporte" class="table table-bordered table-condensed" style="background-color:#fcfdfeb3; font-size:12px"" ng-show="false">
+                                <table id="paraReporte" class="table table-bordered table-condensed" style="background-color:#fcfdfeb3; font-size:12px" " ng-show="false">
                                     <thead>
                                         <tr>
                                             <th>id_paciente </th>
