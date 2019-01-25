@@ -214,8 +214,8 @@ Namespace Clases
                 dtC.Columns.Add("RecoveryBloodPressure", GetType(String))
                 dtC.Columns.Add("Recovery2Time", GetType(String))
                 dtC.Columns.Add("LoadValues", GetType(String))
-                dtC.Columns.Add("Begin", GetType(String))
-                dtC.Columns.Add("End", GetType(String))
+                dtC.Columns.Add("ImpBegin", GetType(String))
+                dtC.Columns.Add("ImpEnd", GetType(String))
                 dtC.Columns.Add("Maximum", GetType(String))
                 dtC.Columns.Add("Minimum", GetType(String))
                 dtC.Columns.Add("Joule", GetType(String))
@@ -314,10 +314,11 @@ Namespace Clases
                         End If
                     Loop Until a Is Nothing
                     dtC.Rows.Add(rowC)
+                    jsonEjercicio = GetJsonImpulse(dtC)
                 End If
 #End Region
                 Dim electro As String = jsonElectro.ToString.Replace("[", "{" + """columnA""" + ":[").Replace("]", "]}")
-                Dim ejercicio As String = jsonEjercicio.ToString.Replace("[", "{" + """columnB""" + ":[").Replace("]", "]}")
+                Dim ejercicio As String = jsonEjercicio.ToString.Replace("[", "{" + """columnC""" + ":[").Replace("]", "]}")
                 cargarElectro(electro, ejercicio, contenido)
                 registrarArchivoTxt = True
             Catch exc As Exception
@@ -502,6 +503,52 @@ Namespace Clases
                     If dc.ColumnName.Trim() = "VO2Max" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
                     If dc.ColumnName.Trim() = "Distance" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
                     If dc.ColumnName.Trim() = "Borgscale" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                Next
+                rows.Add(row)
+            Next
+            Return serializer.Serialize(rows)
+        End Function
+        Public Function GetJsonImpulse(ByVal dt As DataTable) As String
+            Dim serializer As New System.Web.Script.Serialization.JavaScriptSerializer()
+            Dim rows As New List(Of Dictionary(Of String, Object))()
+            Dim row As Dictionary(Of String, Object) = Nothing
+            For Each dr As DataRow In dt.Rows
+                row = New Dictionary(Of String, Object)()
+                For Each dc As DataColumn In dt.Columns
+                    If dc.ColumnName.Trim() = "Startoftest" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "EndofTest" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "TestType" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "TotalTesttime" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "WarmupLoad" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "WarmupLoadIncrease" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "TrainingDuration" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "TrainingUpper" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "RelativeDecreaseofLoad" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "MinTimeUpperlevel" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "TimeLowerlevel" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "AlarmLimit" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "LoadLimit" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "NIBPDuration" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "Warmup1Time" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "RestingPulse" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "RestingBloodPressure" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "Warmup2Time" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "TrainingTime" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "StressPulse" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "StressAvgPulse" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "StressBloodPressure" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "Recovery1Time" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "RecoveryPulse" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "RecoveryBloodPressure" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "Recovery2Time" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "LoadValues" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "ImpBegin" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "ImpEnd" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "Maximum" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "Minimum" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "Joule" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "AverageLoad" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "JouleBeats" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
                 Next
                 rows.Add(row)
             Next
