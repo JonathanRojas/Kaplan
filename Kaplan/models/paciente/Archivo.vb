@@ -79,7 +79,6 @@ Namespace Clases
                 olecon.Open()
                 oleadpt.Fill(ds, "Fijo")
                 Dim jsonDemo As String = GetJson(ds.Tables("fijo"))
-
                 cargarArchivo(jsonDemo.ToString.Replace("[", "{" + """column""" + ":[").Replace("]", "]}"), contenido)
 
                 registrarArchivo = True
@@ -89,6 +88,9 @@ Namespace Clases
         End Function
         Public Function registrarArchivoTxt(ruta As String, contenido As Byte()) As Boolean
             Try
+#Region "Electro"
+                Dim jsonElectro As String
+                Dim jsonEjercicio As String = ""
                 Dim reader As New StreamReader(ruta, Encoding.Default)
                 Dim a As String
                 Dim linea As String()
@@ -117,43 +119,111 @@ Namespace Clases
                         End If
                     End If
                 Loop Until a Is Nothing
-                Dim dato As String
-                Dim valor As String
-                Dim dtDatos As New DataTable
-                dtDatos.Columns.Add("Starttest", GetType(String))
-                dtDatos.Columns.Add("EndTest", GetType(String))
-                dtDatos.Columns.Add("TestType", GetType(String))
-                dtDatos.Columns.Add("TotalTesttime", GetType(String))
-                dtDatos.Columns.Add("WarmupLoad", GetType(String))
-                dtDatos.Columns.Add("WarmupLoadIncrease", GetType(String))
-                dtDatos.Columns.Add("TrainingDuration", GetType(String))
-                dtDatos.Columns.Add("TrainingLoad", GetType(String))
-                dtDatos.Columns.Add("RelativeDecrease", GetType(String))
-                dtDatos.Columns.Add("AlarmLimit", GetType(String))
-                dtDatos.Columns.Add("LoadLimit", GetType(String))
-                dtDatos.Columns.Add("NIBPDuration", GetType(String))
-                dtDatos.Columns.Add("Warmup1Time", GetType(String))
-                dtDatos.Columns.Add("RestingPulse", GetType(String))
-                dtDatos.Columns.Add("RestingBloodPressure", GetType(String))
-                dtDatos.Columns.Add("Warmup2Time", GetType(String))
-                dtDatos.Columns.Add("TrainingTime", GetType(String))
-                dtDatos.Columns.Add("StressPulse", GetType(String))
-                dtDatos.Columns.Add("StressAvgPulse", GetType(String))
-                dtDatos.Columns.Add("StressBloodPressure", GetType(String))
-                dtDatos.Columns.Add("Recovery1Time", GetType(String))
-                dtDatos.Columns.Add("RecoveryPulse", GetType(String))
-                dtDatos.Columns.Add("RecoveryBloodPressure", GetType(String))
-                dtDatos.Columns.Add("Recovery2Time", GetType(String))
-                dtDatos.Columns.Add("LoadValues", GetType(String))
-                dtDatos.Columns.Add("Begin", GetType(String))
-                dtDatos.Columns.Add("End", GetType(String))
-                dtDatos.Columns.Add("Maximum", GetType(String))
-                dtDatos.Columns.Add("Minimum", GetType(String))
-                dtDatos.Columns.Add("Joule", GetType(String))
-                dtDatos.Columns.Add("AverageLoad", GetType(String))
-                dtDatos.Columns.Add("JouleBeats", GetType(String))
-                dtDatos.Columns.Add("VO2Max", GetType(String))
-                dtDatos.Columns.Add("Borgscale", GetType(String))
+                jsonElectro = GetJsonElectro(dtCardio)
+#End Region
+#Region "Tablas"
+                Dim dtA As New DataTable
+                dtA.Columns.Add("Starttest", GetType(String))
+                dtA.Columns.Add("EndTest", GetType(String))
+                dtA.Columns.Add("TestType", GetType(String))
+                dtA.Columns.Add("TotalTesttime", GetType(String))
+                dtA.Columns.Add("WarmupLoad", GetType(String))
+                dtA.Columns.Add("WarmupLoadIncrease", GetType(String))
+                dtA.Columns.Add("TrainingDuration", GetType(String))
+                dtA.Columns.Add("TrainingLoad", GetType(String))
+                dtA.Columns.Add("RelativeDecrease", GetType(String))
+                dtA.Columns.Add("AlarmLimit", GetType(String))
+                dtA.Columns.Add("LoadLimit", GetType(String))
+                dtA.Columns.Add("NIBPDuration", GetType(String))
+                dtA.Columns.Add("Warmup1Time", GetType(String))
+                dtA.Columns.Add("RestingPulse", GetType(String))
+                dtA.Columns.Add("RestingBloodPressure", GetType(String))
+                dtA.Columns.Add("Warmup2Time", GetType(String))
+                dtA.Columns.Add("TrainingTime", GetType(String))
+                dtA.Columns.Add("StressPulse", GetType(String))
+                dtA.Columns.Add("StressAvgPulse", GetType(String))
+                dtA.Columns.Add("StressBloodPressure", GetType(String))
+                dtA.Columns.Add("Recovery1Time", GetType(String))
+                dtA.Columns.Add("RecoveryPulse", GetType(String))
+                dtA.Columns.Add("RecoveryBloodPressure", GetType(String))
+                dtA.Columns.Add("Recovery2Time", GetType(String))
+                dtA.Columns.Add("LoadValues", GetType(String))
+                dtA.Columns.Add("BeginCons", GetType(String))
+                dtA.Columns.Add("EndCons", GetType(String))
+                dtA.Columns.Add("Maximum", GetType(String))
+                dtA.Columns.Add("Minimum", GetType(String))
+                dtA.Columns.Add("Joule", GetType(String))
+                dtA.Columns.Add("AverageLoad", GetType(String))
+                dtA.Columns.Add("JouleBeats", GetType(String))
+                dtA.Columns.Add("VO2Max", GetType(String))
+                dtA.Columns.Add("Borgscale", GetType(String))
+
+                Dim dtB As New DataTable
+                dtB.Columns.Add("Startoftest", GetType(String))
+                dtB.Columns.Add("EndofTest", GetType(String))
+                dtB.Columns.Add("TestType", GetType(String))
+                dtB.Columns.Add("TotalTesttime", GetType(String))
+                dtB.Columns.Add("Warmup1Speed", GetType(String))
+                dtB.Columns.Add("Warmup1Slope", GetType(String))
+                dtB.Columns.Add("Warmup2Speed", GetType(String))
+                dtB.Columns.Add("Warmup2Slope", GetType(String))
+                dtB.Columns.Add("TrainingDuration", GetType(String))
+                dtB.Columns.Add("TrainingSpeed", GetType(String))
+                dtB.Columns.Add("TrainingSlope", GetType(String))
+                dtB.Columns.Add("Warmup1Time", GetType(String))
+                dtB.Columns.Add("RestingPulse", GetType(String))
+                dtB.Columns.Add("RestingBloodPressure", GetType(String))
+                dtB.Columns.Add("Warmup2Time", GetType(String))
+                dtB.Columns.Add("TrainingTime", GetType(String))
+                dtB.Columns.Add("StressPulse", GetType(String))
+                dtB.Columns.Add("StressAvgPulse", GetType(String))
+                dtB.Columns.Add("StressBloodPressure", GetType(String))
+                dtB.Columns.Add("Recovery1Time", GetType(String))
+                dtB.Columns.Add("RecoveryPulse", GetType(String))
+                dtB.Columns.Add("RecoveryBloodPressure", GetType(String))
+                dtB.Columns.Add("Recovery2Time", GetType(String))
+                dtB.Columns.Add("VO2Max", GetType(String))
+                dtB.Columns.Add("Distance", GetType(String))
+                dtB.Columns.Add("Borgscale", GetType(String))
+
+                Dim dtC As New DataTable
+                dtC.Columns.Add("Startoftest", GetType(String))
+                dtC.Columns.Add("EndofTest", GetType(String))
+                dtC.Columns.Add("TestType", GetType(String))
+                dtC.Columns.Add("TotalTesttime", GetType(String))
+                dtC.Columns.Add("WarmupLoad", GetType(String))
+                dtC.Columns.Add("WarmupLoadIncrease", GetType(String))
+                dtC.Columns.Add("TrainingDuration", GetType(String))
+                dtC.Columns.Add("TrainingUpper", GetType(String))
+                dtC.Columns.Add("RelativeDecreaseofLoad", GetType(String))
+                dtC.Columns.Add("MinTimeUpperlevel", GetType(String))
+                dtC.Columns.Add("TimeLowerlevel", GetType(String))
+                dtC.Columns.Add("AlarmLimit", GetType(String))
+                dtC.Columns.Add("LoadLimit", GetType(String))
+                dtC.Columns.Add("NIBPDuration", GetType(String))
+                dtC.Columns.Add("Warmup1Time", GetType(String))
+                dtC.Columns.Add("RestingPulse", GetType(String))
+                dtC.Columns.Add("RestingBloodPressure", GetType(String))
+                dtC.Columns.Add("Warmup2Time", GetType(String))
+                dtC.Columns.Add("TrainingTime", GetType(String))
+                dtC.Columns.Add("StressPulse", GetType(String))
+                dtC.Columns.Add("StressAvgPulse", GetType(String))
+                dtC.Columns.Add("StressBloodPressure", GetType(String))
+                dtC.Columns.Add("Recovery1Time", GetType(String))
+                dtC.Columns.Add("RecoveryPulse", GetType(String))
+                dtC.Columns.Add("RecoveryBloodPressure", GetType(String))
+                dtC.Columns.Add("Recovery2Time", GetType(String))
+                dtC.Columns.Add("LoadValues", GetType(String))
+                dtC.Columns.Add("Begin", GetType(String))
+                dtC.Columns.Add("End", GetType(String))
+                dtC.Columns.Add("Maximum", GetType(String))
+                dtC.Columns.Add("Minimum", GetType(String))
+                dtC.Columns.Add("Joule", GetType(String))
+                dtC.Columns.Add("AverageLoad", GetType(String))
+                dtC.Columns.Add("JouleBeats", GetType(String))
+                dtC.Columns.Add("VO2Max", GetType(String))
+                dtC.Columns.Add("Borgscale", GetType(String))
+
                 Dim inicio As String
                 Dim termino As String
                 Dim tipo As String
@@ -167,30 +237,88 @@ Namespace Clases
                 a = reader.ReadLine
                 linea = a.Split("=")
                 tipo = linea(1)
-
-                Dim rowDatos As DataRow = dtDatos.NewRow
-                rowDatos(0) = inicio
-                rowDatos(1) = termino
-                rowDatos(2) = tipo
-                'dtCardio.Rows.Add(row)
+#End Region
+#Region "Archivo Constant Load"
                 Dim cont As Integer = 3
-                Do
-                    If cont < 34 Then
-                        a = reader.ReadLine
-                        If Not a Is Nothing Then
-                            linea = a.Split("=")
-                            If linea(0).Substring(0, 1) <> "-" Then
-                                rowDatos(cont) = linea(1)
-                            Else
-                                cont = cont - 1
+                If tipo = "Load : Constant Load" Then
+                    Dim rowA As DataRow = dtA.NewRow
+                    rowA(0) = inicio
+                    rowA(1) = termino
+                    rowA(2) = tipo
+                    Do
+                        If cont < 34 Then
+                            a = reader.ReadLine
+                            If Not a Is Nothing Then
+                                linea = a.Split("=")
+                                If linea(0).Substring(0, 1) <> "-" Then
+                                    rowA(cont) = IIf(linea(1) <> "", linea(1), "0")
+                                Else
+                                    cont = cont - 1
+                                End If
                             End If
+                            cont = cont + 1
+                        Else
+                            Exit Do
                         End If
-                        cont = cont + 1
-                    Else
-                        Exit Do
-                    End If
-                Loop Until a Is Nothing
-                dtDatos.Rows.Add(rowDatos)
+                    Loop Until a Is Nothing
+                    dtA.Rows.Add(rowA)
+                    jsonEjercicio = GetJsonConstant(dtA)
+                End If
+#End Region
+#Region "Archivo Treadmill"
+                If tipo = "Treadmill : Treadmill" Then
+                    Dim rowB As DataRow = dtB.NewRow
+                    rowB(0) = inicio
+                    rowB(1) = termino
+                    rowB(2) = tipo
+                    Do
+                        If cont < 26 Then
+                            a = reader.ReadLine
+                            If Not a Is Nothing Then
+                                linea = a.Split("=")
+                                If linea(0).Substring(0, 1) <> "-" Then
+                                    rowB(cont) = IIf(linea(1) <> "", linea(1), "0")
+                                Else
+                                    cont = cont - 1
+                                End If
+                            End If
+                            cont = cont + 1
+                        Else
+                            Exit Do
+                        End If
+                    Loop Until a Is Nothing
+                    dtB.Rows.Add(rowB)
+                    jsonEjercicio = GetJsonTreadmill(dtB)
+                End If
+#End Region
+#Region "Archivo Impulse"
+                If tipo = "Load : Impulse" Then
+                    Dim rowC As DataRow = dtC.NewRow
+                    rowC(0) = inicio
+                    rowC(1) = termino
+                    rowC(2) = tipo
+                    Do
+                        If cont < 36 Then
+                            a = reader.ReadLine
+                            If Not a Is Nothing Then
+                                linea = a.Split("=")
+                                If linea(0).Substring(0, 1) <> "-" Then
+                                    rowC(cont) = IIf(linea(1) <> "", linea(1), "0")
+                                Else
+                                    cont = cont - 1
+                                End If
+                            End If
+                            cont = cont + 1
+                        Else
+                            Exit Do
+                        End If
+                    Loop Until a Is Nothing
+                    dtC.Rows.Add(rowC)
+                End If
+#End Region
+                Dim electro As String = jsonElectro.ToString.Replace("[", "{" + """columnA""" + ":[").Replace("]", "]}")
+                Dim ejercicio As String = jsonEjercicio.ToString.Replace("[", "{" + """columnB""" + ":[").Replace("]", "]}")
+                cargarElectro(electro, ejercicio, contenido)
                 registrarArchivoTxt = True
             Catch exc As Exception
                 registrarArchivoTxt = False
@@ -223,6 +351,161 @@ Namespace Clases
             Dim idkine = CInt(cmd.Parameters("@outError").Value)
 
             Return CInt(cmd.Parameters("@outError").Value)
+        End Function
+        Public Function cargarElectro(electro As String, ejercicio As String, contenido As Byte()) As Boolean
+            Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
+            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.registrarElectro", conn)
+            cmd.CommandType = CommandType.StoredProcedure
+
+            Dim inId As OleDbParameter = cmd.Parameters.Add("@id", OleDbType.Decimal, Nothing)
+            inId.Direction = ParameterDirection.Input
+            inId.Value = Me.Id
+
+            Dim inElectro As OleDbParameter = cmd.Parameters.Add("@electro", OleDbType.VarChar, -1)
+            inElectro.Direction = ParameterDirection.Input
+            inElectro.Value = electro
+
+            Dim inConstant As OleDbParameter = cmd.Parameters.Add("@ejercicio", OleDbType.VarChar, -1)
+            inConstant.Direction = ParameterDirection.Input
+            inConstant.Value = ejercicio
+
+            Dim inArchivo As OleDbParameter = cmd.Parameters.Add("@archivo", OleDbType.VarBinary, -1)
+            inArchivo.Direction = ParameterDirection.Input
+            inArchivo.Value = contenido
+
+            Dim outError As OleDbParameter = cmd.Parameters.Add("@outError", OleDbType.Integer)
+            outError.Direction = ParameterDirection.Output
+
+            conn.Open()
+            cmd.ExecuteReader()
+            conn.Close()
+
+            Dim idkine = CInt(cmd.Parameters("@outError").Value)
+
+            Return CInt(cmd.Parameters("@outError").Value)
+        End Function
+        Public Function GetJsonElectro(ByVal dt As DataTable) As String
+            Dim serializer As New System.Web.Script.Serialization.JavaScriptSerializer()
+            Dim rows As New List(Of Dictionary(Of String, Object))()
+            Dim row As Dictionary(Of String, Object) = Nothing
+            For Each dr As DataRow In dt.Rows
+                row = New Dictionary(Of String, Object)()
+                For Each dc As DataColumn In dt.Columns
+                    If dc.ColumnName.Trim() = "datoA" Then
+                        row.Add(dc.ColumnName.Trim(), dr(dc))
+                    End If
+                    If dc.ColumnName.Trim() = "datoB" Then
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    End If
+                    If dc.ColumnName.Trim() = "datoC" Then
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    End If
+                    If dc.ColumnName.Trim() = "datoD" Then
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    End If
+                    If dc.ColumnName.Trim() = "datoE" Then
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    End If
+                    If dc.ColumnName.Trim() = "datoF" Then
+                        row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    End If
+                Next
+                rows.Add(row)
+            Next
+            Return serializer.Serialize(rows)
+        End Function
+        Public Function GetJsonConstant(ByVal dt As DataTable) As String
+            Dim serializer As New System.Web.Script.Serialization.JavaScriptSerializer()
+            Dim rows As New List(Of Dictionary(Of String, Object))()
+            Dim row As Dictionary(Of String, Object) = Nothing
+            For Each dr As DataRow In dt.Rows
+                row = New Dictionary(Of String, Object)()
+                For Each dc As DataColumn In dt.Columns
+                    If dc.ColumnName.Trim() = "Starttest" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "EndTest" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "TestType" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "TotalTesttime" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "WarmupLoad" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "WarmupLoadIncrease" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "TrainingDuration" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "TrainingLoad" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "RelativeDecrease" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "AlarmLimit" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "LoadLimit" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "NIBPDuration" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "Warmup1Time" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "RestingPulse" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "RestingBloodPressure" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "Warmup2Time" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "Startoftest" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "EndofTest" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "TestType" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "TotalTesttime" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "Warmup1Speed" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "Warmup1Slope" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "Warmup2Speed" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "Warmup2Slope" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "TrainingDuration" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "TrainingSpeed" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "TrainingSlope" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "Warmup1Time" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "RestingPulse" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "RestingBloodPressure" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "Warmup2Time" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "TrainingTime" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "StressPulse" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "StressAvgPulse" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "StressBloodPressure" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "Recovery1Time" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "RecoveryPulse" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "RecoveryBloodPressure" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "Recovery2Time" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "VO2Max" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "Distance" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "Borgscale" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+
+                Next
+                rows.Add(row)
+            Next
+            Return serializer.Serialize(rows)
+        End Function
+        Public Function GetJsonTreadmill(ByVal dt As DataTable) As String
+            Dim serializer As New System.Web.Script.Serialization.JavaScriptSerializer()
+            Dim rows As New List(Of Dictionary(Of String, Object))()
+            Dim row As Dictionary(Of String, Object) = Nothing
+            For Each dr As DataRow In dt.Rows
+                row = New Dictionary(Of String, Object)()
+                For Each dc As DataColumn In dt.Columns
+                    If dc.ColumnName.Trim() = "Startoftest" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "EndofTest" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "TestType" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "TotalTesttime" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "Warmup1Speed" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "Warmup1Slope" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "Warmup2Speed" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "Warmup2Slope" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "TrainingDuration" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "TrainingSpeed" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "TrainingSlope" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "Warmup1Time" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "RestingPulse" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "RestingBloodPressure" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "Warmup2Time" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "TrainingTime" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "StressPulse" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "StressAvgPulse" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "StressBloodPressure" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "Recovery1Time" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "RecoveryPulse" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "RecoveryBloodPressure" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "Recovery2Time" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "VO2Max" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "Distance" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "Borgscale" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                Next
+                rows.Add(row)
+            Next
+            Return serializer.Serialize(rows)
         End Function
         Public Function GetJson(ByVal dt As DataTable) As String
             Dim serializer As New System.Web.Script.Serialization.JavaScriptSerializer()
