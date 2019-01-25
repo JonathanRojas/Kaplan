@@ -28,6 +28,24 @@ app.config(function ($routeProvider) {
              controller: 'menuMaquinasKineController',
              controllerAs: 'menuMaquina'
          })
+        .when('/menuMaquinaImpu', {
+            templateUrl: 'views/menuMaquinasKineImpu.html',
+            inputs: { id: -1 },
+            controller: 'menuMaquinasKineImpuController',
+            controllerAs: 'menuMaquinaImpu'
+        })
+        .when('/menuMaquinaCons', {
+            templateUrl: 'views/menuMaquinasKineCons.html',
+            inputs: { id: -1 },
+            controller: 'menuMaquinasKineConsController',
+            controllerAs: 'menuMaquinaCons'
+        })
+        .when('/menuMaquinaTread', {
+            templateUrl: 'views/menuMaquinasKineTread.html',
+            inputs: { id: -1 },
+            controller: 'menuMaquinasKineTreadController',
+            controllerAs: 'menuMaquinaTread'
+        })
         .otherwise({
             redirectTo: '/'
         });

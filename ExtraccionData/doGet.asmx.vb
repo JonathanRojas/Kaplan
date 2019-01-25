@@ -87,4 +87,61 @@ Public Class doGet
         Context.Response.End()
         Return ""
     End Function
+
+    <WebMethod(EnableSession:=True)>
+    Public Function getConsultaMaquinaKineTread() As String
+        Dim vList As List(Of ConsultaMaquinaKineTread) = ConsultaMaquinaKineTread.getListado()
+        Dim js As New JavaScriptSerializer
+        Dim vResult As New httpResult
+
+        If Not IsNothing(vList) Then
+            vResult.result = True
+            vResult.data = vList
+        Else
+            vResult.result = False
+            vResult.data = vList
+        End If
+        Context.Response.Write(js.Serialize(vResult))
+
+        Context.Response.End()
+        Return ""
+    End Function
+
+    <WebMethod(EnableSession:=True)>
+    Public Function getConsultaMaquinaKineCons() As String
+        Dim vList As List(Of ConsultaMaquinaKineCons) = ConsultaMaquinaKineCons.getListado()
+        Dim js As New JavaScriptSerializer
+        Dim vResult As New httpResult
+
+        If Not IsNothing(vList) Then
+            vResult.result = True
+            vResult.data = vList
+        Else
+            vResult.result = False
+            vResult.data = vList
+        End If
+        Context.Response.Write(js.Serialize(vResult))
+
+        Context.Response.End()
+        Return ""
+    End Function
+
+    <WebMethod(EnableSession:=True)>
+    Public Function getConsultaMaquinaKineImpu() As String
+        Dim vList As List(Of ConsultaMaquinaKineImpu) = ConsultaMaquinaKineImpu.getListado()
+        Dim js As New JavaScriptSerializer
+        Dim vResult As New httpResult
+
+        If Not IsNothing(vList) Then
+            vResult.result = True
+            vResult.data = vList
+        Else
+            vResult.result = False
+            vResult.data = vList
+        End If
+        Context.Response.Write(js.Serialize(vResult))
+
+        Context.Response.End()
+        Return ""
+    End Function
 End Class

@@ -178,7 +178,10 @@
     <Content Include="js\controllers\loginController.js" />
     <Content Include="js\controllers\menuConsultaController.js" />
     <Content Include="js\controllers\menuErgoController.js" />
+    <Content Include="js\controllers\menuMaquinasKineConsController.js" />
     <Content Include="js\controllers\menuMaquinasKineController.js" />
+    <Content Include="js\controllers\menuMaquinasKineImpuController.js" />
+    <Content Include="js\controllers\menuMaquinasKineTreadController.js" />
     <Content Include="js\script\angular-locale_es-cl.js" />
     <Content Include="js\script\angular-modal-service.js" />
     <Content Include="js\script\angular-moment-picker.min.js" />
@@ -207,6 +210,9 @@
     <Content Include="views\menuConsulta.html" />
     <Content Include="views\menuErgo.html" />
     <Content Include="views\menuMaquinasKine.html" />
+    <Content Include="views\menuMaquinasKineCons.html" />
+    <Content Include="views\menuMaquinasKineImpu.html" />
+    <Content Include="views\menuMaquinasKineTread.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -228,6 +234,9 @@
     <Compile Include="models\CachedType.vb" />
     <Compile Include="models\Consulta.vb" />
     <Compile Include="models\ConsultaErgo.vb" />
+    <Compile Include="models\ConsultaMaquinaKineCons.vb" />
+    <Compile Include="models\ConsultaMaquinaKineImpu.vb" />
+    <Compile Include="models\ConsultaMaquinaKineTread.vb" />
     <Compile Include="models\ConsultaMaquinasKine.vb" />
     <Compile Include="models\httpResult.vb" />
     <Compile Include="models\Usuario.vb" />

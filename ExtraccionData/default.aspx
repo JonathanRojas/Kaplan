@@ -97,6 +97,9 @@
     <script src="js/controllers/loginController.js"></script>
     <script src="js/controllers/menuErgoController.js"></script>
     <script src="js/controllers/menuMaquinasKineController.js"></script>
+    <script src="js/controllers/menuMaquinasKineImpuController.js"></script>
+    <script src="js/controllers/menuMaquinasKineConsController.js"></script>
+    <script src="js/controllers/menuMaquinasKineTreadController.js"></script>
 
     <script src="js/services/consultaService.js"></script>
     <script src="js/services/tipoService.js"></script>
