@@ -11,6 +11,7 @@ Namespace Clases
         Public Property Plan As String
         Public Property Especialista As String
         Public Property Formato As String
+        Public Property Tipo As String
         Public ReadOnly Property FechaRegistroString As String
             Get
                 Return FechaRegistro.ToString("dd MMM yyyy")
@@ -54,9 +55,8 @@ Namespace Clases
                 vArchivo.FechaReserva = prmRow("FechaReserva")
                 vArchivo.Plan = prmRow("nombrePlan").ToString
                 vArchivo.Especialista = prmRow("Especialista").ToString
-                vArchivo.Formato = prmRow("Formato").ToString
+                vArchivo.Tipo = prmRow("Tipo").ToString
                 Return vArchivo
-
             Catch ex As Exception
                 Return Nothing
             End Try
@@ -91,6 +91,7 @@ Namespace Clases
 #Region "Electro"
                 Dim jsonElectro As String
                 Dim jsonEjercicio As String = ""
+                Dim tabla As Integer
                 Dim reader As New StreamReader(ruta, Encoding.Default)
                 Dim a As String
                 Dim linea As String()
@@ -121,7 +122,7 @@ Namespace Clases
                 Loop Until a Is Nothing
                 jsonElectro = GetJsonElectro(dtCardio)
 #End Region
-#Region "Tablas"
+#Region "Constant"
                 Dim dtA As New DataTable
                 dtA.Columns.Add("Starttest", GetType(String))
                 dtA.Columns.Add("EndTest", GetType(String))
@@ -157,7 +158,8 @@ Namespace Clases
                 dtA.Columns.Add("JouleBeats", GetType(String))
                 dtA.Columns.Add("VO2Max", GetType(String))
                 dtA.Columns.Add("Borgscale", GetType(String))
-
+#End Region
+#Region "Treadmill"
                 Dim dtB As New DataTable
                 dtB.Columns.Add("Startoftest", GetType(String))
                 dtB.Columns.Add("EndofTest", GetType(String))
@@ -185,7 +187,8 @@ Namespace Clases
                 dtB.Columns.Add("VO2Max", GetType(String))
                 dtB.Columns.Add("Distance", GetType(String))
                 dtB.Columns.Add("Borgscale", GetType(String))
-
+#End Region
+#Region "Impulse"
                 Dim dtC As New DataTable
                 dtC.Columns.Add("Startoftest", GetType(String))
                 dtC.Columns.Add("EndofTest", GetType(String))
@@ -263,6 +266,7 @@ Namespace Clases
                     Loop Until a Is Nothing
                     dtA.Rows.Add(rowA)
                     jsonEjercicio = GetJsonConstant(dtA)
+                    tabla = 1
                 End If
 #End Region
 #Region "Archivo Treadmill"
@@ -289,6 +293,7 @@ Namespace Clases
                     Loop Until a Is Nothing
                     dtB.Rows.Add(rowB)
                     jsonEjercicio = GetJsonTreadmill(dtB)
+                    tabla = 2
                 End If
 #End Region
 #Region "Archivo Impulse"
@@ -315,11 +320,12 @@ Namespace Clases
                     Loop Until a Is Nothing
                     dtC.Rows.Add(rowC)
                     jsonEjercicio = GetJsonImpulse(dtC)
+                    tabla = 3
                 End If
 #End Region
                 Dim electro As String = jsonElectro.ToString.Replace("[", "{" + """columnA""" + ":[").Replace("]", "]}")
-                Dim ejercicio As String = jsonEjercicio.ToString.Replace("[", "{" + """columnC""" + ":[").Replace("]", "]}")
-                cargarElectro(electro, ejercicio, contenido)
+                Dim ejercicio As String = jsonEjercicio.ToString.Replace("[", "{" + """columnB""" + ":[").Replace("]", "]}")
+                cargarElectro(electro, ejercicio, tabla, contenido)
                 registrarArchivoTxt = True
             Catch exc As Exception
                 registrarArchivoTxt = False
@@ -353,7 +359,7 @@ Namespace Clases
 
             Return CInt(cmd.Parameters("@outError").Value)
         End Function
-        Public Function cargarElectro(electro As String, ejercicio As String, contenido As Byte()) As Boolean
+        Public Function cargarElectro(electro As String, ejercicio As String, tabla As Integer, contenido As Byte()) As Boolean
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
             Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.registrarElectro", conn)
             cmd.CommandType = CommandType.StoredProcedure
@@ -369,6 +375,10 @@ Namespace Clases
             Dim inConstant As OleDbParameter = cmd.Parameters.Add("@ejercicio", OleDbType.VarChar, -1)
             inConstant.Direction = ParameterDirection.Input
             inConstant.Value = ejercicio
+
+            Dim inTabla As OleDbParameter = cmd.Parameters.Add("@tabla", OleDbType.Integer, Nothing)
+            inTabla.Direction = ParameterDirection.Input
+            inTabla.Value = tabla
 
             Dim inArchivo As OleDbParameter = cmd.Parameters.Add("@archivo", OleDbType.VarBinary, -1)
             inArchivo.Direction = ParameterDirection.Input
@@ -438,21 +448,6 @@ Namespace Clases
                     If dc.ColumnName.Trim() = "RestingPulse" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
                     If dc.ColumnName.Trim() = "RestingBloodPressure" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
                     If dc.ColumnName.Trim() = "Warmup2Time" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
-                    If dc.ColumnName.Trim() = "Startoftest" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
-                    If dc.ColumnName.Trim() = "EndofTest" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
-                    If dc.ColumnName.Trim() = "TestType" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
-                    If dc.ColumnName.Trim() = "TotalTesttime" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
-                    If dc.ColumnName.Trim() = "Warmup1Speed" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
-                    If dc.ColumnName.Trim() = "Warmup1Slope" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
-                    If dc.ColumnName.Trim() = "Warmup2Speed" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
-                    If dc.ColumnName.Trim() = "Warmup2Slope" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
-                    If dc.ColumnName.Trim() = "TrainingDuration" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
-                    If dc.ColumnName.Trim() = "TrainingSpeed" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
-                    If dc.ColumnName.Trim() = "TrainingSlope" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
-                    If dc.ColumnName.Trim() = "Warmup1Time" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
-                    If dc.ColumnName.Trim() = "RestingPulse" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
-                    If dc.ColumnName.Trim() = "RestingBloodPressure" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
-                    If dc.ColumnName.Trim() = "Warmup2Time" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
                     If dc.ColumnName.Trim() = "TrainingTime" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
                     If dc.ColumnName.Trim() = "StressPulse" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
                     If dc.ColumnName.Trim() = "StressAvgPulse" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
@@ -461,10 +456,16 @@ Namespace Clases
                     If dc.ColumnName.Trim() = "RecoveryPulse" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
                     If dc.ColumnName.Trim() = "RecoveryBloodPressure" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
                     If dc.ColumnName.Trim() = "Recovery2Time" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "LoadValues" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "BeginCons" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "EndCons" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "Maximum" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "Minimum" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "Joule" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "AverageLoad" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "JouleBeats" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
                     If dc.ColumnName.Trim() = "VO2Max" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
-                    If dc.ColumnName.Trim() = "Distance" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
                     If dc.ColumnName.Trim() = "Borgscale" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
-
                 Next
                 rows.Add(row)
             Next
@@ -549,6 +550,8 @@ Namespace Clases
                     If dc.ColumnName.Trim() = "Joule" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
                     If dc.ColumnName.Trim() = "AverageLoad" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
                     If dc.ColumnName.Trim() = "JouleBeats" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "VO2Max" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
+                    If dc.ColumnName.Trim() = "Borgscale" Then row.Add(dc.ColumnName.Trim(), dr(dc).ToString.Replace(",", "."))
                 Next
                 rows.Add(row)
             Next

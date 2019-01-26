@@ -44,9 +44,15 @@ function ($scope, ModalService, Notification, LoginService, $location, archivoSe
             });
         };
 
-        $scope.Descargar = function (id) {
+        $scope.Descargar = function (id, formato) {
+            if (formato == "Excel") {
+                format = 1
+            }
+            if (formato == "Texto") {
+                format = 2
+            }
             var url;
-            url = "reports/verDocumento.aspx?inId=" + id + '&inTipo=Archivo';
+            url = "reports/verDocumento.aspx?inId=" + id + '&inTipo=Archivo&inFormato=' + format;
             window.open(url, '_blank');
         };
 

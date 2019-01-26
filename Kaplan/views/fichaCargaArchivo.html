@@ -27,6 +27,7 @@
                                                     <th>F. Reserva</th>
                                                     <th>Plan</th>
                                                     <th>Especialista</th>
+                                                    <th>Evaluación</th>
                                                     <th style="text-align:center">Ver</th>                                                    
                                                     <th style="text-align:center">Eliminar</th>
                                                 </tr>
@@ -37,7 +38,9 @@
                                                     <td>{{archivo.FechaReservaString}}</td>
                                                     <td>{{archivo.Plan}}</td>                                                    
                                                     <td>{{archivo.Especialista}}</td>                                                    
-                                                    <td align="center"><button type="button" title="Descargar" class="btn small-xs blue" ng-click="Descargar(archivo.Id)" aria-label="Center Align"><i class="fa fa-download"></i></button></td>
+                                                    <td ng-if="archivo.Tipo=='Excel'">Ergo</td>
+                                                    <td ng-if="archivo.Tipo=='Texto'">Kine</td>      
+                                                    <td align="center"><button type="button" title="Descargar" class="btn small-xs blue" ng-click="Descargar(archivo.Id, archivo.Tipo)" aria-label="Center Align"><i class="fa fa-download"></i></button></td>
                                                     <td align="center"><button type="button" title="Eliminar" class="btn small-xs" ng-click="Eliminar(archivo.Id)" aria-label="Center Align"><i class="fa fa-remove"></i></button></td>
                                                 </tr>
                                             </tbody>

@@ -29,7 +29,7 @@ Namespace Clases
                 Return Nothing
             End Try
         End Function
-        Public Shared Function obtenerDocumentoArchivo(inId As Integer) As Documento
+        Public Shared Function obtenerDocumentoArchivo(inId As Integer, inFormato As Integer) As Documento
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
                 Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.BuscarDocumentoArchivo", conn)
@@ -38,6 +38,10 @@ Namespace Clases
                 Dim Id As OleDbParameter = cmd.Parameters.Add("@inId", OleDbType.Decimal, Nothing)
                 Id.Direction = ParameterDirection.Input
                 Id.Value = inId
+
+                Dim Formato As OleDbParameter = cmd.Parameters.Add("@inFormato", OleDbType.Decimal, Nothing)
+                Formato.Direction = ParameterDirection.Input
+                Formato.Value = inFormato
 
                 Dim adapter As OleDbDataAdapter = New OleDbDataAdapter(cmd)
                 Dim vDataSet As New DataSet
