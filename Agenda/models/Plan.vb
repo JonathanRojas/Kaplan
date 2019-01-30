@@ -73,7 +73,7 @@ Namespace Clases
         Public Shared Function getPlanes(ByVal inIdPaciente As Integer) As List(Of Plan)
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-                Dim cmd As OleDbCommand = New OleDbCommand("ListadoPlan", conn)
+                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.ListadoPlan", conn)
                 cmd.CommandType = CommandType.StoredProcedure
 
                 Dim idPaciente As OleDbParameter = cmd.Parameters.Add("@inIdPaciente", OleDbType.Decimal, Nothing)
@@ -96,7 +96,7 @@ Namespace Clases
         End Function
         Public Function registrarPlan() As Boolean
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("RegistrarPlan", conn)
+            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.RegistrarPlan", conn)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim inId As OleDbParameter = cmd.Parameters.Add("@inId", OleDbType.Decimal, Nothing)
@@ -131,7 +131,7 @@ Namespace Clases
 
         Public Function finalizarPlan() As Boolean
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("FinalizarPlan", conn)
+            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.FinalizarPlan", conn)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim inId As OleDbParameter = cmd.Parameters.Add("@inId", OleDbType.Decimal, Nothing)

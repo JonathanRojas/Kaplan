@@ -7,7 +7,7 @@ Public Class reportes
     Public Shared Function reporteNutricion(inId As Integer) As DataTable
         Try
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.ReporteNutricion", conn)
+            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.Kaplan.ReporteNutricion", conn)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim Id As OleDbParameter = cmd.Parameters.Add("@inPaciente", OleDbType.Decimal, Nothing)
@@ -29,7 +29,7 @@ Public Class reportes
     Public Shared Function reportePsicologia(inId As Integer) As DataTable
         Try
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.ReportePsicologia", conn)
+            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.Kaplan.ReportePsicologia", conn)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim Id As OleDbParameter = cmd.Parameters.Add("@inPaciente", OleDbType.Decimal, Nothing)
@@ -51,7 +51,7 @@ Public Class reportes
     Public Shared Function ReporteEvolucion(inId As Integer) As DataTable
         Try
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.ReporteEvolucion", conn)
+            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.Kaplan.ReporteEvolucion", conn)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim Id As OleDbParameter = cmd.Parameters.Add("@inPlan", OleDbType.Decimal, Nothing)
@@ -74,7 +74,7 @@ Public Class reportes
     Public Shared Function reporteKinesiologia(inId As Integer) As DataSet
         Try
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.ReporteKinesiologia", conn)
+            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.Kaplan.ReporteKinesiologia", conn)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim Id As OleDbParameter = cmd.Parameters.Add("@inPaciente", OleDbType.Decimal, Nothing)
@@ -97,7 +97,7 @@ Public Class reportes
     Public Shared Function reporteEnfermeria(inId As Integer) As DataSet
         Try
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.ReporteEnfermeria", conn)
+            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.Kaplan.ReporteEnfermeria", conn)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim Id As OleDbParameter = cmd.Parameters.Add("@inPaciente", OleDbType.Decimal, Nothing)
@@ -120,7 +120,7 @@ Public Class reportes
     Public Shared Function reporteMedico(inId As Integer) As DataSet
         Try
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.ReporteMedico", conn)
+            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.Kaplan.ReporteMedico", conn)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim Id As OleDbParameter = cmd.Parameters.Add("@inPaciente", OleDbType.Decimal, Nothing)

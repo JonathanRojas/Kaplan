@@ -22,7 +22,7 @@ Public Class Exportacion
                                  IPN_Resting_HR As String, IPN_Option As Decimal, IPN_Target_HR As String, IPN_Protocol As Decimal, Free_def As String, Fecg_Training_Duration As Decimal, Fecg_Alarm_Limit As Decimal,
                                  Fecg_NIBP As Decimal, Alarm_NIBP As String, Alarm_SPO2 As String) As Boolean
         Dim conn As OleDbConnection = New OleDbConnection("Provider=SQLOLEDB;Server=173.248.151.67,1533;Database=Kapland;User Id=kapland;Password=Kaplan*2018;")
-        Dim cmd As OleDbCommand = New OleDbCommand("kaplan.RegistrarDataAccess", conn)
+        Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.kaplan.RegistrarDataAccess", conn)
         cmd.CommandType = CommandType.StoredProcedure
 #Region "Parámetros"
         Dim inExternal_id As OleDbParameter = cmd.Parameters.Add("@External_id", OleDbType.Decimal, Nothing)

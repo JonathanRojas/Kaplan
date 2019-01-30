@@ -36,7 +36,7 @@ Namespace Clases
         Public Shared Function getExamenes(inRut As Integer) As List(Of Examen)
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.ListadoExamenes", conn)
+                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.Kaplan.ListadoExamenes", conn)
                 cmd.CommandType = CommandType.StoredProcedure
 
                 Dim inPaciente As OleDbParameter = cmd.Parameters.Add("@inPaciente", OleDbType.Decimal, Nothing)
@@ -61,7 +61,7 @@ Namespace Clases
         Public Function registrarExamen(archivo As Byte(), formato As String) As Boolean
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.RegistrarExamen", conn)
+                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.Kaplan.RegistrarExamen", conn)
                 cmd.CommandType = CommandType.StoredProcedure
 
                 Dim inPaciente As OleDbParameter = cmd.Parameters.Add("@inPaciente", OleDbType.Decimal, Nothing)
@@ -107,7 +107,7 @@ Namespace Clases
         Public Function EliminarExamen(Id As Integer) As Boolean
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.EliminarExamen", conn)
+                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.Kaplan.EliminarExamen", conn)
                 cmd.CommandType = CommandType.StoredProcedure
 
                 Dim inId As OleDbParameter = cmd.Parameters.Add("@inId", OleDbType.Decimal, Nothing)

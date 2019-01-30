@@ -16,7 +16,7 @@ Namespace Clases
         Public Shared Function getResumenCalendario(ByVal inFecha As Date, ByVal inEspecialista As Integer) As List(Of ResumenCalendario)
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-                Dim cmd As OleDbCommand = New OleDbCommand("ListadoReservaSemana", conn)
+                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.ListadoReservaSemana", conn)
                 cmd.CommandType = CommandType.StoredProcedure
 
                 Dim Fecha As OleDbParameter = cmd.Parameters.Add("@inFecha", OleDbType.Date, Nothing)

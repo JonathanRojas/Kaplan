@@ -14,7 +14,7 @@ Namespace Clases
         Public Shared Function getEspecialistas(ByRef msj As String) As List(Of Especialista)
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-                Dim cmd As OleDbCommand = New OleDbCommand("ListadoEspecialistas", conn)
+                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.ListadoEspecialistas", conn)
                 cmd.CommandType = CommandType.StoredProcedure
 
                 conn.Open()
@@ -35,7 +35,7 @@ Namespace Clases
         End Function
         Public Shared Function getEspecialista(inRut As Integer, strPasaporte As String, ByRef NoData As Boolean) As Especialista
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("BuscarPersona", conn)
+            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.BuscarPersona", conn)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim Rut As OleDbParameter = cmd.Parameters.Add("@inRut", OleDbType.Decimal, Nothing)
@@ -61,7 +61,7 @@ Namespace Clases
         End Function
         Public Shared Function getEspecialistaId(inId As Integer) As Especialista
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("BuscarEspecialistaId", conn)
+            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.BuscarEspecialistaId", conn)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim Rut As OleDbParameter = cmd.Parameters.Add("@inId", OleDbType.Decimal, Nothing)
@@ -81,7 +81,7 @@ Namespace Clases
         Public Shared Function getEspecialistasEsp(ByRef inEspecialidad As Integer) As List(Of Especialista)
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-                Dim cmd As OleDbCommand = New OleDbCommand("ListadoEspecialistasEsp", conn)
+                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.ListadoEspecialistasEsp", conn)
                 cmd.CommandType = CommandType.StoredProcedure
 
                 Dim Especialidad As OleDbParameter = cmd.Parameters.Add("@inEspecialidad", OleDbType.Integer, Nothing)
@@ -129,7 +129,7 @@ Namespace Clases
         End Function
         Public Function registrarEspecialista() As Boolean
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("RegistrarEspecialista", conn)
+            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.RegistrarEspecialista", conn)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim inIdEs As OleDbParameter = cmd.Parameters.Add("@inIdEspecialista", OleDbType.Decimal, Nothing)

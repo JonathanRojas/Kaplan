@@ -18,7 +18,7 @@ Namespace Clases
         Public Shared Function getListadoAusencias(ByVal prmIdEspecialista As Integer, ByRef msj As String) As List(Of Ausencia)
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-                Dim cmd As OleDbCommand = New OleDbCommand("ListadoAusencias", conn)
+                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.ListadoAusencias", conn)
                 cmd.CommandType = CommandType.StoredProcedure
 
                 Dim Id As OleDbParameter = cmd.Parameters.Add("@inEspecialista", OleDbType.Decimal, Nothing)
@@ -60,7 +60,7 @@ Namespace Clases
 
         Public Function registrarAusencia() As Boolean
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("RegistrarAusencia", conn)
+            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.RegistrarAusencia", conn)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim inIdEspecialista As OleDbParameter = cmd.Parameters.Add("@inIdEspecialista", OleDbType.Decimal, Nothing)
@@ -91,7 +91,7 @@ Namespace Clases
 
         Public Function eliminarAusencia() As Boolean
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("EliminarAusencia", conn)
+            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.EliminarAusencia", conn)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim inId As OleDbParameter = cmd.Parameters.Add("@inId", OleDbType.Decimal, Nothing)

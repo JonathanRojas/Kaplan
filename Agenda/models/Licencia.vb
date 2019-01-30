@@ -24,7 +24,7 @@ Namespace Clases
         Public Shared Function getLicencias(ByVal inRut As Integer) As List(Of Licencia)
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-                Dim cmd As OleDbCommand = New OleDbCommand("ListadoLicencias", conn)
+                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.ListadoLicencias", conn)
                 cmd.CommandType = CommandType.StoredProcedure
 
                 Dim Dia As OleDbParameter = cmd.Parameters.Add("@inRut", OleDbType.Decimal, Nothing)
@@ -47,7 +47,7 @@ Namespace Clases
         End Function
         Public Function registrarLicencia() As Boolean
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("registrarLicencia", conn)
+            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.registrarLicencia", conn)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim inId As OleDbParameter = cmd.Parameters.Add("@inId", OleDbType.Decimal, Nothing)

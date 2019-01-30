@@ -18,7 +18,7 @@ Namespace Clases
         Public Shared Function getMotivosCierrePlan() As List(Of MotivoCierrePlan)
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-                Dim cmd As OleDbCommand = New OleDbCommand("ListarTipoMotivoPlan", conn)
+                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.ListarTipoMotivoPlan", conn)
                 cmd.CommandType = CommandType.StoredProcedure
 
                 conn.Open()
@@ -50,7 +50,7 @@ Namespace Clases
         End Function
         Public Function registrarMotivo() As Boolean
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("RegistrarMotivoCierrePlan", conn)
+            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.RegistrarMotivoCierrePlan", conn)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim inIdEspecialista As OleDbParameter = cmd.Parameters.Add("@inId", OleDbType.Decimal, Nothing)
@@ -72,7 +72,7 @@ Namespace Clases
         End Function
         Public Function eliminarMotivo() As Boolean
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("EliminarMotivoCierrePlan", conn)
+            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.EliminarMotivoCierrePlan", conn)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim inId As OleDbParameter = cmd.Parameters.Add("@inId", OleDbType.Decimal, Nothing)

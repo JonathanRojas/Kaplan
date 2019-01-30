@@ -8,7 +8,7 @@ Namespace Classes
         Public Shared Function getReporteMasivo(ByVal inRut As String) As DataTable
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-                Dim cmd As OleDbCommand = New OleDbCommand("ReportePaciente", conn)
+                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.ReportePaciente", conn)
                 cmd.CommandType = CommandType.StoredProcedure
 
                 Dim Hora As OleDbParameter = cmd.Parameters.Add("@inRut", OleDbType.VarChar, 10)

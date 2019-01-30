@@ -23,7 +23,7 @@ Namespace Clases
         Public Shared Function getFichaKinesiologia(inId As Integer, ByRef NoData As Boolean) As Ficha
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.BuscarFichaKinesiologiaxReserva", conn)
+                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.Kaplan.BuscarFichaKinesiologiaxReserva", conn)
                 cmd.CommandType = CommandType.StoredProcedure
 
                 Dim id As OleDbParameter = cmd.Parameters.Add("@inId", OleDbType.Decimal, Nothing)
@@ -71,7 +71,7 @@ Namespace Clases
         End Function
         Public Function registrarFichaKinesiologia() As Boolean
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.RegistrarFichaKinesiologia", conn)
+            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.Kaplan.RegistrarFichaKinesiologia", conn)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim inId As OleDbParameter = cmd.Parameters.Add("@id_ficha", OleDbType.Decimal, Nothing)
@@ -297,7 +297,7 @@ Namespace Clases
         Public Shared Function getFichaPsicologia(inId As Integer, ByRef NoData As Boolean) As Ficha
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.[BuscarFichaPsicologiaxReserva]", conn)
+                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.Kaplan.[BuscarFichaPsicologiaxReserva]", conn)
                 cmd.CommandType = CommandType.StoredProcedure
 
                 Dim id As OleDbParameter = cmd.Parameters.Add("@inId", OleDbType.Decimal, Nothing)
@@ -333,7 +333,7 @@ Namespace Clases
         End Function
         Public Function registrarFichaPsicologia() As Boolean
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.RegistrarFichaPsicologia", conn)
+            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.Kaplan.RegistrarFichaPsicologia", conn)
             cmd.CommandType = CommandType.StoredProcedure
 #Region "Ficha Psicología"
             Dim inId As OleDbParameter = cmd.Parameters.Add("@id_ficha", OleDbType.Decimal, Nothing)
@@ -582,7 +582,7 @@ Namespace Clases
         Public Shared Function getFichaEnfermeria(inId As Integer, ByRef NoData As Boolean) As Ficha
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.BuscarFichaEnfermeriaxReserva", conn)
+                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.Kaplan.BuscarFichaEnfermeriaxReserva", conn)
                 cmd.CommandType = CommandType.StoredProcedure
 
                 Dim id As OleDbParameter = cmd.Parameters.Add("@inId", OleDbType.Decimal, Nothing)
@@ -636,7 +636,7 @@ Namespace Clases
 
         Public Function registrarFichaEnfermeria() As Boolean
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.RegistrarFichaEnfermeria", conn)
+            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.Kaplan.RegistrarFichaEnfermeria", conn)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim inId As OleDbParameter = cmd.Parameters.Add("@id_ficha", OleDbType.Decimal, Nothing)
@@ -994,7 +994,7 @@ Namespace Clases
         Public Shared Function getFichaNutricion(inId As Integer, ByRef NoData As Boolean) As Ficha
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.[BuscarFichaNutricionxReserva]", conn)
+                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.Kaplan.[BuscarFichaNutricionxReserva]", conn)
                 cmd.CommandType = CommandType.StoredProcedure
 
                 Dim id As OleDbParameter = cmd.Parameters.Add("@inId", OleDbType.Decimal, Nothing)
@@ -1030,7 +1030,7 @@ Namespace Clases
         End Function
         Public Function registrarFichaNutricion() As Boolean
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.RegistrarFichaNutricion", conn)
+            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.Kaplan.RegistrarFichaNutricion", conn)
             cmd.CommandType = CommandType.StoredProcedure
 #Region "Ficha Nutrición"
             Dim inId As OleDbParameter = cmd.Parameters.Add("@id_ficha", OleDbType.Decimal, Nothing)
@@ -1298,7 +1298,7 @@ Namespace Clases
         Public Shared Function getFichaMedico(inId As Integer, ByRef NoData As Boolean) As Ficha
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.BuscarFichaMedicoxReserva", conn)
+                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.Kaplan.BuscarFichaMedicoxReserva", conn)
                 cmd.CommandType = CommandType.StoredProcedure
 
                 Dim id As OleDbParameter = cmd.Parameters.Add("@inId", OleDbType.Decimal, Nothing)
@@ -1379,7 +1379,7 @@ Namespace Clases
 
         Public Function registrarFichaMedico() As Boolean
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.RegistrarFichaMedico", conn)
+            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.Kaplan.RegistrarFichaMedico", conn)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim inId As OleDbParameter = cmd.Parameters.Add("@id_ficha", OleDbType.Decimal, Nothing)

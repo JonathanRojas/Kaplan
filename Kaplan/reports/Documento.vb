@@ -11,7 +11,7 @@ Namespace Clases
         Public Shared Function obtenerDocumentoExamen(inId As Integer) As Documento
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.BuscarDocumentoExamen", conn)
+                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.Kaplan.BuscarDocumentoExamen", conn)
                 cmd.CommandType = CommandType.StoredProcedure
 
                 Dim Id As OleDbParameter = cmd.Parameters.Add("@inId", OleDbType.Decimal, Nothing)
@@ -32,7 +32,7 @@ Namespace Clases
         Public Shared Function obtenerDocumentoArchivo(inId As Integer, inFormato As Integer) As Documento
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.BuscarDocumentoArchivo", conn)
+                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.Kaplan.BuscarDocumentoArchivo", conn)
                 cmd.CommandType = CommandType.StoredProcedure
 
                 Dim Id As OleDbParameter = cmd.Parameters.Add("@inId", OleDbType.Decimal, Nothing)

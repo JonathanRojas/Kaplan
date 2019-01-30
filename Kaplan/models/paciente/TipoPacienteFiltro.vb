@@ -18,7 +18,7 @@ Namespace Tipos
         End Function
         Private Shared Sub getListado()
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.ListarPacientesFiltro", conn)
+            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.Kaplan.ListarPacientesFiltro", conn)
             cmd.CommandType = CommandType.StoredProcedure
 
             conn.Open()

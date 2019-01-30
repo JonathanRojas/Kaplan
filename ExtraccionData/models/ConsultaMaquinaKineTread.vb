@@ -38,7 +38,7 @@ Namespace Clases
         Public Shared Function getListado() As List(Of ConsultaMaquinaKineTread)
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-                Dim cmd As OleDbCommand = New OleDbCommand("ExportarMaquinaKineTreadmill", conn)
+                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.ExportarMaquinaKineTreadmill", conn)
                 cmd.CommandType = CommandType.StoredProcedure
 
                 conn.Open()

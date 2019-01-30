@@ -55,7 +55,7 @@ Namespace Clases
         Public Shared Function getListado() As List(Of ConsultaErgo)
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-                Dim cmd As OleDbCommand = New OleDbCommand("ExportarErgo", conn)
+                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.ExportarErgo", conn)
                 cmd.CommandType = CommandType.StoredProcedure
 
                 conn.Open()

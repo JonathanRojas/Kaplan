@@ -231,7 +231,7 @@ Namespace Clases
         Public Shared Function getListado() As List(Of Consulta)
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-                Dim cmd As OleDbCommand = New OleDbCommand("ExportarData", conn)
+                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.ExportarData", conn)
                 cmd.CommandType = CommandType.StoredProcedure
 
                 conn.Open()

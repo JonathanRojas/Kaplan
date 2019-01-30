@@ -26,7 +26,7 @@ Namespace Clases
         Public Shared Function getPlanesxRut(ByVal inRut As Integer) As List(Of Plan)
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.BuscarPlanxRut", conn)
+                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.Kaplan.BuscarPlanxRut", conn)
                 cmd.CommandType = CommandType.StoredProcedure
 
                 Dim Rut As OleDbParameter = cmd.Parameters.Add("@inRut", OleDbType.Decimal, Nothing)

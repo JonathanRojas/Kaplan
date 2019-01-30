@@ -50,7 +50,7 @@ Namespace Clases
         Public Shared Function getRegistrosMedicos(inRut As Integer) As List(Of RegistroMedico)
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.ListadoRegistrosMedicos", conn)
+                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.Kaplan.ListadoRegistrosMedicos", conn)
                 cmd.CommandType = CommandType.StoredProcedure
 
                 Dim inPaciente As OleDbParameter = cmd.Parameters.Add("@inPaciente", OleDbType.Decimal, Nothing)
@@ -75,7 +75,7 @@ Namespace Clases
         Public Function registrarRegistroMedico() As Boolean
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.RegistrarRegistroMedico", conn)
+                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.Kaplan.RegistrarRegistroMedico", conn)
                 cmd.CommandType = CommandType.StoredProcedure
 
                 Dim inPaciente As OleDbParameter = cmd.Parameters.Add("@inPaciente", OleDbType.Decimal, Nothing)
@@ -109,7 +109,7 @@ Namespace Clases
         Public Function EliminarRegistroMedico(Id As Integer) As Boolean
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.EliminarRegistroMedico", conn)
+                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.Kaplan.EliminarRegistroMedico", conn)
                 cmd.CommandType = CommandType.StoredProcedure
 
                 Dim inId As OleDbParameter = cmd.Parameters.Add("@inId", OleDbType.Decimal, Nothing)
@@ -131,7 +131,7 @@ Namespace Clases
         Public Function MarcarLeidoRegistroMedico(Id As Integer, idEspecialista As Integer) As Boolean
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.MarcarLeidoRegistroMedico", conn)
+                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.Kaplan.MarcarLeidoRegistroMedico", conn)
                 cmd.CommandType = CommandType.StoredProcedure
 
                 Dim inId As OleDbParameter = cmd.Parameters.Add("@inId", OleDbType.Decimal, Nothing)

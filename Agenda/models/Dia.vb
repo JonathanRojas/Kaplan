@@ -11,7 +11,7 @@ Namespace Clases
         Public Shared Function getDias(ByVal inFecha As String, ByVal inDia As Integer) As List(Of Dia)
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-                Dim cmd As OleDbCommand = New OleDbCommand("ListadoReservasHoras", conn)
+                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.ListadoReservasHoras", conn)
                 cmd.CommandType = CommandType.StoredProcedure
 
                 Dim Fecha As OleDbParameter = cmd.Parameters.Add("@inFecha", OleDbType.VarChar, 20)

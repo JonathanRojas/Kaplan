@@ -14,7 +14,7 @@ Namespace Clases
 
         Public Shared Function getPaciente(inRut As Integer, strPasaporte As String, ByRef NoData As Boolean) As Paciente
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("BuscarPersona", conn)
+            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.BuscarPersona", conn)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim Rut As OleDbParameter = cmd.Parameters.Add("@inRut", OleDbType.Decimal, Nothing)
@@ -41,7 +41,7 @@ Namespace Clases
 
         Public Shared Function getPacienteReserva(inRut As Integer, strPasaporte As String, ByRef NoData As Boolean) As Paciente
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("BuscarPersona", conn)
+            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.BuscarPersona", conn)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim Rut As OleDbParameter = cmd.Parameters.Add("@inRut", OleDbType.Decimal, Nothing)
@@ -67,7 +67,7 @@ Namespace Clases
 
         Public Shared Function getPacienteId(inId As Integer) As Paciente
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("BuscarPacienteId", conn)
+            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.BuscarPacienteId", conn)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim Rut As OleDbParameter = cmd.Parameters.Add("@inId", OleDbType.Decimal, Nothing)
@@ -157,7 +157,7 @@ Namespace Clases
         End Function
         Public Function registrarPaciente() As Boolean
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("RegistrarPaciente", conn)
+            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.RegistrarPaciente", conn)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim inId As OleDbParameter = cmd.Parameters.Add("@inIdPersona", OleDbType.Decimal, Nothing)

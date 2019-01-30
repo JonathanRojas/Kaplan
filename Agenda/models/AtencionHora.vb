@@ -12,7 +12,7 @@ Namespace Clases
         Public Shared Function getListadoAtencionesHoras(ByVal prmIdEspecialista As Integer, ByRef msj As String) As List(Of AtencionHora)
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-                Dim cmd As OleDbCommand = New OleDbCommand("ListadoAtencionHoras", conn)
+                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.ListadoAtencionHoras", conn)
                 cmd.CommandType = CommandType.StoredProcedure
 
                 Dim Id As OleDbParameter = cmd.Parameters.Add("@inEspecialista", OleDbType.Decimal, Nothing)
@@ -51,7 +51,7 @@ Namespace Clases
 
         Public Function registrarAtencionHora() As Boolean
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("RegistrarAtencionHora", conn)
+            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.RegistrarAtencionHora", conn)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim inIdEspecialista As OleDbParameter = cmd.Parameters.Add("@inIdEspecialista", OleDbType.Integer)
@@ -78,7 +78,7 @@ Namespace Clases
 
         Public Function EliminarAtencionHora() As Boolean
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("EliminarAtencionHora", conn)
+            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.EliminarAtencionHora", conn)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim inId As OleDbParameter = cmd.Parameters.Add("@inId", OleDbType.Decimal, Nothing)

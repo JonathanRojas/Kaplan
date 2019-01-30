@@ -26,7 +26,7 @@ Namespace Clases
         Public Shared Function getReservasDiaHora(ByVal inFecha As DateTime, ByVal inDia As Integer, ByVal inHora As String) As List(Of Reserva)
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-                Dim cmd As OleDbCommand = New OleDbCommand("ListadoDiaHora", conn)
+                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.ListadoDiaHora", conn)
                 cmd.CommandType = CommandType.StoredProcedure
 
                 Dim Fecha As OleDbParameter = cmd.Parameters.Add("@inFecha", OleDbType.Date, Nothing)
@@ -60,7 +60,7 @@ Namespace Clases
         Public Shared Function getReserva(ByVal inId As Integer) As Reserva
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-                Dim cmd As OleDbCommand = New OleDbCommand("buscarReserva", conn)
+                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.buscarReserva", conn)
                 cmd.CommandType = CommandType.StoredProcedure
 
                 Dim Id As OleDbParameter = cmd.Parameters.Add("@inId", OleDbType.Decimal, Nothing)
@@ -116,7 +116,7 @@ Namespace Clases
         End Function
         Public Function registrarReserva() As Integer
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("RegistrarReserva", conn)
+            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.RegistrarReserva", conn)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim inId As OleDbParameter = cmd.Parameters.Add("@inId", OleDbType.Decimal, Nothing)
@@ -162,7 +162,7 @@ Namespace Clases
         End Function
         Public Function anularReserva() As Boolean
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("anularReserva", conn)
+            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.anularReserva", conn)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim inId As OleDbParameter = cmd.Parameters.Add("@inId", OleDbType.Decimal, Nothing)
@@ -192,7 +192,7 @@ Namespace Clases
         End Function
         Public Function registrarObservacion() As Boolean
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("RegistrarObservacionEspecial", conn)
+            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.RegistrarObservacionEspecial", conn)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim inId As OleDbParameter = cmd.Parameters.Add("@inId", OleDbType.Decimal, Nothing)
@@ -215,7 +215,7 @@ Namespace Clases
         Public Shared Function getEstadisticaxReserva(ByVal inPaciente As Integer, ByVal inIdEspecialista As Integer) As Reserva
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-                Dim cmd As OleDbCommand = New OleDbCommand("EstadisticaxReserva", conn)
+                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.EstadisticaxReserva", conn)
                 cmd.CommandType = CommandType.StoredProcedure
 
                 Dim paciente As OleDbParameter = cmd.Parameters.Add("@inPaciente", OleDbType.Decimal, Nothing)
@@ -254,7 +254,7 @@ Namespace Clases
         Public Shared Function getObservacion(ByVal prmId As Integer) As Reserva
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-                Dim cmd As OleDbCommand = New OleDbCommand("BuscarObservacionEspecial", conn)
+                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.BuscarObservacionEspecial", conn)
                 cmd.CommandType = CommandType.StoredProcedure
 
                 Dim Id As OleDbParameter = cmd.Parameters.Add("@inId", OleDbType.Decimal, Nothing)
