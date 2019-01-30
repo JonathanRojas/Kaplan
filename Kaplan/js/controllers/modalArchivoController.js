@@ -49,13 +49,17 @@ function ($scope, ModalService, Notification, archivoService, id, $element, clos
                     if (parseInt(LoginService.getTipo()) == 5) {
                         msg = { title: 'Sesion Sin Ficha, Complete la ficha para esta sesion' };
                         Notification.warning(msg);
+                        $('#collapseDataPaciente').collapse('hide');
+                        waitingDialog.hide();
+                        $element.modal('hide');                        
                     } else {
                         msg = { title: 'Sesion Sin Ficha' };
                         Notification.warning(msg);
                         $('#collapseDataPaciente').collapse('hide');
                         waitingDialog.hide();
+                        $element.modal('hide');
                     };
-                } else {
+                } else  {
                     msg = { title: 'Error al Buscar Ficha' };
                     Notification.error(msg);
                     $('#collapseDataPaciente').collapse('hide');
