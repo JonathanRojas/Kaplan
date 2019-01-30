@@ -1,18 +1,9 @@
 ﻿app.controller("loginController", ['$scope', 'Notification', '$location', 'LoginService',
 function ($scope, Notification, $location, LoginService) {
-    $scope.Usuario = {
-        User: null,
-        Pass: null,
-        PassEncrypted: null
-    }
 
-    $scope.formSubmit = function () {
-        var myString = "blablabla Card game bla";
-        var myPassword = "myPassword";
-
-        // PROCESS        
-        $scope.Usuario.PassEncrypted = md5($scope.Usuario.Pass);
+    $scope.formSubmit = function () {  
         $("#btnGuardar").button('loading');
+        $scope.Usuario.Pass = md5($scope.Usuario.Pass);
         LoginService.getIngresar($scope.Usuario)
             .then(function (result) {
                 LoginService.getLoginServer($scope.Usuario.User).then(function (result) {
