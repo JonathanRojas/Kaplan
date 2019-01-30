@@ -581,6 +581,7 @@
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
     <None Include="My Project\PublishProfiles\Ficha Desarrollo.pubxml" />
+    <None Include="My Project\PublishProfiles\Kaplan Produccion %28Ficha%29.pubxml" />
     <None Include="My Project\PublishProfiles\Kaplan.pubxml" />
     <None Include="My Project\PublishProfiles\Kapland.pubxml" />
     <None Include="My Project\Settings.settings">

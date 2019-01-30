@@ -365,6 +365,7 @@
     </None>
     <None Include="My Project\PublishProfiles\Agenda Desarrollo.pubxml" />
     <None Include="My Project\PublishProfiles\Agenda Producción.pubxml" />
+    <None Include="My Project\PublishProfiles\Kaplan Produccion %28Agenda%29.pubxml" />
     <None Include="My Project\PublishProfiles\Local.pubxml" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
