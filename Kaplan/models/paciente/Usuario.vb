@@ -12,7 +12,7 @@ Namespace Clases
 
         Public Function Login() As Integer
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.Kaplan.Login", conn)
+            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.Login", conn)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim inUser As OleDbParameter = cmd.Parameters.Add("@inUser", OleDbType.VarChar, 50)
@@ -34,7 +34,7 @@ Namespace Clases
         End Function
         Public Shared Function getUsuario(strUser As String) As Usuario
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.Kaplan.BuscarLogin", conn)
+            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.BuscarLogin", conn)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim User As OleDbParameter = cmd.Parameters.Add("@inUser", OleDbType.VarChar, 50)

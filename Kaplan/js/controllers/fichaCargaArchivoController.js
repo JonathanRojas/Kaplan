@@ -33,8 +33,8 @@ function ($scope, ModalService, Notification, LoginService, $location, archivoSe
                 modal.element.modal();
                 modal.close.then(function (result) {
                     if (result) {
-                        examenService.getExamenes(fichaService.getRutPaciente()).then(function (result) {
-                            $scope.Examenes = result.data;
+                        archivoService.getArchivos(fichaService.getRutPaciente()).then(function (result) {
+                            $scope.Archivos = result.data;
                         }, function (reason) {
                             msg = { title: 'Error Listar Exámenes' };
                             Notification.error(msg);

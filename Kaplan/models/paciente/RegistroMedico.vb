@@ -50,7 +50,7 @@ Namespace Clases
         Public Shared Function getRegistrosMedicos(inRut As Integer) As List(Of RegistroMedico)
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.Kaplan.ListadoRegistrosMedicos", conn)
+                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.ListadoRegistrosMedicos", conn)
                 cmd.CommandType = CommandType.StoredProcedure
 
                 Dim inPaciente As OleDbParameter = cmd.Parameters.Add("@inPaciente", OleDbType.Decimal, Nothing)

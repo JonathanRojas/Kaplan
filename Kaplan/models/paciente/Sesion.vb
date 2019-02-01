@@ -22,7 +22,7 @@ Namespace Clases
         Public Shared Function getSesionxPlan(ByVal intPlan As Integer, ByVal intEspecialidad As Integer) As List(Of Sesion)
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.Kaplan.BuscarSesionesxPlan", conn)
+                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.BuscarSesionesxPlan", conn)
                 cmd.CommandType = CommandType.StoredProcedure
 
                 Dim Plan As OleDbParameter = cmd.Parameters.Add("@inIdPlan", OleDbType.Decimal, Nothing)

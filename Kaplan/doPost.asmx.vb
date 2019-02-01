@@ -122,8 +122,10 @@ Public Class doPost
         Try
             If extension = ".xls" Then
                 vResult.result = vArchivo.registrarArchivo(ruta, contenido)
+                vResult.message = "Archivo sin el formato esperado"
             Else
                 vResult.result = vArchivo.registrarArchivoTxt(ruta, contenido)
+                vResult.message = "Archivo sin el formato esperado"
             End If
         Catch ex As Exception
             vResult.message = "Error cargando archivo"

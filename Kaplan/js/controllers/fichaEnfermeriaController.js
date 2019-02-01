@@ -675,6 +675,7 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
                                    Notification.success(msg);
                                    waitingDialog.hide();
                                    window.scrollTo(0, 0);
+                                   $scope.mostrarReporte = false;
                                });
                        }, function (reason) {
                            msg = { title: 'Error al Intentar Recargar los datos de la Ficha guardada' };

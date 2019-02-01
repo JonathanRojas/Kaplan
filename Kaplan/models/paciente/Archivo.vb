@@ -25,7 +25,7 @@ Namespace Clases
         Public Shared Function getArchivos(inRut As Integer) As List(Of Archivo)
             Try
                 Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.Kaplan.ListadoArchivos", conn)
+                Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.ListadoArchivos", conn)
                 cmd.CommandType = CommandType.StoredProcedure
 
                 Dim inPaciente As OleDbParameter = cmd.Parameters.Add("@inPaciente", OleDbType.Decimal, Nothing)
@@ -71,7 +71,7 @@ Namespace Clases
                 olecon = New OleDbConnection
                 olecon.ConnectionString = connstring
                 olecomm = New OleDbCommand
-                olecomm.CommandText = "Select * from [Ergo$A60:AT] "
+                olecomm.CommandText = "Select * from [Ergo$A1:AT]"
                 olecomm.Connection = olecon
                 oleadpt = New OleDbDataAdapter(olecomm)
                 ds = New DataSet
@@ -333,7 +333,7 @@ Namespace Clases
         End Function
         Public Function cargarArchivo(datos As String, contenido As Byte()) As Boolean
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.Kaplan.registrarArchivo", conn)
+            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.registrarArchivo", conn)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim inId As OleDbParameter = cmd.Parameters.Add("@id", OleDbType.Decimal, Nothing)
@@ -361,7 +361,7 @@ Namespace Clases
         End Function
         Public Function cargarElectro(electro As String, ejercicio As String, tabla As Integer, contenido As Byte()) As Boolean
             Dim conn As OleDbConnection = New OleDbConnection(ConfigurationManager.ConnectionStrings("ConexionKaplan").ConnectionString)
-            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.Kaplan.registrarElectro", conn)
+            Dim cmd As OleDbCommand = New OleDbCommand("Kaplan.registrarElectro", conn)
             cmd.CommandType = CommandType.StoredProcedure
 
             Dim inId As OleDbParameter = cmd.Parameters.Add("@id", OleDbType.Decimal, Nothing)
