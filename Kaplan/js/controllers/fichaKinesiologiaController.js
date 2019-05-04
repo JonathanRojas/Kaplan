@@ -13,7 +13,7 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
         $scope.loadingTipoDiagnosticoKine = true;
         $scope.loadingTipoObjetivoKine = true;
         $scope.loadingTipoComuna = true;
-        $scope.loadingPlanes = true;
+        $scope.loadingPlanes = true;    
         $scope.mostrarReporte = true;
         $scope.StopLoading = function () {
             $scope.loading = !(!$scope.loadingTipoRegion && !$scope.loadingTipoDiagnosticoKine && !$scope.loadingTipoObjetivoKine && !$scope.loadingTipoComuna && !$scope.loadingPlanes);
@@ -115,19 +115,22 @@ function ($scope, Notification, LoginService, $location, tipoService, fichaServi
         });
         /*Fin*/
 
-        /*Funciones*/
-        $scope.CambioPlan = function (plan) {
-            if (typeof plan !== 'undefined') {
-                fichaService.getSesionesxPlan(plan, 5).then(function (result) {
-                    $scope.Sesiones = result.data;
-                }, function (reason) {
-                    msg = { title: 'Error Listar Planes' };
-                    Notification.error(msg);
-                });
-            };            
-        };
 
-        $scope.CambiarSesion = function (sesion) {
+
+
+        /*Funciones*/
+        //$scope.CambioPlan = function (plan) {
+        //    if (typeof plan !== 'undefined') {
+        //        fichaService.getSesionesxPlan(plan, 5).then(function (result) {
+        //            $scope.Sesiones = result.data;
+        //        }, function (reason) {
+        //            msg = { title: 'Error Listar Planes' };
+        //            Notification.error(msg);
+        //        });
+        //    };            
+        //};
+
+        $scope.CambioPlan = function (sesion) {
             if (typeof sesion !== 'undefined') {
                 waitingDialog.show('Cargando Ficha...', { dialogSize: 'sm' });
                 fichaService.getFichaKinesiologiasxReserva(sesion).then(function (result) {
